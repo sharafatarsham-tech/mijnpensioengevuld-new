@@ -27,8 +27,13 @@ export default function LandingPageZZP() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Copy */}
           <div>
-            <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 px-4 py-2 rounded-full mb-6">
-              <span className="text-sm font-medium text-purple-700">Speciaal voor ZZP'ers & ondernemers</span>
+            <div className="flex flex-wrap gap-3 mb-6">
+              <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 px-4 py-2 rounded-full">
+                <span className="text-sm font-medium text-purple-700">Speciaal voor ZZP'ers & ondernemers</span>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 px-4 py-2 rounded-full">
+                <span className="text-sm font-medium text-orange-700">⏰ Nog 2 plekken deze week</span>
+              </div>
             </div>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
@@ -113,16 +118,42 @@ export default function LandingPageZZP() {
             <ZZPForm />
 
             {/* Urgency */}
-            <div className="mt-6 bg-amber-50 rounded-xl p-4 border border-amber-200">
-              <p className="text-sm text-amber-800 text-center">
-                <strong>💡 Tip:</strong> Benut je jaarruimte vóór 31 december om dit jaar nog fiscaal voordeel te pakken!
+            <div className="mt-6 bg-red-50 rounded-xl p-4 border border-red-200">
+              <p className="text-sm text-red-800 text-center">
+                <strong>⚠️ Elke maand wachten kost je geld:</strong> Hoe eerder je begint, hoe meer je opbouwt. 
+                Een jaar uitstel kan €3.000+ aan gemist rendement betekenen.
               </p>
             </div>
           </div>
         </div>
 
+        {/* Testimonial */}
+        <div className="mt-16">
+          <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-lg max-w-2xl mx-auto">
+            <div className="flex gap-1 mb-4">
+              {[1,2,3,4,5].map((i) => (
+                <svg key={i} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <blockquote className="text-lg text-slate-700 italic mb-4">
+              "Als ZZP'er liet ik al 5 jaar mijn jaarruimte onbenut. Bleek dat ik €8.000 aan belastingvoordeel had kunnen pakken. Nu leg ik maandelijks in en bouw ik eindelijk pensioen op."
+            </blockquote>
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+                S
+              </div>
+              <div>
+                <p className="font-semibold text-slate-800">Sandra K.</p>
+                <p className="text-sm text-slate-500">ZZP'er, Grafisch ontwerper</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* FAQ for ZZP */}
-        <div className="mt-20">
+        <div className="mt-16">
           <h2 className="text-2xl font-bold text-slate-800 text-center mb-10">
             Veelgestelde vragen van ZZP'ers
           </h2>
@@ -155,7 +186,7 @@ export default function LandingPageZZP() {
       </main>
 
       {/* Footer */}
-      <footer className="py-6 px-6 border-t border-slate-200 mt-12">
+      <footer className="py-6 px-6 border-t border-slate-200 mt-12 pb-24 lg:pb-6">
         <div className="max-w-5xl mx-auto flex flex-wrap justify-between items-center gap-4 text-sm text-slate-500">
           <p>© {new Date().getFullYear()} {siteConfig.name}</p>
           <div className="flex gap-4">
@@ -164,6 +195,21 @@ export default function LandingPageZZP() {
           </div>
         </div>
       </footer>
+
+      {/* Sticky Mobile CTA */}
+      <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 shadow-2xl lg:hidden z-50">
+        <a 
+          href="#form-section"
+          onClick={(e) => {
+            e.preventDefault();
+            document.querySelector('form')?.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3.5 rounded-xl font-bold text-center shadow-lg"
+        >
+          Vraag gratis ZZP pensioenscan aan →
+        </a>
+        <p className="text-center text-xs text-slate-500 mt-2">Nog 2 plekken deze week</p>
+      </div>
     </div>
   );
 }
