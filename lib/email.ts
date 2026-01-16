@@ -1,9 +1,11 @@
 import { Resend } from "resend";
+import { siteConfig } from "@/config/site";
 
 // Only initialize Resend if API key is provided
 const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
 
 const FROM_EMAIL = process.env.EMAIL_FROM || "MijnPensioenGevuld <onboarding@resend.dev>";
+const LOGO_URL = `${siteConfig.url}/logo-mijnpensioen.png`;
 
 interface SendEmailParams {
   to: string | string[];
@@ -52,9 +54,7 @@ export function getWelcomeEmailHtml(name?: string) {
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <div style="display: inline-block; background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%); color: white; font-weight: bold; font-size: 18px; padding: 12px 24px; border-radius: 10px;">
-      🐷 MijnPensioenGevuld
-    </div>
+    <img src="${LOGO_URL}" alt="MijnPensioenGevuld" style="height: 60px; display: inline-block;" />
   </div>
   
   <h1 style="color: #f97316; font-size: 24px; margin-bottom: 20px;">
