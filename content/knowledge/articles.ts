@@ -1350,9 +1350,7 @@ export const articles: KnowledgeArticle[] = [
       { question: "Hoe kan ik voldoen aan mijn informatieplicht als werkgever?", answer: "U kunt kiezen voor pensioenpresentaties, persoonlijke gesprekken, pensioenspreekuren, of uitgebreide pensioenplanning per werknemer. Wij kunnen u hierbij ondersteunen." },
     ],
   },
-];
-
-{
+  {
     slug: "hoeveel-pensioen-nodig",
     title: "Hoeveel pensioen heb ik nodig? De complete berekening",
     description: "Hoeveel geld heb je nodig om van te leven na je pensioen? Leer de 70%-regel, bereken je persoonlijke behoefte en ontdek of je op koers ligt.",
@@ -1645,6 +1643,7 @@ export const articles: KnowledgeArticle[] = [
       { question: "Wat is de RVU-regeling?", answer: "De Regeling Vervroegde Uittreding (RVU) stelt werkgevers in staat om werknemers tot 3 jaar voor de AOW-leeftijd een uitkering te geven zonder extra belasting. Vraag je werkgever naar de mogelijkheden." },
     ],
   },
+];
 
 export function getArticleBySlug(slug: string): KnowledgeArticle | undefined {
   return articles.find((a) => a.slug === slug);
