@@ -5,9 +5,10 @@ export function LocalBusinessSchema() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "FinancialService",
+    "@id": `${siteConfig.url}/#organization`,
     name: siteConfig.name,
-    alternateName: "Zekeringvermogen",
-    description: siteConfig.description,
+    alternateName: ["Zekeringvermogen", "MijnPensioenGevuld"],
+    description: "Onafhankelijk pensioenadvies in Eindhoven en omgeving. Gratis inventarisatiegesprek, persoonlijke begeleiding en helder inzicht in uw pensioen. AFM-geregistreerd.",
     url: siteConfig.url,
     telephone: siteConfig.contact.phoneRaw,
     email: siteConfig.contact.email,
@@ -16,6 +17,7 @@ export function LocalBusinessSchema() {
       streetAddress: siteConfig.contact.address.street,
       postalCode: siteConfig.contact.address.postalCode,
       addressLocality: siteConfig.contact.address.city,
+      addressRegion: "Noord-Brabant",
       addressCountry: "NL",
     },
     geo: {
@@ -23,28 +25,63 @@ export function LocalBusinessSchema() {
       latitude: 51.4416,
       longitude: 5.4697,
     },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Eindhoven",
+      },
+      {
+        "@type": "State",
+        name: "Noord-Brabant",
+      },
+      {
+        "@type": "Country",
+        name: "Nederland",
+      },
+    ],
+    serviceType: [
+      "Pensioenadvies",
+      "Pensioeninventarisatie",
+      "Lijfrente advies",
+      "AOW advies",
+      "Pensioenplanning",
+    ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
       opens: "09:00",
       closes: "17:00",
     },
-    priceRange: "$$",
+    priceRange: "€€",
+    currenciesAccepted: "EUR",
+    paymentAccepted: "Factuur",
     image: `${siteConfig.url}/logo-mijnpensioen.png`,
     logo: `${siteConfig.url}/logo-mijnpensioen.png`,
     sameAs: [],
     parentOrganization: {
       "@type": "Organization",
       name: "Financieel Zeker",
+      url: "https://www.financieel-zeker.nl",
     },
     hasCredential: {
       "@type": "EducationalOccupationalCredential",
       credentialCategory: "AFM-registratie",
+      identifier: siteConfig.compliance.afmNumber,
       recognizedBy: {
         "@type": "Organization",
         name: "Autoriteit Financiële Markten",
+        url: "https://www.afm.nl",
       },
     },
+    knowsAbout: [
+      "Pensioen",
+      "AOW",
+      "Pensioengat",
+      "Lijfrente",
+      "Wet toekomst pensioenen",
+      "Pensioenopbouw",
+    ],
+    slogan: "Weet waar je aan toe bent",
   };
 
   return (

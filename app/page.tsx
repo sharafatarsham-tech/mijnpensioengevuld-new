@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
+import { TrustBar } from "@/components/sections/TrustBar";
 import { Calculator } from "@/components/sections/Calculator";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQSection } from "@/components/sections/FAQ";
@@ -17,6 +18,7 @@ export default function HomePage() {
       <FAQSchema faqs={faqs} />
       <Navigation />
       <HeroSection />
+      <TrustBar />
       <StatsSection />
       <WhySection />
       <WorkflowSection />
@@ -44,25 +46,24 @@ function HeroSection() {
               <span className="text-sm font-medium text-green-700">Nu beschikbaar voor gratis gesprek</span>
             </div>
             <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
-              Stop met gissen.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet wat je krijgt.</span>
+              Voorkom dat je later moet inleveren.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet binnen 1,5 uur waar je aan toe bent.</span>
             </h1>
-            <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-4 mb-6">
-              <p className="text-slate-700">
-                De meeste Nederlanders weten niet wat ze straks krijgen. <span className="font-semibold text-orange-600">Na één gesprek weet jij het wel.</span>
-              </p>
-            </div>
-            <p className="text-lg text-slate-600 mb-8">In 1,5 uur krijg je volledig inzicht in jouw pensioen — gratis en zonder verplichtingen.</p>
+            <p className="text-xl text-slate-600 mb-8">Gratis en vrijblijvend inzicht in jouw pensioen.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
-              <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-4 rounded-xl font-semibold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:scale-[1.02] transition-all">
-                Ja, check mijn pensioen gratis
+              <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg shadow-green-500/30 hover:shadow-xl hover:scale-[1.02] transition-all">
+                Claim mijn gratis sessie
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </Link>
               <Link href="#calculator" className="inline-flex items-center justify-center border-2 border-slate-200 text-slate-700 px-6 py-4 rounded-xl font-semibold hover:border-orange-300 transition-all">
-                Bereken zelf (2 min)
+                Bereken zelf (30 sec)
               </Link>
             </div>
-            <p className="text-xs text-slate-500 mb-6">✓ Geen spam ✓ Binnen 24 uur reactie ✓ 100% vrijblijvend</p>
+            <p className="text-sm text-slate-500 mb-6 flex flex-wrap gap-x-4 gap-y-1">
+              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Geen spam</span>
+              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Binnen 24 uur reactie</span>
+              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 100% vrijblijvend</span>
+            </p>
             <div className="flex flex-wrap gap-4 text-sm">
               <span className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-200">
                 <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
