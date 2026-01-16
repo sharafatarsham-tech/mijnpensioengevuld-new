@@ -18,6 +18,7 @@ const situatieOptions = [
 
 const leeftijdOptions = [
   { value: "", label: "Selecteer je leeftijd" },
+  { value: "18-25", label: "18 - 25 jaar" },
   { value: "25-35", label: "25 - 35 jaar" },
   { value: "35-45", label: "35 - 45 jaar" },
   { value: "45-55", label: "45 - 55 jaar" },
@@ -45,7 +46,7 @@ export function ContactForm() {
     if (!formData.email) newErrors.email = "Vul je e-mailadres in";
     else if (!isValidEmail(formData.email)) newErrors.email = "Vul een geldig e-mailadres in";
     if (!formData.phone) newErrors.phone = "Vul je telefoonnummer in zodat we je kunnen bereiken";
-    if (!formData.situatie) newErrors.situatie = "Selecteer je situatie";
+    // Situatie optioneel - hogere conversie, later filteren
     if (!formData.privacy) newErrors.privacy = "Je moet akkoord gaan met het privacybeleid";
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -157,17 +158,16 @@ export function ContactForm() {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Jouw situatie *</label>
+          <label className="block text-sm font-medium text-slate-700 mb-2">Jouw situatie</label>
           <select
             value={formData.situatie}
             onChange={(e) => setFormData({ ...formData, situatie: e.target.value })}
-            className={`w-full px-4 py-3 rounded-xl border ${errors.situatie ? "border-red-500" : "border-slate-200"} focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white`}
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white"
           >
             {situatieOptions.map((opt) => (
               <option key={opt.value} value={opt.value}>{opt.label}</option>
             ))}
           </select>
-          {errors.situatie && <p className="text-red-500 text-sm mt-1">{errors.situatie}</p>}
         </div>
         <div>
           <label className="block text-sm font-medium text-slate-700 mb-2">Leeftijd</label>
