@@ -429,6 +429,8 @@ export const articles: KnowledgeArticle[] = [
     category: "ZZP",
     readingTime: 13,
     lastUpdated: "2026-01-16",
+    image: "/kennisbank/zzp-rendement.jpg",
+    imageAlt: "Groeiende stapels munten die rendement en pensioengroei symboliseren",
     relatedSlugs: ["jaarruimte-uitgelegd", "pensioengat-herkennen", "factor-a-uitgelegd"],
     content: `<p class="lead">De vrijheid van het ZZP-schap heeft veel voordelen: je bepaalt zelf je werktijden, kiest je opdrachten en bent je eigen baas. Maar die vrijheid heeft ook een keerzijde als het om pensioen gaat. Anders dan werknemers bouw je als zelfstandige geen automatisch pensioen op. Als je niets regelt, heb je straks alleen je AOW. Voor de meeste mensen is dat niet genoeg om comfortabel van te leven.</p>
 
