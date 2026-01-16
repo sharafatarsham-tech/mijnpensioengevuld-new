@@ -27,36 +27,32 @@ export default function LandingPageZZP() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Copy */}
           <div>
-            <div className="flex flex-wrap gap-3 mb-6">
-              <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 px-4 py-2 rounded-full">
-                <span className="text-sm font-medium text-purple-700">Speciaal voor ZZP'ers & ondernemers</span>
-              </div>
-              <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 px-4 py-2 rounded-full">
-                <span className="text-sm font-medium text-orange-700">⏰ Nog 2 plekken deze week</span>
-              </div>
+            <div className="inline-flex items-center gap-2 bg-purple-50 border border-purple-200 px-4 py-2 rounded-full mb-6">
+              <span className="text-sm font-medium text-purple-700">Speciaal voor ZZP'ers & ondernemers</span>
             </div>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
-              Als ZZP'er bouw je <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">geen pensioen</span> op via een werkgever
+              Pensioen opbouwen als ZZP'er
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 mt-2">Hoe werkt dat eigenlijk?</span>
             </h1>
 
             <p className="text-xl text-slate-600 mb-8">
-              Maar heb je wél recht op <strong>fiscaal voordeel</strong> bij pensioensparen. 
-              Veel ZZP'ers laten duizenden euro's per jaar liggen.
+              Als ondernemer regel je je pensioen zelf. Dat biedt vrijheid, maar ook vragen. 
+              Hoeveel moet je opzij zetten? En hoe benut je je fiscale voordelen optimaal?
             </p>
 
-            {/* Problem Agitation */}
-            <div className="bg-red-50 border border-red-200 rounded-xl p-5 mb-8">
-              <h3 className="font-bold text-red-800 mb-2 flex items-center gap-2">
+            {/* Info box */}
+            <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8">
+              <h3 className="font-bold text-blue-800 mb-2 flex items-center gap-2">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                Het probleem voor ZZP'ers
+                Goed om te weten
               </h3>
-              <ul className="space-y-2 text-sm text-red-700">
-                <li>• Gemiddeld pensioengat van €400-800 per maand</li>
-                <li>• Alleen AOW = slechts ~€1.400/maand</li>
-                <li>• Onbenut fiscaal voordeel tot <strong>€35.589/jaar</strong> (jaarruimte 2026)</li>
+              <ul className="space-y-2 text-sm text-blue-700">
+                <li>• Zonder werkgeverspensioen bouw je alleen AOW op (~€1.400/maand)</li>
+                <li>• Je hebt als ZZP'er extra fiscale ruimte: tot <strong>€35.589/jaar</strong> (jaarruimte 2026)</li>
+                <li>• Er zijn verschillende opties: lijfrente, banksparen of beleggen</li>
               </ul>
             </div>
 
@@ -117,11 +113,11 @@ export default function LandingPageZZP() {
 
             <ZZPForm />
 
-            {/* Urgency */}
-            <div className="mt-6 bg-red-50 rounded-xl p-4 border border-red-200">
-              <p className="text-sm text-red-800 text-center">
-                <strong>⚠️ Elke maand wachten kost je geld:</strong> Hoe eerder je begint, hoe meer je opbouwt. 
-                Een jaar uitstel kan €3.000+ aan gemist rendement betekenen.
+            {/* Reassurance */}
+            <div className="mt-6 bg-slate-50 rounded-xl p-4 border border-slate-200">
+              <p className="text-sm text-slate-600 text-center">
+                <strong>Geen verkooppraatje:</strong> We brengen je situatie in kaart en bespreken je opties. 
+                Jij beslist zelf wat je ermee doet.
               </p>
             </div>
           </div>
@@ -138,15 +134,15 @@ export default function LandingPageZZP() {
               ))}
             </div>
             <blockquote className="text-lg text-slate-700 italic mb-4">
-              "Als ZZP'er liet ik al 5 jaar mijn jaarruimte onbenut. Bleek dat ik meer dan €40.000 aan reserveringsruimte had! Nu leg ik maandelijks in en bouw ik eindelijk pensioen op."
+              "Eindelijk iemand die het helder uitlegt zonder te pushen. Ik weet nu precies hoeveel jaarruimte ik heb en welke optie bij mij past. Fijn dat ik zelf de tijd kreeg om te beslissen."
             </blockquote>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 bg-gradient-to-br from-slate-400 to-slate-500 rounded-full flex items-center justify-center text-white font-bold">
                 S
               </div>
               <div>
-                <p className="font-semibold text-slate-800">Sandra K.</p>
-                <p className="text-sm text-slate-500">ZZP'er, Grafisch ontwerper</p>
+                <p className="font-semibold text-slate-800">Sandra</p>
+                <p className="text-sm text-slate-500">ZZP'er</p>
               </div>
             </div>
           </div>
@@ -206,9 +202,9 @@ export default function LandingPageZZP() {
           }}
           className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3.5 rounded-xl font-bold text-center shadow-lg"
         >
-          Vraag gratis ZZP pensioenscan aan →
+          Plan een vrijblijvend gesprek
         </a>
-        <p className="text-center text-xs text-slate-500 mt-2">Nog 2 plekken deze week</p>
+        <p className="text-center text-xs text-slate-500 mt-2">100% gratis • Geen verplichtingen</p>
       </div>
     </div>
   );

@@ -27,23 +27,19 @@ export default function LandingPagePensioencheck() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Copy */}
           <div>
-            <div className="flex flex-wrap gap-3 mb-6">
-              <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full">
-                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                <span className="text-sm font-medium text-green-700">Gratis & vrijblijvend</span>
-              </div>
-              <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 px-4 py-2 rounded-full">
-                <span className="text-sm font-medium text-orange-700">⏰ Nog 3 plekken deze week</span>
-              </div>
+            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full mb-6">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-green-700">Gratis & vrijblijvend gesprek</span>
             </div>
 
             <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
-              Weet jij of je straks <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">genoeg pensioen</span> hebt?
+              Hoe staat jouw pensioen ervoor?
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500 mt-2">Krijg helder inzicht.</span>
             </h1>
 
             <p className="text-xl text-slate-600 mb-8">
-              De meeste Nederlanders komen <strong>gemiddeld €380 per maand tekort</strong> na hun pensioen. 
-              Elke maand dat je wacht, loop je geld mis. Ontdek vandaag nog hoe jij ervoor staat.
+              Veel mensen hebben geen duidelijk beeld van hun pensioensituatie. 
+              In een persoonlijk gesprek brengen we samen in kaart hoe jij ervoor staat en welke mogelijkheden je hebt.
             </p>
 
             <div className="space-y-4 mb-8">
@@ -115,15 +111,15 @@ export default function LandingPagePensioencheck() {
               ))}
             </div>
             <blockquote className="text-lg text-slate-700 italic mb-4">
-              "Ik dacht dat ik goed zat, maar bleek €420 per maand tekort te komen. Dankzij het advies heb ik dat nu gerepareerd. Had ik dit maar eerder gedaan!"
+              "Het gesprek gaf me voor het eerst echt inzicht in mijn situatie. Geen verkooppraatje, maar eerlijk advies. Nu weet ik waar ik aan toe ben en wat mijn opties zijn."
             </blockquote>
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-amber-500 rounded-full flex items-center justify-center text-white font-bold">
+              <div className="w-10 h-10 bg-gradient-to-br from-slate-400 to-slate-500 rounded-full flex items-center justify-center text-white font-bold">
                 M
               </div>
               <div>
-                <p className="font-semibold text-slate-800">Mark V.</p>
-                <p className="text-sm text-slate-500">Werknemer, 52 jaar</p>
+                <p className="font-semibold text-slate-800">Mark</p>
+                <p className="text-sm text-slate-500">Werknemer in loondienst</p>
               </div>
             </div>
           </div>
@@ -152,9 +148,9 @@ export default function LandingPagePensioencheck() {
           }}
           className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3.5 rounded-xl font-bold text-center shadow-lg"
         >
-          Plan gratis pensioencheck →
+          Plan een vrijblijvend gesprek
         </a>
-        <p className="text-center text-xs text-slate-500 mt-2">Nog 3 plekken deze week</p>
+        <p className="text-center text-xs text-slate-500 mt-2">100% gratis • Geen verplichtingen</p>
       </div>
     </div>
   );
