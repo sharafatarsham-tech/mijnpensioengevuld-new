@@ -2,10 +2,46 @@ import Link from "next/link";
 import Image from "next/image";
 import { Logo } from "@/components/ui/Logo";
 import { siteConfig, footerLinks } from "@/config/site";
+import { NewsletterSignup } from "@/components/NewsletterSignup";
 
 export function Footer() {
   return (
     <>
+      {/* Newsletter Section */}
+      <section className="py-16 bg-gradient-to-br from-orange-50 to-amber-50 border-t border-orange-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Blijf op de hoogte</span>
+              <h2 className="text-3xl font-bold text-slate-800 mt-2 mb-4">
+                Gratis pensioen tips in je inbox
+              </h2>
+              <p className="text-slate-600 mb-4">
+                Ontvang praktische tips, nieuws over pensioenregelingen en handige inzichten. 
+                Maximaal 2x per maand, geen spam.
+              </p>
+              <ul className="space-y-2 text-sm text-slate-600">
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Praktische tips voor een beter pensioen
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Updates over nieuwe pensioenregels
+                </li>
+                <li className="flex items-center gap-2">
+                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  Altijd gratis uitschrijven
+                </li>
+              </ul>
+            </div>
+            <div className="bg-white rounded-2xl p-6 shadow-lg border border-orange-100">
+              <NewsletterSignup />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Main Footer */}
       <footer className="py-12 bg-slate-900 text-white">
         <div className="max-w-6xl mx-auto px-6">
