@@ -695,6 +695,8 @@ export const articles: KnowledgeArticle[] = [
     category: "Fiscaal",
     readingTime: 11,
     lastUpdated: "2026-01-16",
+    image: "/kennisbank/jaarruimte.jpg",
+    imageAlt: "Bureau met rekenmachine, pen en notitieblok met 'Jaarruimte' geschreven - pensioenplanning",
     relatedSlugs: ["factor-a-uitgelegd", "zzp-pensioen", "pensioengat-herkennen"],
     content: `<p class="lead">Als je extra pensioen wilt opbouwen via een lijfrente of banksparen, krijg je te maken met jaarruimte. Dit is het maximale bedrag dat je fiscaal aftrekbaar mag inleggen. Benut je je jaarruimte niet volledig? Dan kun je de gemiste ruimte later nog inhalen via de reserveringsruimte. Klinkt ingewikkeld? We leggen het stap voor stap uit.</p>
 

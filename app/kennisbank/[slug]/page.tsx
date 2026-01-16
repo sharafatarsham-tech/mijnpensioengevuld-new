@@ -1,5 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
@@ -76,6 +77,20 @@ export default function ArticlePage({ params }: { params: { slug: string } }) {
               <span>Bijgewerkt: {formatDate(article.lastUpdated)}</span>
             </div>
           </header>
+
+          {/* Featured Image */}
+          {article.image && (
+            <div className="mb-10 rounded-2xl overflow-hidden shadow-lg">
+              <Image
+                src={article.image}
+                alt={article.imageAlt || article.title}
+                width={800}
+                height={450}
+                className="w-full h-auto object-cover"
+                priority
+              />
+            </div>
+          )}
 
           {/* Content */}
           <div className="prose" dangerouslySetInnerHTML={{ __html: article.content }} />

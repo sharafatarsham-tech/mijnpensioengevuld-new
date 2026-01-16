@@ -23,6 +23,8 @@ export interface KnowledgeArticle {
   readingTime: number;
   lastUpdated: string;
   content: string;
+  image?: string;
+  imageAlt?: string;
   relatedSlugs?: string[];
   faqs?: ArticleFAQ[];
 }
