@@ -188,12 +188,12 @@ function WhySection() {
 
 function WorkflowSection() {
   return (
-    <section id="werkwijze" className="py-20 lg:py-28 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Hoe het werkt</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4">Van onzekerheid naar pensioenplan</h2>
-          <p className="text-lg text-slate-600">Een helder proces dat begint met een uitgebreide inventarisatie</p>
+    <section id="werkwijze" className="py-16 sm:py-20 lg:py-28 bg-slate-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
+          <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Hoe het werkt</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-3 sm:mb-4 px-4">Van onzekerheid naar pensioenplan</h2>
+          <p className="text-base sm:text-lg text-slate-600 px-4">Een helder proces dat begint met een uitgebreide inventarisatie</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
@@ -224,13 +224,13 @@ function WorkflowSection() {
 
 function ConversationSection() {
   return (
-    <section id="gesprek" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="gesprek" className="py-16 sm:py-20 lg:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Gratis inventarisatie</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">Wat bespreken we in 1-1,5 uur?</h2>
-            <p className="text-lg text-slate-600 mb-6">
+            <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Gratis inventarisatie</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we in 1-1,5 uur?</h2>
+            <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">
               We brengen je complete situatie in kaart en vertalen cijfers naar duidelijke keuzes. Je krijgt direct overzicht en weet wat je volgende stap is.
             </p>
             <div className="bg-green-50 border border-green-200 rounded-xl p-5">
@@ -277,15 +277,15 @@ function ConversationSection() {
 
 function WerkgeversSection() {
   return (
-    <section id="werkgevers" className="py-20 lg:py-28 bg-gradient-to-br from-slate-50 to-orange-50/30">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+    <section id="werkgevers" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-slate-50 to-orange-50/30">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full mb-6">
-              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
-              <span className="text-sm font-medium text-blue-700">Voor werkgevers</span>
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
+              <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+              <span className="text-xs sm:text-sm font-medium text-blue-700">Voor werkgevers</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-6">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 sm:mb-6">
               Wet toekomst pensioenen:<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Uw verplichtingen als werkgever</span>
             </h2>
@@ -363,24 +363,24 @@ function WerkgeversSection() {
 
 function CTASection() {
   return (
-    <section className="py-20 lg:py-28 bg-gradient-to-br from-slate-800 to-slate-900 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-slate-800 to-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
-      <div className="max-w-6xl mx-auto px-6 text-center relative">
-        <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 px-4 py-2 rounded-full mb-6">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative">
+        <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
           <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-          <span className="text-sm font-medium text-orange-300">Gratis inventarisatie beschikbaar</span>
+          <span className="text-xs sm:text-sm font-medium text-orange-300">Gratis inventarisatie beschikbaar</span>
         </div>
-        <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Krijg duidelijkheid<br />over <span className="text-orange-400">jouw</span> pensioen</h2>
-        <p className="text-lg text-slate-300 mb-4 max-w-2xl mx-auto">Je bent 1 gesprek verwijderd van volledige duidelijkheid over je pensioen.</p>
-        <p className="text-slate-400 mb-10 max-w-xl mx-auto">Gratis inventarisatiegesprek van 1-1,5 uur. 100% vrijblijvend.</p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-6">
-          <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:scale-[1.02] transition-all text-lg">
+        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 px-4">Krijg duidelijkheid<br />over <span className="text-orange-400">jouw</span> pensioen</h2>
+        <p className="text-base sm:text-lg text-slate-300 mb-3 sm:mb-4 max-w-2xl mx-auto px-4">Je bent 1 gesprek verwijderd van volledige duidelijkheid over je pensioen.</p>
+        <p className="text-sm sm:text-base text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto px-4">Gratis inventarisatiegesprek van 1-1,5 uur. 100% vrijblijvend.</p>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 px-4">
+          <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30 active:scale-[0.98] transition-all text-base sm:text-lg">
             Ja, ik wil mijn gratis inventarisatie
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
           </Link>
-          <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold hover:bg-white/10 transition-all">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
-            Bel direct: {siteConfig.contact.phone}
+          <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold hover:bg-white/10 active:scale-[0.98] transition-all text-sm sm:text-base">
+            <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <span className="whitespace-nowrap">Bel direct: {siteConfig.contact.phone}</span>
           </a>
         </div>
         <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
@@ -404,16 +404,16 @@ function CTASection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12">
+    <section id="contact" className="py-16 sm:py-20 lg:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
-            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-4 py-2 rounded-full mb-4">
+            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-3 sm:mb-4">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-green-700">Nu beschikbaar</span>
+              <span className="text-xs sm:text-sm font-medium text-green-700">Nu beschikbaar</span>
             </div>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mb-4">Plan je gratis gesprek</h2>
-            <p className="text-lg text-slate-600 mb-6">Binnen <span className="font-bold text-orange-500">24 uur</span> reactie gegarandeerd. Vertrouwelijk en vrijblijvend.</p>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-3 sm:mb-4">Plan je gratis gesprek</h2>
+            <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">Binnen <span className="font-bold text-orange-500">24 uur</span> reactie gegarandeerd. Vertrouwelijk en vrijblijvend.</p>
 
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-5 mb-8">
               <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
@@ -476,8 +476,8 @@ function ContactSection() {
               </div>
             </div>
           </div>
-          <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+          <div className="bg-slate-50 rounded-2xl p-5 sm:p-8 border border-slate-200 relative">
+            <div className="absolute -top-2.5 sm:-top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
               GRATIS & VRIJBLIJVEND
             </div>
             <div className="pt-2">

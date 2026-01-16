@@ -42,19 +42,21 @@ export function TrustBar() {
 
   return (
     <section className="py-4 sm:py-5 bg-slate-50 border-y border-slate-200">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+      <div className="max-w-6xl mx-auto px-3 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
           {trustItems.map((item) => (
             <div
               key={item.text}
-              className="flex items-center gap-2 sm:gap-3 text-slate-600 justify-center lg:justify-start"
+              className="flex items-center gap-2 text-slate-600"
             >
-              <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-green-100 text-green-600 rounded-full flex-shrink-0">
-                {item.icon}
+              <div className="flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 bg-green-100 text-green-600 rounded-full flex-shrink-0">
+                <div className="w-4 h-4 sm:w-5 sm:h-5">
+                  {item.icon}
+                </div>
               </div>
-              <div className="min-w-0">
-                <p className="text-xs sm:text-sm font-semibold text-slate-800 leading-tight">{item.text}</p>
-                <p className="text-[10px] sm:text-xs text-slate-500 leading-tight">{item.subtext}</p>
+              <div className="flex-1 min-w-0">
+                <p className="text-[11px] sm:text-sm font-semibold text-slate-800 leading-tight truncate">{item.text}</p>
+                <p className="text-[9px] sm:text-xs text-slate-500 leading-tight truncate">{item.subtext}</p>
               </div>
             </div>
           ))}

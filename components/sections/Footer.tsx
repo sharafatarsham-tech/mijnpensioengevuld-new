@@ -8,12 +8,12 @@ export function Footer() {
   return (
     <>
       {/* Newsletter Section */}
-      <section className="py-16 bg-gradient-to-br from-orange-50 to-amber-50 border-t border-orange-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <section className="py-12 sm:py-16 bg-gradient-to-br from-orange-50 to-amber-50 border-t border-orange-100">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Blijf op de hoogte</span>
-              <h2 className="text-3xl font-bold text-slate-800 mt-2 mb-4">
+              <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Blijf op de hoogte</span>
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 mt-2 mb-3 sm:mb-4">
                 Gratis pensioen tips in je inbox
               </h2>
               <p className="text-slate-600 mb-4">
@@ -43,8 +43,8 @@ export function Footer() {
       </section>
 
       {/* Main Footer */}
-      <footer className="py-12 bg-slate-900 text-white">
-        <div className="max-w-6xl mx-auto px-6">
+      <footer className="py-12 pb-24 md:pb-12 bg-slate-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 mb-10">
             <div>
               <Logo variant="light" />

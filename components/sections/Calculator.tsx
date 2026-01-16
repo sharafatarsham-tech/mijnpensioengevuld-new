@@ -52,14 +52,14 @@ export function Calculator() {
 
   return (
     <>
-      <section id="calculator" className="py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="max-w-3xl mx-auto text-center mb-12">
-            <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Pensioen Calculator</span>
-            <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">
+      <section id="calculator" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
+            <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Pensioen Calculator</span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">
               Hoe staat jouw pensioen ervoor?
             </h2>
-            <p className="text-lg text-slate-600">
+            <p className="text-base sm:text-lg text-slate-600 px-4">
               Krijg in 30 seconden een eerste indicatie. Voor een nauwkeurige berekening plannen we graag een gesprek.
             </p>
           </div>

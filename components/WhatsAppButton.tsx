@@ -23,7 +23,7 @@ export function WhatsAppButton() {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex items-center gap-3">
+    <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-40 flex items-center gap-3">
       {/* Tooltip */}
       <div
         className={`bg-white rounded-lg shadow-lg px-4 py-2 border border-slate-200 transition-all duration-300 ${
