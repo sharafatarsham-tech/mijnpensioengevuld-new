@@ -15,6 +15,14 @@ export const faqs: FAQ[] = [
   },
   {
     question: "Wat kost een adviesgesprek?",
-    answer: "Het eerste oriëntatiegesprek is altijd gratis en vrijblijvend. Daarin bespreken we je situatie en laten we zien wat we voor je kunnen betekenen. Eventuele vervolgkosten bespreken we transparant vooraf.",
+    answer: "Het eerste inventarisatiegesprek van 1-1,5 uur is altijd gratis en vrijblijvend. Daarin brengen we je complete situatie in kaart. Eventuele vervolgkosten bespreken we transparant vooraf, zodat je nooit voor verrassingen komt te staan.",
+  },
+  {
+    question: "Waarom zou ik betalen voor advies? Ik kan toch gratis op mijnpensioenoverzicht.nl kijken?",
+    answer: "Mijnpensioenoverzicht.nl toont cijfers, maar verklaart ze niet. Wij vertalen die cijfers naar wat het écht betekent voor jouw situatie. We kijken naar je complete plaatje: AOW, werkgeverspensioen, eigen vermogen, en je persoonlijke wensen. Dat overzicht krijg je nergens gratis.",
+  },
+  {
+    question: "Hoe lang duurt het voordat ik duidelijkheid heb?",
+    answer: "Na het inventarisatiegesprek van 1-1,5 uur heb je direct een eerste beeld. Binnen een week ontvang je een volledig adviesrapport met concrete aanbevelingen voor jouw situatie.",
   },
 ];

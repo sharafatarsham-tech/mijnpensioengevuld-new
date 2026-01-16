@@ -49,10 +49,10 @@ function HeroSection() {
             </h1>
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-4 mb-6">
               <p className="text-slate-700">
-                Weet jij hoeveel pensioen je straks krijgt? Veel mensen komen erachter dat het tegenvalt. <span className="font-semibold text-orange-600">Wij geven je binnen één gesprek duidelijkheid.</span>
+                De meeste Nederlanders weten niet wat ze straks krijgen. <span className="font-semibold text-orange-600">Na één gesprek weet jij het wel.</span>
               </p>
             </div>
-            <p className="text-lg text-slate-600 mb-8">Krijg <strong>vandaag nog</strong> helder inzicht in jouw pensioensituatie — gratis en zonder verplichtingen.</p>
+            <p className="text-lg text-slate-600 mb-8">In 1,5 uur krijg je volledig inzicht in jouw pensioen — gratis en zonder verplichtingen.</p>
             <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-4 rounded-xl font-semibold shadow-lg shadow-orange-500/30 hover:shadow-xl hover:scale-[1.02] transition-all">
                 Ja, check mijn pensioen gratis
@@ -116,10 +116,10 @@ function StatsSection() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
           {[
-            { value: "15+", label: "Jaar pensioenervaring" },
-            { value: "40+", label: "Pensioenaanbieders vergeleken" },
-            { value: "Persoonlijk", label: "Advies op maat" },
-            { value: "24u", label: "Reactie gegarandeerd" },
+            { value: "Sinds 2009", label: "Actief in pensioenadvies" },
+            { value: "42", label: "Verzekeraars vergeleken" },
+            { value: "1-op-1", label: "Persoonlijke aandacht" },
+            { value: "<24u", label: "Reactie gegarandeerd" },
           ].map((stat) => (
             <div key={stat.label}>
               <p className="text-3xl lg:text-4xl font-bold text-orange-400">{stat.value}</p>
@@ -138,16 +138,16 @@ function WhySection() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom pensioenadvies?</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">Grip krijgen op je pensioen begint met inzicht</h2>
-          <p className="text-lg text-slate-600">Veel mensen ontdekken pas laat dat hun pensioen tegenvalt. Dat kan anders.</p>
+          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">Straks zorgeloos genieten begint vandaag</h2>
+          <p className="text-lg text-slate-600">De meeste mensen weten niet wat ze straks krijgen. Na één gesprek weet jij het wel.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {[
-            { icon: "📋", title: "Complexe overzichten", desc: "Pensioenoverzichten zijn vaak lastig te begrijpen. Wij maken het inzichtelijk.", urgent: false },
-            { icon: "❓", title: "Onzekerheid wegnemen", desc: "Heb je straks genoeg? Die vraag houdt veel mensen bezig. Wij geven je duidelijkheid.", urgent: false },
-            { icon: "⏰", title: "Tijdig actie ondernemen", desc: "Hoe eerder je begint met plannen, hoe meer mogelijkheden je hebt.", urgent: false },
+            { icon: "🔍", title: "Je overzicht is een raadsel", desc: "Pensioenbrieven vol jargon en cijfers. Wij vertalen het naar wat het écht betekent voor jou." },
+            { icon: "😴", title: "Rust in je hoofd over later", desc: "Ligt je wakker van de vraag 'heb ik straks genoeg'? Wij geven je duidelijkheid, zwart op wit." },
+            { icon: "🎯", title: "Zelf bepalen wanneer je stopt", desc: "Hoe eerder je begint, hoe meer keuzes je hebt. Wacht niet tot het te laat is." },
           ].map((item) => (
-            <div key={item.title} className="bg-slate-50 rounded-2xl p-8 border border-slate-100">
+            <div key={item.title} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-orange-200 hover:shadow-lg transition-all">
               <span className="text-3xl mb-4 block">{item.icon}</span>
               <h3 className="text-xl font-bold text-slate-800 mb-2">{item.title}</h3>
               <p className="text-slate-600">{item.desc}</p>

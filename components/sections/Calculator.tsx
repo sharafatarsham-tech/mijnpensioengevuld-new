@@ -23,10 +23,10 @@ export function Calculator() {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Pensioen Calculator</span>
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">
-            Hoe vol is jouw spaarvarkentje?
+            Hoe staat jouw pensioen ervoor?
           </h2>
           <p className="text-lg text-slate-600">
-            Deze tool geeft een grove indicatie. Voor een nauwkeurige berekening is persoonlijk advies nodig.
+            Krijg in 30 seconden een eerste indicatie. Voor een nauwkeurige berekening plannen we graag een gesprek.
           </p>
         </div>
 
