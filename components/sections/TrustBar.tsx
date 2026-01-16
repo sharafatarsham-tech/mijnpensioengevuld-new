@@ -41,20 +41,20 @@ export function TrustBar() {
   ];
 
   return (
-    <section className="py-4 bg-slate-50 border-y border-slate-200">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 lg:gap-x-12">
+    <section className="py-4 sm:py-5 bg-slate-50 border-y border-slate-200">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {trustItems.map((item) => (
             <div
               key={item.text}
-              className="flex items-center gap-3 text-slate-600"
+              className="flex items-center gap-2 sm:gap-3 text-slate-600 justify-center lg:justify-start"
             >
-              <div className="flex items-center justify-center w-10 h-10 bg-green-100 text-green-600 rounded-full">
+              <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-green-100 text-green-600 rounded-full flex-shrink-0">
                 {item.icon}
               </div>
-              <div>
-                <p className="text-sm font-semibold text-slate-800">{item.text}</p>
-                <p className="text-xs text-slate-500">{item.subtext}</p>
+              <div className="min-w-0">
+                <p className="text-xs sm:text-sm font-semibold text-slate-800 leading-tight">{item.text}</p>
+                <p className="text-[10px] sm:text-xs text-slate-500 leading-tight">{item.subtext}</p>
               </div>
             </div>
           ))}
