@@ -66,7 +66,7 @@ export function Calculator() {
                     <div className="relative">
                       <input
                         type="range"
-                        min="25"
+                        min="18"
                         max="65"
                         value={values.age}
                         onChange={(e) => setValues({ ...values, age: parseInt(e.target.value) })}
@@ -74,7 +74,7 @@ export function Calculator() {
                         style={{ accentColor: "#f97316" }}
                       />
                       <div className="flex justify-between mt-1 px-1">
-                        <span className="text-xs text-slate-400">25</span>
+                        <span className="text-xs text-slate-400">18</span>
                         <span className="text-xs text-slate-400">65</span>
                       </div>
                     </div>
