@@ -74,6 +74,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "hTLv62oW3NkB9DJgFEN0vpnByl88mAeSAafRokSGuuA",
+    other: {
+      "msvalidate.01": "ED05D095BEA0D1B8908EF4247DA090C8",
+    },
   },
   other: {
     "geo.region": "NL-NB",
