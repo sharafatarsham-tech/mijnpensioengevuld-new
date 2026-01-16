@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { LocalBusinessSchema, WebsiteSchema } from "@/components/StructuredData";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -6,6 +7,13 @@ import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-plus-jakarta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -92,12 +100,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl">
+    <html lang="nl" className={plusJakarta.variable}>
       <head>
         <LocalBusinessSchema />
         <WebsiteSchema />
       </head>
-      <body className="min-h-screen bg-white text-slate-900 antialiased">
+      <body className={`${plusJakarta.className} min-h-screen bg-white text-slate-900 antialiased`}>
         <GoogleAnalytics />
         {children}
         <WhatsAppButton />
