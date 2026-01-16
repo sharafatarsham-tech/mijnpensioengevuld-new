@@ -72,6 +72,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: siteConfig.url,
   },
+  verification: {
+    google: "hTLv62oW3NkB9DJgFEN0vpnByl88mAeSAafRokSGuuA",
+  },
   other: {
     "geo.region": "NL-NB",
     "geo.placename": "Eindhoven",
