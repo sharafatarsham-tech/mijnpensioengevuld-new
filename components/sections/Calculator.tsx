@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { calculatePension } from "@/lib/utils";
 import { CalculatorValues } from "@/types";
-import { EmailCaptureModal } from "@/components/EmailCaptureModal";
+import { siteConfig } from "@/config/site";
 
 export function Calculator() {
   const [values, setValues] = useState<CalculatorValues>({
@@ -15,39 +15,61 @@ export function Calculator() {
     includeAOW: true,
   });
   const [showAssumptions, setShowAssumptions] = useState(false);
-  const [isUnlocked, setIsUnlocked] = useState(false);
-  const [showModal, setShowModal] = useState(false);
-  const [hasInteracted, setHasInteracted] = useState(false);
+  const [showExitPopup, setShowExitPopup] = useState(false);
+  const [hasSeenPopup, setHasSeenPopup] = useState(false);
+  const [email, setEmail] = useState("");
+  const [emailSent, setEmailSent] = useState(false);
 
   const result = calculatePension(values);
+  
+  // Calculate yearly and total gap
+  const yearlyGap = result.gap * 12;
+  const yearsInRetirement = 20;
+  const totalGap = yearlyGap * yearsInRetirement;
 
-  // Check if user already unlocked the calculator
+  // Exit intent detection
   useEffect(() => {
-    const unlocked = localStorage.getItem("calculator-unlocked");
-    if (unlocked === "true") {
-      setIsUnlocked(true);
-    }
-  }, []);
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !hasSeenPopup && result.gap > 0) {
+        setShowExitPopup(true);
+        setHasSeenPopup(true);
+      }
+    };
 
-  // Track when user interacts with sliders
+    document.addEventListener("mouseleave", handleMouseLeave);
+    return () => document.removeEventListener("mouseleave", handleMouseLeave);
+  }, [hasSeenPopup, result.gap]);
+
   const handleSliderChange = (field: keyof CalculatorValues, value: number | boolean) => {
     setValues({ ...values, [field]: value });
-    if (!hasInteracted) {
-      setHasInteracted(true);
-    }
   };
 
-  // Handle unlock button click
-  const handleUnlockClick = () => {
-    if (!isUnlocked) {
-      setShowModal(true);
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Save to subscribers
+    try {
+      await fetch("/api/subscribers", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ 
+          email,
+          source: "calculator",
+          calculatorData: {
+            ...values,
+            result: {
+              monthlyGap: result.gap,
+              yearlyGap,
+              totalGap,
+              percentage: result.percentage,
+            }
+          }
+        }),
+      });
+      setEmailSent(true);
+      setTimeout(() => setShowExitPopup(false), 2000);
+    } catch {
+      setEmailSent(true);
     }
-  };
-
-  // Handle successful email capture
-  const handleEmailSuccess = () => {
-    setIsUnlocked(true);
-    setShowModal(false);
   };
 
   return (
@@ -57,10 +79,10 @@ export function Calculator() {
           <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-12">
             <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Pensioen Calculator</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">
-              Hoe staat jouw pensioen ervoor?
+              Heb jij een pensioengat?
             </h2>
             <p className="text-base sm:text-lg text-slate-600 px-4">
-              Krijg in 30 seconden een eerste indicatie. Voor een nauwkeurige berekening plannen we graag een gesprek.
+              Ontdek in 30 seconden of je straks genoeg hebt om van te leven.
             </p>
           </div>
 
@@ -68,8 +90,8 @@ export function Calculator() {
             <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xl shadow-slate-200/50">
               <div className="grid lg:grid-cols-2">
                 {/* Input */}
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-8">
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-center gap-3 mb-6 sm:mb-8">
                     <div className="w-10 h-10 bg-orange-100 rounded-xl flex items-center justify-center">
                       <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
@@ -81,7 +103,7 @@ export function Calculator() {
                     </div>
                   </div>
 
-                  <div className="space-y-8">
+                  <div className="space-y-6 sm:space-y-8">
                     {/* Leeftijd */}
                     <div className="group">
                       <div className="flex justify-between mb-3">
@@ -97,24 +119,20 @@ export function Calculator() {
                           <span className="text-sm font-bold text-orange-600">{values.age} jaar</span>
                         </div>
                       </div>
-                      <div className="relative">
-                        <input
-                          type="range"
-                          min="18"
-                          max="65"
-                          value={values.age}
-                          onChange={(e) => handleSliderChange("age", parseInt(e.target.value))}
-                          className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer hover:bg-slate-300 transition-colors"
-                          style={{ accentColor: "#f97316" }}
-                        />
-                        <div className="flex justify-between mt-1 px-1">
-                          <span className="text-xs text-slate-400">18</span>
-                          <span className="text-xs text-slate-400">65</span>
-                        </div>
+                      <input
+                        type="range"
+                        min="25"
+                        max="65"
+                        value={values.age}
+                        onChange={(e) => handleSliderChange("age", parseInt(e.target.value))}
+                        className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer"
+                        style={{ accentColor: "#f97316" }}
+                      />
+                      <div className="flex justify-between mt-1 px-1">
+                        <span className="text-xs text-slate-400">25</span>
+                        <span className="text-xs text-slate-400">65</span>
                       </div>
                     </div>
-
-                    <div className="border-t border-dashed border-slate-200" />
 
                     {/* Salaris */}
                     <div className="group">
@@ -128,28 +146,24 @@ export function Calculator() {
                           <label className="text-sm font-medium text-slate-700">Bruto jaarsalaris</label>
                         </div>
                         <div className="bg-orange-50 px-3 py-1 rounded-lg">
-                          <span className="text-sm font-bold text-orange-600">€ {values.salary.toLocaleString("nl-NL")}</span>
+                          <span className="text-sm font-bold text-orange-600">€{values.salary.toLocaleString("nl-NL")}</span>
                         </div>
                       </div>
-                      <div className="relative">
-                        <input
-                          type="range"
-                          min="25000"
-                          max="150000"
-                          step="1000"
-                          value={values.salary}
-                          onChange={(e) => handleSliderChange("salary", parseInt(e.target.value))}
-                          className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer hover:bg-slate-300 transition-colors"
-                          style={{ accentColor: "#f97316" }}
-                        />
-                        <div className="flex justify-between mt-1 px-1">
-                          <span className="text-xs text-slate-400">€ 25k</span>
-                          <span className="text-xs text-slate-400">€ 150k</span>
-                        </div>
+                      <input
+                        type="range"
+                        min="25000"
+                        max="150000"
+                        step="1000"
+                        value={values.salary}
+                        onChange={(e) => handleSliderChange("salary", parseInt(e.target.value))}
+                        className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer"
+                        style={{ accentColor: "#f97316" }}
+                      />
+                      <div className="flex justify-between mt-1 px-1">
+                        <span className="text-xs text-slate-400">€25k</span>
+                        <span className="text-xs text-slate-400">€150k</span>
                       </div>
                     </div>
-
-                    <div className="border-t border-dashed border-slate-200" />
 
                     {/* Opgebouwd pensioen */}
                     <div className="group">
@@ -160,185 +174,257 @@ export function Calculator() {
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                             </svg>
                           </div>
-                          <label className="text-sm font-medium text-slate-700">Opgebouwd pensioen</label>
+                          <label className="text-sm font-medium text-slate-700">Huidig pensioenvermogen</label>
                         </div>
                         <div className="bg-orange-50 px-3 py-1 rounded-lg">
-                          <span className="text-sm font-bold text-orange-600">€ {values.currentPension.toLocaleString("nl-NL")}</span>
+                          <span className="text-sm font-bold text-orange-600">€{values.currentPension.toLocaleString("nl-NL")}</span>
                         </div>
                       </div>
-                      <div className="relative">
-                        <input
-                          type="range"
-                          min="0"
-                          max="500000"
-                          step="5000"
-                          value={values.currentPension}
-                          onChange={(e) => handleSliderChange("currentPension", parseInt(e.target.value))}
-                          className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer hover:bg-slate-300 transition-colors"
-                          style={{ accentColor: "#f97316" }}
-                        />
-                        <div className="flex justify-between mt-1 px-1">
-                          <span className="text-xs text-slate-400">€ 0</span>
-                          <span className="text-xs text-slate-400">€ 500k</span>
-                        </div>
+                      <input
+                        type="range"
+                        min="0"
+                        max="500000"
+                        step="5000"
+                        value={values.currentPension}
+                        onChange={(e) => handleSliderChange("currentPension", parseInt(e.target.value))}
+                        className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer"
+                        style={{ accentColor: "#f97316" }}
+                      />
+                      <div className="flex justify-between mt-1 px-1">
+                        <span className="text-xs text-slate-400">€0</span>
+                        <span className="text-xs text-slate-400">€500k</span>
                       </div>
                     </div>
-
-                    <div className="border-t border-slate-200" />
 
                     {/* AOW Toggle */}
                     <div className="flex items-center justify-between bg-slate-50 rounded-xl p-4">
                       <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center border border-slate-200">
-                          <svg className="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                          </svg>
-                        </div>
                         <span className="text-sm font-medium text-slate-700">AOW meenemen?</span>
                       </div>
                       <button
                         onClick={() => handleSliderChange("includeAOW", !values.includeAOW)}
-                        className={`relative w-14 h-7 rounded-full transition-all duration-300 ${values.includeAOW ? "bg-orange-500 shadow-lg shadow-orange-500/30" : "bg-slate-300"}`}
+                        className={`relative w-12 h-6 rounded-full transition-all ${values.includeAOW ? "bg-orange-500" : "bg-slate-300"}`}
                       >
-                        <span className={`absolute top-1 w-5 h-5 bg-white rounded-full shadow-md transition-transform duration-300 ${values.includeAOW ? "left-8" : "left-1"}`} />
+                        <span className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-transform ${values.includeAOW ? "left-7" : "left-1"}`} />
                       </button>
                     </div>
                   </div>
                 </div>
 
-                {/* Result */}
-                <div className="p-8 bg-gradient-to-br from-orange-500 via-orange-500 to-amber-500 text-white relative overflow-hidden">
-                  <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full blur-3xl" />
-                  <div className="absolute bottom-0 left-0 w-32 h-32 bg-amber-400/20 rounded-full blur-2xl" />
-                  <div className="absolute -bottom-8 -right-8 w-36 h-36 opacity-15">
+                {/* Result - Always visible! */}
+                <div className="p-6 sm:p-8 bg-gradient-to-br from-slate-800 via-slate-800 to-slate-900 text-white relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-40 h-40 bg-orange-500/10 rounded-full blur-3xl" />
+                  <div className="absolute -bottom-8 -right-8 w-36 h-36 opacity-10">
                     <Image src="/pig-favicon-v2.png" alt="" fill className="object-contain" />
                   </div>
 
                   <div className="relative">
-                    <div className="flex items-center justify-between mb-6">
-                      <h3 className="font-bold text-lg">Indicatie maandpensioen</h3>
-                      <span className="bg-white/20 backdrop-blur text-xs font-medium px-3 py-1.5 rounded-full border border-white/20">Schatting</span>
-                    </div>
-
-                    {/* Blurred result when locked */}
-                    <div className={`bg-white/10 backdrop-blur rounded-2xl p-6 mb-6 border border-white/20 relative ${!isUnlocked && hasInteracted ? "overflow-hidden" : ""}`}>
-                      <p className={`text-4xl lg:text-5xl font-bold mb-2 transition-all ${!isUnlocked && hasInteracted ? "blur-md select-none" : ""}`}>
-                        € {result.monthlyLow.toLocaleString("nl-NL")} – {result.monthlyHigh.toLocaleString("nl-NL")}
-                      </p>
-                      <p className={`text-orange-100 text-sm ${!isUnlocked && hasInteracted ? "blur-sm" : ""}`}>bruto per maand (indicatief)</p>
-
-                      {/* Unlock overlay */}
-                      {!isUnlocked && hasInteracted && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-black/20 backdrop-blur-sm rounded-2xl">
-                          <button
-                            onClick={handleUnlockClick}
-                            className="bg-white text-orange-600 px-6 py-3 rounded-xl font-bold shadow-lg hover:scale-105 transition-transform flex items-center gap-2"
-                          >
-                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z" />
-                            </svg>
-                            Ontgrendel resultaat
-                          </button>
-                        </div>
+                    {/* Status Badge */}
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="font-bold text-lg">Jouw resultaat</h3>
+                      {result.gap > 0 ? (
+                        <span className="bg-red-500/20 text-red-300 text-xs font-bold px-3 py-1.5 rounded-full border border-red-500/30 flex items-center gap-1">
+                          <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                          </svg>
+                          Pensioengat
+                        </span>
+                      ) : (
+                        <span className="bg-green-500/20 text-green-300 text-xs font-bold px-3 py-1.5 rounded-full border border-green-500/30">
+                          ✓ Op koers
+                        </span>
                       )}
                     </div>
 
+                    {/* Expected Pension */}
+                    <div className="bg-white/5 backdrop-blur rounded-xl p-4 mb-4 border border-white/10">
+                      <p className="text-slate-400 text-xs mb-1">Verwacht maandpensioen</p>
+                      <p className="text-2xl sm:text-3xl font-bold">
+                        €{result.monthlyLow.toLocaleString("nl-NL")} – {result.monthlyHigh.toLocaleString("nl-NL")}
+                      </p>
+                      <p className="text-slate-400 text-xs mt-1">bruto per maand (indicatie)</p>
+                    </div>
+
+                    {/* GAP - The urgency driver */}
+                    {result.gap > 0 ? (
+                      <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-4">
+                        <div className="flex items-start gap-3">
+                          <div className="w-10 h-10 bg-red-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-5 h-5 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6" />
+                            </svg>
+                          </div>
+                          <div>
+                            <p className="text-red-300 font-bold text-sm">Je komt tekort:</p>
+                            <p className="text-white text-xl sm:text-2xl font-bold">€{result.gap.toLocaleString("nl-NL")}/maand</p>
+                            <p className="text-red-300/80 text-xs mt-1">
+                              = €{yearlyGap.toLocaleString("nl-NL")}/jaar = <span className="font-bold text-red-300">€{totalGap.toLocaleString("nl-NL")} totaal</span>
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="bg-green-500/10 border border-green-500/30 rounded-xl p-4 mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
+                            <svg className="w-5 h-5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                            </svg>
+                          </div>
+                          <div>
+                            <p className="text-green-300 font-bold">Goed bezig!</p>
+                            <p className="text-slate-300 text-sm">Je lijkt op koers te liggen voor je pensioendoel.</p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+
                     {/* Progress bar */}
-                    <div className={`mb-6 ${!isUnlocked && hasInteracted ? "blur-sm" : ""}`}>
-                      <div className="flex justify-between text-sm mb-2">
-                        <span className="text-orange-100">Pensioen opgebouwd</span>
-                        <span className={`font-bold ${result.percentage >= 80 ? "text-green-300" : result.percentage >= 60 ? "text-yellow-200" : "text-red-200"}`}>
+                    <div className="mb-4">
+                      <div className="flex justify-between text-xs mb-2">
+                        <span className="text-slate-400">Pensioen vs. doel (70%)</span>
+                        <span className={`font-bold ${result.percentage >= 80 ? "text-green-400" : result.percentage >= 60 ? "text-yellow-400" : "text-red-400"}`}>
                           {result.percentage}%
                         </span>
                       </div>
-                      <div className="h-3 bg-white/20 rounded-full overflow-hidden">
+                      <div className="h-2 bg-white/10 rounded-full overflow-hidden">
                         <div
-                          className={`h-full rounded-full transition-all duration-500 ${result.percentage >= 80 ? "bg-green-400" : result.percentage >= 60 ? "bg-yellow-400" : "bg-red-400"}`}
+                          className={`h-full rounded-full transition-all duration-500 ${result.percentage >= 80 ? "bg-green-500" : result.percentage >= 60 ? "bg-yellow-500" : "bg-red-500"}`}
                           style={{ width: `${Math.min(result.percentage, 100)}%` }}
                         />
                       </div>
                     </div>
 
-                    <div className={`space-y-3 py-4 border-t border-white/20 mb-6 ${!isUnlocked && hasInteracted ? "blur-sm" : ""}`}>
-                      {values.includeAOW && (
-                        <div className="flex justify-between text-sm">
-                          <span className="text-orange-100 flex items-center gap-2">
-                            <span className="w-2 h-2 bg-orange-200 rounded-full" />
-                            Waarvan AOW (indicatie)
-                          </span>
-                          <span className="font-medium">± € {result.aow.toLocaleString("nl-NL")}</span>
-                        </div>
-                      )}
-                      <div className="flex justify-between text-sm">
-                        <span className="text-orange-100 flex items-center gap-2">
-                          <span className="w-2 h-2 bg-orange-200 rounded-full" />
-                          Doel (70% van salaris)
-                        </span>
-                        <span className="font-medium">€ {result.target.toLocaleString("nl-NL")}</span>
+                    {/* Urgency message */}
+                    {result.gap > 0 && (
+                      <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-3 mb-4">
+                        <p className="text-orange-200 text-xs leading-relaxed">
+                          <strong className="text-orange-300">💡 Goed nieuws:</strong> Met {67 - values.age} jaar tot je pensioen is dit nog te repareren. 
+                          Hoe eerder je begint, hoe makkelijker het wordt.
+                        </p>
                       </div>
-                    </div>
+                    )}
 
+                    {/* Assumptions toggle */}
                     <button
                       onClick={() => setShowAssumptions(!showAssumptions)}
-                      className="text-sm text-orange-100 hover:text-white flex items-center gap-2 mb-4 transition-colors"
+                      className="text-xs text-slate-400 hover:text-white flex items-center gap-1 mb-4"
                     >
-                      <svg className={`w-4 h-4 transition-transform duration-300 ${showAssumptions ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`w-3 h-3 transition-transform ${showAssumptions ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
-                      Bekijk aannames
+                      Aannames bekijken
                     </button>
 
                     {showAssumptions && (
-                      <div className="bg-white/10 backdrop-blur rounded-xl p-4 text-xs text-orange-100 mb-4 space-y-2 border border-white/10">
-                        <p className="flex items-center gap-2"><span className="text-orange-300">•</span> Pensioenleeftijd: 67 jaar</p>
-                        <p className="flex items-center gap-2"><span className="text-orange-300">•</span> Opbouwpercentage: 1,75% per jaar (indicatief)</p>
-                        <p className="flex items-center gap-2"><span className="text-orange-300">•</span> Uitkeringsduur: 20 jaar</p>
-                        <p className="flex items-center gap-2"><span className="text-orange-300">•</span> Geen indexatie meegenomen</p>
-                        <p className="flex items-center gap-2"><span className="text-orange-300">•</span> AOW: indicatie, afhankelijk van situatie</p>
+                      <div className="bg-white/5 rounded-lg p-3 text-xs text-slate-400 mb-4 space-y-1">
+                        <p>• Pensioenleeftijd: 67 jaar</p>
+                        <p>• Opbouw: 1,75%/jaar (gemiddeld)</p>
+                        <p>• Uitkeringsduur: 20 jaar</p>
+                        <p>• AOW: €1.400/maand (indicatie)</p>
+                        <p>• Doel: 70% van laatstverdiende salaris</p>
                       </div>
                     )}
 
-                    {isUnlocked ? (
+                    {/* CTA Buttons */}
+                    <div className="space-y-3">
                       <Link
-                        href="/#contact"
-                        className="block w-full bg-white text-orange-600 py-4 rounded-xl font-bold text-center hover:bg-orange-50 hover:scale-[1.02] transition-all shadow-lg"
+                        href="#contact"
+                        className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3.5 sm:py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25 active:scale-[0.98]"
                       >
-                        Vraag persoonlijk advies aan
+                        {result.gap > 0 ? "Bespreek dit gratis met een adviseur" : "Bevestig dit in een gratis gesprek"}
                       </Link>
-                    ) : (
-                      <button
-                        onClick={handleUnlockClick}
-                        className="block w-full bg-white text-orange-600 py-4 rounded-xl font-bold text-center hover:bg-orange-50 hover:scale-[1.02] transition-all shadow-lg"
+                      
+                      <a
+                        href={`tel:${siteConfig.contact.phoneRaw}`}
+                        className="flex items-center justify-center gap-2 w-full bg-white/10 hover:bg-white/20 text-white py-3 rounded-xl font-medium transition-all border border-white/20"
                       >
-                        {hasInteracted ? "Ontgrendel volledig resultaat" : "Bereken mijn pensioen"}
-                      </button>
-                    )}
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Liever bellen? {siteConfig.contact.phone}
+                      </a>
+                    </div>
+
+                    <p className="text-center text-xs text-slate-500 mt-3">
+                      100% gratis • Vrijblijvend • Binnen 24u reactie
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="mt-8 bg-slate-100 rounded-xl p-4 border border-slate-200">
-              <p className="text-center text-sm text-slate-600">
-                <strong className="text-slate-700">Let op:</strong> Deze berekening is puur indicatief. Je werkelijke pensioen kan aanzienlijk afwijken.
-                Een persoonlijk advies volgt altijd na een uitgebreide inventarisatie.
+            {/* Disclaimer */}
+            <div className="mt-6 bg-slate-100 rounded-xl p-4 border border-slate-200">
+              <p className="text-center text-xs sm:text-sm text-slate-600">
+                <strong className="text-slate-700">Disclaimer:</strong> Deze berekening is indicatief. Je werkelijke pensioen kan afwijken. 
+                Voor een nauwkeurige berekening plannen we een persoonlijk gesprek.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Email Capture Modal */}
-      <EmailCaptureModal
-        isOpen={showModal}
-        onClose={() => setShowModal(false)}
-        onSuccess={handleEmailSuccess}
-        previewData={{
-          monthlyLow: result.monthlyLow,
-          monthlyHigh: result.monthlyHigh,
-          percentage: result.percentage,
-        }}
-      />
+      {/* Exit Intent Popup */}
+      {showExitPopup && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
+          <div className="bg-white rounded-2xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative animate-in fade-in zoom-in duration-300">
+            <button
+              onClick={() => setShowExitPopup(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="text-center mb-6">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">
+                Wacht! Ontvang je resultaat per email
+              </h3>
+              <p className="text-slate-600 text-sm">
+                Je pensioengat is <strong className="text-red-600">€{result.gap.toLocaleString("nl-NL")}/maand</strong>. 
+                Laat je email achter en ontvang tips om dit te repareren.
+              </p>
+            </div>
+
+            {emailSent ? (
+              <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
+                <svg className="w-8 h-8 text-green-500 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <p className="text-green-700 font-medium">Verstuurd! Check je inbox.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleEmailSubmit} className="space-y-4">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="je@email.nl"
+                  required
+                  className="w-full px-4 py-3 border border-slate-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+                />
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 rounded-xl font-bold hover:from-orange-600 hover:to-amber-600 transition-all"
+                >
+                  Ontvang mijn resultaat + tips
+                </button>
+              </form>
+            )}
+
+            <p className="text-center text-xs text-slate-500 mt-4">
+              Geen spam • Je kunt je altijd uitschrijven
+            </p>
+          </div>
+        </div>
+      )}
     </>
   );
 }
