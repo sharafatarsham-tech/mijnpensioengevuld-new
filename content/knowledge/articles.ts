@@ -1352,6 +1352,300 @@ export const articles: KnowledgeArticle[] = [
   },
 ];
 
+{
+    slug: "hoeveel-pensioen-nodig",
+    title: "Hoeveel pensioen heb ik nodig? De complete berekening",
+    description: "Hoeveel geld heb je nodig om van te leven na je pensioen? Leer de 70%-regel, bereken je persoonlijke behoefte en ontdek of je op koers ligt.",
+    category: "Basiskennis",
+    readingTime: 8,
+    lastUpdated: "2026-01-16",
+    relatedSlugs: ["pensioengat-herkennen", "mijnpensioenoverzicht-lezen", "aow-uitgelegd"],
+    content: `<p class="lead">De vraag "hoeveel pensioen heb ik nodig?" houdt veel Nederlanders bezig. Het antwoord is persoonlijk en hangt af van je levensstijl, woonlasten en wensen. In dit artikel helpen we je een realistische berekening maken.</p>
+
+<h2>De 70%-vuistregel</h2>
+
+<p>Een veelgebruikte vuistregel is dat je na je pensioen ongeveer 70% van je laatstverdiende salaris nodig hebt om je levensstandaard te behouden. Dit komt omdat bepaalde kosten wegvallen:</p>
+
+<ul>
+<li>Geen woon-werkverkeer meer</li>
+<li>Geen pensioenpremie meer</li>
+<li>Mogelijk is je hypotheek afgelost</li>
+<li>Kinderen zijn vaak al uit huis</li>
+</ul>
+
+<p>Maar let op: deze vuistregel is een startpunt, geen eindantwoord. Sommige kosten nemen juist toe na je pensioen, zoals zorgkosten, hobby's en reizen.</p>
+
+<h2>Je persoonlijke berekening in 4 stappen</h2>
+
+<h3>Stap 1: Bereken je huidige uitgaven</h3>
+
+<p>Kijk naar je bankafschriften van de afgelopen maanden. Wat geef je uit aan:</p>
+
+<ul>
+<li><strong>Wonen:</strong> Huur of hypotheek, energie, verzekeringen, onderhoud</li>
+<li><strong>Levensonderhoud:</strong> Boodschappen, kleding, persoonlijke verzorging</li>
+<li><strong>Vervoer:</strong> Auto, openbaar vervoer, fiets</li>
+<li><strong>Zorg:</strong> Zorgverzekering, eigen risico, medicijnen</li>
+<li><strong>Vrije tijd:</strong> Abonnementen, hobby's, uit eten, vakanties</li>
+<li><strong>Overig:</strong> Cadeaus, onverwachte uitgaven, sparen</li>
+</ul>
+
+<h3>Stap 2: Pas aan voor pensioen</h3>
+
+<p>Welke kosten vallen weg of veranderen?</p>
+
+<ul>
+<li>Woon-werkverkeer: <strong>wegvallen</strong></li>
+<li>Pensioenpremie: <strong>wegvallen</strong></li>
+<li>Hypotheek: <strong>mogelijk afgelost</strong></li>
+<li>Vakanties/hobby's: <strong>vaak toenemen</strong></li>
+<li>Zorgkosten: <strong>vaak toenemen</strong></li>
+</ul>
+
+<h3>Stap 3: Vergelijk met je verwachte pensioen</h3>
+
+<p>Check <a href="https://mijnpensioenoverzicht.nl" target="_blank">mijnpensioenoverzicht.nl</a> voor je verwachte pensioeninkomen. Let op:</p>
+
+<ul>
+<li>De bedragen zijn <strong>bruto</strong> - reken met 75-85% netto</li>
+<li>De bedragen zijn <strong>per jaar</strong> - deel door 12 voor maandbedragen</li>
+</ul>
+
+<h3>Stap 4: Bereken het verschil</h3>
+
+<p>Trek je verwachte pensioeninkomen af van je benodigde inkomen. Is er een tekort? Dan heb je een <strong>pensioengat</strong> dat je moet dichten.</p>
+
+<h2>Rekenvoorbeeld</h2>
+
+<p>Stel, je huidige netto inkomen is €3.500 per maand. Met de 70%-regel zou je €2.450 per maand nodig hebben. Je verwachte pensioen (AOW + aanvullend) is €2.100 netto per maand. Je pensioengat is dan €350 per maand, oftewel €4.200 per jaar.</p>
+
+<p>Bij een verwachte pensioenduur van 20 jaar is dit een totaal tekort van €84.000 dat je moet aanvullen.</p>
+
+<h2>Hoeveel is "genoeg"?</h2>
+
+<p>Er is geen universeel antwoord. Maar hier zijn enkele richtlijnen:</p>
+
+<ul>
+<li><strong>Minimaal:</strong> AOW + klein aanvullend pensioen (±€1.500-1.800 netto/maand voor alleenstaanden)</li>
+<li><strong>Comfortabel:</strong> 70-80% van je laatstverdiende salaris</li>
+<li><strong>Royaal:</strong> 100% of meer, met ruimte voor extra wensen</li>
+</ul>
+
+<h2>Volgende stappen</h2>
+
+<p>Weet je nu hoeveel je nodig hebt en heb je een tekort? Dan zijn er verschillende manieren om dit aan te vullen:</p>
+
+<ul>
+<li>Extra sparen via lijfrente of banksparen</li>
+<li>Beleggen voor je pensioen</li>
+<li>Vrijwillig bijsparen via je werkgever</li>
+<li>Langer doorwerken</li>
+<li>Uitgaven aanpassen</li>
+</ul>
+
+<p>Wil je hulp bij het maken van een persoonlijke pensioenberekening? Neem dan contact met ons op voor een gratis inventarisatiegesprek.</p>`,
+    faqs: [
+      { question: "Hoeveel procent van mijn salaris heb ik nodig na mijn pensioen?", answer: "De vuistregel is 70% van je laatstverdiende salaris, maar dit is persoonlijk. Sommige mensen hebben meer nodig, anderen minder. Maak een eigen berekening op basis van je verwachte uitgaven." },
+      { question: "Is de AOW genoeg om van te leven?", answer: "Voor de meeste mensen niet. De AOW is een basisinkomen rond het sociaal minimum. Voor een comfortabel pensioen heb je meestal aanvullend pensioen en/of eigen spaargeld nodig." },
+      { question: "Hoe bereken ik mijn pensioengat?", answer: "Trek je verwachte pensioeninkomen (te vinden op mijnpensioenoverzicht.nl) af van het inkomen dat je nodig denkt te hebben. Het verschil is je pensioengat." },
+      { question: "Hoeveel jaar moet ik rekenen voor mijn pensioen?", answer: "De gemiddelde Nederlander is 20 jaar met pensioen. Reken voor zekerheid met 20-25 jaar, afhankelijk van je gezondheid en familiegeschiedenis." },
+    ],
+  },
+  {
+    slug: "pensioen-opbouwen-uitleg",
+    title: "Hoe bouw je pensioen op in Nederland? Complete uitleg",
+    description: "Hoe werkt pensioenopbouw in Nederland? Ontdek de drie pijlers, hoe je AOW en werkgeverspensioen opbouwt, en hoe je zelf extra pensioen kunt sparen.",
+    category: "Basiskennis",
+    readingTime: 10,
+    lastUpdated: "2026-01-16",
+    relatedSlugs: ["aow-uitgelegd", "zzp-pensioen", "jaarruimte-uitgelegd"],
+    content: `<p class="lead">Het Nederlandse pensioenstelsel is opgebouwd uit drie pijlers. Samen vormen ze je pensioeninkomen. In dit artikel leggen we uit hoe elke pijler werkt en hoe je optimaal pensioen opbouwt.</p>
+
+<h2>De drie pijlers van het Nederlandse pensioen</h2>
+
+<p>Nederland heeft een pensioenstelsel dat bestaat uit drie pijlers:</p>
+
+<h3>Pijler 1: AOW (Algemene Ouderdomswet)</h3>
+
+<p>De AOW is je basispensioen van de overheid. Iedereen die in Nederland woont of werkt, bouwt automatisch AOW op. Je bouwt 2% per jaar op tussen je 17e en je AOW-leeftijd (67 jaar). Na 50 jaar heb je 100% AOW opgebouwd.</p>
+
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>Automatische opbouw voor inwoners van Nederland</li>
+<li>Vast basisbedrag, onafhankelijk van je salaris</li>
+<li>Gefinancierd door werkenden via premies</li>
+<li>Gekoppeld aan het minimumloon (stijgt mee)</li>
+</ul>
+
+<h3>Pijler 2: Aanvullend pensioen via werkgever</h3>
+
+<p>De meeste werkgevers bieden een pensioenregeling aan. Je werkgever betaalt het grootste deel van de premie, jij betaalt een kleiner deel via je loon. Het pensioen dat je opbouwt, is afhankelijk van je salaris en de regeling.</p>
+
+<p><strong>Kenmerken:</strong></p>
+<ul>
+<li>Collectief geregeld via pensioenfonds of verzekeraar</li>
+<li>Premie wordt gedeeld door werkgever en werknemer</li>
+<li>Hoogte hangt af van salaris en dienstjaren</li>
+<li>Niet verplicht voor alle werkgevers</li>
+</ul>
+
+<h3>Pijler 3: Individuele pensioenvoorzieningen</h3>
+
+<p>Dit is het pensioen dat je zelf regelt, bovenop de eerste twee pijlers. Denk aan lijfrente, banksparen, beleggen of vastgoed. Vooral voor ZZP'ers en mensen met een pensioengat is dit belangrijk.</p>
+
+<p><strong>Mogelijkheden:</strong></p>
+<ul>
+<li>Lijfrente (fiscaal aftrekbaar)</li>
+<li>Banksparen (fiscaal aftrekbaar)</li>
+<li>Beleggen (niet aftrekbaar, wel flexibel)</li>
+<li>Eigen woning (overwaarde)</li>
+<li>Spaargeld</li>
+</ul>
+
+<h2>Hoe bouw je AOW op?</h2>
+
+<p>AOW bouw je automatisch op door in Nederland te wonen of werken. Per jaar bouw je 2% op. Na 50 jaar (van 17 tot 67) heb je 100% AOW-recht.</p>
+
+<p><strong>Wanneer bouw je geen AOW op?</strong></p>
+<ul>
+<li>Je woont in het buitenland (zonder te werken voor Nederlandse werkgever)</li>
+<li>Je bent niet verzekerd voor de volksverzekeringen</li>
+</ul>
+
+<p>Elk jaar dat je niet opbouwt, is 2% minder AOW. Dit heet een AOW-gat.</p>
+
+<h2>Hoe bouw je werkgeverspensioen op?</h2>
+
+<p>Bij de meeste werkgevers bouw je automatisch pensioen op zodra je in dienst treedt (soms na een korte wachttijd). De opbouw hangt af van:</p>
+
+<ul>
+<li><strong>Je salaris:</strong> Hoe hoger, hoe meer pensioen</li>
+<li><strong>De franchise:</strong> Over een deel van je salaris bouw je geen pensioen op (dit wordt gedekt door AOW)</li>
+<li><strong>Het opbouwpercentage:</strong> Bijvoorbeeld 1,875% per jaar</li>
+<li><strong>Je dienstjaren:</strong> Hoe langer je werkt, hoe meer opbouw</li>
+</ul>
+
+<h2>Hoe bouw je zelf extra pensioen op?</h2>
+
+<p>Als je AOW en werkgeverspensioen niet genoeg zijn, kun je zelf bijsparen. De meest gebruikte methodes:</p>
+
+<h3>Lijfrente of banksparen</h3>
+<p>Je legt geld in dat je later als pensioenuitkering ontvangt. De inleg is fiscaal aftrekbaar (jaarruimte). Je betaalt later belasting over de uitkering, maar dan val je vaak in een lagere schijf.</p>
+
+<h3>Beleggen</h3>
+<p>Door te beleggen kun je potentieel meer rendement behalen dan met sparen. Daar staat risico tegenover. Beleg alleen geld dat je kunt missen en spreid je risico.</p>
+
+<h3>Vrijwillig bijsparen via werkgever</h3>
+<p>Sommige werkgevers bieden de mogelijkheid om extra pensioen op te bouwen tegen gunstige voorwaarden. Vraag het na bij je HR-afdeling.</p>
+
+<h2>Tips voor optimale pensioenopbouw</h2>
+
+<ul>
+<li><strong>Begin vroeg:</strong> Hoe eerder je begint, hoe meer je profiteert van rente-op-rente</li>
+<li><strong>Check je pensioenoverzicht:</strong> Log jaarlijks in op mijnpensioenoverzicht.nl</li>
+<li><strong>Benut je jaarruimte:</strong> Fiscaal voordelig extra sparen</li>
+<li><strong>Wissel niet te vaak van baan:</strong> Pensioenbreuken kunnen je opbouw schaden</li>
+<li><strong>Laat je adviseren:</strong> Een pensioenadviseur kan je situatie doorrekenen</li>
+</ul>
+
+<p>Wil je weten of je voldoende pensioen opbouwt? Neem contact met ons op voor een gratis inventarisatiegesprek.</p>`,
+    faqs: [
+      { question: "Wat zijn de drie pijlers van het Nederlandse pensioen?", answer: "1) AOW (basispensioen van de overheid), 2) Aanvullend pensioen via je werkgever, 3) Individuele pensioenvoorzieningen die je zelf regelt (lijfrente, sparen, beleggen)." },
+      { question: "Bouw ik automatisch pensioen op?", answer: "AOW bouw je automatisch op door in Nederland te wonen. Werkgeverspensioen bouw je op als je werkgever een pensioenregeling heeft. De derde pijler moet je zelf regelen." },
+      { question: "Hoeveel pensioen bouw ik op per jaar?", answer: "Voor AOW bouw je 2% per jaar op. Voor werkgeverspensioen hangt het af van je regeling, vaak rond 1,5-2% van je pensioengrondslag per jaar." },
+      { question: "Wanneer begin ik met pensioen opbouwen?", answer: "AOW-opbouw begint op je 17e. Werkgeverspensioen start meestal bij indiensttreding, soms na een korte wachttijd. De derde pijler kun je op elk moment starten." },
+    ],
+  },
+  {
+    slug: "eerder-met-pensioen",
+    title: "Eerder met pensioen: hoe doe je dat en wat kost het?",
+    description: "Wil je eerder stoppen met werken? Ontdek wat ervoor nodig is, hoeveel het kost en welke opties je hebt om eerder met pensioen te gaan.",
+    category: "Planning",
+    readingTime: 11,
+    lastUpdated: "2026-01-16",
+    relatedSlugs: ["aow-leeftijd", "pensioengat-herkennen", "hoeveel-pensioen-nodig"],
+    content: `<p class="lead">Dromen van eerder stoppen met werken? Je bent niet de enige. Maar eerder met pensioen gaan heeft grote financiële gevolgen. In dit artikel rekenen we voor wat het kost en welke mogelijkheden je hebt.</p>
+
+<h2>Wat betekent "eerder met pensioen"?</h2>
+
+<p>De officiële AOW-leeftijd is momenteel 67 jaar. Eerder met pensioen betekent dat je stopt met werken vóór deze leeftijd. Je moet dan de periode tot je AOW zelf overbruggen.</p>
+
+<p>De gevolgen zijn tweeledig:</p>
+<ul>
+<li>Je bouwt minder pensioen op (kortere werkperiode)</li>
+<li>Je moet langer van je pensioen leven (langere pensioenperiode)</li>
+</ul>
+
+<h2>Wat kost een jaar eerder stoppen?</h2>
+
+<p>Als vuistregel kost elk jaar eerder stoppen je ongeveer 5-7% van je pensioeninkomen. Dit komt door twee factoren:</p>
+
+<h3>1. Gemiste opbouw</h3>
+<p>Elk jaar dat je eerder stopt, bouw je geen pensioen meer op. Bij een gemiddelde opbouw van 1,875% per jaar is dat direct 1,875% minder pensioen.</p>
+
+<h3>2. Vervroegde uitkering</h3>
+<p>Als je je aanvullend pensioen eerder laat ingaan, wordt het bedrag herberekend. Je ontvangt immers langer uitkering, dus het jaarlijkse bedrag wordt lager.</p>
+
+<h3>Rekenvoorbeeld: 5 jaar eerder stoppen</h3>
+
+<p>Stel, je verwacht bij pensioen op 67 jaar een pensioen van €2.500 per maand (AOW + aanvullend). Als je op 62 jaar wilt stoppen:</p>
+
+<ul>
+<li>Je mist 5 jaar AOW-opbouw: <strong>10% minder AOW</strong></li>
+<li>Je hebt 5 jaar geen aanvullend pensioen: <strong>zelf overbruggen</strong></li>
+<li>Je aanvullend pensioen wordt herberekend: <strong>circa 20-25% lager</strong></li>
+</ul>
+
+<p>In dit voorbeeld zou je maandelijks pensioeninkomen kunnen dalen van €2.500 naar ongeveer €1.800-1.900.</p>
+
+<h2>Hoe kun je eerder stoppen?</h2>
+
+<h3>Optie 1: Aanvullend pensioen vervroegen</h3>
+<p>De meeste pensioenregelingen laten je toe om je pensioen eerder te laten ingaan. Let op: de uitkering wordt dan lager omdat je langer ontvangt.</p>
+
+<h3>Optie 2: Spaargeld/vermogen aanspreken</h3>
+<p>Heb je voldoende gespaard? Dan kun je de jaren tot je AOW overbruggen met eigen middelen. Reken goed door hoeveel je nodig hebt.</p>
+
+<h3>Optie 3: Lijfrente eerder laten uitkeren</h3>
+<p>Een lijfrente kun je vaak eerder laten uitkeren dan de AOW-leeftijd. Zo creëer je een overbruggingsinkomen.</p>
+
+<h3>Optie 4: Deeltijdpensioen</h3>
+<p>Sommige werkgevers bieden deeltijdpensioen aan. Je gaat dan parttime werken en ontvangt alvast een deel van je pensioen. Zo bouw je geleidelijk af.</p>
+
+<h3>Optie 5: RVU-regeling (Regeling Vervroegde Uittreding)</h3>
+<p>Sinds 2021 kunnen werkgevers werknemers tot maximaal 3 jaar voor de AOW-leeftijd een uitkering geven zonder extra belasting (RVU-vrijstelling). Vraag je werkgever naar de mogelijkheden.</p>
+
+<h2>Hoeveel moet je gespaard hebben?</h2>
+
+<p>Om 5 jaar eerder te stoppen heb je ruwweg het volgende nodig:</p>
+
+<ul>
+<li><strong>Overbrugging tot AOW:</strong> 5 jaar × 12 maanden × €1.500-2.000 = <strong>€90.000-120.000</strong></li>
+<li><strong>Aanvulling op lager pensioen:</strong> Afhankelijk van hoe lang je leeft, nog eens tienduizenden euro's</li>
+</ul>
+
+<p>Totaal heb je al snel <strong>€150.000-200.000</strong> extra nodig om 5 jaar eerder te kunnen stoppen zonder in te leveren op levensstandaard.</p>
+
+<h2>Tips voor wie eerder wil stoppen</h2>
+
+<ul>
+<li><strong>Begin op tijd met plannen:</strong> Hoe eerder je begint, hoe makkelijker het wordt</li>
+<li><strong>Reken meerdere scenario's door:</strong> Wat als je 62 stopt? 63? 64?</li>
+<li><strong>Benut je jaarruimte:</strong> Extra pensioenopbouw via lijfrente helpt</li>
+<li><strong>Overweeg deeltijd:</strong> Geleidelijk afbouwen is financieel vaak gunstiger</li>
+<li><strong>Los je hypotheek af:</strong> Lagere woonlasten = minder inkomen nodig</li>
+<li><strong>Laat je adviseren:</strong> Een pensioenadviseur kan je situatie doorrekenen</li>
+</ul>
+
+<p>Wil je weten of eerder stoppen voor jou haalbaar is? Neem contact met ons op. We rekenen graag de mogelijkheden voor je door.</p>`,
+    faqs: [
+      { question: "Kan ik eerder met pensioen dan de AOW-leeftijd?", answer: "Ja, je kunt eerder stoppen met werken, maar de AOW-uitkering begint pas op de officiële AOW-leeftijd (67 jaar). Je moet de tussenliggende periode zelf overbruggen." },
+      { question: "Hoeveel kost een jaar eerder stoppen met werken?", answer: "Als vuistregel kost elk jaar eerder stoppen je 5-7% van je pensioeninkomen, door gemiste opbouw en vervroegde uitkering." },
+      { question: "Hoeveel moet ik gespaard hebben om 5 jaar eerder te stoppen?", answer: "Ruwweg €150.000-200.000 extra, afhankelijk van je gewenste levensstandaard en verwachte pensioeninkomen." },
+      { question: "Wat is de RVU-regeling?", answer: "De Regeling Vervroegde Uittreding (RVU) stelt werkgevers in staat om werknemers tot 3 jaar voor de AOW-leeftijd een uitkering te geven zonder extra belasting. Vraag je werkgever naar de mogelijkheden." },
+    ],
+  },
+
 export function getArticleBySlug(slug: string): KnowledgeArticle | undefined {
   return articles.find((a) => a.slug === slug);
 }
