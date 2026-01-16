@@ -128,7 +128,9 @@ function wrapEmailContent(content: string, name?: string) {
 </head>
 <body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <img src="https://mijnpensioengevuld.nl/logo-mijnpensioen.png" alt="MijnPensioenGevuld" style="height: 60px;">
+    <div style="display: inline-block; background: linear-gradient(135deg, #f97316 0%, #f59e0b 100%); color: white; font-weight: bold; font-size: 18px; padding: 12px 24px; border-radius: 10px;">
+      🐷 MijnPensioenGevuld
+    </div>
   </div>
   
   ${name ? `<p style="margin-bottom: 15px;">Beste ${name},</p>` : ""}
