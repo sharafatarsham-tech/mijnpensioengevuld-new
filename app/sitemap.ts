@@ -8,6 +8,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages = [
     { url: baseUrl, lastModified: new Date(), priority: 1.0 },
     { url: `${baseUrl}/kennisbank`, lastModified: new Date(), priority: 0.8 },
+    { url: `${baseUrl}/dienstenwijzer`, lastModified: new Date(), priority: 0.5 },
+    { url: `${baseUrl}/klachten`, lastModified: new Date(), priority: 0.4 },
+    { url: `${baseUrl}/toegankelijkheid`, lastModified: new Date(), priority: 0.3 },
     { url: `${baseUrl}/privacy`, lastModified: new Date(), priority: 0.3 },
     { url: `${baseUrl}/cookies`, lastModified: new Date(), priority: 0.3 },
     { url: `${baseUrl}/voorwaarden`, lastModified: new Date(), priority: 0.3 },

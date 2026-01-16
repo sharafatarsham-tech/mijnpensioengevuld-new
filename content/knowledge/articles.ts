@@ -4,10 +4,10 @@ export const articles: KnowledgeArticle[] = [
   {
     slug: "aow-uitgelegd",
     title: "AOW uitgelegd: alles wat je moet weten over je basispensioen",
-    description: "Wat is de AOW precies en hoeveel krijg je straks? Ontdek hoe de AOW-opbouw werkt, wat een AOW-gat is en hoe je dit kunt repareren. Complete uitleg voor 2025.",
+    description: "Wat is de AOW precies en hoeveel krijg je straks? Ontdek hoe de AOW-opbouw werkt, wat een AOW-gat is en hoe je dit kunt repareren. Complete uitleg voor 2026.",
     category: "Basiskennis",
     readingTime: 12,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["aow-leeftijd", "pensioengat-herkennen", "mijnpensioenoverzicht-lezen"],
     content: `<p class="lead">Stel je voor: je werkt je hele leven hard, kijkt uit naar je pensioen, en dan blijkt je AOW-uitkering een stuk lager dan verwacht. Dit overkomt duizenden Nederlanders elk jaar. De AOW vormt het fundament van je pensioeninkomen, maar veel mensen weten niet precies hoe het werkt. In dit artikel leggen we alles uit wat je moet weten over de Algemene Ouderdomswet.</p>
 
@@ -114,17 +114,17 @@ export const articles: KnowledgeArticle[] = [
   },
   {
     slug: "aow-leeftijd",
-    title: "AOW-leeftijd in 2025: wanneer ga jij met pensioen?",
-    description: "Wat is de AOW-leeftijd in 2025 en daarna? Ontdek wanneer jij recht hebt op AOW, hoe de pensioenleeftijd wordt bepaald en wat je opties zijn als je eerder wilt stoppen.",
+    title: "AOW-leeftijd in 2026: wanneer ga jij met pensioen?",
+    description: "Wat is de AOW-leeftijd in 2026 en daarna? Ontdek wanneer jij recht hebt op AOW, hoe de pensioenleeftijd wordt bepaald en wat je opties zijn als je eerder wilt stoppen.",
     category: "Basiskennis",
     readingTime: 10,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["aow-uitgelegd", "pensioengat-herkennen"],
     content: `<p class="lead">De vraag "wanneer kan ik met pensioen?" houdt veel Nederlanders bezig. Het antwoord is minder eenvoudig dan vroeger, toen iedereen op zijn 65e stopte. De AOW-leeftijd is de afgelopen jaren flink gestegen en kan in de toekomst nog verder omhoog gaan. In dit artikel leggen we uit hoe de AOW-leeftijd wordt bepaald en wat dit voor jou betekent.</p>
 
-<h2>De AOW-leeftijd in 2025: 67 jaar</h2>
+<h2>De AOW-leeftijd in 2026: 67 jaar</h2>
 
-<p>In 2025 is de AOW-leeftijd 67 jaar. Dit betekent dat iedereen die dit jaar de AOW-leeftijd bereikt, op zijn of haar 67e verjaardag recht heeft op de AOW-uitkering. Maar let op: je exacte ingangsdatum hangt af van je geboortedatum. De SVB berekent dit tot op de dag nauwkeurig.</p>
+<p>In 2026 is de AOW-leeftijd 67 jaar. Dit betekent dat iedereen die dit jaar de AOW-leeftijd bereikt, op zijn of haar 67e verjaardag recht heeft op de AOW-uitkering. Maar let op: je exacte ingangsdatum hangt af van je geboortedatum. De SVB berekent dit tot op de dag nauwkeurig.</p>
 
 <p>De AOW-leeftijd is de afgelopen jaren stapsgewijs verhoogd van 65 naar 67 jaar. Deze verhoging was noodzakelijk om de AOW betaalbaar te houden. Mensen leven immers steeds langer, en dus ontvangen ze ook langer AOW. Door de pensioenleeftijd te verhogen, blijft de balans tussen werkenden en gepensioneerden in evenwicht.</p>
 
@@ -190,7 +190,7 @@ export const articles: KnowledgeArticle[] = [
 
 <p>De AOW-leeftijd is slechts één puzzelstukje van je pensioenplaatje. Wil je weten hoe jouw totale pensioensituatie eruitziet? Of heb je vragen over eerder stoppen met werken? Neem dan contact met ons op. In een vrijblijvend gesprek brengen we samen je situatie in kaart en bespreken we de mogelijkheden.</p>`,
     faqs: [
-      { question: "Wat is de AOW-leeftijd in 2025?", answer: "De AOW-leeftijd in 2025 is 67 jaar. Je exacte ingangsdatum hangt af van je geboortedatum." },
+      { question: "Wat is de AOW-leeftijd in 2026?", answer: "De AOW-leeftijd in 2026 is 67 jaar. Je exacte ingangsdatum hangt af van je geboortedatum." },
       { question: "Kan ik eerder met pensioen dan de AOW-leeftijd?", answer: "Je kunt eerder stoppen met werken, maar je AOW-uitkering begint pas op de officiële AOW-leeftijd. De tussenliggende periode moet je zelf overbruggen." },
       { question: "Stijgt de AOW-leeftijd nog verder?", answer: "Op dit moment blijft de AOW-leeftijd stabiel op 67 jaar. Verdere stijging hangt af van de ontwikkeling van de levensverwachting." },
       { question: "Is de pensioenleeftijd van mijn werkgever hetzelfde als de AOW-leeftijd?", answer: "Niet altijd. Veel werkgeversregelingen hanteren een pensioenleeftijd van 68 jaar. Check je UPO voor jouw specifieke situatie." },
@@ -202,7 +202,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Heb jij een pensioengat? Leer de 6 belangrijkste signalen herkennen, bereken hoe groot jouw tekort is en ontdek concrete oplossingen om je pensioen aan te vullen.",
     category: "Inzicht",
     readingTime: 14,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["mijnpensioenoverzicht-lezen", "jaarruimte-uitgelegd", "zzp-pensioen"],
     content: `<p class="lead">Je werkt hard, betaalt netjes je pensioenpremie, en gaat ervan uit dat het later wel goed komt. Maar dan check je mijnpensioenoverzicht.nl en schrik je: het verwachte bedrag is veel lager dan je dacht. Welkom bij het pensioengat, een fenomeen dat miljoenen Nederlanders treft, vaak zonder dat ze het weten.</p>
 
@@ -317,7 +317,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Hoe lees je mijnpensioenoverzicht.nl correct? Leer alle onderdelen begrijpen, van AOW tot aanvullend pensioen, en ontdek wat de cijfers echt betekenen voor jouw toekomst.",
     category: "Praktisch",
     readingTime: 11,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["upo-uitgelegd", "aow-uitgelegd", "pensioengat-herkennen"],
     content: `<p class="lead">Mijnpensioenoverzicht.nl is dé plek waar je al je pensioenen bij elkaar ziet. Maar als je voor het eerst inlogt, kan het overweldigend zijn. Wat betekenen al die cijfers? Waarom staan er twee bedragen? En klopt het eigenlijk wel? In deze handleiding nemen we je stap voor stap mee door het overzicht.</p>
 
@@ -428,7 +428,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Als ZZP'er bouw je geen verplicht pensioen op. Ontdek welke mogelijkheden je hebt, van lijfrente tot beleggen, en leer hoeveel je zou moeten inleggen voor een zorgeloos pensioen.",
     category: "ZZP",
     readingTime: 13,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["jaarruimte-uitgelegd", "pensioengat-herkennen", "factor-a-uitgelegd"],
     content: `<p class="lead">De vrijheid van het ZZP-schap heeft veel voordelen: je bepaalt zelf je werktijden, kiest je opdrachten en bent je eigen baas. Maar die vrijheid heeft ook een keerzijde als het om pensioen gaat. Anders dan werknemers bouw je als zelfstandige geen automatisch pensioen op. Als je niets regelt, heb je straks alleen je AOW. Voor de meeste mensen is dat niet genoeg om comfortabel van te leven.</p>
 
@@ -525,7 +525,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Wat staat er op je UPO en hoe lees je het correct? Leer alle onderdelen begrijpen, van opgebouwd pensioen tot Factor A, en ontdek waar je op moet letten.",
     category: "Praktisch",
     readingTime: 10,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["mijnpensioenoverzicht-lezen", "factor-a-uitgelegd", "nabestaandenpensioen"],
     content: `<p class="lead">Elk jaar valt hij op de mat of in je inbox: je Uniform Pensioenoverzicht, beter bekend als UPO. Het is een document vol cijfers en termen dat voor veel mensen direct in de la verdwijnt. Zonde, want je UPO bevat waardevolle informatie over je pensioenopbouw. In dit artikel leggen we uit wat erop staat en waar je op moet letten.</p>
 
@@ -619,7 +619,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Factor A is essentieel voor je jaarruimteberekening. Ontdek wat Factor A precies is, waar je het vindt en hoe het je fiscale ruimte voor pensioenopbouw beïnvloedt.",
     category: "Fiscaal",
     readingTime: 9,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["jaarruimte-uitgelegd", "upo-uitgelegd", "zzp-pensioen"],
     content: `<p class="lead">Als je ooit hebt geprobeerd je jaarruimte te berekenen, ben je ongetwijfeld de term 'Factor A' tegengekomen. Het klinkt technisch en ingewikkeld, maar het concept is eigenlijk vrij eenvoudig. In dit artikel leggen we uit wat Factor A is, waarom het bestaat en hoe je het kunt vinden en gebruiken.</p>
 
@@ -694,7 +694,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Hoeveel mag je fiscaal aftrekbaar inleggen voor je pensioen? Leer hoe jaarruimte en reserveringsruimte werken en hoe je optimaal profiteert van het belastingvoordeel.",
     category: "Fiscaal",
     readingTime: 11,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["factor-a-uitgelegd", "zzp-pensioen", "pensioengat-herkennen"],
     content: `<p class="lead">Als je extra pensioen wilt opbouwen via een lijfrente of banksparen, krijg je te maken met jaarruimte. Dit is het maximale bedrag dat je fiscaal aftrekbaar mag inleggen. Benut je je jaarruimte niet volledig? Dan kun je de gemiste ruimte later nog inhalen via de reserveringsruimte. Klinkt ingewikkeld? We leggen het stap voor stap uit.</p>
 
@@ -783,7 +783,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Bij een nieuwe baan kun je je opgebouwde pensioen meenemen via waardeoverdracht. Maar is dat altijd verstandig? Ontdek de voor- en nadelen en wanneer je beter kunt afzien.",
     category: "Beslissingen",
     readingTime: 10,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["pensioengat-herkennen", "upo-uitgelegd"],
     content: `<p class="lead">Je krijgt een nieuwe baan en vraagt je af: wat doe ik met het pensioen dat ik bij mijn vorige werkgever heb opgebouwd? Eén optie is waardeoverdracht: het meenemen van je opgebouwde pensioen naar je nieuwe werkgever. Klinkt logisch, maar is het altijd verstandig? In dit artikel wegen we de voor- en nadelen af.</p>
 
@@ -867,7 +867,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Wat gebeurt er met je pensioen als je overlijdt? Leer alles over partnerpensioen en wezenpensioen, het verschil tussen opbouw- en risicobasis, en hoe je je nabestaanden goed verzekerd achterlaat.",
     category: "Bescherming",
     readingTime: 11,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["upo-uitgelegd", "partnerpensioen-wezenpensioen"],
     content: `<p class="lead">Het is geen onderwerp waar je graag over nadenkt, maar het is wel belangrijk: wat gebeurt er met je pensioen als jij er niet meer bent? Krijgt je partner iets? En je kinderen? In dit artikel leggen we uit hoe nabestaandenpensioen werkt en waar je op moet letten.</p>
 
@@ -961,7 +961,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Als je pensioen niet meegroeit met de prijzen, kun je er steeds minder van kopen. Leer wat indexatie is, welke soorten er zijn en hoe je checkt of jouw pensioen wordt aangepast.",
     category: "Inzicht",
     readingTime: 10,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["mijnpensioenoverzicht-lezen", "pensioengat-herkennen"],
     content: `<p class="lead">Je bouwt jarenlang pensioen op en verwacht dat je later van dat bedrag kunt leven. Maar wat als de prijzen in de tussentijd verdubbelen? Dan kun je met hetzelfde bedrag maar de helft kopen. Daarom is indexatie zo belangrijk: het aanpassen van je pensioen aan de gestegen prijzen. In dit artikel leggen we uit hoe het werkt.</p>
 
@@ -1039,7 +1039,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Bij een scheiding wordt pensioen verdeeld. Leer hoe verevening en conversie werken, wat bijzonder partnerpensioen is en wat je moet regelen om je rechten veilig te stellen.",
     category: "Beslissingen",
     readingTime: 11,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["partnerpensioen-wezenpensioen", "pensioengat-herkennen"],
     content: `<p class="lead">Een scheiding is emotioneel en praktisch complex. Eén van de zaken die geregeld moet worden, is de verdeling van pensioen. Het pensioen dat tijdens het huwelijk is opgebouwd, wordt in principe gedeeld. Maar hoe werkt dat precies? En wat zijn je opties?</p>
 
@@ -1128,7 +1128,7 @@ export const articles: KnowledgeArticle[] = [
     description: "Wat krijgt je partner als jij overlijdt? En je kinderen? Leer het verschil tussen partnerpensioen en wezenpensioen, en ontdek wat bijzonder partnerpensioen betekent na een scheiding.",
     category: "Bescherming",
     readingTime: 9,
-    lastUpdated: "2025-01-15",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["nabestaandenpensioen", "pensioen-scheiding"],
     content: `<p class="lead">Nabestaandenpensioen klinkt als één regeling, maar het bestaat eigenlijk uit twee delen: partnerpensioen voor je partner en wezenpensioen voor je kinderen. In dit artikel leggen we beide vormen uit, inclusief de bijzondere regels die gelden na een scheiding.</p>
 
@@ -1209,11 +1209,11 @@ export const articles: KnowledgeArticle[] = [
   },
   {
     slug: "wet-toekomst-pensioenen-werkgevers",
-    title: "Wet toekomst pensioenen: verplichtingen voor werkgevers in 2025",
+    title: "Wet toekomst pensioenen: verplichtingen voor werkgevers in 2026",
     description: "Wat betekent de Wet toekomst pensioenen (Wtp) voor u als werkgever? Ontdek uw wettelijke verplichtingen, belangrijke deadlines en hoe u voldoet aan de informatieplicht naar werknemers.",
     category: "Werkgevers",
     readingTime: 15,
-    lastUpdated: "2025-01-16",
+    lastUpdated: "2026-01-16",
     relatedSlugs: ["pensioengat-herkennen", "pensioenfonds-verzekeraar-verschil", "aow-uitgelegd"],
     content: `<p class="lead">Op 1 juli 2023 is de Wet toekomst pensioenen (Wtp) in werking getreden. Dit is de grootste wijziging van het Nederlandse pensioenstelsel in decennia. Als werkgever heeft u te maken met nieuwe verplichtingen rondom pensioencommunicatie en de transitie naar het nieuwe stelsel. In dit artikel leggen we uit wat de wet voor u betekent en hoe u aan uw verplichtingen voldoet.</p>
 

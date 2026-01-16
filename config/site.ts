@@ -52,5 +52,8 @@ export const footerLinks = {
     { label: "Privacy", href: "/privacy" },
     { label: "Cookies", href: "/cookies" },
     { label: "Voorwaarden", href: "/voorwaarden" },
+    { label: "Dienstenwijzer", href: "/dienstenwijzer" },
+    { label: "Klachten", href: "/klachten" },
+    { label: "Toegankelijkheid", href: "/toegankelijkheid" },
   ],
 };
