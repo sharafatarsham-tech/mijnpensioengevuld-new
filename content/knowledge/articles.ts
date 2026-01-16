@@ -8,6 +8,8 @@ export const articles: KnowledgeArticle[] = [
     category: "Basiskennis",
     readingTime: 12,
     lastUpdated: "2026-01-16",
+    image: "/kennisbank/aow-uitleg.jpg",
+    imageAlt: "AOW uitgelegd - basispensioen in Nederland",
     relatedSlugs: ["aow-leeftijd", "pensioengat-herkennen", "mijnpensioenoverzicht-lezen"],
     content: `<p class="lead">Stel je voor: je werkt je hele leven hard, kijkt uit naar je pensioen, en dan blijkt je AOW-uitkering een stuk lager dan verwacht. Dit overkomt duizenden Nederlanders elk jaar. De AOW vormt het fundament van je pensioeninkomen, maar veel mensen weten niet precies hoe het werkt. In dit artikel leggen we alles uit wat je moet weten over de Algemene Ouderdomswet.</p>
 
