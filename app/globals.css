@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Selection color */
+::selection {
+  background: #fed7aa;
+  color: #1e293b;
+}
+
+/* Better range slider styling */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-track {
+  background: #fed7aa;
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #f97316, #f59e0b);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4);
+  margin-top: -6px;
+}
+
+input[type="range"]::-moz-range-track {
+  background: #fed7aa;
+  height: 8px;
+  border-radius: 4px;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #f97316, #f59e0b);
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 6px rgba(249, 115, 22, 0.4);
+}
+
+/* Focus ring for accessibility */
+input:focus-visible,
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #f97316;
+  outline-offset: 2px;
+}
+
+.lead {
+  @apply text-xl text-slate-600 mb-6 leading-relaxed;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold text-slate-800 mt-10 mb-4 pb-2 border-b border-slate-100;
+}
+
+.prose h3 {
+  @apply text-xl font-bold text-slate-800 mt-8 mb-3;
+}
+
+.prose p {
+  @apply text-slate-600 mb-4 leading-relaxed;
+}
+
+.prose ul {
+  @apply list-none mb-6 space-y-3 text-slate-600;
+}
+
+.prose ul li {
+  @apply pl-6 relative;
+}
+
+.prose ul li::before {
+  content: "";
+  @apply absolute left-0 top-2 w-2 h-2 bg-orange-400 rounded-full;
+}
+
+.prose ol {
+  @apply list-decimal list-inside mb-6 space-y-2 text-slate-600;
+}
+
+.prose li strong {
+  @apply text-slate-800;
+}
+
+.prose em {
+  @apply text-slate-500;
+}
+
+.prose a {
+  @apply text-orange-500 hover:text-orange-600 underline underline-offset-2;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-orange-400 pl-4 italic text-slate-500 my-6;
+}
