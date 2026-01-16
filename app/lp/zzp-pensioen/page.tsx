@@ -56,7 +56,7 @@ export default function LandingPageZZP() {
               <ul className="space-y-2 text-sm text-red-700">
                 <li>• Gemiddeld pensioengat van €400-800 per maand</li>
                 <li>• Alleen AOW = slechts ~€1.400/maand</li>
-                <li>• Onbenut fiscaal voordeel tot €15.000/jaar</li>
+                <li>• Onbenut fiscaal voordeel tot <strong>€35.589/jaar</strong> (jaarruimte 2026)</li>
               </ul>
             </div>
 
@@ -138,7 +138,7 @@ export default function LandingPageZZP() {
               ))}
             </div>
             <blockquote className="text-lg text-slate-700 italic mb-4">
-              "Als ZZP'er liet ik al 5 jaar mijn jaarruimte onbenut. Bleek dat ik €8.000 aan belastingvoordeel had kunnen pakken. Nu leg ik maandelijks in en bouw ik eindelijk pensioen op."
+              "Als ZZP'er liet ik al 5 jaar mijn jaarruimte onbenut. Bleek dat ik meer dan €40.000 aan reserveringsruimte had! Nu leg ik maandelijks in en bouw ik eindelijk pensioen op."
             </blockquote>
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center text-white font-bold">
@@ -165,7 +165,7 @@ export default function LandingPageZZP() {
               },
               {
                 q: "Hoeveel kan ik besparen?",
-                a: "Afhankelijk van je inkomen kun je tot €15.000+ per jaar fiscaal voordelig inleggen. Dit levert direct belastingvoordeel op."
+                a: "De maximale jaarruimte in 2026 is €35.589. Daarbovenop kun je tot €42.753 aan reserveringsruimte (niet-benutte jaarruimte van afgelopen 10 jaar) inleggen. Dit levert direct belastingvoordeel op."
               },
               {
                 q: "Wat zijn mijn opties?",
