@@ -121,6 +121,8 @@ export const articles: KnowledgeArticle[] = [
     category: "Basiskennis",
     readingTime: 10,
     lastUpdated: "2026-01-16",
+    image: "/kennisbank/aow-leeftijd.jpg",
+    imageAlt: "AOW-leeftijd 2026 - wanneer ga jij met pensioen",
     relatedSlugs: ["aow-uitgelegd", "pensioengat-herkennen"],
     content: `<p class="lead">De vraag "wanneer kan ik met pensioen?" houdt veel Nederlanders bezig. Het antwoord is minder eenvoudig dan vroeger, toen iedereen op zijn 65e stopte. De AOW-leeftijd is de afgelopen jaren flink gestegen en kan in de toekomst nog verder omhoog gaan. In dit artikel leggen we uit hoe de AOW-leeftijd wordt bepaald en wat dit voor jou betekent.</p>
 
