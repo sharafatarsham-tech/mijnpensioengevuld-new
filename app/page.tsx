@@ -38,71 +38,71 @@ export default function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="relative pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
+    <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-white to-amber-50/50" />
       <div className="absolute top-20 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl" />
-      <div className="max-w-6xl mx-auto px-6 relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 shadow-sm px-4 py-2 rounded-full mb-6">
+            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 shadow-sm px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-sm font-medium text-green-700">Nu beschikbaar voor gratis gesprek</span>
+              <span className="text-xs sm:text-sm font-medium text-green-700">Nu beschikbaar voor gratis gesprek</span>
             </div>
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
               Voorkom dat je later moet inleveren.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet binnen 1,5 uur waar je aan toe bent.</span>
             </h1>
-            <p className="text-xl text-slate-600 mb-8">Gratis, vertrouwelijk en vrijblijvend inzicht in jouw pensioen.</p>
+            <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8">Gratis, vertrouwelijk en vrijblijvend inzicht in jouw pensioen.</p>
             
             <PensionAgeSlider />
             
-            <p className="text-sm text-slate-500 my-6 flex flex-wrap gap-x-4 gap-y-1">
-              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Vertrouwelijk</span>
-              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Geen spam</span>
-              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Binnen 24 uur reactie</span>
-              <span className="flex items-center gap-1"><svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 100% vrijblijvend</span>
+            <p className="text-xs sm:text-sm text-slate-500 my-4 sm:my-6 flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-2">
+              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Vertrouwelijk</span>
+              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Geen spam</span>
+              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Binnen 24u reactie</span>
+              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 100% vrijblijvend</span>
             </p>
-            <div className="flex flex-wrap gap-4 text-sm">
-              <span className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-200">
-                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm">
+              <span className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
                 <span className="text-slate-600">AFM-geregistreerd</span>
               </span>
-              <span className="flex items-center gap-2 bg-white px-3 py-1.5 rounded-full border border-slate-200">
-                <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              <span className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
                 <span className="text-slate-600">Persoonlijk advies</span>
               </span>
             </div>
           </div>
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl p-6 lg:p-8 shadow-2xl shadow-orange-200/30 border border-orange-100 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs font-bold px-4 py-1 rounded-full">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-2xl shadow-orange-200/30 border border-orange-100 relative">
+            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
               GRATIS INVENTARISATIE
             </div>
-            <div className="text-center mb-6 pt-2">
-              <div className="inline-flex items-center gap-2 bg-orange-50 text-orange-700 text-sm font-medium px-3 py-1 rounded-full mb-3">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                1-1,5 uur persoonlijke aandacht
+            <div className="text-center mb-5 sm:mb-6 pt-2 sm:pt-2">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-orange-50 text-orange-700 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1 rounded-full mb-2 sm:mb-3">
+                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <span className="whitespace-nowrap">1-1,5 uur persoonlijke aandacht</span>
               </div>
-              <h2 className="text-xl font-bold text-slate-800">Gratis Pensioen Inventarisatie</h2>
-              <p className="text-slate-600 mt-2 text-sm">Een uitgebreid gesprek waarin we jouw <span className="font-semibold">complete situatie</span> in kaart brengen</p>
+              <h2 className="text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis Pensioen Inventarisatie</h2>
+              <p className="text-slate-600 mt-2 text-xs sm:text-sm px-2">Een uitgebreid gesprek waarin we jouw <span className="font-semibold">complete situatie</span> in kaart brengen</p>
             </div>
-            <ul className="space-y-3 mb-6">
+            <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
               {[
                 "Volledige analyse van je huidige pensioen",
                 "Strategische vragen over jouw doelen",
                 "Berekening van je persoonlijke pensioengat",
                 "Concrete oplossingen op maat"
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                  <span className="text-slate-700 text-sm">{item}</span>
+                <li key={item} className="flex items-center gap-2 sm:gap-3">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <span className="text-slate-700 text-xs sm:text-sm">{item}</span>
                 </li>
               ))}
             </ul>
-            <Link href="#contact" className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25">
+            <Link href="#contact" className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center transition-all shadow-lg shadow-orange-500/25 active:scale-[0.98]">
               Vraag gratis inventarisatie aan →
             </Link>
-            <p className="text-center text-xs text-slate-500 mt-3">100% gratis & vrijblijvend • Beperkte plekken</p>
+            <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3">100% gratis & vrijblijvend • Beperkte plekken</p>
           </div>
           <AtmosphereImage 
             src="/hero-trust.png"
@@ -118,18 +118,18 @@ function HeroSection() {
 
 function StatsSection() {
   return (
-    <section className="py-12 bg-gradient-to-r from-slate-800 to-slate-900">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+    <section className="py-12 lg:py-16 bg-gradient-to-r from-slate-800 to-slate-900">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
           {[
             { value: "Sinds 2009", label: "Actief in pensioenadvies" },
             { value: "42", label: "Banken, verzekeraars & vermogensbeheerders" },
             { value: "1-op-1", label: "Persoonlijke aandacht" },
             { value: "<24u", label: "Reactie gegarandeerd" },
           ].map((stat) => (
-            <div key={stat.label}>
-              <p className="text-3xl lg:text-4xl font-bold text-orange-400">{stat.value}</p>
-              <p className="text-slate-300 text-sm">{stat.label}</p>
+            <div key={stat.label} className="px-2">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 mb-2">{stat.value}</p>
+              <p className="text-slate-300 text-xs sm:text-sm leading-tight">{stat.label}</p>
             </div>
           ))}
         </div>
@@ -140,12 +140,12 @@ function StatsSection() {
 
 function WhySection() {
   return (
-    <section id="waarom" className="py-20 lg:py-28 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom pensioenadvies?</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">Straks zorgeloos genieten begint vandaag</h2>
-          <p className="text-lg text-slate-600">De meeste mensen weten niet wat ze straks krijgen. Na één gesprek weet jij het wel.</p>
+    <section id="waarom" className="py-16 sm:py-20 lg:py-28 bg-white">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
+          <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom pensioenadvies?</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">Straks zorgeloos genieten begint vandaag</h2>
+          <p className="text-base sm:text-lg text-slate-600 px-4">De meeste mensen weten niet wat ze straks krijgen. Na één gesprek weet jij het wel.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {[

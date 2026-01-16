@@ -76,14 +76,14 @@ export function ContactForm() {
 
   if (formState === "success") {
     return (
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center">
-        <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <div className="bg-green-50 border border-green-200 rounded-2xl p-6 sm:p-8 text-center">
+        <div className="w-14 h-14 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-7 h-7 sm:w-8 sm:h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
           </svg>
         </div>
-        <h3 className="text-xl font-bold text-green-800 mb-2">Je aanvraag is ontvangen!</h3>
-        <p className="text-green-700 mb-4">We nemen binnen 24 uur contact met je op om een afspraak in te plannen.</p>
+        <h3 className="text-lg sm:text-xl font-bold text-green-800 mb-2 px-2">Je aanvraag is ontvangen!</h3>
+        <p className="text-sm sm:text-base text-green-700 mb-4 px-2">We nemen binnen 24 uur contact met je op om een afspraak in te plannen.</p>
         <div className="bg-white/50 rounded-lg p-4 text-left">
           <p className="text-sm text-green-800 font-medium mb-2">Wat kun je verwachten:</p>
           <ul className="text-sm text-green-700 space-y-1">
@@ -216,12 +216,12 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={formState === "loading"}
-        className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:scale-[1.02] transition-all disabled:opacity-50 text-lg"
+        className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl active:scale-[0.98] transition-all disabled:opacity-50 text-base sm:text-lg"
       >
         {formState === "loading" ? "Versturen..." : "Ja, plan mijn gratis gesprek"}
       </button>
 
-      <p className="text-center text-xs text-slate-500">
+      <p className="text-center text-[10px] sm:text-xs text-slate-500">
         We bellen je binnen 24 uur om een afspraak in te plannen
       </p>
     </form>

@@ -7,22 +7,22 @@ export function PensionAgeSlider() {
   const [age, setAge] = useState(67);
   
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-orange-100 max-w-sm w-full mx-auto lg:mx-0 mt-8">
-      <div className="flex justify-between items-end mb-4">
+    <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-5 sm:p-6 shadow-xl border border-orange-100 max-w-sm w-full mx-auto lg:mx-0 mt-6 sm:mt-8">
+      <div className="flex justify-between items-end mb-3 sm:mb-4">
         <div>
-          <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Ik wil stoppen op</p>
+          <p className="text-xs sm:text-sm font-semibold text-slate-500 uppercase tracking-wider">Ik wil stoppen op</p>
           <div className="flex items-baseline gap-1">
-            <span className="text-4xl font-bold text-orange-500">{age}</span>
-            <span className="text-lg font-medium text-slate-400">jaar</span>
+            <span className="text-3xl sm:text-4xl font-bold text-orange-500">{age}</span>
+            <span className="text-base sm:text-lg font-medium text-slate-400">jaar</span>
           </div>
         </div>
         <div className="text-right">
-          <p className="text-xs text-slate-400 mb-1">Standaard AOW</p>
-          <span className="text-sm font-semibold text-slate-600 bg-slate-100 px-2 py-1 rounded">67 jaar</span>
+          <p className="text-[10px] sm:text-xs text-slate-400 mb-1">Standaard AOW</p>
+          <span className="text-xs sm:text-sm font-semibold text-slate-600 bg-slate-100 px-2 py-0.5 sm:py-1 rounded whitespace-nowrap">67 jaar</span>
         </div>
       </div>
       
-      <div className="mb-6 relative h-6 flex items-center">
+      <div className="mb-5 sm:mb-6 relative h-6 flex items-center">
         <input
           type="range"
           min="55"
@@ -40,7 +40,7 @@ export function PensionAgeSlider() {
         </div>
       </div>
 
-      <p className="text-sm text-slate-600 mb-4 leading-relaxed">
+      <p className="text-xs sm:text-sm text-slate-600 mb-3 sm:mb-4 leading-relaxed">
         {age < 67 
           ? "Eerder stoppen kost geld. Weet jij hoeveel je nodig hebt om dit gat op te vangen?" 
           : age === 67 
@@ -50,7 +50,7 @@ export function PensionAgeSlider() {
 
       <Link 
         href="#calculator" 
-        className="block w-full bg-slate-800 hover:bg-slate-900 text-white text-center font-semibold py-3 rounded-xl transition-all shadow-lg shadow-slate-800/20"
+        className="block w-full bg-slate-800 hover:bg-slate-900 active:scale-[0.98] text-white text-center font-semibold py-2.5 sm:py-3 rounded-xl transition-all shadow-lg shadow-slate-800/20 text-sm sm:text-base"
       >
         Bereken de impact →
       </Link>
