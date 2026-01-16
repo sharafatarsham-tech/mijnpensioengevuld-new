@@ -25,4 +25,8 @@ export const faqs: FAQ[] = [
     question: "Hoe lang duurt het voordat ik duidelijkheid heb?",
     answer: "Na het inventarisatiegesprek van 1-1,5 uur heb je direct een eerste beeld. Binnen een week ontvang je een volledig adviesrapport met concrete aanbevelingen voor jouw situatie.",
   },
+  {
+    question: "Is het gesprek vertrouwelijk?",
+    answer: "Ja. Alles wat je met ons deelt blijft vertrouwelijk en wordt alleen gebruikt om jouw situatie goed in kaart te brengen. Het gesprek is bovendien volledig vrijblijvend.",
+  },
 ];

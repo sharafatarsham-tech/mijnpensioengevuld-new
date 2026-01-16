@@ -101,8 +101,8 @@ export default function DienstenwijzerPage() {
           <h2>Onafhankelijkheid</h2>
           <p>
             Wij geven onafhankelijk advies. Dit betekent dat wij niet gebonden zijn aan één
-            specifieke aanbieder. Wij vergelijken producten van meer dan 40 pensioenaanbieders
-            om tot het beste advies voor uw situatie te komen.
+            specifieke aanbieder. Wij vergelijken producten van meer dan 40 banken, verzekeraars
+            en vermogensbeheerders om tot het beste advies voor uw situatie te komen.
           </p>
 
           <h2>Beloning</h2>
