@@ -37,7 +37,7 @@ export default function CookiesPage() {
           <h2>Contact</h2>
           <p>Vragen over cookies? Neem contact op via {siteConfig.contact.email}.</p>
 
-          <p className="text-sm text-slate-500 mt-8">Laatst bijgewerkt: januari 2025</p>
+          <p className="text-sm text-slate-500 mt-8">Laatst bijgewerkt: januari 2026</p>
         </article>
       </main>
       <Footer />

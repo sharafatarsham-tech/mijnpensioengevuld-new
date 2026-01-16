@@ -22,15 +22,18 @@ export default function PrivacyPage() {
           <ul>
             <li>Naam</li>
             <li>E-mailadres</li>
-            <li>Telefoonnummer (optioneel)</li>
-            <li>Je vraag of bericht</li>
+            <li>Telefoonnummer</li>
+            <li>Je situatie (bijv. werknemer, ZZP&apos;er, werkgever)</li>
+            <li>Je leeftijdscategorie (optioneel)</li>
+            <li>Je vraag of bericht (optioneel)</li>
           </ul>
 
           <h2>Waarvoor gebruiken we je gegevens?</h2>
           <p>We gebruiken je gegevens uitsluitend om:</p>
           <ul>
-            <li>Contact met je op te nemen naar aanleiding van je vraag</li>
+            <li>Telefonisch contact met je op te nemen om een afspraak in te plannen</li>
             <li>Je te informeren over onze diensten als je daar om vraagt</li>
+            <li>Je situatie in kaart te brengen voor het inventarisatiegesprek</li>
           </ul>
 
           <h2>Delen met derden</h2>
@@ -52,7 +55,7 @@ export default function PrivacyPage() {
             <li>Telefoon: {siteConfig.contact.phone}</li>
           </ul>
 
-          <p className="text-sm text-slate-500 mt-8">Laatst bijgewerkt: januari 2025</p>
+          <p className="text-sm text-slate-500 mt-8">Laatst bijgewerkt: januari 2026</p>
         </article>
       </main>
       <Footer />

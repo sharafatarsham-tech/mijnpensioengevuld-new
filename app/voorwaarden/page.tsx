@@ -46,7 +46,7 @@ export default function VoorwaardenPage() {
           <h2>Artikel 8 - Toepasselijk recht</h2>
           <p>Op alle overeenkomsten is Nederlands recht van toepassing.</p>
 
-          <p className="text-sm text-slate-500 mt-8">Laatst bijgewerkt: januari 2025</p>
+          <p className="text-sm text-slate-500 mt-8">Laatst bijgewerkt: januari 2026</p>
         </article>
       </main>
       <Footer />

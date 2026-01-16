@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config/site";
 import { LocalBusinessSchema, WebsiteSchema } from "@/components/StructuredData";
+import { CookieConsent } from "@/components/CookieConsent";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -59,6 +60,7 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
         {children}
+        <CookieConsent />
       </body>
     </html>
   );
