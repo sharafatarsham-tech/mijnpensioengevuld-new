@@ -33,10 +33,9 @@ export const siteConfig = {
 };
 
 export const navItems = [
-  { label: "Waarom", href: "/#waarom" },
   { label: "Werkwijze", href: "/#werkwijze" },
-  { label: "Werkgevers", href: "/#werkgevers" },
   { label: "Calculator", href: "/#calculator" },
+  { label: "Werkgevers", href: "/werkgevers" },
   { label: "Kennisbank", href: "/kennisbank" },
   { label: "Contact", href: "/#contact" },
 ];
@@ -44,7 +43,7 @@ export const navItems = [
 export const footerLinks = {
   main: [
     { label: "Kennisbank", href: "/kennisbank" },
-    { label: "Werkgevers", href: "/#werkgevers" },
+    { label: "Werkgevers", href: "/werkgevers" },
     { label: "Werkwijze", href: "/#werkwijze" },
     { label: "Contact", href: "/#contact" },
   ],
