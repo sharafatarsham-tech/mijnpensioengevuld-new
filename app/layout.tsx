@@ -4,6 +4,7 @@ import { LocalBusinessSchema, WebsiteSchema } from "@/components/StructuredData"
 import { CookieConsent } from "@/components/CookieConsent";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -91,6 +92,7 @@ export default function RootLayout({
         <WebsiteSchema />
       </head>
       <body className="min-h-screen bg-white text-slate-900 antialiased">
+        <GoogleAnalytics />
         {children}
         <WhatsAppButton />
         <StickyMobileCTA />

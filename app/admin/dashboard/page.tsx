@@ -3,95 +3,81 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { PiggyIcon } from "@/components/ui/PiggyIcon";
+import type { Lead, Subscriber } from "@/lib/supabase";
 
-interface Message {
-  id: string;
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-  createdAt: string;
-  read: boolean;
-}
-
-export default function AdminDashboard() {
-  const [messages, setMessages] = useState<Message[]>([]);
+export default function AdminDashboardPage() {
+  const [leads, setLeads] = useState<Lead[]>([]);
+  const [subscribers, setSubscribers] = useState<Subscriber[]>([]);
   const [loading, setLoading] = useState(true);
-  const [selectedMessage, setSelectedMessage] = useState<Message | null>(null);
+  const [error, setError] = useState("");
   const router = useRouter();
 
-  useEffect(() => {
-    checkAuthAndLoadMessages();
-  }, []);
-
-  const checkAuthAndLoadMessages = async () => {
-    try {
-      const authRes = await fetch("/api/auth");
-      const authData = await authRes.json();
-
-      if (!authData.authenticated) {
-        router.push("/admin");
-        return;
-      }
-
-      const messagesRes = await fetch("/api/messages");
-      if (messagesRes.ok) {
-        const data = await messagesRes.json();
-        setMessages(data.messages || []);
-      }
-    } catch {
+  const getAuthHeader = () => {
+    const password = sessionStorage.getItem("adminPassword");
+    if (!password) {
       router.push("/admin");
-    } finally {
-      setLoading(false);
+      return null;
     }
+    return { Authorization: `Bearer ${password}` };
   };
 
-  const handleLogout = async () => {
-    await fetch("/api/auth", { method: "DELETE" });
+  useEffect(() => {
+    const fetchData = async () => {
+      const headers = getAuthHeader();
+      if (!headers) return;
+
+      try {
+        const [leadsRes, subscribersRes] = await Promise.all([
+          fetch("/api/leads", { headers }),
+          fetch("/api/subscribers", { headers }),
+        ]);
+
+        if (!leadsRes.ok || !subscribersRes.ok) {
+          if (leadsRes.status === 401) {
+            sessionStorage.removeItem("adminPassword");
+            router.push("/admin");
+            return;
+          }
+          throw new Error("Failed to fetch data");
+        }
+
+        const [leadsData, subscribersData] = await Promise.all([
+          leadsRes.json(),
+          subscribersRes.json(),
+        ]);
+
+        setLeads(leadsData);
+        setSubscribers(subscribersData);
+      } catch (err) {
+        setError("Kon data niet laden. Check je database connectie.");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [router]);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("adminPassword");
     router.push("/admin");
   };
 
-  const markAsRead = async (id: string, read: boolean) => {
-    await fetch("/api/messages", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id, read }),
-    });
-
-    setMessages(messages.map((m) => (m.id === id ? { ...m, read } : m)));
-    if (selectedMessage?.id === id) {
-      setSelectedMessage({ ...selectedMessage, read });
-    }
+  const stats = {
+    totalLeads: leads.length,
+    newLeads: leads.filter((l) => l.status === "new").length,
+    convertedLeads: leads.filter((l) => l.status === "converted").length,
+    totalSubscribers: subscribers.length,
+    activeSubscribers: subscribers.filter((s) => s.status === "active").length,
   };
-
-  const deleteMessage = async (id: string) => {
-    if (!confirm("Weet je zeker dat je dit bericht wilt verwijderen?")) return;
-
-    await fetch(`/api/messages?id=${id}`, { method: "DELETE" });
-    setMessages(messages.filter((m) => m.id !== id));
-    if (selectedMessage?.id === id) {
-      setSelectedMessage(null);
-    }
-  };
-
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString("nl-NL", {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-    });
-  };
-
-  const unreadCount = messages.filter((m) => !m.read).length;
 
   if (loading) {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-orange-500 border-t-transparent rounded-full" />
+        <div className="text-center">
+          <div className="w-12 h-12 border-4 border-orange-500 border-t-transparent rounded-full animate-spin mx-auto mb-4" />
+          <p className="text-slate-600">Dashboard laden...</p>
+        </div>
       </div>
     );
   }
@@ -99,22 +85,26 @@ export default function AdminDashboard() {
   return (
     <div className="min-h-screen bg-slate-100">
       {/* Header */}
-      <header className="bg-white shadow-sm">
+      <header className="bg-white border-b border-slate-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <PiggyIcon size="sm" />
+            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-xl flex items-center justify-center">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
             <div>
               <h1 className="text-xl font-bold text-slate-800">Admin Dashboard</h1>
-              <p className="text-sm text-slate-500">MijnPensioenGevuld.nl</p>
+              <p className="text-sm text-slate-500">MijnPensioenGevuld</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <Link href="/" className="text-sm text-slate-600 hover:text-orange-500">
-              Bekijk website
+              Bekijk website →
             </Link>
             <button
               onClick={handleLogout}
-              className="text-sm text-red-600 hover:text-red-700 font-medium"
+              className="text-sm text-red-600 hover:text-red-700"
             >
               Uitloggen
             </button>
@@ -122,165 +112,248 @@ export default function AdminDashboard() {
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-6 py-8">
-        {/* Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-xl p-6 shadow-sm">
-            <div className="text-3xl font-bold text-slate-800">{messages.length}</div>
-            <div className="text-slate-600">Totaal berichten</div>
+      <main className="max-w-7xl mx-auto px-6 py-8">
+        {error && (
+          <div className="bg-yellow-50 border border-yellow-200 text-yellow-800 px-4 py-3 rounded-xl mb-6">
+            ⚠️ {error}
           </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm">
-            <div className="text-3xl font-bold text-orange-500">{unreadCount}</div>
-            <div className="text-slate-600">Ongelezen</div>
-          </div>
-          <div className="bg-white rounded-xl p-6 shadow-sm">
-            <div className="text-3xl font-bold text-green-500">{messages.length - unreadCount}</div>
-            <div className="text-slate-600">Gelezen</div>
-          </div>
+        )}
+
+        {/* Stats Grid */}
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+          <StatCard
+            title="Totaal Leads"
+            value={stats.totalLeads}
+            icon="👥"
+            color="blue"
+          />
+          <StatCard
+            title="Nieuwe Leads"
+            value={stats.newLeads}
+            icon="✨"
+            color="green"
+          />
+          <StatCard
+            title="Geconverteerd"
+            value={stats.convertedLeads}
+            icon="🎉"
+            color="orange"
+          />
+          <StatCard
+            title="Subscribers"
+            value={stats.totalSubscribers}
+            icon="📧"
+            color="purple"
+          />
+          <StatCard
+            title="Actief"
+            value={stats.activeSubscribers}
+            icon="✅"
+            color="teal"
+          />
         </div>
 
-        {/* Messages */}
-        <div className="grid lg:grid-cols-3 gap-6">
-          {/* Message List */}
-          <div className="lg:col-span-1 bg-white rounded-xl shadow-sm overflow-hidden">
-            <div className="p-4 border-b border-slate-100">
-              <h2 className="font-bold text-slate-800">Berichten</h2>
+        {/* Navigation Cards */}
+        <div className="grid md:grid-cols-3 gap-6 mb-8">
+          <NavCard
+            href="/admin/leads"
+            title="Leads Beheer"
+            description="Bekijk en beheer alle contactaanvragen"
+            icon="👥"
+            count={stats.newLeads}
+            countLabel="nieuw"
+          />
+          <NavCard
+            href="/admin/subscribers"
+            title="Mailinglijst"
+            description="Beheer je email subscribers"
+            icon="📧"
+            count={stats.activeSubscribers}
+            countLabel="actief"
+          />
+          <NavCard
+            href="/admin/email"
+            title="Email Campagnes"
+            description="Stuur emails naar je mailinglijst"
+            icon="📨"
+          />
+        </div>
+
+        {/* Recent Activity */}
+        <div className="grid lg:grid-cols-2 gap-6">
+          {/* Recent Leads */}
+          <div className="bg-white rounded-2xl border border-slate-200 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold text-slate-800">Recente Leads</h2>
+              <Link href="/admin/leads" className="text-sm text-orange-500 hover:underline">
+                Bekijk alle →
+              </Link>
             </div>
-            <div className="divide-y divide-slate-100 max-h-[600px] overflow-y-auto">
-              {messages.length === 0 ? (
-                <div className="p-6 text-center text-slate-500">
-                  Nog geen berichten ontvangen
-                </div>
-              ) : (
-                messages.map((message) => (
-                  <button
-                    key={message.id}
-                    onClick={() => {
-                      setSelectedMessage(message);
-                      if (!message.read) markAsRead(message.id, true);
-                    }}
-                    className={`w-full p-4 text-left hover:bg-slate-50 transition-colors ${
-                      selectedMessage?.id === message.id ? "bg-orange-50" : ""
-                    }`}
+            {leads.length === 0 ? (
+              <p className="text-slate-500 text-sm py-4">Nog geen leads</p>
+            ) : (
+              <div className="space-y-3">
+                {leads.slice(0, 5).map((lead) => (
+                  <div
+                    key={lead.id}
+                    className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0"
                   >
-                    <div className="flex items-start justify-between gap-2">
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center gap-2">
-                          {!message.read && (
-                            <span className="w-2 h-2 bg-orange-500 rounded-full flex-shrink-0" />
-                          )}
-                          <span className={`font-medium truncate ${!message.read ? "text-slate-800" : "text-slate-600"}`}>
-                            {message.name}
-                          </span>
-                        </div>
-                        <p className="text-sm text-slate-500 truncate mt-1">{message.message}</p>
-                        <p className="text-xs text-slate-400 mt-1">{formatDate(message.createdAt)}</p>
-                      </div>
+                    <div>
+                      <p className="font-medium text-slate-800">{lead.name}</p>
+                      <p className="text-sm text-slate-500">{lead.email}</p>
                     </div>
-                  </button>
-                ))
-              )}
-            </div>
+                    <StatusBadge status={lead.status} />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Message Detail */}
-          <div className="lg:col-span-2 bg-white rounded-xl shadow-sm">
-            {selectedMessage ? (
-              <div className="h-full flex flex-col">
-                <div className="p-4 border-b border-slate-100 flex items-center justify-between">
-                  <h2 className="font-bold text-slate-800">Bericht van {selectedMessage.name}</h2>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => markAsRead(selectedMessage.id, !selectedMessage.read)}
-                      className="text-sm text-slate-600 hover:text-orange-500"
-                    >
-                      {selectedMessage.read ? "Markeer als ongelezen" : "Markeer als gelezen"}
-                    </button>
-                    <button
-                      onClick={() => deleteMessage(selectedMessage.id)}
-                      className="text-sm text-red-600 hover:text-red-700"
-                    >
-                      Verwijderen
-                    </button>
-                  </div>
-                </div>
-                <div className="p-6 flex-1">
-                  <div className="space-y-4 mb-6">
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 font-bold text-lg">
-                        {selectedMessage.name.charAt(0).toUpperCase()}
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-slate-800">{selectedMessage.name}</h3>
-                        <p className="text-sm text-slate-500">{formatDate(selectedMessage.createdAt)}</p>
-                      </div>
-                    </div>
-
-                    <div className="grid sm:grid-cols-2 gap-4 bg-slate-50 rounded-xl p-4">
-                      <div>
-                        <span className="text-xs font-medium text-slate-500 uppercase">E-mail</span>
-                        <a href={`mailto:${selectedMessage.email}`} className="block text-slate-800 hover:text-orange-500">
-                          {selectedMessage.email}
-                        </a>
-                      </div>
-                      {selectedMessage.phone && (
-                        <div>
-                          <span className="text-xs font-medium text-slate-500 uppercase">Telefoon</span>
-                          <a href={`tel:${selectedMessage.phone}`} className="block text-slate-800 hover:text-orange-500">
-                            {selectedMessage.phone}
-                          </a>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-
-                  <div>
-                    <span className="text-xs font-medium text-slate-500 uppercase">Bericht</span>
-                    <div className="mt-2 bg-slate-50 rounded-xl p-4">
-                      <p className="text-slate-700 whitespace-pre-wrap">{selectedMessage.message}</p>
-                    </div>
-                  </div>
-
-                  <div className="mt-6 flex gap-3">
-                    <a
-                      href={`mailto:${selectedMessage.email}?subject=Re: Uw bericht aan MijnPensioenGevuld.nl`}
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
-                    >
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                      </svg>
-                      Beantwoorden via e-mail
-                    </a>
-                    {selectedMessage.phone && (
-                      <a
-                        href={`tel:${selectedMessage.phone}`}
-                        className="inline-flex items-center gap-2 border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-xl font-semibold hover:border-orange-300 transition-all"
-                      >
-                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                        </svg>
-                        Bellen
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </div>
+          {/* Recent Subscribers */}
+          <div className="bg-white rounded-2xl border border-slate-200 p-6">
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-lg font-bold text-slate-800">Recente Subscribers</h2>
+              <Link href="/admin/subscribers" className="text-sm text-orange-500 hover:underline">
+                Bekijk alle →
+              </Link>
+            </div>
+            {subscribers.length === 0 ? (
+              <p className="text-slate-500 text-sm py-4">Nog geen subscribers</p>
             ) : (
-              <div className="h-full flex items-center justify-center p-12 text-center">
-                <div>
-                  <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
+              <div className="space-y-3">
+                {subscribers.slice(0, 5).map((sub) => (
+                  <div
+                    key={sub.id}
+                    className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0"
+                  >
+                    <div>
+                      <p className="font-medium text-slate-800">{sub.email}</p>
+                      <p className="text-sm text-slate-500">
+                        {new Date(sub.subscribed_at).toLocaleDateString("nl-NL")}
+                      </p>
+                    </div>
+                    <span
+                      className={`text-xs px-2 py-1 rounded-full ${
+                        sub.status === "active"
+                          ? "bg-green-100 text-green-700"
+                          : "bg-slate-100 text-slate-600"
+                      }`}
+                    >
+                      {sub.status === "active" ? "Actief" : "Uitgeschreven"}
+                    </span>
                   </div>
-                  <h3 className="font-bold text-slate-800 mb-2">Selecteer een bericht</h3>
-                  <p className="text-slate-500">Klik op een bericht in de lijst om de details te bekijken</p>
-                </div>
+                ))}
               </div>
             )}
           </div>
         </div>
-      </div>
+
+        {/* Google Analytics Link */}
+        <div className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 p-6">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-slate-800">Website Analytics</h3>
+              <p className="text-sm text-slate-600">Bekijk gedetailleerde statistieken in Google Analytics</p>
+            </div>
+            <a
+              href="https://analytics.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-500 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-600 transition-colors"
+            >
+              Open Analytics →
+            </a>
+          </div>
+        </div>
+      </main>
     </div>
+  );
+}
+
+function StatCard({
+  title,
+  value,
+  icon,
+  color,
+}: {
+  title: string;
+  value: number;
+  icon: string;
+  color: string;
+}) {
+  const colorClasses: Record<string, string> = {
+    blue: "bg-blue-50 border-blue-200",
+    green: "bg-green-50 border-green-200",
+    orange: "bg-orange-50 border-orange-200",
+    purple: "bg-purple-50 border-purple-200",
+    teal: "bg-teal-50 border-teal-200",
+  };
+
+  return (
+    <div className={`${colorClasses[color]} border rounded-xl p-4`}>
+      <div className="flex items-center gap-2 mb-1">
+        <span className="text-lg">{icon}</span>
+        <span className="text-sm text-slate-600">{title}</span>
+      </div>
+      <p className="text-2xl font-bold text-slate-800">{value}</p>
+    </div>
+  );
+}
+
+function NavCard({
+  href,
+  title,
+  description,
+  icon,
+  count,
+  countLabel,
+}: {
+  href: string;
+  title: string;
+  description: string;
+  icon: string;
+  count?: number;
+  countLabel?: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="bg-white rounded-2xl border border-slate-200 p-6 hover:border-orange-300 hover:shadow-lg transition-all group"
+    >
+      <div className="flex items-start justify-between mb-3">
+        <span className="text-3xl">{icon}</span>
+        {count !== undefined && (
+          <span className="bg-orange-100 text-orange-700 text-xs font-bold px-2 py-1 rounded-full">
+            {count} {countLabel}
+          </span>
+        )}
+      </div>
+      <h3 className="text-lg font-bold text-slate-800 group-hover:text-orange-500 transition-colors">
+        {title}
+      </h3>
+      <p className="text-sm text-slate-600 mt-1">{description}</p>
+    </Link>
+  );
+}
+
+function StatusBadge({ status }: { status: string }) {
+  const statusConfig: Record<string, { label: string; className: string }> = {
+    new: { label: "Nieuw", className: "bg-green-100 text-green-700" },
+    contacted: { label: "Gecontacteerd", className: "bg-blue-100 text-blue-700" },
+    converted: { label: "Geconverteerd", className: "bg-orange-100 text-orange-700" },
+    lost: { label: "Verloren", className: "bg-slate-100 text-slate-600" },
+  };
+
+  const config = statusConfig[status] || statusConfig.new;
+
+  return (
+    <span className={`text-xs px-2 py-1 rounded-full ${config.className}`}>
+      {config.label}
+    </span>
   );
 }

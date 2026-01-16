@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import fs from "fs";
 import path from "path";
+import { supabaseAdmin } from "@/lib/supabase";
+import { sendEmail, getLeadNotificationHtml } from "@/lib/email";
+import { siteConfig } from "@/config/site";
 
 const MESSAGES_FILE = path.join(process.cwd(), "data", "messages.json");
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "MijnPensioen2025!";
@@ -43,22 +46,30 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const { name, email, phone, message } = body;
+    const { name, email, phone, message, situatie, leeftijd } = body;
 
-    if (!name || !email || !message) {
+    if (!name || !email) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
+
+    // Build full message with situatie and leeftijd
+    const fullMessage = [
+      message,
+      situatie ? `Situatie: ${situatie}` : null,
+      leeftijd ? `Leeftijd: ${leeftijd}` : null,
+    ].filter(Boolean).join("\n");
 
     const newMessage = {
       id: Date.now().toString(),
       name,
       email,
       phone: phone || "",
-      message,
+      message: fullMessage,
       createdAt: new Date().toISOString(),
       read: false,
     };
 
+    // Save to JSON file (legacy)
     let messages = [];
     try {
       const data = fs.readFileSync(MESSAGES_FILE, "utf-8");
@@ -69,6 +80,36 @@ export async function POST(request: NextRequest) {
 
     messages.unshift(newMessage);
     fs.writeFileSync(MESSAGES_FILE, JSON.stringify(messages, null, 2));
+
+    // Also save to Supabase database (if configured)
+    if (process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.SUPABASE_SERVICE_ROLE_KEY) {
+      try {
+        await supabaseAdmin.from("leads").insert({
+          name,
+          email,
+          phone: phone || null,
+          message: fullMessage || null,
+          source: "contact_form",
+        });
+      } catch (dbError) {
+        console.error("Supabase save error:", dbError);
+        // Don't fail the request if DB save fails
+      }
+    }
+
+    // Send notification email (if configured)
+    if (process.env.RESEND_API_KEY) {
+      try {
+        await sendEmail({
+          to: siteConfig.contact.email,
+          subject: `🎉 Nieuwe Lead: ${name}`,
+          html: getLeadNotificationHtml({ name, email, phone, message: fullMessage }),
+        });
+      } catch (emailError) {
+        console.error("Email send error:", emailError);
+        // Don't fail the request if email fails
+      }
+    }
 
     return NextResponse.json({ success: true, id: newMessage.id });
   } catch {
