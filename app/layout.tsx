@@ -37,6 +37,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/pig-favicon-v2.png", type: "image/png", sizes: "512x512" },
+      { url: "/pig-favicon-v2.png", type: "image/png", sizes: "192x192" },
+      { url: "/pig-favicon-v2.png", type: "image/png", sizes: "96x96" },
+      { url: "/pig-favicon-v2.png", type: "image/png", sizes: "48x48" },
+      { url: "/pig-favicon-v2.png", type: "image/png", sizes: "32x32" },
+      { url: "/pig-favicon-v2.png", type: "image/png", sizes: "16x16" },
     ],
     shortcut: "/pig-favicon-v2.png",
     apple: [
