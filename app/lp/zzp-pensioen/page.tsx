@@ -84,8 +84,8 @@ export default function LandingPageZZP() {
         {/* Multi-Step Form with Info Sidebar */}
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-6">
-            {/* Info Sidebar */}
-            <div className="lg:order-2 space-y-4">
+            {/* Info Sidebar - Hidden on mobile, shown on desktop */}
+            <div className="hidden lg:block lg:order-2 space-y-4">
               <div className="bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/30 rounded-xl p-5 sticky top-4">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
@@ -432,8 +432,8 @@ function MultiStepForm() {
         </div>
       </div>
 
-      {/* Step Content */}
-      <div className="min-h-[280px]">
+      {/* Step Content - with fade animation */}
+      <div className="min-h-[280px] animate-in fade-in duration-300">
         {step === 1 && (
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-white mb-6">Bouw je al pensioen op?</h3>
@@ -446,13 +446,13 @@ function MultiStepForm() {
               <button
                 key={option.value}
                 onClick={() => { setFormData({ ...formData, pensionBuilding: option.value }); handleNext(); }}
-                className={`w-full text-left px-5 py-4 rounded-xl border transition-all ${
+                className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-orange-500/50 ${
                   formData.pensionBuilding === option.value
-                    ? "bg-orange-500/20 border-orange-500 text-white"
-                    : "bg-slate-700/50 border-slate-600 text-slate-300 hover:border-slate-500"
+                    ? "bg-orange-500/20 border-orange-500 text-white shadow-lg shadow-orange-500/10"
+                    : "bg-slate-700/50 border-slate-600 text-slate-300 hover:border-orange-500/50 hover:bg-slate-700"
                 }`}
               >
-                <span className="mr-3">{option.emoji}</span>
+                <span className="mr-3 text-lg">{option.emoji}</span>
                 {option.label}
               </button>
             ))}
@@ -474,13 +474,13 @@ function MultiStepForm() {
               <button
                 key={option.value}
                 onClick={() => { setFormData({ ...formData, usingJaarruimte: option.value }); handleNext(); }}
-                className={`w-full text-left px-5 py-4 rounded-xl border transition-all ${
+                className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-orange-500/50 ${
                   formData.usingJaarruimte === option.value
-                    ? "bg-orange-500/20 border-orange-500 text-white"
-                    : "bg-slate-700/50 border-slate-600 text-slate-300 hover:border-slate-500"
+                    ? "bg-orange-500/20 border-orange-500 text-white shadow-lg shadow-orange-500/10"
+                    : "bg-slate-700/50 border-slate-600 text-slate-300 hover:border-orange-500/50 hover:bg-slate-700"
                 }`}
               >
-                <span className="mr-3">{option.emoji}</span>
+                <span className="mr-3 text-lg">{option.emoji}</span>
                 {option.label}
               </button>
             ))}
@@ -499,13 +499,13 @@ function MultiStepForm() {
               <button
                 key={option.value}
                 onClick={() => { setFormData({ ...formData, earlierPension: option.value }); handleNext(); }}
-                className={`w-full text-left px-5 py-4 rounded-xl border transition-all ${
+                className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 transform hover:scale-[1.01] focus:outline-none focus:ring-2 focus:ring-orange-500/50 ${
                   formData.earlierPension === option.value
-                    ? "bg-orange-500/20 border-orange-500 text-white"
-                    : "bg-slate-700/50 border-slate-600 text-slate-300 hover:border-slate-500"
+                    ? "bg-orange-500/20 border-orange-500 text-white shadow-lg shadow-orange-500/10"
+                    : "bg-slate-700/50 border-slate-600 text-slate-300 hover:border-orange-500/50 hover:bg-slate-700"
                 }`}
               >
-                <span className="mr-3">{option.emoji}</span>
+                <span className="mr-3 text-lg">{option.emoji}</span>
                 {option.label}
               </button>
             ))}
@@ -517,13 +517,14 @@ function MultiStepForm() {
             <h3 className="text-xl font-bold text-white mb-6">Even wat achtergrond</h3>
             
             <div>
-              <label className="block text-sm text-slate-400 mb-2">Wat is je leeftijd?</label>
+              <label className="block text-sm text-slate-400 mb-2 font-medium">Wat is je leeftijd?</label>
               <select
                 value={formData.age}
                 onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-slate-700/50 border border-slate-600 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+                className="w-full px-4 py-3.5 rounded-xl bg-slate-700/50 border border-slate-600 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all cursor-pointer appearance-none"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
               >
-                <option value="">Selecteer...</option>
+                <option value="">Selecteer je leeftijd...</option>
                 <option value="18-30">18 - 30 jaar</option>
                 <option value="31-40">31 - 40 jaar</option>
                 <option value="41-50">41 - 50 jaar</option>
@@ -533,13 +534,14 @@ function MultiStepForm() {
             </div>
 
             <div>
-              <label className="block text-sm text-slate-400 mb-2">Wat is je jaarinkomen (ongeveer)?</label>
+              <label className="block text-sm text-slate-400 mb-2 font-medium">Wat is je jaarinkomen (ongeveer)?</label>
               <select
                 value={formData.income}
                 onChange={(e) => setFormData({ ...formData, income: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-slate-700/50 border border-slate-600 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+                className="w-full px-4 py-3.5 rounded-xl bg-slate-700/50 border border-slate-600 text-white focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all cursor-pointer appearance-none"
+                style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2394a3b8'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center', backgroundSize: '20px' }}
               >
-                <option value="">Selecteer...</option>
+                <option value="">Selecteer je inkomen...</option>
                 <option value="< 30k">Minder dan €30.000</option>
                 <option value="30-50k">€30.000 - €50.000</option>
                 <option value="50-75k">€50.000 - €75.000</option>
@@ -551,7 +553,7 @@ function MultiStepForm() {
             <button
               onClick={handleNext}
               disabled={!formData.age || !formData.income}
-              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl transition-all"
+              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold shadow-lg shadow-orange-500/25 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/50"
             >
               Volgende stap →
             </button>
@@ -565,53 +567,72 @@ function MultiStepForm() {
               Vul je gegevens in en we nemen binnen 24 uur contact op voor je persoonlijke pensioencheck.
             </p>
             
-            <input
-              type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              placeholder="Je naam"
-              className="w-full px-4 py-3 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
-            />
+            <div>
+              <label className="block text-sm text-slate-400 mb-1.5 font-medium">Naam *</label>
+              <input
+                type="text"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                placeholder="Je volledige naam"
+                className="w-full px-4 py-3.5 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all"
+              />
+            </div>
             
-            <input
-              type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              placeholder="Je e-mailadres"
-              className="w-full px-4 py-3 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
-            />
+            <div>
+              <label className="block text-sm text-slate-400 mb-1.5 font-medium">E-mail *</label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                placeholder="je@email.nl"
+                className="w-full px-4 py-3.5 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all"
+              />
+            </div>
             
-            <input
-              type="tel"
-              value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-              placeholder="Je telefoonnummer"
-              className="w-full px-4 py-3 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
-            />
+            <div>
+              <label className="block text-sm text-slate-400 mb-1.5 font-medium">Telefoon *</label>
+              <input
+                type="tel"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                placeholder="06 - 1234 5678"
+                className="w-full px-4 py-3.5 rounded-xl bg-slate-700/50 border border-slate-600 text-white placeholder-slate-500 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/30 outline-none transition-all"
+              />
+            </div>
 
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-3 bg-slate-700/30 p-3 rounded-xl border border-slate-700">
               <input
                 type="checkbox"
                 id="privacy-zzp"
                 checked={formData.privacy}
                 onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-                className="mt-1 w-4 h-4 rounded border-slate-600 bg-slate-700 text-orange-500"
+                className="mt-0.5 w-5 h-5 rounded border-slate-600 bg-slate-700 text-orange-500 focus:ring-orange-500 focus:ring-2 cursor-pointer"
               />
-              <label htmlFor="privacy-zzp" className="text-xs text-slate-400">
-                Ik ga akkoord met het <a href="/privacy" className="text-orange-400 hover:underline">privacybeleid</a>
+              <label htmlFor="privacy-zzp" className="text-sm text-slate-300 cursor-pointer">
+                Ik ga akkoord met het <a href="/privacy" className="text-orange-400 hover:underline font-medium">privacybeleid</a>
               </label>
             </div>
 
             {formState === "error" && (
-              <p className="text-red-400 text-sm">Er ging iets mis. Probeer het opnieuw.</p>
+              <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-center">
+                <p className="text-red-400 text-sm">Er ging iets mis. Probeer het opnieuw.</p>
+              </div>
             )}
 
             <button
               onClick={handleSubmit}
               disabled={formState === "loading" || !formData.name || !formData.email || !formData.phone || !formData.privacy}
-              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold shadow-lg disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl transition-all"
+              className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-orange-500/25 disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all focus:outline-none focus:ring-2 focus:ring-orange-500/50"
             >
-              {formState === "loading" ? "Versturen..." : "Ontvang mijn gratis pensioencheck →"}
+              {formState === "loading" ? (
+                <span className="flex items-center justify-center gap-2">
+                  <svg className="animate-spin w-5 h-5" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Versturen...
+                </span>
+              ) : "Ontvang mijn gratis pensioencheck →"}
             </button>
 
             <p className="text-center text-xs text-slate-500">
@@ -621,25 +642,13 @@ function MultiStepForm() {
         )}
       </div>
 
-      {/* Back Button */}
-      {step > 1 && step < 5 && (
+      {/* Back Button - shown on all steps except first */}
+      {step > 1 && (
         <button
           onClick={handleBack}
-          className="mt-4 text-slate-400 text-sm hover:text-white transition-colors flex items-center gap-1"
+          className="mt-4 text-slate-400 text-sm hover:text-white transition-colors flex items-center gap-1 group"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Vorige stap
-        </button>
-      )}
-
-      {step === 5 && (
-        <button
-          onClick={handleBack}
-          className="mt-4 text-slate-400 text-sm hover:text-white transition-colors flex items-center gap-1"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
           </svg>
           Vorige stap
