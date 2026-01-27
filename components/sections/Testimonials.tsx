@@ -16,11 +16,11 @@ export function Testimonials({ testimonials }: { testimonials: Testimonial[] }) 
   const current = testimonials[active];
 
   return (
-    <section id="ervaringen" className="py-12 lg:py-16 bg-slate-50">
+    <section id="ervaringen" className="py-20 lg:py-28 bg-slate-50">
       <div className="max-w-6xl mx-auto px-6">
         <div className="max-w-3xl mx-auto text-center mb-12">
           <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Ervaringen</span>
-          <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mt-2 mb-4">Wat klanten zeggen</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-6">Wat klanten zeggen</h2>
         </div>
 
         <div className="max-w-3xl mx-auto">

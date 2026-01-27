@@ -20,20 +20,6 @@
 
 html {
   scroll-behavior: smooth;
-  /* Compactere website - 90% van standaard grootte */
-  font-size: 14px;
-}
-
-@media (min-width: 640px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-@media (min-width: 1024px) {
-  html {
-    font-size: 16px;
-  }
 }
 
 /* Custom scrollbar */
