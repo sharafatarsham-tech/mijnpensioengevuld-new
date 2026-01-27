@@ -43,41 +43,107 @@ export default function LandingPageZZP() {
           </div>
 
           <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-            Hoeveel pensioen bouw jij op?
+            Laat jij €10.000+ belastingvoordeel liggen?
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 mt-2">
-              Doe de gratis ZZP pensioencheck
+              Ontdek het in de gratis ZZP pensioencheck
             </span>
           </h1>
 
           <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            In 2 minuten weet je: hoeveel fiscaal voordeel je mist, wat je pensioentekort is, 
-            en welke opties je hebt.
+            In 2 minuten weet je: hoeveel jaarruimte je hebt, wat je pensioentekort is, 
+            en hoe je vanaf <strong className="text-white">€100/maand</strong> slim pensioen opbouwt.
           </p>
 
           {/* Social Proof Bar */}
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400 mb-8">
-            <span className="flex items-center gap-2">
+          <div className="flex flex-wrap justify-center gap-4 lg:gap-6 text-sm text-slate-400 mb-8">
+            <span className="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-full">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <strong className="text-white">{todayCount}</strong> checks vandaag
             </span>
-            <span className="flex items-center gap-2">
+            <span className="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-full">
               <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
               </svg>
-              <strong className="text-white">9.2</strong> gemiddelde score
+              <strong className="text-white">9.2</strong> score
             </span>
-            <span className="flex items-center gap-2">
-              <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            <span className="flex items-center gap-2 bg-green-500/10 border border-green-500/30 px-3 py-1.5 rounded-full text-green-400">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              <strong className="text-white">{totalCount}+</strong> ondernemers geholpen
+              <strong>96%</strong> beveelt ons aan
+            </span>
+            <span className="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-full">
+              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <strong className="text-white">{totalCount}+</strong> geholpen
             </span>
           </div>
         </div>
 
-        {/* Multi-Step Form */}
-        <div className="max-w-2xl mx-auto">
-          <MultiStepForm />
+        {/* Multi-Step Form with Info Sidebar */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-6">
+            {/* Info Sidebar */}
+            <div className="lg:order-2 space-y-4">
+              <div className="bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/30 rounded-xl p-5 sticky top-4">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
+                    <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-bold text-white">Goed om te weten</h4>
+                </div>
+                <ul className="space-y-3 text-sm">
+                  <li className="flex items-start gap-2 text-slate-300">
+                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Al vanaf <strong className="text-white">€100/maand</strong> pensioen opbouwen</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-slate-300">
+                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Max. jaarruimte 2026: <strong className="text-white">€35.589</strong></span>
+                  </li>
+                  <li className="flex items-start gap-2 text-slate-300">
+                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Direct <strong className="text-white">belastingvoordeel</strong> (tot 49,5%)</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-slate-300">
+                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>Hoe eerder je begint, hoe <strong className="text-white">goedkoper</strong></span>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Mini testimonial */}
+              <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4 hidden lg:block">
+                <p className="text-slate-400 text-xs italic mb-2">"Correcte en deskundige service. Adequaat en vriendelijk geadviseerd."</p>
+                <div className="flex items-center gap-2">
+                  <div className="flex gap-0.5">
+                    {[1,2,3,4,5].map((i) => (
+                      <svg key={i} className="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-xs text-slate-500">- Peter, Den Haag</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Form - Takes 2 columns */}
+            <div className="lg:col-span-2 lg:order-1">
+              <MultiStepForm />
+            </div>
+          </div>
         </div>
 
         {/* Trust Badges */}
@@ -153,48 +219,65 @@ export default function LandingPageZZP() {
 
         {/* Testimonials */}
         <div className="mt-20">
-          <h2 className="text-2xl font-bold text-white text-center mb-10">
+          <h2 className="text-2xl font-bold text-white text-center mb-4">
             Wat andere ZZP'ers zeggen
           </h2>
+          <p className="text-slate-400 text-center mb-10">
+            <strong className="text-green-400">96% van onze klanten</strong> beveelt ons aan
+          </p>
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
                 quote: "Eindelijk iemand die het helder uitlegt zonder te pushen. Ik weet nu precies hoeveel jaarruimte ik heb en welke optie bij mij past.",
                 name: "Sandra K.",
-                role: "Grafisch ontwerper, 8 jaar ZZP",
+                role: "Grafisch ontwerper",
+                location: "Eindhoven",
+                date: "januari 2026",
                 rating: 5
               },
               {
                 quote: "Ik dacht dat ik te weinig verdiende voor pensioenopbouw. Blijkt dat ik €12.000 jaarruimte had en nu €3.600 minder belasting betaal!",
                 name: "Mark T.",
-                role: "IT Consultant, 5 jaar ZZP",
+                role: "IT Consultant",
+                location: "Amsterdam",
+                date: "december 2025",
                 rating: 5
               },
               {
                 quote: "Heel fijn dat het eerste gesprek gratis was. Geen verkoopdruk, gewoon eerlijk advies. Ik ben nu klant en heel tevreden.",
                 name: "Lisa M.",
-                role: "Copywriter, 3 jaar ZZP",
+                role: "Copywriter",
+                location: "Utrecht",
+                date: "november 2025",
                 rating: 5
               },
               {
                 quote: "Als starter dacht ik: pensioen komt later wel. Gelukkig heeft dit gesprek me wakker geschud. Nu leg ik €200/maand in.",
                 name: "Tom B.",
-                role: "Marketeer, 2 jaar ZZP",
+                role: "Marketeer",
+                location: "Den Bosch",
+                date: "januari 2026",
                 rating: 5
               }
             ].map((testimonial, i) => (
               <div key={i} className="bg-slate-800/50 border border-slate-700 rounded-xl p-6">
-                <div className="flex gap-1 mb-3">
-                  {[...Array(testimonial.rating)].map((_, j) => (
-                    <svg key={j} className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex gap-1">
+                    {[...Array(testimonial.rating)].map((_, j) => (
+                      <svg key={j} className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                    ))}
+                  </div>
+                  <span className="text-xs text-slate-500">{testimonial.date}</span>
                 </div>
                 <blockquote className="text-slate-300 text-sm italic mb-4">"{testimonial.quote}"</blockquote>
-                <div>
-                  <p className="font-semibold text-white text-sm">{testimonial.name}</p>
-                  <p className="text-slate-500 text-xs">{testimonial.role}</p>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="font-semibold text-white text-sm">{testimonial.name}</p>
+                    <p className="text-slate-500 text-xs">{testimonial.role}</p>
+                  </div>
+                  <span className="text-xs text-slate-600">{testimonial.location}</span>
                 </div>
               </div>
             ))}
