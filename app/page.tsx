@@ -38,7 +38,7 @@ export default function HomePage() {
 
 function HeroSection() {
   return (
-    <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
+    <section className="relative pt-20 pb-10 sm:pt-24 sm:pb-12 lg:pt-28 lg:pb-16 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-white to-amber-50/50" />
       <div className="absolute top-20 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
@@ -67,11 +67,11 @@ function HeroSection() {
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 shadow-sm px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
               <span className="text-xs sm:text-sm font-semibold text-blue-700">👋 Speciaal voor ZZP&apos;ers</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 leading-tight mb-3 sm:mb-4">
               Als ZZP&apos;er bouw je <span className="text-red-500">geen pensioen</span> op.<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet binnen 1,5 uur hoe je dat fixt.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8">
+            <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">
               Ontdek je pensioengat en bespaar tot <span className="font-bold text-green-600">€10.000+ belasting</span> per jaar met slimme lijfrente-opbouw.
             </p>
             
@@ -135,7 +135,7 @@ function HeroSection() {
 
 function StatsSection() {
   return (
-    <section className="py-12 lg:py-16 bg-gradient-to-r from-slate-800 to-slate-900">
+    <section className="py-8 lg:py-10 bg-gradient-to-r from-slate-800 to-slate-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
           {[
@@ -157,11 +157,11 @@ function StatsSection() {
 
 function WhySection() {
   return (
-    <section id="waarom" className="py-16 sm:py-20 lg:py-28 bg-white">
+    <section id="waarom" className="py-12 sm:py-14 lg:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
           <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom ZZP&apos;ers pensioenadvies nodig hebben</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">Je bent druk met ondernemen.<br />Maar wie zorgt voor jouw pensioen?</h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mt-2 mb-3 sm:mb-4 px-4">Je bent druk met ondernemen.<br />Maar wie zorgt voor jouw pensioen?</h2>
           <p className="text-base sm:text-lg text-slate-600 px-4">72% van de ZZP&apos;ers heeft een pensioengat. Na één gesprek weet jij precies waar je staat.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -205,11 +205,11 @@ function WhySection() {
 
 function WorkflowSection() {
   return (
-    <section id="werkwijze" className="py-16 sm:py-20 lg:py-28 bg-slate-50">
+    <section id="werkwijze" className="py-12 sm:py-14 lg:py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
           <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Hoe het werkt</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-3 sm:mb-4 px-4">Van onzekerheid naar pensioenplan</h2>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mt-2 mb-2 sm:mb-3 px-4">Van onzekerheid naar pensioenplan</h2>
           <p className="text-base sm:text-lg text-slate-600 px-4">Een helder proces dat begint met een uitgebreide inventarisatie</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -241,12 +241,12 @@ function WorkflowSection() {
 
 function ConversationSection() {
   return (
-    <section id="gesprek" className="py-16 sm:py-20 lg:py-28 bg-white">
+    <section id="gesprek" className="py-12 sm:py-14 lg:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Gratis ZZP pensioencheck</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we in 1-1,5 uur?</h2>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mt-2 mb-3 sm:mb-4">Wat bespreken we in 1-1,5 uur?</h2>
             <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">
               We brengen je complete situatie als ZZP&apos;er in kaart: je huidige opbouw, je fiscale voordelen en concrete oplossingen op maat.
             </p>
@@ -329,14 +329,14 @@ function WerkgeversSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-slate-800 to-slate-900 relative overflow-hidden">
+    <section className="py-12 sm:py-14 lg:py-20 bg-gradient-to-br from-slate-800 to-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative">
         <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
           <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
           <span className="text-xs sm:text-sm font-medium text-orange-300">Gratis inventarisatie beschikbaar</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 px-4">Krijg duidelijkheid<br />over <span className="text-orange-400">jouw</span> pensioen</h2>
+        <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4 px-4">Krijg duidelijkheid<br />over <span className="text-orange-400">jouw</span> pensioen</h2>
         <p className="text-base sm:text-lg text-slate-300 mb-3 sm:mb-4 max-w-2xl mx-auto px-4">Je bent 1 gesprek verwijderd van volledige duidelijkheid over je pensioen.</p>
         <p className="text-sm sm:text-base text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto px-4">Gratis inventarisatiegesprek van 1-1,5 uur. 100% vrijblijvend.</p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 px-4">
@@ -370,7 +370,7 @@ function CTASection() {
 
 function ContactSection() {
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-28 bg-white">
+    <section id="contact" className="py-12 sm:py-14 lg:py-20 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
@@ -378,7 +378,7 @@ function ContactSection() {
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-xs sm:text-sm font-medium text-green-700">Nu beschikbaar</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-3 sm:mb-4">Plan je gratis gesprek</h2>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-slate-800 mb-2 sm:mb-3">Plan je gratis gesprek</h2>
             <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">Binnen <span className="font-bold text-orange-500">24 uur</span> reactie gegarandeerd. Vertrouwelijk en vrijblijvend.</p>
 
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-5 mb-8">

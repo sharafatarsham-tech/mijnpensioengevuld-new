@@ -7,11 +7,11 @@ export function FAQSection({ faqs }: { faqs: FAQ[] }) {
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
 
   return (
-    <section className="py-20 lg:py-28 bg-white">
+    <section className="py-12 lg:py-16 bg-white">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="max-w-3xl mx-auto text-center mb-12">
+        <div className="max-w-3xl mx-auto text-center mb-8">
           <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">FAQ</span>
-          <h2 className="text-3xl lg:text-4xl font-bold text-slate-800 mt-3">Veelgestelde vragen</h2>
+          <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mt-2">Veelgestelde vragen</h2>
         </div>
 
         <div className="max-w-3xl mx-auto space-y-4">
