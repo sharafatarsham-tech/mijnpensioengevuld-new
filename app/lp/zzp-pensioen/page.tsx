@@ -255,22 +255,23 @@ export default function LandingPageZZP() {
         </div>
 
         {/* Visual Break - Peace of Mind Image */}
-        <div className="mt-20 relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-transparent to-slate-900 z-10 pointer-events-none" />
-          <div className="relative rounded-2xl overflow-hidden border border-slate-700/50">
+        <div className="mt-20">
+          <div className="relative rounded-2xl overflow-hidden border border-orange-500/30 shadow-xl">
             <Image 
               src="/why-peace.png" 
               alt="Rust en zekerheid voor je pensioen" 
               width={1200}
               height={400}
-              className="w-full h-48 lg:h-64 object-cover opacity-60"
+              className="w-full h-56 lg:h-72 object-cover"
             />
-            <div className="absolute inset-0 flex items-center justify-center z-20">
-              <div className="text-center px-6">
-                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-2 drop-shadow-lg">
+            {/* Subtle overlay only at bottom for text */}
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+              <div className="text-center">
+                <h3 className="text-xl lg:text-2xl font-bold text-white mb-1 drop-shadow-lg">
                   Rust in je hoofd over je pensioen
                 </h3>
-                <p className="text-slate-200 text-sm lg:text-base max-w-md mx-auto drop-shadow-md">
+                <p className="text-white/80 text-sm max-w-md mx-auto drop-shadow">
                   Weet waar je aan toe bent en geniet nu al van de zekerheid
                 </p>
               </div>
