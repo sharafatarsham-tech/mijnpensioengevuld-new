@@ -8,6 +8,9 @@ import { siteConfig } from "@/config/site";
 export const metadata: Metadata = {
   title: "Kennisbank",
   description: "Alles wat je moet weten over pensioen, AOW, lijfrente en meer. Helder uitgelegd.",
+  alternates: {
+    canonical: `${siteConfig.url}/kennisbank`,
+  },
 };
 
 export default function KennisbankPage() {

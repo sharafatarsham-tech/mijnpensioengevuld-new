@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: "Pensioenadvies voor Werkgevers | Wet Toekomst Pensioenen",
   description: "Voldoe aan uw wettelijke pensioenverplichtingen. Collectieve pensioenpresentaties, 1-op-1 gesprekken en advies over de transitie naar het nieuwe pensioenstelsel.",
   keywords: ["pensioenadvies werkgevers", "wet toekomst pensioenen", "pensioen werknemers", "collectief pensioenadvies", "wtp werkgever"],
+  alternates: {
+    canonical: `${siteConfig.url}/werkgevers`,
+  },
 };
 
 export default function WerkgeversPage() {
