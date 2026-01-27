@@ -8,6 +8,7 @@ export interface Testimonial {
   role: string;
   quote: string;
   result: string;
+  image?: string;
 }
 
 export interface ArticleFAQ {
