@@ -42,56 +42,73 @@ function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-white to-amber-50/50" />
       <div className="absolute top-20 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
+        {/* Trust Bar - Direct zichtbaar */}
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10 text-xs sm:text-sm">
+          <div className="flex items-center gap-1.5 bg-white/80 backdrop-blur px-3 py-1.5 rounded-full border border-slate-200 shadow-sm">
+            <div className="flex text-amber-400">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>
+              ))}
+            </div>
+            <span className="text-slate-600 font-medium">4.9/5</span>
+          </div>
+          <span className="flex items-center gap-1.5 text-slate-600">
+            <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+            <span>AFM-geregistreerd</span>
+          </span>
+          <span className="flex items-center gap-1.5 text-slate-600">
+            <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+            <span>Sinds 2009</span>
+          </span>
+        </div>
+
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 shadow-sm px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-green-700">Nu beschikbaar voor gratis gesprek</span>
+            <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 shadow-sm px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
+              <span className="text-xs sm:text-sm font-semibold text-blue-700">👋 Speciaal voor ZZP&apos;ers</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
-              Voorkom dat je later moet inleveren.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet binnen 1,5 uur waar je aan toe bent.</span>
+              Als ZZP&apos;er bouw je <span className="text-red-500">geen pensioen</span> op.<br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet binnen 1,5 uur hoe je dat fixt.</span>
             </h1>
-            <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8">Gratis, vertrouwelijk en vrijblijvend inzicht in jouw pensioen.</p>
+            <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8">
+              Ontdek je pensioengat en bespaar tot <span className="font-bold text-green-600">€10.000+ belasting</span> per jaar met slimme lijfrente-opbouw.
+            </p>
             
             <PensionAgeSlider />
             
-            <p className="text-xs sm:text-sm text-slate-500 my-4 sm:my-6 flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-2">
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Vertrouwelijk</span>
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Geen spam</span>
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Binnen 24u reactie</span>
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 100% vrijblijvend</span>
-            </p>
-            <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm">
-              <span className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
-                <span className="text-slate-600">AFM-geregistreerd</span>
-              </span>
-              <span className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                <span className="text-slate-600">Persoonlijk advies</span>
-              </span>
+            {/* Micro-testimonial */}
+            <div className="mt-6 sm:mt-8 bg-white border border-slate-200 rounded-xl p-4 shadow-sm">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-orange-400 to-amber-400 rounded-full flex items-center justify-center text-white font-bold text-sm flex-shrink-0">
+                  MV
+                </div>
+                <div>
+                  <p className="text-slate-700 text-sm italic">&ldquo;Eindelijk duidelijkheid! Ik wist niet dat ik zoveel belasting kon besparen. Het gesprek was heel persoonlijk en zonder druk.&rdquo;</p>
+                  <p className="text-slate-500 text-xs mt-1">— Marco V., ZZP&apos;er uit Eindhoven</p>
+                </div>
+              </div>
             </div>
           </div>
           <div className="space-y-4 sm:space-y-6">
             <div className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-2xl shadow-orange-200/30 border border-orange-100 relative">
             <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
-              GRATIS INVENTARISATIE
+              GRATIS VOOR ZZP&apos;ERS
             </div>
             <div className="text-center mb-5 sm:mb-6 pt-2 sm:pt-2">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-orange-50 text-orange-700 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1 rounded-full mb-2 sm:mb-3">
                 <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 <span className="whitespace-nowrap">1-1,5 uur persoonlijke aandacht</span>
               </div>
-              <h2 className="text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis Pensioen Inventarisatie</h2>
-              <p className="text-slate-600 mt-2 text-xs sm:text-sm px-2">Een uitgebreid gesprek waarin we jouw <span className="font-semibold">complete situatie</span> in kaart brengen</p>
+              <h2 className="text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis ZZP Pensioencheck</h2>
+              <p className="text-slate-600 mt-2 text-xs sm:text-sm px-2">Ontdek hoeveel je mist én hoeveel je kunt besparen</p>
             </div>
             <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
               {[
-                "Volledige analyse van je huidige pensioen",
-                "Strategische vragen over jouw doelen",
-                "Berekening van je persoonlijke pensioengat",
-                "Concrete oplossingen op maat"
+                "Bereken je persoonlijke pensioengat",
+                "Ontdek je fiscale jaarruimte (tot €35.589)",
+                "Vergelijk 42+ aanbieders objectief",
+                "Krijg advies op maat, zonder verplichtingen"
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 sm:gap-3">
                   <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
@@ -100,16 +117,16 @@ function HeroSection() {
               ))}
             </ul>
             <Link href="#contact" className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center transition-all shadow-lg shadow-orange-500/25 active:scale-[0.98]">
-              Vraag gratis inventarisatie aan →
+              Vraag gratis pensioencheck aan →
             </Link>
-            <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3">100% gratis & vrijblijvend • Beperkte plekken</p>
+            <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3">100% gratis & vrijblijvend</p>
           </div>
           <AtmosphereImage 
             src="/hero-trust.png"
             alt="Vertrouwen en persoonlijk contact bij pensioenadvies"
             className="h-64 lg:h-80"
           />
-        </div>
+          </div>
         </div>
       </div>
     </section>
@@ -143,15 +160,15 @@ function WhySection() {
     <section id="waarom" className="py-16 sm:py-20 lg:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom pensioenadvies?</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">Straks zorgeloos genieten begint vandaag</h2>
-          <p className="text-base sm:text-lg text-slate-600 px-4">De meeste mensen weten niet wat ze straks krijgen. Na één gesprek weet jij het wel.</p>
+          <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom ZZP&apos;ers pensioenadvies nodig hebben</span>
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">Je bent druk met ondernemen.<br />Maar wie zorgt voor jouw pensioen?</h2>
+          <p className="text-base sm:text-lg text-slate-600 px-4">72% van de ZZP&apos;ers heeft een pensioengat. Na één gesprek weet jij precies waar je staat.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {[
-            { icon: "🔍", title: "Je overzicht is een raadsel", desc: "Pensioenbrieven vol jargon en cijfers. Wij vertalen het naar wat het écht betekent voor jou." },
-            { icon: "😴", title: "Rust in je hoofd over later", desc: "Ligt je wakker van de vraag 'heb ik straks genoeg'? Wij geven je duidelijkheid, zwart op wit." },
-            { icon: "🎯", title: "Zelf bepalen wanneer je stopt", desc: "Hoe eerder je begint, hoe meer keuzes je hebt. Wacht niet tot het te laat is." },
+            { icon: "💸", title: "Je betaalt te veel belasting", desc: "Als ZZP'er kun je tot €35.589 per jaar fiscaal aftrekbaar sparen. De meesten laten dit liggen." },
+            { icon: "📉", title: "Geen werkgever = geen pensioen", desc: "In loondienst bouwde je automatisch pensioen op. Als ZZP'er moet je het zelf regelen." },
+            { icon: "⏰", title: "Hoe langer je wacht, hoe duurder", desc: "Elke maand uitstel kost je geld. Begin nu en profiteer maximaal van rente-op-rente." },
           ].map((item) => (
             <div key={item.title} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-orange-200 hover:shadow-lg transition-all">
               <span className="text-3xl mb-4 block">{item.icon}</span>
@@ -161,19 +178,19 @@ function WhySection() {
           ))}
         </div>
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
             <div className="flex flex-col items-center lg:items-start gap-6">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-              </div>
-              <div className="text-center lg:text-left">
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Het goede nieuws</h3>
-                <p className="text-slate-600 mb-4">Met een persoonlijke inventarisatie krijg je inzicht in je situatie en ontdek je welke mogelijkheden er zijn om je pensioen te verbeteren.</p>
-                <Link href="#contact" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700">
-                  Plan gratis inventarisatie →
-                </Link>
-              </div>
+            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+              <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
             </div>
+              <div className="text-center lg:text-left">
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Het goede nieuws</h3>
+              <p className="text-slate-600 mb-4">Met een persoonlijke inventarisatie krijg je inzicht in je situatie en ontdek je welke mogelijkheden er zijn om je pensioen te verbeteren.</p>
+              <Link href="#contact" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700">
+                Plan gratis inventarisatie →
+              </Link>
+            </div>
+          </div>
           </div>
           <AtmosphereImage 
             src="/why-peace.png"
@@ -228,25 +245,25 @@ function ConversationSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Gratis inventarisatie</span>
+            <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Gratis ZZP pensioencheck</span>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we in 1-1,5 uur?</h2>
             <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">
-              We brengen je complete situatie in kaart en vertalen cijfers naar duidelijke keuzes. Je krijgt direct overzicht en weet wat je volgende stap is.
+              We brengen je complete situatie als ZZP&apos;er in kaart: je huidige opbouw, je fiscale voordelen en concrete oplossingen op maat.
             </p>
             <div className="bg-green-50 border border-green-200 rounded-xl p-5">
               <p className="text-sm text-slate-700">
-                <span className="font-semibold text-slate-800">Vertrouwelijk en vrijblijvend.</span> Alles wat je deelt blijft tussen ons. Je beslist pas na het gesprek of je verder wilt.
+                <span className="font-semibold text-slate-800">Vertrouwelijk en vrijblijvend.</span> Geen verkooppraatje. Je beslist pas na het gesprek of je verder wilt.
               </p>
             </div>
           </div>
           <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200">
             <ul className="space-y-4">
               {[
-                "Jouw doelen voor later en wat echt belangrijk is",
-                "Huidige pensioenopbouw (AOW, werkgeverspensioen, eigen opbouw)",
-                "Inkomen, vaste lasten en ruimte om aanvullend te sparen",
-                "Wat er gebeurt als je eerder wilt stoppen met werken",
-                "Welke oplossingen het beste passen bij jouw situatie",
+                "Je persoonlijke pensioengat als ZZP'er berekenen",
+                "Jouw fiscale jaarruimte en reserveringsruimte bepalen",
+                "Vergelijking van lijfrente, beleggen en banksparen",
+                "Wat er gebeurt als je eerder wilt stoppen met ondernemen",
+                "Concrete stappen om direct te beginnen (of niet)",
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
@@ -258,7 +275,7 @@ function ConversationSection() {
             </ul>
             <div className="mt-6 pt-6 border-t border-slate-200">
               <p className="text-sm text-slate-600">
-                Na het gesprek krijg je een helder overzicht en weten we of een persoonlijk adviesrapport voor jou zinvol is.
+                Na het gesprek weet je precies waar je staat en wat je opties zijn. Geen verplichtingen.
               </p>
             </div>
           </div>
