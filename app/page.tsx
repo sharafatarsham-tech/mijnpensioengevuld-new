@@ -122,8 +122,8 @@ function HeroSection() {
             <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3">100% gratis & vrijblijvend</p>
           </div>
           <AtmosphereImage 
-            src="/images/zzp-entrepreneur.jpg"
-            alt="ZZP'er aan het werk - zelfstandig ondernemer"
+            src="/hero-trust.png"
+            alt="Vertrouwen en persoonlijk contact bij pensioenadvies"
             className="h-64 lg:h-80"
           />
           </div>
@@ -193,8 +193,8 @@ function WhySection() {
           </div>
           </div>
           <AtmosphereImage 
-            src="/images/retirement-peace.jpg"
-            alt="Gelukkig gepensioneerd koppel - zorgeloos genieten"
+            src="/why-peace.png"
+            alt="Rustige pensioensfeer - zorgeloos genieten"
             className="h-64 lg:h-80"
           />
         </div>
@@ -282,8 +282,8 @@ function ConversationSection() {
         </div>
         <div className="mt-12">
           <AtmosphereImage 
-            src="/images/consultation-meeting.jpg"
-            alt="Persoonlijk adviesgesprek over pensioen"
+            src="/calculator-growth.png"
+            alt="Zelfverzekerde blik naar de toekomst - groei en resultaat"
             className="h-64 lg:h-96 w-full"
           />
         </div>
