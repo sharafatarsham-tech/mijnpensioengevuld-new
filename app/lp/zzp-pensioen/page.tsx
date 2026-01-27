@@ -35,24 +35,30 @@ export default function LandingPageZZP() {
       </header>
 
       <main className="max-w-5xl mx-auto px-6 py-8 lg:py-16">
-        {/* Hero Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 px-4 py-2 rounded-full mb-6">
-            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
-            <span className="text-sm font-medium text-orange-300">Speciaal voor ZZP'ers & ondernemers</span>
+        {/* Hero Section with Background Image */}
+        <div className="text-center mb-12 relative">
+          {/* Decorative background element */}
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -bottom-20 -left-20 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="relative">
+            <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 px-4 py-2 rounded-full mb-6">
+              <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+              <span className="text-sm font-medium text-orange-300">Speciaal voor ZZP'ers & ondernemers</span>
+            </div>
+
+            <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
+              Laat jij €10.000+ belastingvoordeel liggen?
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 mt-2">
+                Ontdek het in de gratis ZZP pensioencheck
+              </span>
+            </h1>
+
+            <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
+              In 2 minuten weet je: hoeveel jaarruimte je hebt, wat je pensioentekort is, 
+              en hoe je vanaf <strong className="text-white">€100/maand</strong> slim pensioen opbouwt.
+            </p>
           </div>
-
-          <h1 className="text-4xl lg:text-5xl font-bold text-white leading-tight mb-6">
-            Laat jij €10.000+ belastingvoordeel liggen?
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-amber-400 mt-2">
-              Ontdek het in de gratis ZZP pensioencheck
-            </span>
-          </h1>
-
-          <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">
-            In 2 minuten weet je: hoeveel jaarruimte je hebt, wat je pensioentekort is, 
-            en hoe je vanaf <strong className="text-white">€100/maand</strong> slim pensioen opbouwt.
-          </p>
 
           {/* Social Proof Bar */}
           <div className="flex flex-wrap justify-center gap-4 lg:gap-6 text-sm text-slate-400 mb-8">
@@ -81,60 +87,91 @@ export default function LandingPageZZP() {
           </div>
         </div>
 
+        {/* Hero Image - Small decorative pig */}
+        <div className="flex justify-center mb-8 lg:hidden">
+          <div className="relative">
+            <div className="absolute inset-0 bg-orange-500/20 rounded-full blur-xl" />
+            <Image 
+              src="/pig-favicon-v2.png" 
+              alt="MijnPensioenGevuld mascot" 
+              width={80} 
+              height={80}
+              className="relative"
+            />
+          </div>
+        </div>
+
         {/* Multi-Step Form with Info Sidebar */}
         <div className="max-w-4xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-6">
             {/* Info Sidebar - Hidden on mobile, shown on desktop */}
-            <div className="hidden lg:block lg:order-2 space-y-4">
-              <div className="bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/30 rounded-xl p-5 sticky top-4">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
-                    <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-bold text-white">Goed om te weten</h4>
-                </div>
-                <ul className="space-y-3 text-sm">
-                  <li className="flex items-start gap-2 text-slate-300">
-                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Al vanaf <strong className="text-white">€100/maand</strong> pensioen opbouwen</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-slate-300">
-                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Max. jaarruimte 2026: <strong className="text-white">€35.589</strong></span>
-                  </li>
-                  <li className="flex items-start gap-2 text-slate-300">
-                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Direct <strong className="text-white">belastingvoordeel</strong> (tot 49,5%)</span>
-                  </li>
-                  <li className="flex items-start gap-2 text-slate-300">
-                    <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    <span>Hoe eerder je begint, hoe <strong className="text-white">goedkoper</strong></span>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Mini testimonial */}
-              <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-4 hidden lg:block">
-                <p className="text-slate-400 text-xs italic mb-2">"Correcte en deskundige service. Adequaat en vriendelijk geadviseerd."</p>
-                <div className="flex items-center gap-2">
-                  <div className="flex gap-0.5">
-                    {[1,2,3,4,5].map((i) => (
-                      <svg key={i} className="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            <div className="hidden lg:block lg:order-2">
+              <div className="sticky top-4 space-y-4">
+                {/* Info Box */}
+                <div className="bg-gradient-to-br from-orange-500/10 to-amber-500/10 border border-orange-500/30 rounded-xl p-5">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-orange-500/20 rounded-full flex items-center justify-center">
+                      <svg className="w-5 h-5 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                    ))}
+                    </div>
+                    <h4 className="font-bold text-white">Goed om te weten</h4>
                   </div>
-                  <span className="text-xs text-slate-500">- Peter, Den Haag</span>
+                  <ul className="space-y-3 text-sm">
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Al vanaf <strong className="text-white">€100/maand</strong> pensioen opbouwen</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Max. jaarruimte 2026: <strong className="text-white">€35.589</strong></span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Direct <strong className="text-white">belastingvoordeel</strong> (tot 49,5%)</span>
+                    </li>
+                    <li className="flex items-start gap-2 text-slate-300">
+                      <svg className="w-4 h-4 text-green-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span>Hoe eerder je begint, hoe <strong className="text-white">goedkoper</strong></span>
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Mini testimonial */}
+                <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-4">
+                  <p className="text-slate-400 text-xs italic mb-3">"Correcte en deskundige service. Adequaat en vriendelijk geadviseerd."</p>
+                  <div className="flex items-center gap-2">
+                    <div className="flex gap-0.5">
+                      {[1,2,3,4,5].map((i) => (
+                        <svg key={i} className="w-3 h-3 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                        </svg>
+                      ))}
+                    </div>
+                    <span className="text-xs text-slate-500">- Peter, Den Haag</span>
+                  </div>
+                </div>
+
+                {/* Decorative pig image */}
+                <div className="relative flex justify-center py-4">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-24 h-24 bg-orange-500/10 rounded-full blur-2xl" />
+                  </div>
+                  <Image 
+                    src="/pig-favicon-v2.png" 
+                    alt="" 
+                    width={100} 
+                    height={100}
+                    className="relative opacity-80"
+                  />
                 </div>
               </div>
             </div>
