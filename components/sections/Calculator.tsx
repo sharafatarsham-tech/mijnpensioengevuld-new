@@ -100,31 +100,34 @@ function CustomSlider({
   const sliderRef = useRef<HTMLDivElement>(null);
   const percentage = ((value - min) / (max - min)) * 100;
   
+  // Clamp the bubble position so it doesn't go outside the track
+  const bubblePosition = Math.max(10, Math.min(90, percentage));
+  
   const colorClasses = {
     orange: {
       track: "bg-gradient-to-r from-orange-400 to-orange-500",
-      thumb: "bg-orange-500 border-orange-600 shadow-orange-500/30",
-      glow: "bg-orange-500/20",
+      thumb: "bg-orange-500 border-white shadow-orange-500/30",
     },
     teal: {
       track: "bg-gradient-to-r from-teal-400 to-teal-500",
-      thumb: "bg-teal-500 border-teal-600 shadow-teal-500/30",
-      glow: "bg-teal-500/20",
+      thumb: "bg-teal-500 border-white shadow-teal-500/30",
     },
   };
   
   const colors = colorClasses[color];
 
   return (
-    <div className="relative pt-2 pb-1">
-      {/* Value bubble */}
+    <div className="relative pt-8 pb-1">
+      {/* Value bubble - positioned above track */}
       <div 
-        className="absolute -top-1 transform -translate-x-1/2 transition-all duration-150 ease-out"
-        style={{ left: `${percentage}%` }}
+        className="absolute top-0 transform -translate-x-1/2 transition-all duration-150 ease-out pointer-events-none z-10"
+        style={{ left: `${bubblePosition}%` }}
       >
-        <div className={`px-2 py-1 rounded-md text-xs font-bold text-white ${color === "orange" ? "bg-orange-500" : "bg-teal-500"} shadow-lg`}>
+        <div className={`px-3 py-1.5 rounded-lg text-sm font-bold text-white whitespace-nowrap ${color === "orange" ? "bg-orange-500" : "bg-teal-500"} shadow-lg`}>
           {formatValue(value)}
         </div>
+        {/* Arrow pointing down */}
+        <div className={`absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 rotate-45 ${color === "orange" ? "bg-orange-500" : "bg-teal-500"}`} />
       </div>
       
       {/* Slider track container */}
@@ -151,14 +154,8 @@ function CustomSlider({
         
         {/* Thumb */}
         <div
-          className={`absolute top-1/2 -translate-y-1/2 w-5 h-5 rounded-full ${colors.thumb} border-2 shadow-lg cursor-grab active:cursor-grabbing transition-transform hover:scale-110 active:scale-95`}
-          style={{ left: `calc(${percentage}% - 10px)` }}
-        />
-        
-        {/* Glow effect on hover */}
-        <div 
-          className={`absolute top-1/2 -translate-y-1/2 w-8 h-8 rounded-full ${colors.glow} opacity-0 group-hover:opacity-100 transition-opacity blur-sm`}
-          style={{ left: `calc(${percentage}% - 16px)` }}
+          className={`absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full ${colors.thumb} border-[3px] shadow-lg cursor-grab active:cursor-grabbing transition-transform hover:scale-110 active:scale-95`}
+          style={{ left: `calc(${percentage}% - 12px)` }}
         />
       </div>
       
@@ -170,7 +167,8 @@ function CustomSlider({
         step={step}
         value={value}
         onChange={(e) => onChange(parseInt(e.target.value))}
-        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
+        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20"
+        style={{ top: '2rem' }}
         aria-label="Slider"
       />
     </div>
@@ -279,9 +277,19 @@ export function Calculator() {
   };
 
   // Format helpers
-  const formatEuro = (value: number) => `€${value.toLocaleString("nl-NL")}`;
+  const formatEuro = (value: number) => {
+    if (value >= 1000) {
+      return `€${(value / 1000).toFixed(0)}k`;
+    }
+    return `€${value.toLocaleString("nl-NL")}`;
+  };
   const formatAge = (value: number) => `${value} jaar`;
-  const formatEuroK = (value: number) => value >= 1000 ? `€${Math.round(value / 1000)}k` : formatEuro(value);
+  const formatPension = (value: number) => {
+    if (value >= 1000) {
+      return `€${(value / 1000).toFixed(0)}k`;
+    }
+    return `€${value}`;
+  };
 
   return (
     <section id="calculator" className="py-16 sm:py-20 lg:py-28 bg-gradient-to-b from-white via-slate-50/50 to-white relative overflow-hidden">
@@ -324,7 +332,7 @@ export function Calculator() {
                     <div>
                     <h3 className="text-lg font-bold text-slate-800">Vul jouw gegevens in</h3>
                     <p className="text-sm text-slate-500">Pas de schuifjes aan voor jouw situatie</p>
-                  </div>
+                    </div>
                   </div>
 
                   <div className="space-y-8">
@@ -355,7 +363,7 @@ export function Calculator() {
                     <div className="flex justify-between mt-2 px-1">
                       <span className="text-xs text-slate-400">25 jaar</span>
                       <span className="text-xs text-slate-400">65 jaar</span>
-                    </div>
+                      </div>
                     </div>
 
                   {/* Salary Slider */}
@@ -385,7 +393,7 @@ export function Calculator() {
                     <div className="flex justify-between mt-2 px-1">
                       <span className="text-xs text-slate-400">€25.000</span>
                       <span className="text-xs text-slate-400">€150.000</span>
-                    </div>
+                      </div>
                     </div>
 
                   {/* Current Pension Slider */}
@@ -405,12 +413,12 @@ export function Calculator() {
                       <Tooltip text="Je totale pensioenvermogen tot nu toe. Vind dit op mijnpensioenoverzicht.nl of je UPO." />
                     </div>
                     <CustomSlider
-                          value={values.currentPension}
+                      value={values.currentPension}
                       min={0}
                       max={500000}
                       step={5000}
                       onChange={(v) => handleValueChange("currentPension", v)}
-                      formatValue={formatEuroK}
+                      formatValue={formatPension}
                     />
                     <div className="flex justify-between mt-2 px-1">
                       <span className="text-xs text-slate-400">€0</span>
