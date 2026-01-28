@@ -1651,6 +1651,966 @@ export const articles: KnowledgeArticle[] = [
       { question: "Wat is de RVU-regeling?", answer: "De Regeling Vervroegde Uittreding (RVU) stelt werkgevers in staat om werknemers tot 3 jaar voor de AOW-leeftijd een uitkering te geven zonder extra belasting. Vraag je werkgever naar de mogelijkheden." },
     ],
   },
+  {
+    slug: "wet-toekomst-pensioenen",
+    title: "Wet Toekomst Pensioenen: wat verandert er en wat betekent dit voor jou?",
+    description: "Alles over de nieuwe pensioenwet (WTP) die in 2023 is ingegaan. Wat verandert er aan je pensioen? Wat is de transitie-periode? En wat moet je nu doen? Complete uitleg.",
+    category: "Actueel",
+    readingTime: 15,
+    lastUpdated: "2026-01-28",
+    image: "/kennisbank/aow-uitleg.jpg",
+    imageAlt: "Wet Toekomst Pensioenen - de nieuwe pensioenwet uitgelegd",
+    relatedSlugs: ["aow-uitgelegd", "pensioengat-herkennen", "zzp-pensioen"],
+    content: \`<p class="lead">Op 1 juli 2023 is de Wet Toekomst Pensioenen (WTP) ingegaan, de grootste pensioenhervorming in decennia. Voor miljoenen Nederlanders verandert de manier waarop hun pensioen wordt opgebouwd en uitgekeerd. Maar wat betekent dit concreet voor jou? In dit artikel leggen we alles uit over de nieuwe pensioenwet, de overgangsperiode en wat je nu moet doen.</p>
+
+<h2>Waarom een nieuwe pensioenwet?</h2>
+
+<p>Het oude pensioenstelsel was toe aan modernisering. De wereld van werk is veranderd: mensen wisselen vaker van baan, werken vaker als ZZP'er, en leven langer. Het oude systeem paste niet meer bij deze realiteit.</p>
+
+<p>De belangrijkste redenen voor de nieuwe wet:</p>
+
+<ul>
+<li><strong>Meer transparantie:</strong> In het oude systeem was onduidelijk hoeveel pensioen je precies had opgebouwd. Straks kun je dit direct zien in euro's.</li>
+<li><strong>Eerlijker voor jongeren:</strong> Jongeren betaalden relatief veel premie voor weinig opbouw. Dat wordt rechtgetrokken.</li>
+<li><strong>Flexibeler:</strong> Het nieuwe systeem sluit beter aan bij een arbeidsmarkt waar mensen vaker van baan wisselen.</li>
+<li><strong>Directer rendement:</strong> Beleggingsrendementen worden sneller verwerkt, zowel positief als negatief.</li>
+</ul>
+
+<h2>De drie grote veranderingen</h2>
+
+<h3>1. Van 'toegezegd pensioen' naar 'beschikbare premie'</h3>
+
+<p>Dit is de belangrijkste verandering. In het oude systeem beloofde je pensioenfonds je een bepaald bedrag per maand na je pensioen. Dit noemen we een 'uitkeringsovereenkomst' of 'defined benefit'.</p>
+
+<p>In het nieuwe systeem bouwt iedereen een persoonlijk pensioenvermogen op. Je werkgever en jij leggen premie in, dit wordt belegd, en het resultaat is jouw pensioen. Dit heet een 'premieovereenkomst' of 'defined contribution'.</p>
+
+<p><strong>Wat betekent dit praktisch?</strong></p>
+<ul>
+<li>Je ziet direct hoeveel vermogen je hebt opgebouwd</li>
+<li>Goede beleggingsjaren: je pensioen kan omhoog</li>
+<li>Slechte beleggingsjaren: je pensioen kan omlaag</li>
+<li>Geen garanties meer, maar wel meer transparantie</li>
+</ul>
+
+<h3>2. Leeftijdsonafhankelijke premie</h3>
+
+<p>In het oude systeem steeg de pensioenpremie naarmate je ouder werd. Een 60-jarige kostte de werkgever veel meer dan een 25-jarige. Dit maakte oudere werknemers duurder en was oneerlijk voor jongeren.</p>
+
+<p>In het nieuwe systeem betaalt iedereen dezelfde premie, ongeacht leeftijd. Dit heet de 'vlakke premie'. Het grote voordeel: jongere werknemers bouwen sneller pensioen op, omdat hun premie langer kan renderen.</p>
+
+<p>Let op: dit geldt voor nieuwe pensioenregelingen. Voor bestaande deelnemers gelden overgangsregelingen.</p>
+
+<h3>3. Afschaffing van de doorsneepremie</h3>
+
+<p>De doorsneepremie betekende dat iedereen evenveel premie betaalde, maar ouderen meer opbouw kregen. Jongeren financierden zo eigenlijk het pensioen van ouderen, met de belofte dat zij later ook geholpen zouden worden.</p>
+
+<p>Dit systeem werkte alleen als er altijd genoeg jongeren waren. Door de vergrijzing klopt die balans niet meer. Het nieuwe systeem is individueler: wat je inlegt, bouw je op (plus rendement).</p>
+
+<h2>De transitieperiode: 2023-2028</h2>
+
+<p>Alle pensioenfondsen en pensioenuitvoerders moeten vóór 1 januari 2028 overstappen naar het nieuwe systeem. Dit is een enorme operatie waarbij miljarden euro's aan opgebouwd pensioen worden omgezet.</p>
+
+<p><strong>Tijdlijn:</strong></p>
+<ul>
+<li><strong>2023:</strong> Wet is ingegaan, fondsen starten voorbereidingen</li>
+<li><strong>2024-2025:</strong> Onderhandelingen over nieuwe regelingen, communicatie naar deelnemers</li>
+<li><strong>2026-2027:</strong> Daadwerkelijke overgang van de meeste fondsen</li>
+<li><strong>1 januari 2028:</strong> Uiterste deadline voor alle fondsen</li>
+</ul>
+
+<h3>Wat gebeurt er met je opgebouwde pensioen?</h3>
+
+<p>Je tot nu toe opgebouwde pensioen wordt 'ingevaren' in het nieuwe systeem. Dit betekent dat je oude pensioenrechten worden omgezet naar een persoonlijk pensioenvermogen. Hoe dit precies gebeurt, verschilt per pensioenfonds.</p>
+
+<p>De meeste fondsen kiezen voor collectief invaren: alle opgebouwde rechten worden in één keer omgezet. Dit is efficiënter dan iedereen individueel berekenen.</p>
+
+<p><strong>Belangrijk:</strong> Je verliest geen pensioen door de overgang. Het wordt alleen anders geadministreerd en gepresenteerd.</p>
+
+<h2>De twee nieuwe pensioencontracten</h2>
+
+<p>In het nieuwe systeem zijn er nog maar twee soorten pensioencontracten mogelijk:</p>
+
+<h3>1. De solidaire premieregeling</h3>
+
+<p>Dit is de meest gekozen optie door pensioenfondsen. Kenmerken:</p>
+<ul>
+<li>Collectief beleggen: het fonds belegt voor alle deelnemers samen</li>
+<li>Solidariteitsreserve: een buffer om schokken op te vangen</li>
+<li>Leeftijdsafhankelijk beleggingsbeleid: jongeren meer risico, ouderen minder</li>
+<li>Uitkeringen kunnen variëren, maar met demping</li>
+</ul>
+
+<h3>2. De flexibele premieregeling</h3>
+
+<p>Dit contract biedt meer individuele keuzemogelijkheden. Kenmerken:</p>
+<ul>
+<li>Eigen pensioenpotje dat je kunt volgen</li>
+<li>Keuze in beleggingsprofiel (meer of minder risico)</li>
+<li>Bij pensioen: keuze tussen vaste of variabele uitkering</li>
+<li>Meer eigen regie, maar ook meer eigen verantwoordelijkheid</li>
+</ul>
+
+<h2>Compensatie voor de transitie</h2>
+
+<p>Door de overgang naar het nieuwe systeem kunnen sommige groepen nadeel ondervinden. Vooral mensen tussen de 40 en 55 jaar hebben in het oude systeem relatief veel premie betaald, maar kunnen nu niet meer profiteren van het 'terugverdienen' via de doorsneepremie.</p>
+
+<p>Hiervoor is een compensatieregeling. Pensioenfondsen moeten deze groep compenseren, zodat niemand er significant op achteruit gaat. Hoe dit precies wordt ingevuld, verschilt per fonds.</p>
+
+<p><strong>Let op:</strong> Check de communicatie van je eigen pensioenfonds over hoe zij dit aanpakken.</p>
+
+<h2>Wat verandert er voor ZZP'ers?</h2>
+
+<p>Voor zelfstandigen brengt de WTP ook veranderingen:</p>
+
+<ul>
+<li><strong>Experimenteerruimte:</strong> Pensioenfondsen mogen onder voorwaarden ZZP'ers toelaten</li>
+<li><strong>Verplichte AOV-discussie:</strong> Er wordt gewerkt aan een verplichte arbeidsongeschiktheidsverzekering</li>
+<li><strong>Fiscale ruimte blijft:</strong> Je kunt nog steeds via lijfrente pensioen opbouwen met belastingvoordeel</li>
+</ul>
+
+<p>De WTP lost niet direct het pensioenprobleem van ZZP'ers op, maar opent wel nieuwe deuren. Houd de ontwikkelingen in de gaten.</p>
+
+<h2>Veelgestelde vragen over de nieuwe pensioenwet</h2>
+
+<h3>Ga ik erop vooruit of achteruit?</h3>
+<p>Dit verschilt per persoon en per pensioenfonds. Over het algemeen:</p>
+<ul>
+<li><strong>Jongeren:</strong> Gaan er meestal op vooruit door de vlakke premie</li>
+<li><strong>40-55 jarigen:</strong> Kunnen nadeel ondervinden, maar worden gecompenseerd</li>
+<li><strong>Ouderen en gepensioneerden:</strong> Merken vooral de variabele uitkeringen</li>
+</ul>
+
+<h3>Wordt mijn pensioen onzekerder?</h3>
+<p>Je pensioen kan in het nieuwe systeem meer fluctueren. In goede tijden kan het omhoog, in slechte tijden omlaag. Wel zijn er buffers en dempingsmechanismen om grote schokken te voorkomen. Het oude systeem had ook onzekerheden, maar die waren minder zichtbaar.</p>
+
+<h3>Wat moet ik nu doen?</h3>
+<p>Enkele concrete stappen:</p>
+<ul>
+<li>Check de website van je pensioenfonds voor informatie over de overgang</li>
+<li>Lees de brieven en nieuwsbrieven van je fonds goed</li>
+<li>Bekijk je Uniform Pensioenoverzicht (UPO) en vergelijk met voorgaande jaren</li>
+<li>Overweeg of je extra wilt bijsparen via lijfrente</li>
+<li>Laat je adviseren als je vragen hebt over jouw specifieke situatie</li>
+</ul>
+
+<h2>Kansen en risico's van het nieuwe systeem</h2>
+
+<h3>Kansen</h3>
+<ul>
+<li><strong>Transparantie:</strong> Je ziet precies wat je hebt opgebouwd</li>
+<li><strong>Sneller profiteren van rendement:</strong> In goede tijden kan je pensioen sneller stijgen</li>
+<li><strong>Eerlijker systeem:</strong> Wat je inlegt, bouw je op</li>
+<li><strong>Flexibiliteit:</strong> Meer keuzemogelijkheden bij pensionering</li>
+</ul>
+
+<h3>Risico's</h3>
+<ul>
+<li><strong>Variabele uitkeringen:</strong> Je pensioen kan omlaag in slechte tijden</li>
+<li><strong>Eigen verantwoordelijkheid:</strong> Je moet zelf je situatie beter in de gaten houden</li>
+<li><strong>Complexiteit:</strong> Het nieuwe systeem vergt meer financiële kennis</li>
+<li><strong>Transitierisico:</strong> De overgang zelf is een grote operatie met onzekerheden</li>
+</ul>
+
+<h2>De rol van je werkgever</h2>
+
+<p>Je werkgever speelt een belangrijke rol in de pensioenovergang. Zij onderhandelen (samen met vakbonden) over de nieuwe regeling en bepalen mede hoe de compensatie wordt ingevuld.</p>
+
+<p>Als werknemer kun je invloed uitoefenen via:</p>
+<ul>
+<li>De ondernemingsraad (OR)</li>
+<li>Je vakbond</li>
+<li>Informatieavonden van je pensioenfonds</li>
+<li>Bezwaar maken als je het niet eens bent met besluiten</li>
+</ul>
+
+<h2>Conclusie: bereid je voor op verandering</h2>
+
+<p>De Wet Toekomst Pensioenen is de grootste pensioenhervorming in decennia. Het nieuwe systeem is transparanter en eerlijker, maar vraagt ook meer eigen betrokkenheid. Je pensioen wordt directer gekoppeld aan beleggingsresultaten, met alle kansen en risico's van dien.</p>
+
+<p>Het belangrijkste advies: blijf geïnformeerd. Lees de communicatie van je pensioenfonds, check regelmatig je pensioenoverzicht, en schroom niet om vragen te stellen. Pensioen is te belangrijk om aan het toeval over te laten.</p>
+
+<p>Heb je vragen over wat de nieuwe pensioenwet voor jouw situatie betekent? Of wil je weten of je voldoende pensioen opbouwt? Neem dan contact met ons op voor een vrijblijvend gesprek. We helpen je graag op weg naar een zorgeloze oude dag.</p>\`,
+    faqs: [
+      { question: "Wanneer gaat de nieuwe pensioenwet in?", answer: "De Wet Toekomst Pensioenen is op 1 juli 2023 ingegaan. Pensioenfondsen hebben tot 1 januari 2028 om over te stappen naar het nieuwe systeem." },
+      { question: "Verlies ik pensioen door de overgang?", answer: "Nee, je opgebouwde pensioen blijft behouden. Het wordt alleen omgezet naar een persoonlijk pensioenvermogen en anders geadministreerd." },
+      { question: "Kan mijn pensioen straks omlaag?", answer: "Ja, in het nieuwe systeem kunnen uitkeringen meer fluctueren. In goede beleggingsjaren kan je pensioen omhoog, in slechte jaren omlaag. Er zijn wel buffers om grote schokken te dempen." },
+      { question: "Wat betekent de vlakke premie?", answer: "In het nieuwe systeem betaalt iedereen dezelfde premie, ongeacht leeftijd. Jongeren bouwen hierdoor sneller pensioen op, omdat hun premie langer kan renderen." },
+      { question: "Wat moet ik nu doen?", answer: "Blijf geïnformeerd via je pensioenfonds, check regelmatig je pensioenoverzicht, en overweeg of extra bijsparen via lijfrente voor jou zinvol is." },
+    ],
+  },
+  {
+    slug: "pensioen-via-bv",
+    title: "Pensioen opbouwen via je BV: de complete gids voor DGA's",
+    description: "Als DGA kun je op verschillende manieren pensioen opbouwen. Ontdek de voor- en nadelen van pensioen in eigen beheer, extern verzekeren en lijfrente. Met actuele fiscale regels voor 2026.",
+    category: "Ondernemers",
+    readingTime: 14,
+    lastUpdated: "2026-01-28",
+    image: "/kennisbank/vrouwzzp.jpg",
+    imageAlt: "DGA pensioen opbouwen via BV",
+    relatedSlugs: ["zzp-pensioen", "jaarruimte-uitgelegd"],
+    content: \`<p class="lead">Als directeur-grootaandeelhouder (DGA) sta je voor unieke keuzes bij je pensioenopbouw. Anders dan werknemers bouw je niet automatisch pensioen op via een pensioenfonds. Je moet zelf actie ondernemen, en je hebt verschillende opties. In dit artikel bespreken we alle mogelijkheden, van lijfrente tot extern verzekeren, en helpen we je de beste keuze te maken voor jouw situatie.</p>
+
+<h2>De DGA-pensioenrevolutie: wat is er veranderd?</h2>
+
+<p>Tot 2017 konden DGA's pensioen opbouwen in eigen beheer (PEB): je BV deed een pensioenbelofte aan jou, en hield hiervoor een reserve aan op de balans. Dit was fiscaal aantrekkelijk, maar bracht ook risico's met zich mee.</p>
+
+<p>Sinds 1 juli 2017 is pensioen in eigen beheer niet meer mogelijk voor nieuwe opbouw. Bestaande pensioenaanspraken moesten worden afgekocht, omgezet naar een oudedagsverplichting (ODV), of extern ondergebracht. Als je nu als DGA pensioen wilt opbouwen, heb je nog drie hoofdroutes:</p>
+
+<ol>
+<li>Lijfrente (derde pijler)</li>
+<li>Extern verzekeren bij een verzekeraar</li>
+<li>Beleggen in je BV en later dividend uitkeren</li>
+</ol>
+
+<h2>Optie 1: Lijfrente - de populairste keuze</h2>
+
+<p>Veruit de meest gekozen route voor DGA's is pensioenopbouw via lijfrente. Je betaalt premie vanuit je privévermogen (of via een hoger salaris uit je BV), en trekt dit af van je belastbaar inkomen.</p>
+
+<h3>Hoe werkt het?</h3>
+
+<p>Als DGA bepaal je je eigen salaris. Door jezelf voldoende salaris uit te keren, creëer je fiscale ruimte (jaarruimte en eventueel reserveringsruimte) om lijfrentepremie af te trekken. De premie die je inlegt groeit belastingvrij aan, en bij pensioen betaal je belasting over de uitkeringen.</p>
+
+<h3>Voordelen van lijfrente</h3>
+<ul>
+<li><strong>Direct belastingvoordeel:</strong> Tot 49,5% van je inleg krijg je terug via belastingaftrek</li>
+<li><strong>Flexibiliteit:</strong> Keuze in product (verzekerd, banksparen, beleggen)</li>
+<li><strong>Beschermd vermogen:</strong> Je pensioen staat buiten je BV en is beschermd bij faillissement</li>
+<li><strong>Eenvoud:</strong> Geen complexe constructies nodig</li>
+</ul>
+
+<h3>Nadelen van lijfrente</h3>
+<ul>
+<li><strong>Beperkte ruimte:</strong> De jaarruimte is gemaximeerd (€35.589 in 2026)</li>
+<li><strong>Geld uit de BV:</strong> Je moet eerst salaris uitkeren (kost ook loonheffing)</li>
+<li><strong>Gebonden vermogen:</strong> Je kunt er niet zomaar bij</li>
+</ul>
+
+<h3>Rekenvoorbeeld</h3>
+<p>Stel, je keert jezelf €80.000 salaris uit. Je jaarruimte is dan ongeveer €15.000. Als je dit volledig benut:</p>
+<ul>
+<li>Inleg: €15.000</li>
+<li>Belastingteruggave (bij 49,5%): €7.425</li>
+<li>Netto kosten: €7.575</li>
+</ul>
+<p>Over 20 jaar, bij 6% gemiddeld rendement, groeit dit naar circa €55.000. En dit is slechts één jaar inleg!</p>
+
+<h2>Optie 2: Extern verzekeren via de BV</h2>
+
+<p>Je BV kan een pensioenregeling afsluiten bij een verzekeraar of premiepensioeninstelling (PPI). Dit is vergelijkbaar met hoe werknemers pensioen opbouwen, maar dan met je eigen BV als 'werkgever'.</p>
+
+<h3>Hoe werkt het?</h3>
+
+<p>Je BV sluit een pensioencontract af en betaalt de premies. Deze premies zijn aftrekbaar van de winst van de BV. Bij pensioen ontvang je uitkeringen van de verzekeraar, waarover je dan inkomstenbelasting betaalt.</p>
+
+<h3>Voordelen van extern verzekeren</h3>
+<ul>
+<li><strong>Hogere opbouw mogelijk:</strong> De fiscale ruimte is groter dan bij lijfrente (30% van je salaris)</li>
+<li><strong>Premie direct uit de BV:</strong> Geen omweg via salaris nodig</li>
+<li><strong>Partner- en wezenpensioen:</strong> Automatisch meeverzekerd</li>
+<li><strong>Bescherming bij faillissement:</strong> Pensioen staat buiten de BV</li>
+</ul>
+
+<h3>Nadelen van extern verzekeren</h3>
+<ul>
+<li><strong>Kosten:</strong> Verzekeraars rekenen beheer- en administratiekosten</li>
+<li><strong>Minder flexibiliteit:</strong> Gebonden aan de polisvoorwaarden</li>
+<li><strong>Complexer:</strong> Vereist meer administratie en advies</li>
+<li><strong>Verplichting:</strong> Eenmaal gestart, moet je door blijven betalen</li>
+</ul>
+
+<h2>Optie 3: Beleggen in de BV en dividend</h2>
+
+<p>Sommige DGA's kiezen ervoor om geen formeel pensioen op te bouwen, maar om vermogen in de BV te laten groeien. Bij pensioen keren ze dit uit als dividend.</p>
+
+<h3>Hoe werkt het?</h3>
+
+<p>Je houdt winst in de BV, belegt dit (eventueel via een holding), en keert later dividend uit. Over dividend betaal je aanmerkelijkbelangheffing (momenteel 24,5% tot €67.000 en 33% daarboven).</p>
+
+<h3>Voordelen</h3>
+<ul>
+<li><strong>Maximale flexibiliteit:</strong> Je bepaalt zelf wanneer en hoeveel je uitkeert</li>
+<li><strong>Geen verplichtingen:</strong> Je zit nergens aan vast</li>
+<li><strong>Ondernemersvermogen:</strong> Geld blijft beschikbaar voor de onderneming</li>
+</ul>
+
+<h3>Nadelen</h3>
+<ul>
+<li><strong>Geen bescherming:</strong> Bij faillissement ben je je 'pensioen' kwijt</li>
+<li><strong>Dubbele belasting:</strong> Eerst VPB over de winst, dan box 2 over dividend</li>
+<li><strong>Geen aftrek:</strong> Geen fiscaal voordeel bij opbouw</li>
+<li><strong>Box 3 na uitkering:</strong> Uitgekeerd vermogen valt in box 3</li>
+</ul>
+
+<h2>De optimale strategie: combineren</h2>
+
+<p>De meeste adviseurs raden aan om te combineren:</p>
+
+<ol>
+<li><strong>Basislaag via lijfrente:</strong> Benut je jaarruimte volledig voor gegarandeerd pensioen buiten de BV</li>
+<li><strong>Aanvulling via BV-vermogen:</strong> Bouw daarnaast vermogen op in je BV voor extra flexibiliteit</li>
+<li><strong>Overweeg extern verzekeren:</strong> Bij hogere inkomens kan extern verzekeren via de BV fiscaal voordeliger zijn</li>
+</ol>
+
+<h3>Praktisch voorbeeld: DGA met €100.000 salaris</h3>
+
+<table>
+<tr><th>Onderdeel</th><th>Bedrag/jaar</th><th>Belastingvoordeel</th></tr>
+<tr><td>Lijfrente (jaarruimte)</td><td>€18.000</td><td>€8.910 (49,5%)</td></tr>
+<tr><td>Extern pensioen BV</td><td>€12.000</td><td>VPB-besparing €2.280 (19%)</td></tr>
+<tr><td>Vermogensopbouw BV</td><td>€30.000</td><td>Uitgestelde belasting</td></tr>
+<tr><td><strong>Totaal</strong></td><td><strong>€60.000</strong></td><td><strong>€11.190+</strong></td></tr>
+</table>
+
+<h2>De oudedagsverplichting (ODV): wat nu?</h2>
+
+<p>Heb je vóór 2017 pensioen in eigen beheer opgebouwd en gekozen voor omzetting naar een ODV? Dan heb je nu een rentende schuld van je BV aan jezelf. Deze moet vanaf je AOW-leeftijd in 20 jaar worden uitgekeerd.</p>
+
+<p><strong>Let op:</strong></p>
+<ul>
+<li>De ODV wordt jaarlijks opgerent met de marktrente</li>
+<li>Je kunt de ODV nog steeds afkopen (met 19,5% korting)</li>
+<li>Of extern onderbrengen bij een verzekeraar</li>
+<li>De uitkeringen zijn belast als loon</li>
+</ul>
+
+<h2>Checklist: DGA-pensioen optimaliseren</h2>
+
+<ul>
+<li>☐ Bepaal je gewenste pensioeninkomen</li>
+<li>☐ Bereken je huidige verwachte pensioen (AOW + lijfrente + BV-vermogen)</li>
+<li>☐ Check of je je jaarruimte volledig benut</li>
+<li>☐ Overweeg extern verzekeren bij hoger inkomen</li>
+<li>☐ Zorg voor voldoende buffers in de BV</li>
+<li>☐ Bespreek partnerpensioen met je adviseur</li>
+<li>☐ Herzie je strategie bij grote levensgebeurtenissen</li>
+</ul>
+
+<h2>Veelgemaakte fouten</h2>
+
+<h3>Fout 1: Te weinig salaris uitkeren</h3>
+<p>Om fiscale ruimte voor lijfrente te hebben, moet je voldoende salaris uitkeren. De Belastingdienst hanteert een 'gebruikelijk loon' dat minimaal moet worden uitgekeerd. In 2026 is dit minimaal €56.000 (of het salaris van de meest vergelijkbare dienstbetrekking).</p>
+
+<h3>Fout 2: Alleen op de BV vertrouwen</h3>
+<p>Je BV-vermogen is kwetsbaar: bij faillissement, echtscheiding of claims kun je het kwijtraken. Bouw altijd een deel van je pensioen buiten de BV op.</p>
+
+<h3>Fout 3: Partnerpensioen vergeten</h3>
+<p>Als DGA regel je zelf je partnerpensioen niet automatisch. Overlijdt je, dan kan je partner met lege handen staan. Regel dit via een overlijdensrisicoverzekering of extern pensioen.</p>
+
+<h3>Fout 4: Te lang wachten</h3>
+<p>Hoe eerder je begint, hoe meer je profiteert van het rente-op-rente-effect. Elk jaar uitstel kost je duizenden euro's aan gemist rendement.</p>
+
+<h2>Conclusie: neem je pensioen serieus</h2>
+
+<p>Als DGA heb je meer vrijheid én meer verantwoordelijkheid bij je pensioenopbouw. De sleutel is om vroeg te beginnen, slim te combineren, en je vermogen te beschermen. Benut je fiscale ruimte, bouw buiten de BV op, en vergeet je partner niet.</p>
+
+<p>Twijfel je wat de beste strategie is voor jouw situatie? Neem contact met ons op. We analyseren je huidige situatie, berekenen je toekomstige pensioen, en adviseren over de optimale mix van lijfrente, extern pensioen en BV-vermogen. Zo kun je straks zorgeloos genieten van je oude dag.</p>\`,
+    faqs: [
+      { question: "Kan ik als DGA nog pensioen in eigen beheer opbouwen?", answer: "Nee, sinds 1 juli 2017 is nieuwe opbouw in eigen beheer niet meer mogelijk. Je kunt wel pensioen opbouwen via lijfrente of extern verzekeren." },
+      { question: "Hoeveel moet ik minimaal als salaris uitkeren?", answer: "De Belastingdienst hanteert een 'gebruikelijk loon' van minimaal €56.000 in 2026, of het salaris van de meest vergelijkbare dienstbetrekking als dat hoger is." },
+      { question: "Is lijfrente of extern verzekeren beter voor een DGA?", answer: "Dit hangt af van je situatie. Lijfrente is flexibeler en eenvoudiger. Extern verzekeren biedt hogere opbouwmogelijkheden en automatisch partnerpensioen. Vaak is een combinatie optimaal." },
+      { question: "Wat gebeurt er met mijn BV-pensioen bij faillissement?", answer: "Vermogen in de BV is niet beschermd bij faillissement. Extern ondergebracht pensioen en lijfrente zijn wel beschermd. Bouw daarom altijd een deel buiten de BV op." },
+      { question: "Hoe zit het met partnerpensioen als DGA?", answer: "Als DGA regel je dit niet automatisch. Je kunt partnerpensioen meeverzekeren via extern pensioen, of een aparte overlijdensrisicoverzekering afsluiten." },
+    ],
+  },
+  {
+    slug: "lijfrente-vs-banksparen",
+    title: "Lijfrente vs Banksparen: welke is beter voor jouw pensioen?",
+    description: "Vergelijking tussen lijfrente en banksparen voor je pensioen. Ontdek de verschillen in rendement, risico, kosten en flexibiliteit. Met praktische voorbeelden en keuzehulp.",
+    category: "Producten",
+    readingTime: 11,
+    lastUpdated: "2026-01-28",
+    image: "/kennisbank/jaarruimte.jpg",
+    imageAlt: "Lijfrente versus banksparen vergelijking",
+    relatedSlugs: ["jaarruimte-uitgelegd", "zzp-pensioen", "pensioen-via-bv"],
+    content: \`<p class="lead">Je hebt besloten om extra pensioen op te bouwen en je fiscale ruimte te benutten. Maar dan komt de volgende vraag: lijfrente verzekering, banksparen, of beleggen? Alle drie bieden belastingvoordeel, maar de verschillen in rendement, risico en kosten zijn groot. In dit artikel helpen we je de beste keuze te maken.</p>
+
+<h2>Wat is het verschil?</h2>
+
+<p>Eerst even de basis. Alle drie de producten vallen onder de 'lijfrenteparaplu': je inleg is aftrekbaar van je belastbaar inkomen, en je betaalt later belasting over de uitkeringen. Het verschil zit in hoe je geld wordt beheerd:</p>
+
+<h3>Lijfrente verzekering</h3>
+<p>Een verzekeraar belegt je geld en garandeert (soms) een minimumrendement. Bij overlijden kan een deel naar je nabestaanden gaan. Je sluit een contract af met bepaalde voorwaarden.</p>
+
+<h3>Banksparen (lijfrentesparen)</h3>
+<p>Je zet geld op een geblokkeerde spaarrekening bij een bank. Je krijgt de actuele spaarrente, zonder beleggingsrisico. Het opgebouwde vermogen is van jou en gaat bij overlijden naar je erfgenamen.</p>
+
+<h3>Lijfrente beleggen</h3>
+<p>Je belegt zelf (of via een beheerder) in fondsen. Je hebt kans op hoger rendement, maar ook risico op verlies. Het vermogen is van jou.</p>
+
+<h2>De grote vergelijking</h2>
+
+<table>
+<tr><th>Kenmerk</th><th>Verzekering</th><th>Banksparen</th><th>Beleggen</th></tr>
+<tr><td>Verwacht rendement</td><td>Gemiddeld</td><td>Laag</td><td>Hoog</td></tr>
+<tr><td>Risico</td><td>Beperkt</td><td>Geen</td><td>Ja</td></tr>
+<tr><td>Garanties</td><td>Soms</td><td>Deposito garantie</td><td>Nee</td></tr>
+<tr><td>Kosten</td><td>Hoog</td><td>Laag</td><td>Laag-gemiddeld</td></tr>
+<tr><td>Flexibiliteit</td><td>Beperkt</td><td>Beperkt</td><td>Meer keuze</td></tr>
+<tr><td>Bij overlijden</td><td>Afhankelijk van polis</td><td>Naar erfgenamen</td><td>Naar erfgenamen</td></tr>
+</table>
+
+<h2>Rendementsvergelijking: een rekenvoorbeeld</h2>
+
+<p>Stel: je legt 20 jaar lang €5.000 per jaar in. Wat is het verschil?</p>
+
+<h3>Scenario 1: Banksparen met 2% rente</h3>
+<ul>
+<li>Totale inleg: €100.000</li>
+<li>Eindwaarde: €121.899</li>
+<li>Rendement: €21.899</li>
+</ul>
+
+<h3>Scenario 2: Beleggen met 6% gemiddeld rendement</h3>
+<ul>
+<li>Totale inleg: €100.000</li>
+<li>Eindwaarde: €183.928</li>
+<li>Rendement: €83.928</li>
+</ul>
+
+<h3>Scenario 3: Lijfrente verzekering met 4% rendement</h3>
+<ul>
+<li>Totale inleg: €100.000</li>
+<li>Eindwaarde: €148.024</li>
+<li>Rendement: €48.024</li>
+</ul>
+
+<p><strong>Het verschil:</strong> Bij beleggen heb je na 20 jaar ruim €60.000 meer dan bij banksparen. Dat is het 'prijskaartje' van zekerheid.</p>
+
+<h2>Wanneer kies je voor banksparen?</h2>
+
+<p>Banksparen is de juiste keuze als:</p>
+
+<ul>
+<li><strong>Je risico-avers bent:</strong> Je kunt slecht tegen waardeschommelingen</li>
+<li><strong>Je horizon kort is:</strong> Minder dan 10 jaar tot pensioen</li>
+<li><strong>Je al veel belegt:</strong> En dit als stabiele basis wilt</li>
+<li><strong>Je zekerheid belangrijker vindt dan rendement</strong></li>
+</ul>
+
+<h3>Voordelen banksparen</h3>
+<ul>
+<li>Geen risico op verlies (tot €100.000 gegarandeerd via depositogarantie)</li>
+<li>Lage kosten (vaak geen beheerkosten)</li>
+<li>Eenvoudig en begrijpelijk</li>
+<li>Vermogen gaat bij overlijden naar erfgenamen</li>
+</ul>
+
+<h3>Nadelen banksparen</h3>
+<ul>
+<li>Laag rendement (vaak onder inflatie)</li>
+<li>Koopkracht kan afnemen over lange termijn</li>
+<li>Minder eindbedrag dan bij beleggen</li>
+</ul>
+
+<h2>Wanneer kies je voor beleggen?</h2>
+
+<p>Beleggen is de juiste keuze als:</p>
+
+<ul>
+<li><strong>Je horizon lang is:</strong> Meer dan 15 jaar tot pensioen</li>
+<li><strong>Je tegen volatiliteit kunt:</strong> Tijdelijke dalingen deren je niet</li>
+<li><strong>Je vermogen wilt laten groeien:</strong> Maximaal rendement is belangrijk</li>
+<li><strong>Je al een financiële buffer hebt:</strong> Je bent niet afhankelijk van dit geld</li>
+</ul>
+
+<h3>Voordelen beleggen</h3>
+<ul>
+<li>Historisch hoger rendement (gemiddeld 6-8% per jaar op lange termijn)</li>
+<li>Bescherming tegen inflatie</li>
+<li>Keuze in risicoprofiel en fondsen</li>
+<li>Vermogen gaat bij overlijden naar erfgenamen</li>
+</ul>
+
+<h3>Nadelen beleggen</h3>
+<ul>
+<li>Risico op verlies (vooral op korte termijn)</li>
+<li>Waarde fluctueert</li>
+<li>Vereist enige kennis of uitbesteden aan beheerder</li>
+<li>Kosten (beheer, transacties)</li>
+</ul>
+
+<h2>Wanneer kies je voor een lijfrente verzekering?</h2>
+
+<p>Een lijfrente verzekering is interessant als:</p>
+
+<ul>
+<li><strong>Je garanties wilt:</strong> Sommige verzekeringen garanderen een minimumrendement</li>
+<li><strong>Je nabestaandenbescherming wilt:</strong> Partner- en wezenpensioen mee verzekeren</li>
+<li><strong>Je lang leeft:</strong> Sommige verzekeringen keren levenslang uit, ook als je pot op is</li>
+</ul>
+
+<h3>Voordelen verzekering</h3>
+<ul>
+<li>Zekerheid door garanties</li>
+<li>Nabestaandendekking mogelijk</li>
+<li>Levenslange uitkering mogelijk</li>
+<li>Professioneel beheer</li>
+</ul>
+
+<h3>Nadelen verzekering</h3>
+<ul>
+<li>Hogere kosten (premie voor garanties)</li>
+<li>Minder transparant</li>
+<li>Bij vroeg overlijden kan deel naar verzekeraar gaan</li>
+<li>Minder flexibiliteit</li>
+</ul>
+
+<h2>De hybride optie: life-cycle beleggen</h2>
+
+<p>Veel aanbieders bieden tegenwoordig 'life-cycle' beleggen aan. Hierbij begint je met een offensief beleggingsprofiel (veel aandelen) en wordt dit automatisch defensiever naarmate je pensioen nadert. Zo profiteer je van rendement in de beginjaren en bouw je zekerheid op richting het einde.</p>
+
+<p>Dit is een goede middenweg voor mensen die wel willen beleggen maar zich zorgen maken over het risico vlak voor pensioen.</p>
+
+<h2>Kosten: de verborgen rendementskiller</h2>
+
+<p>Let goed op de kosten. Het verschil tussen 0,3% en 1,5% beheerkosten lijkt klein, maar over 20 jaar scheelt dit tienduizenden euro's:</p>
+
+<h3>Voorbeeld: €100.000 belegd, 6% bruto rendement, 20 jaar</h3>
+<ul>
+<li>Bij 0,3% kosten: eindwaarde €305.000</li>
+<li>Bij 1,5% kosten: eindwaarde €244.000</li>
+<li><strong>Verschil: €61.000</strong></li>
+</ul>
+
+<p>Check altijd de totale kosten: beheerkosten, transactiekosten, instapkosten, en kosten van de onderliggende fondsen.</p>
+
+<h2>Praktische keuzehulp</h2>
+
+<h3>Kies banksparen als:</h3>
+<ul>
+<li>Je binnen 10 jaar met pensioen gaat</li>
+<li>Je geen risico wilt lopen</li>
+<li>Dit geld je enige pensioenaanvulling is</li>
+</ul>
+
+<h3>Kies beleggen als:</h3>
+<ul>
+<li>Je horizon meer dan 15 jaar is</li>
+<li>Je al een goede pensioenvoorziening hebt</li>
+<li>Je bereid bent korte-termijn schommelingen te accepteren</li>
+</ul>
+
+<h3>Kies een verzekering als:</h3>
+<ul>
+<li>Garanties en zekerheid prioriteit hebben</li>
+<li>Je nabestaandenbescherming wilt meeverzekeren</li>
+<li>Je liever iets meer betaalt voor peace of mind</li>
+</ul>
+
+<h3>Combineer als:</h3>
+<ul>
+<li>Je het beste van beide werelden wilt</li>
+<li>Je voldoende inleg hebt om te spreiden</li>
+</ul>
+
+<h2>Waar kun je terecht?</h2>
+
+<p>Enkele bekende aanbieders per categorie:</p>
+
+<h3>Banksparen</h3>
+<ul>
+<li>Grote banken (Rabo, ING, ABN AMRO)</li>
+<li>Online banken (Knab, ASN)</li>
+</ul>
+
+<h3>Beleggen</h3>
+<ul>
+<li>Brand New Day</li>
+<li>Bright Pensioen</li>
+<li>Meesman</li>
+<li>De Giro (zelf beleggen)</li>
+</ul>
+
+<h3>Verzekeringen</h3>
+<ul>
+<li>Nationale-Nederlanden</li>
+<li>Aegon</li>
+<li>a.s.r.</li>
+</ul>
+
+<h2>Conclusie: er is geen 'beste' keuze</h2>
+
+<p>De beste keuze hangt af van jouw situatie: je horizon, risicotolerantie, en wat je al hebt opgebouwd. Jong en nog ver van pensioen? Beleggen biedt de beste kans op vermogensgroei. Bijna met pensioen? Banksparen beschermt wat je hebt.</p>
+
+<p>Het belangrijkste is dat je begint. Welke optie je ook kiest, elke euro die je nu inlegt met belastingvoordeel is beter dan niet sparen. En twijfel je nog? Neem contact met ons op. We helpen je graag bij het maken van de juiste keuze voor jouw situatie.</p>\`,
+    faqs: [
+      { question: "Wat is veiliger: banksparen of beleggen?", answer: "Banksparen is veiliger omdat je geen risico loopt op waardeverlies. Tot €100.000 is je spaargeld gegarandeerd via het depositogarantiestelsel. Bij beleggen kan de waarde dalen." },
+      { question: "Hoeveel meer levert beleggen op dan banksparen?", answer: "Historisch gezien levert beleggen gemiddeld 4-6% meer rendement per jaar op dan sparen. Over 20 jaar kan dit het verschil zijn tussen €120.000 en €180.000 eindkapitaal." },
+      { question: "Kan ik switchen tussen banksparen en beleggen?", answer: "Bij veel aanbieders kun je overstappen, maar check de voorwaarden. Er kunnen kosten aan verbonden zijn, en soms moet je naar een andere aanbieder." },
+      { question: "Wat gebeurt er bij overlijden?", answer: "Bij banksparen en beleggen gaat het opgebouwde vermogen naar je erfgenamen. Bij een lijfrenteverzekering hangt het af van de polisvoorwaarden - soms vervalt (een deel van) het kapitaal aan de verzekeraar." },
+      { question: "Moet ik kiezen of kan ik combineren?", answer: "Je kunt prima combineren. Bijvoorbeeld: een basisbedrag veilig via banksparen, en het meerdere beleggen voor meer rendementspotentieel." },
+    ],
+  },
+  {
+    slug: "partnerpensioen-zzp",
+    title: "Partnerpensioen voor ZZP'ers: bescherm je nabestaanden",
+    description: "Als ZZP'er regel je geen automatisch partnerpensioen. Wat kun je doen om je partner financieel te beschermen bij overlijden? Alle opties en kosten op een rij.",
+    category: "Ondernemers",
+    readingTime: 10,
+    lastUpdated: "2026-01-28",
+    image: "/kennisbank/vrouwzzp.jpg",
+    imageAlt: "Partnerpensioen voor ZZP'ers en zelfstandigen",
+    relatedSlugs: ["zzp-pensioen", "pensioen-via-bv", "lijfrente-vs-banksparen"],
+    content: \`<p class="lead">Je werkt hard als zelfstandige, bouwt een mooie zaak op, en zorgt goed voor je gezin. Maar heb je ook nagedacht over wat er gebeurt als jij er niet meer bent? Voor werknemers is partnerpensioen vaak standaard geregeld, maar als ZZP'er moet je dit zelf organiseren. In dit artikel bespreken we alle opties om je partner financieel te beschermen.</p>
+
+<h2>Waarom is partnerpensioen belangrijk?</h2>
+
+<p>Als je overlijdt, valt voor je partner een groot deel van het gezinsinkomen weg. De hypotheek loopt door, de kinderen moeten worden grootgebracht, en het leven gaat door. Zonder goede voorzieningen kan je partner in financiële problemen komen.</p>
+
+<p>Bij werknemers in loondienst is dit vaak geregeld via het pensioenfonds: de partner ontvangt een percentage van het opgebouwde pensioen als partnerpensioen, plus vaak een tijdelijk wezenpensioen voor de kinderen.</p>
+
+<p>Als ZZP'er heb je dit niet automatisch. Je moet zelf actie ondernemen.</p>
+
+<h2>Wat heeft je partner minimaal nodig?</h2>
+
+<p>Voordat je oplossingen gaat zoeken, is het goed om te weten wat je partner nodig heeft. Denk aan:</p>
+
+<ul>
+<li><strong>Vaste lasten:</strong> Hypotheek/huur, verzekeringen, energie, etc.</li>
+<li><strong>Levensonderhoud:</strong> Boodschappen, kleding, vervoer</li>
+<li><strong>Kinderen:</strong> School, sport, zakgeld, studie</li>
+<li><strong>Buffer:</strong> Onverwachte uitgaven, onderhoud</li>
+</ul>
+
+<p>Trek hier eventuele inkomsten van je partner af (eigen salaris, uitkering). Het verschil is wat je moet dekken.</p>
+
+<h3>Rekenvoorbeeld</h3>
+<p>Stel, je gezin geeft €4.000 per maand uit. Je partner verdient €1.500. Dan is het gat €2.500 per maand, ofwel €30.000 per jaar. Als je partner dit 25 jaar nodig heeft (tot pensioen), is de totale behoefte €750.000.</p>
+
+<p>Dit klinkt als een enorm bedrag, maar een overlijdensrisicoverzekering van €500.000-750.000 kost slechts €30-50 per maand voor een gezonde dertiger.</p>
+
+<h2>Optie 1: Overlijdensrisicoverzekering (ORV)</h2>
+
+<p>De meest gekozen optie voor ZZP'ers. Je sluit een verzekering af die een bedrag uitkeert bij overlijden. Dit bedrag kan je partner gebruiken om de hypotheek af te lossen, te investeren, of geleidelijk aan te vullen op het inkomen.</p>
+
+<h3>Soorten ORV</h3>
+
+<ul>
+<li><strong>Gelijkblijvend:</strong> Het verzekerd bedrag blijft gelijk gedurende de looptijd</li>
+<li><strong>Dalend (annuïtair):</strong> Het bedrag daalt mee met je hypotheekschuld</li>
+<li><strong>Combinatie:</strong> Dalend deel voor hypotheek, gelijkblijvend deel voor inkomen</li>
+</ul>
+
+<h3>Kosten</h3>
+<p>De premie hangt af van je leeftijd, gezondheid, rookgedrag en het verzekerd bedrag. Indicaties voor een gezonde niet-roker:</p>
+
+<ul>
+<li>30 jaar, €300.000: ca. €10-15 per maand</li>
+<li>40 jaar, €500.000: ca. €25-40 per maand</li>
+<li>50 jaar, €400.000: ca. €50-80 per maand</li>
+</ul>
+
+<h3>Voordelen ORV</h3>
+<ul>
+<li>Relatief goedkoop</li>
+<li>Eenvoudig en begrijpelijk</li>
+<li>Flexibel in hoogte en looptijd</li>
+<li>Direct geregeld</li>
+</ul>
+
+<h3>Nadelen ORV</h3>
+<ul>
+<li>Bouwt geen waarde op (het geld is 'weg' als je niet overlijdt)</li>
+<li>Medische keuring kan roet in het eten gooien</li>
+<li>Premie stijgt met leeftijd bij nieuwe verzekering</li>
+</ul>
+
+<h2>Optie 2: Lijfrente met nabestaandendekking</h2>
+
+<p>Je kunt een lijfrente afsluiten waarbij bij overlijden het opgebouwde kapitaal (of een percentage) naar je partner gaat. Dit combineert pensioenopbouw met nabestaandenbescherming.</p>
+
+<h3>Hoe werkt het?</h3>
+<p>Je bouwt vermogen op in een lijfrente (met belastingvoordeel). Bij overlijden vóór pensioen gaat het kapitaal naar je partner. Bij overlijden na pensioen kan je partner een nabestaandenlijfrente ontvangen.</p>
+
+<h3>Voordelen</h3>
+<ul>
+<li>Combineert pensioen en nabestaandenbescherming</li>
+<li>Bouwt waarde op (het geld is niet 'weg')</li>
+<li>Fiscaal voordelig</li>
+</ul>
+
+<h3>Nadelen</h3>
+<ul>
+<li>Dekking is beperkt in de eerste jaren (je hebt nog weinig opgebouwd)</li>
+<li>Complexer dan een ORV</li>
+<li>Uitkering is belast (bruto uitkering)</li>
+</ul>
+
+<h2>Optie 3: Combinatie van ORV en lijfrente</h2>
+
+<p>De meest complete oplossing: een ORV voor directe bescherming, en een lijfrente die geleidelijk de ORV vervangt.</p>
+
+<h3>Hoe werkt het?</h3>
+<p>Je sluit een dalende ORV af. Tegelijkertijd bouw je vermogen op in een lijfrente. Naarmate je lijfrentevermogen groeit, daalt de ORV. Zo ben je altijd goed beschermd, maar betaal je geen dubbele premie.</p>
+
+<h3>Voorbeeld</h3>
+<p>Startpositie (35 jaar):</p>
+<ul>
+<li>ORV: €500.000 (daalt naar €0 over 30 jaar)</li>
+<li>Lijfrente: €0 (groeit naar €300.000+ over 30 jaar)</li>
+<li>Totale dekking: altijd rond €400.000-500.000</li>
+</ul>
+
+<h2>Optie 4: ANW-hiaatverzekering</h2>
+
+<p>De Algemene nabestaandenwet (ANW) biedt beperkte bescherming voor nabestaanden. Niet iedereen komt ervoor in aanmerking, en de uitkering is laag. Een ANW-hiaatverzekering vult dit aan.</p>
+
+<h3>Wanneer zinvol?</h3>
+<ul>
+<li>Als je partner geen of een laag eigen inkomen heeft</li>
+<li>Als aanvulling op een ORV</li>
+<li>Bij kinderen jonger dan 18 jaar</li>
+</ul>
+
+<p>De kosten zijn laag (ca. €5-15 per maand), maar de uitkering is ook beperkt (ca. €500-800 per maand tot AOW-leeftijd partner).</p>
+
+<h2>Optie 5: Sparen en beleggen</h2>
+
+<p>Je kunt ook zelf vermogen opbouwen dat bij overlijden naar je partner gaat. Dit kan via regulier sparen, beleggen, of de waarde van je onderneming.</p>
+
+<h3>Voordelen</h3>
+<ul>
+<li>Maximale flexibiliteit</li>
+<li>Geen medische keuring</li>
+<li>Waarde is van jou/je erfgenamen</li>
+</ul>
+
+<h3>Nadelen</h3>
+<ul>
+<li>Duurt lang voordat je voldoende hebt opgebouwd</li>
+<li>Geen belastingvoordeel (tenzij via lijfrente)</li>
+<li>In de tussentijd ben je onvoldoende beschermd</li>
+</ul>
+
+<h2>De optimale strategie voor de meeste ZZP'ers</h2>
+
+<p>Voor de meeste zelfstandigen is de volgende combinatie optimaal:</p>
+
+<ol>
+<li><strong>Direct:</strong> Sluit een ORV af voor minimaal €300.000-500.000, afhankelijk van je hypotheek en gezinssituatie</li>
+<li><strong>Structureel:</strong> Benut je jaarruimte voor lijfrente met nabestaandendekking</li>
+<li><strong>Aanvullend:</strong> Overweeg een ANW-hiaatverzekering als je partner weinig eigen inkomen heeft</li>
+<li><strong>Periodiek:</strong> Herzie je dekking bij grote levensgebeurtenissen (huis kopen, kinderen, scheiding)</li>
+</ol>
+
+<h2>Veelgemaakte fouten</h2>
+
+<h3>Fout 1: Denken dat je jong en gezond bent</h3>
+<p>Juist nu is de verzekering goedkoop en kun je hem afsluiten. Wacht je tot je gezondheidsklachten hebt, dan betaal je veel meer of word je geweigerd.</p>
+
+<h3>Fout 2: Alleen de hypotheek verzekeren</h3>
+<p>De bank eist een ORV voor de hypotheek, maar dit dekt alleen de woonlasten. Je partner heeft ook inkomen nodig voor dagelijks leven.</p>
+
+<h3>Fout 3: Je partner niet betrekken</h3>
+<p>Bespreek samen wat je partner nodig heeft en wat er geregeld is. Zorg dat je partner weet waar de verzekeringen zijn en hoe te claimen.</p>
+
+<h3>Fout 4: Nooit herzien</h3>
+<p>Je situatie verandert: kinderen worden volwassen, hypotheek wordt afgelost, inkomen stijgt. Herzie je dekking minimaal elke 5 jaar.</p>
+
+<h2>Checklist: partnerpensioen voor ZZP'ers</h2>
+
+<ul>
+<li>☐ Bereken de inkomensbehoefte van je partner bij overlijden</li>
+<li>☐ Check of je huidige ORV voldoende is (niet alleen hypotheek)</li>
+<li>☐ Overweeg een ANW-hiaatverzekering</li>
+<li>☐ Bouw structureel vermogen op via lijfrente</li>
+<li>☐ Bespreek de situatie met je partner</li>
+<li>☐ Leg belangrijke documenten centraal vast</li>
+<li>☐ Plan een jaarlijkse review</li>
+</ul>
+
+<h2>Conclusie: regel het nu</h2>
+
+<p>Als ZZP'er ben je gewend om zelf zaken te regelen. Nabestaandenbescherming is misschien niet het leukste onderwerp, maar wel een van de belangrijkste. Een overlijdensrisicoverzekering kost maar een paar tientjes per maand, maar kan het verschil maken tussen financiële zekerheid en problemen voor je dierbaren.</p>
+
+<p>Wil je weten of je voldoende beschermd bent? Of welke combinatie van verzekeringen het beste bij jouw situatie past? Neem contact met ons op voor een vrijblijvend gesprek. We helpen je graag om je nabestaanden goed te beschermen.</p>\`,
+    faqs: [
+      { question: "Hoeveel kost een overlijdensrisicoverzekering?", answer: "Voor een gezonde niet-roker van 35 jaar kost een verzekering van €400.000 ongeveer €15-25 per maand. De premie hangt af van leeftijd, gezondheid, rookgedrag en verzekerd bedrag." },
+      { question: "Moet mijn partner mijn lijfrente erven bij overlijden?", answer: "Dit hangt af van het product. Bij banksparen en beleggen gaat het vermogen naar je erfgenamen. Bij een verzekerde lijfrente kan het anders zijn - check de polisvoorwaarden." },
+      { question: "Wat is een ANW-hiaatverzekering?", answer: "De ANW-uitkering van de overheid is beperkt. Een ANW-hiaatverzekering vult dit aan met een maandelijkse uitkering tot de AOW-leeftijd van je partner. Kosten zijn ca. €5-15 per maand." },
+      { question: "Kan ik een ORV afsluiten als ik ziek ben?", answer: "Dit kan moeilijker zijn. Verzekeraars doen een gezondheidscheck en kunnen je weigeren of een hogere premie vragen. Daarom is het verstandig om jong en gezond een verzekering af te sluiten." },
+      { question: "Hoe vaak moet ik mijn dekking herzien?", answer: "Herzie je nabestaandenbescherming minimaal elke 5 jaar, of bij grote levensgebeurtenissen zoals een nieuw huis, kinderen, scheiding of grote inkomensverandering." },
+    ],
+  },
+  {
+    slug: "arbeidsongeschiktheid-pensioen",
+    title: "Arbeidsongeschiktheid en pensioen: wat je moet weten als ZZP'er",
+    description: "Wat gebeurt er met je pensioenopbouw als je arbeidsongeschikt raakt? Hoe bescherm je je inkomen én je pensioen? Alles over AOV, premievrijstelling en WIA voor ondernemers.",
+    category: "Ondernemers",
+    readingTime: 13,
+    lastUpdated: "2026-01-28",
+    image: "/kennisbank/vrouwzzp.jpg",
+    imageAlt: "Arbeidsongeschiktheid en pensioen voor ZZP'ers",
+    relatedSlugs: ["zzp-pensioen", "partnerpensioen-zzp", "pensioen-via-bv"],
+    content: \`<p class="lead">Niemand denkt graag na over arbeidsongeschiktheid, maar voor ZZP'ers is het een cruciaal onderwerp. Als je niet meer kunt werken, valt niet alleen je inkomen weg, maar stopt ook je pensioenopbouw. Dubbele pech. In dit artikel bespreken we hoe je jezelf beschermt en wat de link is tussen arbeidsongeschiktheid en pensioen.</p>
+
+<h2>Het dubbele risico voor ZZP'ers</h2>
+
+<p>Als werknemer heb je bij ziekte of arbeidsongeschiktheid meerdere vangnetten:</p>
+
+<ul>
+<li>Twee jaar loondoorbetaling door je werkgever</li>
+<li>Daarna mogelijk een WIA-uitkering</li>
+<li>Vaak premievrijstelling voor je pensioenopbouw</li>
+</ul>
+
+<p>Als ZZP'er heb je dit niet. Word je ziek, dan:</p>
+
+<ul>
+<li>Stopt je inkomen direct (tenzij je een AOV hebt)</li>
+<li>Stopt je pensioenopbouw (geen inkomen = geen fiscale ruimte)</li>
+<li>Moet je mogelijk je opgebouwde vermogen aanspreken</li>
+</ul>
+
+<p>Het risico is dus dubbel: geen inkomen nu én geen pensioen later.</p>
+
+<h2>De kans op arbeidsongeschiktheid</h2>
+
+<p>Veel ondernemers denken "dat overkomt mij niet". De cijfers zeggen iets anders:</p>
+
+<ul>
+<li>Ongeveer 1 op de 5 werkenden wordt ooit langdurig arbeidsongeschikt</li>
+<li>De gemiddelde duur van arbeidsongeschiktheid is 3-5 jaar</li>
+<li>Psychische klachten (burn-out, depressie) zijn de belangrijkste oorzaak</li>
+</ul>
+
+<p>Het kan iedereen overkomen, ongeacht beroep of leeftijd.</p>
+
+<h2>De oplossing: arbeidsongeschiktheidsverzekering (AOV)</h2>
+
+<p>Een AOV keert een percentage van je inkomen uit als je door ziekte of ongeval niet kunt werken. Dit beschermt je directe inkomen, maar heeft ook impact op je pensioen.</p>
+
+<h3>Wat kost een AOV?</h3>
+
+<p>De premie hangt af van veel factoren:</p>
+
+<ul>
+<li>Je beroep (kantoorwerk vs. fysiek werk)</li>
+<li>Je leeftijd</li>
+<li>Het verzekerd bedrag</li>
+<li>De eigenrisicoperiode (wachttijd)</li>
+<li>Het eindleeftijd</li>
+<li>Je gezondheid</li>
+</ul>
+
+<p>Indicatie voor een gezonde 35-jarige met kantoorwerk:</p>
+<ul>
+<li>Verzekerd: €3.000/maand</li>
+<li>Eigenrisico: 30 dagen</li>
+<li>Eindleeftijd: 67 jaar</li>
+<li>Premie: ca. €200-350 per maand</li>
+</ul>
+
+<p>Dit lijkt veel, maar vergelijk het met het risico: jarenlang zonder inkomen.</p>
+
+<h3>Vormen van AOV</h3>
+
+<ul>
+<li><strong>Individuele AOV:</strong> Je sluit zelf een verzekering af bij een verzekeraar</li>
+<li><strong>Broodfonds:</strong> Je spaart samen met andere ondernemers en keert elkaar uit bij ziekte (max. 2 jaar)</li>
+<li><strong>Schenkkring:</strong> Vergelijkbaar met broodfonds, gebaseerd op schenkingen</li>
+<li><strong>Vangnet ZZP (via UWV):</strong> Beperkte dekking, strenge voorwaarden</li>
+</ul>
+
+<h2>De link met pensioen: premievrijstelling</h2>
+
+<p>Bij veel pensioenregelingen voor werknemers zit premievrijstelling bij arbeidsongeschiktheid inbegrepen. Dit betekent dat je pensioenopbouw doorgaat, ook al werk je niet en betaal je geen premie. De verzekeraar neemt de premie over.</p>
+
+<p>Als ZZP'er kun je dit ook regelen, maar het kost extra:</p>
+
+<h3>Optie 1: AOV met opbouwclausule</h3>
+<p>Sommige AOV's bieden een module waarbij bij arbeidsongeschiktheid niet alleen een uitkering wordt gedaan, maar ook premie wordt overgemaakt naar je lijfrente. Zo blijft je pensioenopbouw doorlopen.</p>
+
+<h3>Optie 2: Aparte premievrijstellingsverzekering</h3>
+<p>Je sluit naast je AOV een aparte verzekering af die je lijfrentepremie overneemt bij arbeidsongeschiktheid.</p>
+
+<h3>Optie 3: Ruim verzekerd bedrag</h3>
+<p>Je verzekert een hoger bedrag via je AOV, zodat je uit de uitkering ook je lijfrentepremie kunt blijven betalen.</p>
+
+<h2>De nieuwe verplichte AOV voor ZZP'ers</h2>
+
+<p>Het kabinet werkt aan een verplichte arbeidsongeschiktheidsverzekering voor zelfstandigen. Dit moet voorkomen dat ZZP'ers onverzekerd zijn en bij langdurige ziekte in de bijstand terechtkomen.</p>
+
+<p><strong>Wat we nu weten (stand 2026):</strong></p>
+<ul>
+<li>De verplichting gaat waarschijnlijk in rond 2027-2028</li>
+<li>Er komt een publieke verzekering via UWV</li>
+<li>De uitkering wordt ongeveer 70% van het minimumloon</li>
+<li>Je kunt je privaat bijverzekeren voor een hogere uitkering</li>
+<li>De premie is nog niet definitief vastgesteld</li>
+</ul>
+
+<p>Het is verstandig om de ontwikkelingen te volgen en te overwegen of de verplichte dekking voor jou voldoende is, of dat je wilt bijverzekeren.</p>
+
+<h2>Wat als je al arbeidsongeschikt bent?</h2>
+
+<p>Ben je al (gedeeltelijk) arbeidsongeschikt en heb je geen verzekering? Dan zijn je opties beperkt:</p>
+
+<ul>
+<li><strong>Bijstand:</strong> Als je geen ander inkomen of vermogen hebt</li>
+<li><strong>Vermogen aanspreken:</strong> Spaargeld, beleggingen, of overwegen om je huis te verkopen</li>
+<li><strong>Partner:</strong> Afhankelijk worden van je partner's inkomen</li>
+<li><strong>Omscholing:</strong> Kijken of je ander werk kunt doen</li>
+</ul>
+
+<p>Dit onderstreept het belang van vroegtijdig verzekeren, als je nog gezond bent.</p>
+
+<h2>Checklist: arbeidsongeschiktheid en pensioen</h2>
+
+<ul>
+<li>☐ Check of je een AOV hebt en wat de dekking is</li>
+<li>☐ Bereken hoeveel inkomen je nodig hebt bij arbeidsongeschiktheid</li>
+<li>☐ Overweeg premievrijstelling voor je lijfrente</li>
+<li>☐ Houd de ontwikkelingen rond de verplichte AOV in de gaten</li>
+<li>☐ Bespreek je situatie met een adviseur</li>
+<li>☐ Bouw ook een financiële buffer op voor de eerste periode</li>
+</ul>
+
+<h2>Veelgemaakte fouten</h2>
+
+<h3>Fout 1: Geen AOV want "te duur"</h3>
+<p>Een AOV is een serieuze kostenpost, maar vergelijk het met het alternatief: jarenlang zonder inkomen. De premie is vaak fiscaal aftrekbaar, wat de netto kosten verlaagt.</p>
+
+<h3>Fout 2: Alleen een broodfonds</h3>
+<p>Broodfondsen zijn prima voor korte ziekte, maar keren maximaal 2 jaar uit. Bij langdurige arbeidsongeschiktheid sta je daarna alsnog met lege handen.</p>
+
+<h3>Fout 3: Te laat verzekeren</h3>
+<p>Als je eenmaal gezondheidsklachten hebt, word je geweigerd of moet je veel meer premie betalen. Sluit een AOV af als je jong en gezond bent.</p>
+
+<h3>Fout 4: Pensioen vergeten</h3>
+<p>Je denkt aan inkomen tijdens arbeidsongeschiktheid, maar vergeet dat ook je pensioenopbouw stopt. Regel premievrijstelling of verzeker een hoger bedrag.</p>
+
+<h2>Praktisch advies</h2>
+
+<h3>Minimale bescherming</h3>
+<ul>
+<li>AOV die minimaal 70% van je netto inkomen dekt</li>
+<li>Eigenrisicoperiode van maximaal 60 dagen (bouw een buffer voor deze periode)</li>
+<li>Einddatum gelijk aan je pensioenleeftijd</li>
+</ul>
+
+<h3>Optimale bescherming</h3>
+<ul>
+<li>AOV die 80% van je netto inkomen dekt</li>
+<li>Premievrijstelling voor je lijfrente erbij</li>
+<li>Eventueel aanvullende dekking via broodfonds voor eerste periode</li>
+</ul>
+
+<h2>Conclusie: bescherm je toekomst</h2>
+
+<p>Arbeidsongeschiktheid is een risico dat we liever negeren, maar dat reële consequenties heeft. Als ZZP'er heb je geen vangnetten, dus moet je zelf zorgen voor bescherming. Een goede AOV beschermt niet alleen je huidige inkomen, maar - met de juiste aanvullingen - ook je pensioenopbouw.</p>
+
+<p>Het kost geld, maar het alternatief - zonder inkomen én zonder pensioen - is veel duurder.</p>
+
+<p>Wil je weten welke AOV bij jouw situatie past? Of hoe je je pensioenopbouw kunt beschermen bij arbeidsongeschiktheid? Neem contact met ons op. We helpen je graag bij het maken van de juiste keuzes.</p>\`,
+    faqs: [
+      { question: "Hoe duur is een AOV voor ZZP'ers?", answer: "De premie varieert sterk, maar reken op €150-400 per maand voor een goede dekking. Factoren zijn je beroep, leeftijd, verzekerd bedrag en eigenrisicoperiode. De premie is vaak fiscaal aftrekbaar." },
+      { question: "Wat is een broodfonds?", answer: "Een broodfonds is een groep ondernemers die samen sparen en elkaar uitkeren bij ziekte. De uitkering is maximaal 2 jaar. Het is een goede aanvulling, maar geen vervanging voor een AOV." },
+      { question: "Komt er een verplichte AOV voor ZZP'ers?", answer: "Ja, het kabinet werkt aan een verplichte arbeidsongeschiktheidsverzekering voor zelfstandigen, verwacht rond 2027-2028. De dekking wordt ongeveer 70% van het minimumloon." },
+      { question: "Wat is premievrijstelling bij arbeidsongeschiktheid?", answer: "Bij premievrijstelling neemt de verzekeraar je pensioenpremie over als je arbeidsongeschikt raakt. Zo blijft je pensioenopbouw doorlopen, ook al kun je niet werken." },
+      { question: "Kan ik me nog verzekeren als ik al klachten heb?", answer: "Dit is moeilijker. Verzekeraars doen een gezondheidsverklaring en kunnen je weigeren of uitsluiten voor bepaalde aandoeningen. Verzeker je daarom als je nog gezond bent." },
+    ],
+  },
 ];
 
 export function getArticleBySlug(slug: string): KnowledgeArticle | undefined {
