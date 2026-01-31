@@ -13,6 +13,18 @@ import { PiggyIcon } from "@/components/ui/PiggyIcon";
 import { testimonials } from "@/content/testimonials";
 import { faqs } from "@/content/faqs";
 import { siteConfig } from "@/config/site";
+import { 
+  CheckIcon, 
+  ShieldCheckIcon, 
+  ClockIcon, 
+  ArrowRightIcon, 
+  PhoneIcon, 
+  EmailIcon,
+  BuildingIcon,
+  SearchIcon,
+  LightbulbIcon,
+  TargetIcon
+} from "@/components/ui/Icons";
 
 export default function HomePage() {
   return (
@@ -57,18 +69,30 @@ function HeroSection() {
             <PensionAgeSlider />
             
             <p className="text-xs sm:text-sm text-slate-500 my-4 sm:my-6 flex flex-wrap gap-x-3 sm:gap-x-4 gap-y-2">
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Vertrouwelijk</span>
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Geen spam</span>
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> Binnen 24u reactie</span>
-              <span className="flex items-center gap-1"><svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg> 100% vrijblijvend</span>
+              <span className="flex items-center gap-1">
+                <CheckIcon className="text-green-500 flex-shrink-0" size="sm" />
+                Vertrouwelijk
+              </span>
+              <span className="flex items-center gap-1">
+                <CheckIcon className="text-green-500 flex-shrink-0" size="sm" />
+                Geen spam
+              </span>
+              <span className="flex items-center gap-1">
+                <CheckIcon className="text-green-500 flex-shrink-0" size="sm" />
+                Binnen 24u reactie
+              </span>
+              <span className="flex items-center gap-1">
+                <CheckIcon className="text-green-500 flex-shrink-0" size="sm" />
+                100% vrijblijvend
+              </span>
             </p>
             <div className="flex flex-wrap gap-2 sm:gap-4 text-xs sm:text-sm">
               <span className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                <ShieldCheckIcon className="text-green-500 flex-shrink-0" size="sm" />
                 <span className="text-slate-600">AFM-geregistreerd</span>
               </span>
               <span className="flex items-center gap-1.5 sm:gap-2 bg-white px-2.5 sm:px-3 py-1.5 rounded-full border border-slate-200">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <CheckIcon className="text-green-500 flex-shrink-0" size="sm" />
                 <span className="text-slate-600">Persoonlijk advies</span>
               </span>
             </div>
@@ -80,7 +104,7 @@ function HeroSection() {
             </div>
             <div className="text-center mb-5 sm:mb-6 pt-2 sm:pt-2">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-orange-50 text-orange-700 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1 rounded-full mb-2 sm:mb-3">
-                <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <ClockIcon className="flex-shrink-0" size="sm" />
                 <span className="whitespace-nowrap">1-1,5 uur persoonlijke aandacht</span>
               </div>
               <h2 className="text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis Pensioen Inventarisatie</h2>
@@ -94,7 +118,7 @@ function HeroSection() {
                 "Concrete oplossingen op maat"
               ].map((item) => (
                 <li key={item} className="flex items-center gap-2 sm:gap-3">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckIcon className="text-green-500 flex-shrink-0" size="md" />
                   <span className="text-slate-700 text-xs sm:text-sm">{item}</span>
                 </li>
               ))}
@@ -139,6 +163,24 @@ function StatsSection() {
 }
 
 function WhySection() {
+  const reasons = [
+    { 
+      icon: <SearchIcon className="text-orange-500" size="xl" />, 
+      title: "Je overzicht is een raadsel", 
+      desc: "Pensioenbrieven vol jargon en cijfers. Wij vertalen het naar wat het écht betekent voor jou." 
+    },
+    { 
+      icon: <LightbulbIcon className="text-orange-500" size="xl" />, 
+      title: "Rust in je hoofd over later", 
+      desc: "Ligt je wakker van de vraag 'heb ik straks genoeg'? Wij geven je duidelijkheid, zwart op wit." 
+    },
+    { 
+      icon: <TargetIcon className="text-orange-500" size="xl" />, 
+      title: "Zelf bepalen wanneer je stopt", 
+      desc: "Hoe eerder je begint, hoe meer keuzes je hebt. Wacht niet tot het te laat is." 
+    },
+  ];
+
   return (
     <section id="waarom" className="py-16 sm:py-20 lg:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
@@ -148,13 +190,9 @@ function WhySection() {
           <p className="text-base sm:text-lg text-slate-600 px-4">De meeste mensen weten niet wat ze straks krijgen. Na één gesprek weet jij het wel.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {[
-            { icon: "🔍", title: "Je overzicht is een raadsel", desc: "Pensioenbrieven vol jargon en cijfers. Wij vertalen het naar wat het écht betekent voor jou." },
-            { icon: "😴", title: "Rust in je hoofd over later", desc: "Ligt je wakker van de vraag 'heb ik straks genoeg'? Wij geven je duidelijkheid, zwart op wit." },
-            { icon: "🎯", title: "Zelf bepalen wanneer je stopt", desc: "Hoe eerder je begint, hoe meer keuzes je hebt. Wacht niet tot het te laat is." },
-          ].map((item) => (
+          {reasons.map((item) => (
             <div key={item.title} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-orange-200 hover:shadow-lg transition-all">
-              <span className="text-3xl mb-4 block">{item.icon}</span>
+              <div className="mb-4">{item.icon}</div>
               <h3 className="text-xl font-bold text-slate-800 mb-2">{item.title}</h3>
               <p className="text-slate-600">{item.desc}</p>
             </div>
@@ -164,7 +202,7 @@ function WhySection() {
           <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
             <div className="flex flex-col items-center lg:items-start gap-6">
               <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                <CheckIcon className="text-white" size="xl" />
               </div>
               <div className="text-center lg:text-left">
                 <h3 className="text-xl font-bold text-slate-800 mb-2">Het goede nieuws</h3>
@@ -213,7 +251,7 @@ function WorkflowSection() {
         <div className="text-center mt-10">
           <Link href="#contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:scale-[1.02] transition-all">
             Vraag gratis inventarisatie aan
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <ArrowRightIcon size="md" />
           </Link>
           <p className="text-sm text-slate-500 mt-3">Binnen 24 uur reactie • 100% vrijblijvend</p>
         </div>
@@ -250,7 +288,7 @@ function ConversationSection() {
               ].map((item) => (
                 <li key={item} className="flex items-start gap-3">
                   <div className="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-4 h-4 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                    <CheckIcon className="text-green-600" size="sm" />
                   </div>
                   <span className="text-slate-700">{item}</span>
                 </li>
@@ -282,9 +320,7 @@ function WerkgeversSection() {
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="text-center lg:text-left">
             <div className="inline-flex items-center gap-2 bg-white/20 px-4 py-2 rounded-full mb-4">
-              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
+              <BuildingIcon className="text-white" size="sm" />
               <span className="text-sm font-medium text-white">Voor werkgevers</span>
             </div>
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4">
@@ -300,9 +336,7 @@ function WerkgeversSection() {
             className="flex items-center gap-3 bg-white text-blue-700 px-8 py-4 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-[1.02] transition-all whitespace-nowrap"
           >
             Bekijk werkgeversaanbod
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
+            <ArrowRightIcon size="md" />
           </Link>
         </div>
       </div>
@@ -325,24 +359,24 @@ function CTASection() {
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 px-4">
           <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30 active:scale-[0.98] transition-all text-base sm:text-lg">
             Ja, ik wil mijn gratis inventarisatie
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+            <ArrowRightIcon size="md" />
           </Link>
           <a href={`tel:${siteConfig.contact.phoneRaw}`} className="inline-flex items-center justify-center gap-2 border-2 border-white/20 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-semibold hover:bg-white/10 active:scale-[0.98] transition-all text-sm sm:text-base">
-            <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+            <PhoneIcon className="flex-shrink-0" size="md" />
             <span className="whitespace-nowrap">Bel direct: {siteConfig.contact.phone}</span>
           </a>
         </div>
         <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
           <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            <CheckIcon className="text-green-400" size="sm" />
             Tevreden klanten
           </span>
           <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            <CheckIcon className="text-green-400" size="sm" />
             AFM-geregistreerd
           </span>
           <span className="flex items-center gap-2">
-            <svg className="w-4 h-4 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+            <CheckIcon className="text-green-400" size="sm" />
             Geen verplichtingen
           </span>
         </div>
@@ -366,7 +400,7 @@ function ContactSection() {
 
             <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-5 mb-8">
               <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
-                <svg className="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                <ClockIcon className="text-orange-500" size="md" />
                 Wat je krijgt: 1-1,5 uur persoonlijke inventarisatie
               </h4>
               <ul className="space-y-2 text-sm text-slate-700">
@@ -392,7 +426,9 @@ function ContactSection() {
 
             <div className="space-y-5">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0"><svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div>
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <PhoneIcon className="text-orange-500" size="lg" />
+                </div>
                 <div>
                   <h4 className="font-bold text-slate-800">Direct bellen</h4>
                   <a href={`tel:${siteConfig.contact.phoneRaw}`} className="text-lg text-orange-500 hover:text-orange-600 font-semibold">{siteConfig.contact.phone}</a>
@@ -400,7 +436,9 @@ function ContactSection() {
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0"><svg className="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <EmailIcon className="text-orange-500" size="lg" />
+                </div>
                 <div>
                   <h4 className="font-bold text-slate-800">E-mail</h4>
                   <a href={`mailto:${siteConfig.contact.email}`} className="text-slate-600 hover:text-orange-500">{siteConfig.contact.email}</a>
@@ -411,15 +449,15 @@ function ContactSection() {
             <div className="mt-8 pt-6 border-t border-slate-200">
               <div className="flex flex-wrap gap-4 text-sm">
                 <span className="flex items-center gap-2 text-slate-600">
-                  <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                  <ShieldCheckIcon className="text-green-500" size="md" />
                   AFM-geregistreerd
                 </span>
                 <span className="flex items-center gap-2 text-slate-600">
-                  <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckIcon className="text-green-500" size="md" />
                   Sinds 2009 actief
                 </span>
                 <span className="flex items-center gap-2 text-slate-600">
-                  <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckIcon className="text-green-500" size="md" />
                   Tevreden klanten
                 </span>
               </div>

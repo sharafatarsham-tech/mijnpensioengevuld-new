@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Logo } from "@/components/ui/Logo";
 import { siteConfig, footerLinks } from "@/config/site";
 import { NewsletterSignup } from "@/components/NewsletterSignup";
+import { CheckIcon } from "@/components/ui/Icons";
 
 export function Footer() {
   return (
@@ -22,15 +23,15 @@ export function Footer() {
               </p>
               <ul className="space-y-2 text-sm text-slate-600">
                 <li className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckIcon className="text-green-500" size="sm" />
                   Praktische tips voor een beter pensioen
                 </li>
                 <li className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckIcon className="text-green-500" size="sm" />
                   Updates over nieuwe pensioenregels
                 </li>
                 <li className="flex items-center gap-2">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckIcon className="text-green-500" size="sm" />
                   Altijd gratis uitschrijven
                 </li>
               </ul>

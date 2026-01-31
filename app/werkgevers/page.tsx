@@ -3,6 +3,17 @@ import { Metadata } from "next";
 import { Navigation } from "@/components/sections/Navigation";
 import { Footer } from "@/components/sections/Footer";
 import { siteConfig } from "@/config/site";
+import { 
+  BuildingIcon, 
+  PhoneIcon, 
+  CheckIcon, 
+  UsersIcon, 
+  TargetIcon, 
+  ClipboardListIcon, 
+  ChartBarIcon, 
+  EmailIcon, 
+  RefreshIcon 
+} from "@/components/ui/Icons";
 
 export const metadata: Metadata = {
   title: "Pensioenadvies voor Werkgevers | Wet Toekomst Pensioenen",
@@ -25,9 +36,7 @@ export default function WerkgeversPage() {
           <div className="max-w-6xl mx-auto px-6 relative">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-200 px-4 py-2 rounded-full mb-6">
-                <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                </svg>
+                <BuildingIcon className="text-blue-600" size="sm" />
                 <span className="text-sm font-medium text-blue-700">Voor werkgevers</span>
               </div>
               <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-6">
@@ -45,9 +54,7 @@ export default function WerkgeversPage() {
                   Vrijblijvend gesprek aanvragen
                 </Link>
                 <a href={`tel:${siteConfig.contact.phoneRaw}`} className="flex items-center gap-2 bg-white border border-slate-200 px-6 py-4 rounded-xl font-semibold text-slate-700 hover:border-blue-300 transition-all">
-                  <svg className="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
+                  <PhoneIcon className="text-blue-600" size="md" />
                   {siteConfig.contact.phone}
                 </a>
               </div>
@@ -109,52 +116,50 @@ export default function WerkgeversPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
                 {
-                  icon: "👥",
+                  icon: <UsersIcon className="text-blue-600" size="xl" />,
                   title: "Collectieve pensioenpresentatie",
                   description: "Interactieve sessie voor al uw werknemers. Helder uitleg over het nieuwe pensioenstelsel en wat dit voor hen betekent.",
                   details: ["1-2 uur op locatie of online", "Inclusief Q&A sessie", "Materiaal voor nazorg"]
                 },
                 {
-                  icon: "🎯",
+                  icon: <TargetIcon className="text-blue-600" size="xl" />,
                   title: "1-op-1 pensioengesprekken",
                   description: "Persoonlijke inventarisatie per werknemer. Iedereen krijgt inzicht in zijn eigen situatie en mogelijkheden.",
                   details: ["45-60 min per werknemer", "Persoonlijk pensioenrapport", "Concrete vervolgstappen"]
                 },
                 {
-                  icon: "📋",
+                  icon: <ClipboardListIcon className="text-blue-600" size="xl" />,
                   title: "Pensioeninventarisatie",
                   description: "Complete analyse van uw huidige pensioenregeling en de impact van de transitie op uw werknemers.",
                   details: ["Gap-analyse per leeftijdsgroep", "Compensatieberekening", "Risico-inventarisatie"]
                 },
                 {
-                  icon: "📊",
+                  icon: <ChartBarIcon className="text-blue-600" size="xl" />,
                   title: "Transitieadvies",
                   description: "Strategisch advies over de overgang naar het nieuwe pensioenstelsel. Wij begeleiden het hele proces.",
                   details: ["Keuze pensioenaanbieder", "Onderhandelingsondersteuning", "Implementatiebegeleiding"]
                 },
                 {
-                  icon: "📧",
+                  icon: <EmailIcon className="text-blue-600" size="xl" />,
                   title: "Pensioencommunicatie",
                   description: "Wij helpen u voldoen aan de wettelijke informatieplicht met heldere communicatie naar werknemers.",
                   details: ["Nieuwsbrieven en mailings", "FAQ documenten", "Intranet content"]
                 },
                 {
-                  icon: "🔄",
+                  icon: <RefreshIcon className="text-blue-600" size="xl" />,
                   title: "Doorlopende ondersteuning",
                   description: "Jaarlijkse updates, nieuwe medewerkers onboarden en vragen beantwoorden - wij blijven beschikbaar.",
                   details: ["Jaarlijkse review", "Onboarding nieuwe medewerkers", "Helpdesk functie"]
                 }
               ].map((service) => (
                 <div key={service.title} className="bg-slate-50 rounded-2xl p-6 hover:shadow-lg transition-all border border-slate-100">
-                  <div className="text-4xl mb-4">{service.icon}</div>
+                  <div className="mb-4">{service.icon}</div>
                   <h3 className="text-xl font-bold text-slate-800 mb-3">{service.title}</h3>
                   <p className="text-slate-600 mb-4">{service.description}</p>
                   <ul className="space-y-2">
                     {service.details.map((detail) => (
                       <li key={detail} className="flex items-center gap-2 text-sm text-slate-500">
-                        <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
+                        <CheckIcon className="text-green-500 flex-shrink-0" size="sm" />
                         {detail}
                       </li>
                     ))}
@@ -195,9 +200,7 @@ export default function WerkgeversPage() {
                   ].map((item) => (
                     <div key={item.title} className="flex gap-4">
                       <div className="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                        <svg className="w-5 h-5 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
+                        <CheckIcon className="text-green-600" size="md" />
                       </div>
                       <div>
                         <h3 className="font-bold text-slate-800 mb-1">{item.title}</h3>
@@ -210,9 +213,7 @@ export default function WerkgeversPage() {
               <div className="bg-white rounded-2xl p-8 shadow-xl border border-slate-200">
                 <div className="text-center mb-6">
                   <div className="inline-flex items-center gap-2 bg-green-50 text-green-700 text-sm font-medium px-4 py-2 rounded-full mb-4">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
+                    <CheckIcon className="text-green-600" size="sm" />
                     Schaalbaar voor elke organisatie
                   </div>
                   <h3 className="text-2xl font-bold text-slate-800 mb-2">Tarieven op maat</h3>
