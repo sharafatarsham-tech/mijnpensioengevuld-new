@@ -36,6 +36,7 @@ export default function HomePage() {
       <StatsSection />
       <WhySection />
       <WorkflowSection />
+      <GuaranteeSection />
       <ConversationSection />
       <Calculator />
       <Testimonials testimonials={testimonials} />
@@ -56,9 +57,9 @@ function HeroSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <div className="inline-flex items-center gap-2 bg-green-50 border border-green-200 shadow-sm px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <span className="text-xs sm:text-sm font-medium text-green-700">Nu beschikbaar voor gratis gesprek</span>
+            <div className="inline-flex items-center gap-2 bg-red-50 border border-red-200 shadow-sm px-3 sm:px-4 py-2 rounded-full mb-4 sm:mb-6">
+              <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-xs sm:text-sm font-medium text-red-700">⚡ Nog 3 plekken beschikbaar deze maand</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
               Voorkom dat je later moet inleveren.<br />
@@ -144,15 +145,32 @@ function StatsSection() {
   return (
     <section className="py-12 lg:py-16 bg-gradient-to-r from-slate-800 to-slate-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Google Rating Badge */}
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-3 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5">
+            <div className="flex items-center gap-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <svg key={star} className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+            </div>
+            <span className="text-white font-bold text-lg">4.9</span>
+            <span className="text-slate-300 text-sm">Google Reviews</span>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
           {[
-            { value: "Sinds 2009", label: "Actief in pensioenadvies" },
-            { value: "42", label: "Banken, verzekeraars & vermogensbeheerders" },
-            { value: "1-op-1", label: "Persoonlijke aandacht" },
-            { value: "<24u", label: "Reactie gegarandeerd" },
+            { value: "500+", label: "Klanten persoonlijk geholpen", highlight: true },
+            { value: "€150k+", label: "Gemiddeld bespaard per klant", highlight: true },
+            { value: "Sinds 2009", label: "Ervaring in pensioenadvies" },
+            { value: "42", label: "Verzekeraars & beheerders" },
           ].map((stat) => (
             <div key={stat.label} className="px-2">
-              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold text-orange-400 mb-2">{stat.value}</p>
+              <p className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 ${stat.highlight ? 'text-green-400' : 'text-orange-400'}`}>
+                {stat.value}
+              </p>
               <p className="text-slate-300 text-xs sm:text-sm leading-tight">{stat.label}</p>
             </div>
           ))}
@@ -254,6 +272,92 @@ function WorkflowSection() {
             <ArrowRightIcon size="md" />
           </Link>
           <p className="text-sm text-slate-500 mt-3">Binnen 24 uur reactie • 100% vrijblijvend</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function GuaranteeSection() {
+  return (
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-12">
+          <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">Onze Belofte</span>
+          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mt-3 mb-4">
+            2 Keiharde Garanties
+          </h2>
+          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            Wij geloven zo sterk in onze dienstverlening dat we het met garanties onderbouwen
+          </p>
+        </div>
+        
+        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {/* Garantie 1 */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-green-200 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-green-100 rounded-bl-full opacity-50" />
+            <div className="relative">
+              <div className="w-16 h-16 bg-green-100 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3">100% Tevredenheidsgarantie</h3>
+              <p className="text-slate-600 mb-4">
+                Niet tevreden met je advies? Dan gaan we <strong>net zolang door</strong> tot je dat wel bent. 
+                Jouw tevredenheid staat bij ons op nummer 1.
+              </p>
+              <div className="flex items-center gap-2 text-green-600 font-semibold">
+                <CheckIcon size="md" />
+                <span>Geen kleine lettertjes</span>
+              </div>
+            </div>
+          </div>
+          
+          {/* Garantie 2 */}
+          <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-200 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-orange-100 rounded-bl-full opacity-50" />
+            <div className="relative">
+              <div className="w-16 h-16 bg-orange-100 rounded-2xl flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-slate-800 mb-3">Gratis Eerste Gesprek</h3>
+              <p className="text-slate-600 mb-4">
+                Je eerste inventarisatie is <strong>100% gratis en vrijblijvend</strong>. 
+                Pas daarna beslis je of je verder wilt. Geen verplichtingen, geen verrassingen.
+              </p>
+              <div className="flex items-center gap-2 text-orange-600 font-semibold">
+                <CheckIcon size="md" />
+                <span>Waarde van €150, gratis voor jou</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Extra trust */}
+        <div className="mt-12 text-center">
+          <div className="inline-flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm text-slate-600">
+            <span className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              AFM geregistreerd
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Kifid aangesloten
+            </span>
+            <span className="flex items-center gap-2">
+              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              100% onafhankelijk
+            </span>
+          </div>
         </div>
       </div>
     </section>
