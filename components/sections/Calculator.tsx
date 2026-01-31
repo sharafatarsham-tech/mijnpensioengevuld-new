@@ -21,7 +21,7 @@ import {
 // TYPES
 // =============================================================================
 
-type CalculatorTab = "pensioen" | "aow" | "jaarruimte" | "doelbedrag" | "scenarios";
+type CalculatorTab = "pensioen" | "aow" | "jaarruimte" | "doelbedrag" | "scenarios" | "reservering" | "rendement";
 
 interface CalculatorValues {
   age: number;
@@ -1049,6 +1049,342 @@ function ScenarioVergelijker() {
 }
 
 // =============================================================================
+// RESERVERINGSRUIMTE CALCULATOR
+// =============================================================================
+
+const RESERVERINGSRUIMTE_CONFIG = {
+  maxJaren: 7, // Maximaal 7 jaar terug
+  maxPerJaar: 8515, // Maximum per jaar 2026
+  totaalMax: 40000, // Indicatief totaal maximum
+};
+
+function ReserveringsruimteCalculator() {
+  const [jaarruimtes, setJaarruimtes] = useState([
+    { jaar: 2025, onbenut: 0 },
+    { jaar: 2024, onbenut: 0 },
+    { jaar: 2023, onbenut: 0 },
+    { jaar: 2022, onbenut: 0 },
+    { jaar: 2021, onbenut: 0 },
+    { jaar: 2020, onbenut: 0 },
+    { jaar: 2019, onbenut: 0 },
+  ]);
+  
+  const updateJaarruimte = (index: number, value: number) => {
+    const newJaarruimtes = [...jaarruimtes];
+    newJaarruimtes[index].onbenut = Math.min(value, RESERVERINGSRUIMTE_CONFIG.maxPerJaar);
+    setJaarruimtes(newJaarruimtes);
+  };
+  
+  const totaalReserveringsruimte = Math.min(
+    jaarruimtes.reduce((sum, j) => sum + j.onbenut, 0),
+    RESERVERINGSRUIMTE_CONFIG.totaalMax
+  );
+  
+  const belastingvoordeel = Math.round(totaalReserveringsruimte * 0.37);
+  
+  return (
+    <div className="space-y-6">
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+        <h4 className="font-semibold text-blue-800 mb-2">Wat is reserveringsruimte?</h4>
+        <p className="text-sm text-blue-700">
+          Heb je in de afgelopen 7 jaar je jaarruimte niet (volledig) benut? Dan kun je dit alsnog 
+          fiscaal aftrekbaar inleggen via de <strong>reserveringsruimte</strong>. Dit is ideaal als je een 
+          eenmalig groter bedrag wilt storten.
+        </p>
+      </div>
+      
+      <div>
+        <label className="block text-sm font-semibold text-slate-700 mb-4">
+          Vul per jaar je onbenutte jaarruimte in:
+        </label>
+        <div className="space-y-3">
+          {jaarruimtes.map((item, index) => (
+            <div key={item.jaar} className="flex items-center gap-4 bg-slate-50 rounded-lg p-3">
+              <span className="text-sm font-medium text-slate-600 w-16">{item.jaar}</span>
+              <input
+                type="number"
+                value={item.onbenut || ""}
+                onChange={(e) => updateJaarruimte(index, parseInt(e.target.value) || 0)}
+                placeholder="€0"
+                className="flex-1 px-3 py-2 border border-slate-200 rounded-lg text-sm focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+              />
+              <span className="text-xs text-slate-400 w-20">max €{RESERVERINGSRUIMTE_CONFIG.maxPerJaar.toLocaleString("nl-NL")}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      
+      {/* Resultaat */}
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white">
+        <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <CoinsIcon className="text-orange-400" size="md" />
+          Jouw Reserveringsruimte
+        </h4>
+        
+        <div className={`border rounded-xl p-5 mb-4 ${
+          totaalReserveringsruimte > 0 
+            ? "bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-500/30" 
+            : "bg-gradient-to-r from-slate-500/20 to-slate-600/20 border-slate-500/30"
+        }`}>
+          <p className="text-slate-300 text-sm mb-1">Je kunt eenmalig extra inleggen:</p>
+          <p className={`text-4xl font-bold ${totaalReserveringsruimte > 0 ? "text-green-400" : "text-slate-400"}`}>
+            €{totaalReserveringsruimte.toLocaleString("nl-NL")}
+          </p>
+        </div>
+        
+        {totaalReserveringsruimte > 0 && (
+          <div className="space-y-3 text-sm">
+            <div className="flex justify-between">
+              <span className="text-slate-400">Totaal onbenut (7 jaar)</span>
+              <span>€{jaarruimtes.reduce((sum, j) => sum + j.onbenut, 0).toLocaleString("nl-NL")}</span>
+            </div>
+            <div className="flex justify-between">
+              <span className="text-slate-400">Maximum reserveringsruimte</span>
+              <span>€{RESERVERINGSRUIMTE_CONFIG.totaalMax.toLocaleString("nl-NL")}</span>
+            </div>
+            <div className="flex justify-between border-t border-white/10 pt-3 text-green-400">
+              <span>Geschat belastingvoordeel (~37%)</span>
+              <span className="font-bold">€{belastingvoordeel.toLocaleString("nl-NL")}</span>
+            </div>
+          </div>
+        )}
+        
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <p className="text-xs text-slate-400">
+            💡 De reserveringsruimte is ideaal voor eenmalige stortingen, bijvoorbeeld na verkoop van een huis 
+            of bij ontvangst van een bonus. Check je UPO voor de exacte onbenutte jaarruimtes.
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
+// RENDEMENT CALCULATOR
+// =============================================================================
+
+function RendementCalculator() {
+  const [startBedrag, setStartBedrag] = useState(10000);
+  const [maandInleg, setMaandInleg] = useState(200);
+  const [looptijd, setLooptijd] = useState(20);
+  const [rendement, setRendement] = useState(6);
+  
+  // Bereken eindwaarde met samengestelde interest
+  const berekening = (() => {
+    const maandRendement = rendement / 100 / 12;
+    const aantalMaanden = looptijd * 12;
+    
+    // Eindwaarde startbedrag
+    const startGroei = startBedrag * Math.pow(1 + rendement / 100, looptijd);
+    
+    // Eindwaarde maandelijkse inleg (future value of annuity)
+    let inlegGroei = 0;
+    if (rendement > 0) {
+      inlegGroei = maandInleg * ((Math.pow(1 + maandRendement, aantalMaanden) - 1) / maandRendement);
+    } else {
+      inlegGroei = maandInleg * aantalMaanden;
+    }
+    
+    const totaalIngelegd = startBedrag + (maandInleg * aantalMaanden);
+    const eindwaarde = startGroei + inlegGroei;
+    const totaalRendement = eindwaarde - totaalIngelegd;
+    
+    return {
+      eindwaarde: Math.round(eindwaarde),
+      totaalIngelegd: Math.round(totaalIngelegd),
+      totaalRendement: Math.round(totaalRendement),
+      startGroei: Math.round(startGroei),
+      inlegGroei: Math.round(inlegGroei),
+    };
+  })();
+  
+  // Chart data voor visualisatie
+  const jaren = Array.from({ length: looptijd + 1 }, (_, i) => i);
+  const chartData = jaren.map(jaar => {
+    const maandRendementRate = rendement / 100 / 12;
+    const maanden = jaar * 12;
+    
+    const startGroei = startBedrag * Math.pow(1 + rendement / 100, jaar);
+    let inlegGroei = 0;
+    if (rendement > 0 && maanden > 0) {
+      inlegGroei = maandInleg * ((Math.pow(1 + maandRendementRate, maanden) - 1) / maandRendementRate);
+    } else {
+      inlegGroei = maandInleg * maanden;
+    }
+    
+    return {
+      jaar,
+      waarde: Math.round(startGroei + inlegGroei),
+      ingelegd: startBedrag + (maandInleg * maanden),
+    };
+  });
+  
+  const maxWaarde = Math.max(...chartData.map(d => d.waarde));
+  
+  return (
+    <div className="space-y-6">
+      {/* Inputs */}
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <label className="text-sm font-semibold text-slate-700">Startbedrag</label>
+            <Tooltip text="Het bedrag dat je nu al hebt om te beleggen." />
+          </div>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">€</span>
+            <input
+              type="number"
+              value={startBedrag}
+              onChange={(e) => setStartBedrag(Math.max(0, parseInt(e.target.value) || 0))}
+              className="w-full pl-8 pr-4 py-3 border border-slate-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+            />
+          </div>
+        </div>
+        
+        <div>
+          <div className="flex items-center justify-between mb-2">
+            <label className="text-sm font-semibold text-slate-700">Maandelijkse inleg</label>
+            <Tooltip text="Het bedrag dat je elke maand extra inlegt." />
+          </div>
+          <div className="relative">
+            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">€</span>
+            <input
+              type="number"
+              value={maandInleg}
+              onChange={(e) => setMaandInleg(Math.max(0, parseInt(e.target.value) || 0))}
+              className="w-full pl-8 pr-4 py-3 border border-slate-200 rounded-xl focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+            />
+          </div>
+        </div>
+      </div>
+      
+      {/* Looptijd */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <label className="text-sm font-semibold text-slate-700">Looptijd: {looptijd} jaar</label>
+          <Tooltip text="Hoe lang je van plan bent te beleggen." />
+        </div>
+        <input
+          type="range"
+          min={5}
+          max={40}
+          value={looptijd}
+          onChange={(e) => setLooptijd(parseInt(e.target.value))}
+          className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-orange-500"
+        />
+        <div className="flex justify-between mt-1 text-xs text-slate-400">
+          <span>5 jaar</span>
+          <span>40 jaar</span>
+        </div>
+      </div>
+      
+      {/* Rendement */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <label className="text-sm font-semibold text-slate-700">Verwacht rendement per jaar</label>
+        </div>
+        <div className="grid grid-cols-5 gap-2">
+          {[2, 4, 6, 8, 10].map((r) => (
+            <button
+              key={r}
+              onClick={() => setRendement(r)}
+              className={`py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                rendement === r
+                  ? "bg-orange-500 text-white"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              }`}
+            >
+              {r}%
+            </button>
+          ))}
+        </div>
+        <p className="text-xs text-slate-500 mt-2">
+          {rendement <= 4 && "Conservatief: vergelijkbaar met obligaties of gemengd beleggen"}
+          {rendement > 4 && rendement <= 7 && "Gemiddeld: historisch gemiddelde van aandelen"}
+          {rendement > 7 && "Offensief: vereist meer risico en langere horizon"}
+        </p>
+      </div>
+      
+      {/* Resultaat */}
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white">
+        <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <ChartGrowthIcon className="text-orange-400" size="md" />
+          Geschatte Eindwaarde
+        </h4>
+        
+        <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-500/30 rounded-xl p-5 mb-4">
+          <p className="text-slate-300 text-sm mb-1">Na {looptijd} jaar heb je (indicatief):</p>
+          <p className="text-4xl font-bold text-green-400">
+            €{berekening.eindwaarde.toLocaleString("nl-NL")}
+          </p>
+        </div>
+        
+        {/* Mini chart */}
+        <div className="h-32 flex items-end gap-1 mb-4">
+          {chartData.filter((_, i) => i % Math.ceil(looptijd / 15) === 0 || i === looptijd).map((d) => (
+            <div key={d.jaar} className="flex-1 flex flex-col items-center">
+              <div 
+                className="w-full bg-gradient-to-t from-orange-500 to-amber-400 rounded-t"
+                style={{ height: `${(d.waarde / maxWaarde) * 100}%`, minHeight: '4px' }}
+              />
+              <span className="text-[10px] text-slate-500 mt-1">{d.jaar}j</span>
+            </div>
+          ))}
+        </div>
+        
+        <div className="space-y-3 text-sm">
+          <div className="flex justify-between">
+            <span className="text-slate-400">Totaal ingelegd</span>
+            <span>€{berekening.totaalIngelegd.toLocaleString("nl-NL")}</span>
+          </div>
+          <div className="flex justify-between text-green-400">
+            <span>Rendement op je vermogen</span>
+            <span className="font-bold">+€{berekening.totaalRendement.toLocaleString("nl-NL")}</span>
+          </div>
+          <div className="flex justify-between border-t border-white/10 pt-3">
+            <span className="text-slate-400">Rendement als % van inleg</span>
+            <span className="font-bold text-orange-400">
+              {berekening.totaalIngelegd > 0 
+                ? `+${Math.round((berekening.totaalRendement / berekening.totaalIngelegd) * 100)}%` 
+                : "0%"
+              }
+            </span>
+          </div>
+        </div>
+        
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <p className="text-xs text-slate-400">
+            ⚠️ Dit is een indicatieve berekening. Beleggen kent risico's - je kunt je inleg verliezen. 
+            In het verleden behaalde resultaten bieden geen garantie voor de toekomst.
+          </p>
+        </div>
+      </div>
+      
+      {/* Box 1 vs Box 3 info */}
+      <div className="grid sm:grid-cols-2 gap-4">
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+          <h5 className="font-semibold text-green-800 mb-2">📦 Box 1 (Lijfrente)</h5>
+          <ul className="text-sm text-green-700 space-y-1">
+            <li>✓ Inleg is aftrekbaar van belasting</li>
+            <li>✓ Vermogen groeit belastingvrij</li>
+            <li>✗ Niet vrij opneembaar tot pensioen</li>
+          </ul>
+        </div>
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+          <h5 className="font-semibold text-blue-800 mb-2">📦 Box 3 (Vrij beleggen)</h5>
+          <ul className="text-sm text-blue-700 space-y-1">
+            <li>✓ Altijd vrij opneembaar</li>
+            <li>✓ Geen regels of beperkingen</li>
+            <li>✗ Vermogensrendementsheffing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
 // MAIN CALCULATOR COMPONENT
 // =============================================================================
 
@@ -1089,6 +1425,8 @@ export function Calculator() {
   const secondaryTabs = [
     { id: "doelbedrag" as const, label: "Doelbedrag", icon: <ChartGrowthIcon size="sm" /> },
     { id: "scenarios" as const, label: "Vergelijk", icon: <UsersIcon size="sm" /> },
+    { id: "reservering" as const, label: "Reserveringsruimte", icon: <CoinsIcon size="sm" /> },
+    { id: "rendement" as const, label: "Rendement", icon: <ChartGrowthIcon size="sm" /> },
   ];
 
   return (
@@ -1217,6 +1555,36 @@ export function Calculator() {
                     className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25"
                   >
                     Welk scenario past bij jou? Vraag het een adviseur →
+                  </Link>
+                </div>
+              </div>
+            )}
+            
+            {/* Reserveringsruimte Tab */}
+            {activeTab === "reservering" && (
+              <div className="p-6 sm:p-8 lg:p-10">
+                <ReserveringsruimteCalculator />
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <Link
+                    href="#contact"
+                    className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25"
+                  >
+                    Optimaliseer je reserveringsruimte met een adviseur →
+                  </Link>
+                </div>
+              </div>
+            )}
+            
+            {/* Rendement Tab */}
+            {activeTab === "rendement" && (
+              <div className="p-6 sm:p-8 lg:p-10">
+                <RendementCalculator />
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <Link
+                    href="#contact"
+                    className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25"
+                  >
+                    Bespreek je beleggingsstrategie met een adviseur →
                   </Link>
                 </div>
               </div>
