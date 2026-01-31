@@ -21,7 +21,7 @@ import {
 // TYPES
 // =============================================================================
 
-type CalculatorTab = "pensioen" | "aow" | "jaarruimte";
+type CalculatorTab = "pensioen" | "aow" | "jaarruimte" | "doelbedrag" | "scenarios";
 
 interface CalculatorValues {
   age: number;
@@ -615,6 +615,440 @@ function JaarruimteCalculator() {
 }
 
 // =============================================================================
+// DOELBEDRAG CALCULATOR (Benodigde Inleg)
+// =============================================================================
+
+function DoelbedragCalculator() {
+  const [doelbedrag, setDoelbedrag] = useState(250000);
+  const [jarenTotPensioen, setJarenTotPensioen] = useState(20);
+  const [verwachtRendement, setVerwachtRendement] = useState(4);
+  const [huidigKapitaal, setHuidigKapitaal] = useState(0);
+  
+  // Bereken benodigde maandelijkse inleg
+  const berekening = (() => {
+    const doelNaHuidig = Math.max(0, doelbedrag - huidigKapitaal);
+    const maandRendement = verwachtRendement / 100 / 12;
+    const aantalMaanden = jarenTotPensioen * 12;
+    
+    let maandelijkseInleg: number;
+    if (verwachtRendement === 0 || aantalMaanden === 0) {
+      maandelijkseInleg = aantalMaanden > 0 ? doelNaHuidig / aantalMaanden : 0;
+    } else {
+      maandelijkseInleg = doelNaHuidig * (maandRendement / (Math.pow(1 + maandRendement, aantalMaanden) - 1));
+    }
+    
+    const totaalIngelegd = maandelijkseInleg * aantalMaanden;
+    const totaalRendement = doelNaHuidig - totaalIngelegd;
+    
+    // Groei van huidig kapitaal
+    const huidigGroeit = huidigKapitaal * Math.pow(1 + (verwachtRendement / 100), jarenTotPensioen);
+    
+    return {
+      maandelijkseInleg: Math.max(0, Math.round(maandelijkseInleg)),
+      jaarlijkseInleg: Math.max(0, Math.round(maandelijkseInleg * 12)),
+      totaalIngelegd: Math.round(totaalIngelegd),
+      totaalRendement: Math.round(Math.max(0, totaalRendement)),
+      eindwaarde: doelbedrag,
+      huidigGroeit: Math.round(huidigGroeit),
+    };
+  })();
+  
+  return (
+    <div className="space-y-6">
+      {/* Doelbedrag */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <label className="text-sm font-semibold text-slate-700">
+            Hoeveel wil je opbouwen?
+          </label>
+          <Tooltip text="Het totale kapitaal dat je wilt hebben bij pensioen. Dit kan gebruikt worden voor extra inkomen." />
+        </div>
+        <CustomSlider
+          value={doelbedrag}
+          min={50000}
+          max={1000000}
+          step={10000}
+          onChange={setDoelbedrag}
+          formatValue={(v) => `€${(v / 1000).toFixed(0)}k`}
+        />
+        <div className="flex justify-between mt-2 px-1">
+          <span className="text-xs text-slate-400">€50.000</span>
+          <span className="text-xs text-slate-400">€1.000.000</span>
+        </div>
+      </div>
+      
+      {/* Huidig kapitaal */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <label className="text-sm font-semibold text-slate-700">
+            Hoeveel heb je al opgebouwd?
+          </label>
+          <Tooltip text="Je huidige pensioenkapitaal, spaargeld of beleggingen voor dit doel." />
+        </div>
+        <CustomSlider
+          value={huidigKapitaal}
+          min={0}
+          max={500000}
+          step={5000}
+          onChange={setHuidigKapitaal}
+          formatValue={(v) => `€${(v / 1000).toFixed(0)}k`}
+        />
+        <div className="flex justify-between mt-2 px-1">
+          <span className="text-xs text-slate-400">€0</span>
+          <span className="text-xs text-slate-400">€500.000</span>
+        </div>
+      </div>
+      
+      {/* Jaren tot pensioen */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <label className="text-sm font-semibold text-slate-700">
+            Hoeveel jaar heb je nog?
+          </label>
+          <Tooltip text="Het aantal jaren tot je met pensioen gaat of dit doel wilt bereiken." />
+        </div>
+        <CustomSlider
+          value={jarenTotPensioen}
+          min={5}
+          max={40}
+          step={1}
+          onChange={setJarenTotPensioen}
+          formatValue={(v) => `${v} jaar`}
+        />
+        <div className="flex justify-between mt-2 px-1">
+          <span className="text-xs text-slate-400">5 jaar</span>
+          <span className="text-xs text-slate-400">40 jaar</span>
+        </div>
+      </div>
+      
+      {/* Verwacht rendement */}
+      <div>
+        <div className="flex items-center justify-between mb-4">
+          <label className="text-sm font-semibold text-slate-700">
+            Verwacht rendement per jaar
+          </label>
+          <Tooltip text="Historisch gemiddeld aandelenrendement is ~7%, maar voorzichtig rekenen met 4% is verstandiger." />
+        </div>
+        <div className="grid grid-cols-4 gap-2">
+          {[0, 2, 4, 6].map((r) => (
+            <button
+              key={r}
+              onClick={() => setVerwachtRendement(r)}
+              className={`py-2 px-3 rounded-lg text-sm font-medium transition-all ${
+                verwachtRendement === r
+                  ? "bg-orange-500 text-white"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              }`}
+            >
+              {r}%
+            </button>
+          ))}
+        </div>
+        <p className="text-xs text-slate-500 mt-2 text-center">
+          {verwachtRendement === 0 && "Alleen sparen, geen beleggingsrisico"}
+          {verwachtRendement === 2 && "Conservatief: obligaties/deposito's"}
+          {verwachtRendement === 4 && "Gemiddeld: gemengd beleggen"}
+          {verwachtRendement === 6 && "Offensief: meer aandelen"}
+        </p>
+      </div>
+      
+      {/* Resultaat */}
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white">
+        <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <ChartGrowthIcon className="text-orange-400" size="md" />
+          Jouw benodigde inleg
+        </h4>
+        
+        <div className="bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-xl p-5 mb-4">
+          <p className="text-slate-300 text-sm mb-1">Je moet maandelijks inleggen:</p>
+          <p className="text-4xl font-bold text-orange-400">
+            €{berekening.maandelijkseInleg.toLocaleString("nl-NL")}
+          </p>
+          <p className="text-slate-400 text-sm mt-2">= €{berekening.jaarlijkseInleg.toLocaleString("nl-NL")}/jaar</p>
+        </div>
+        
+        <div className="space-y-3 text-sm">
+          <div className="flex justify-between">
+            <span className="text-slate-400">Doelbedrag</span>
+            <span>€{doelbedrag.toLocaleString("nl-NL")}</span>
+          </div>
+          {huidigKapitaal > 0 && (
+            <>
+              <div className="flex justify-between text-green-400">
+                <span>Huidig kapitaal</span>
+                <span>€{huidigKapitaal.toLocaleString("nl-NL")}</span>
+              </div>
+              <div className="flex justify-between text-green-400">
+                <span>→ Groeit naar ({verwachtRendement}%/jaar)</span>
+                <span>€{berekening.huidigGroeit.toLocaleString("nl-NL")}</span>
+              </div>
+            </>
+          )}
+          <div className="flex justify-between border-t border-white/10 pt-3">
+            <span className="text-slate-400">Totaal door jou ingelegd</span>
+            <span>€{berekening.totaalIngelegd.toLocaleString("nl-NL")}</span>
+          </div>
+          <div className="flex justify-between text-green-400">
+            <span>Rendement op je inleg</span>
+            <span>+€{berekening.totaalRendement.toLocaleString("nl-NL")}</span>
+          </div>
+        </div>
+        
+        <div className="mt-4 pt-4 border-t border-white/10">
+          <p className="text-xs text-slate-400">
+            ⚠️ Dit is een indicatieve berekening. Rendementen uit het verleden bieden geen garantie voor de toekomst.
+          </p>
+        </div>
+      </div>
+      
+      {/* Extra inzicht */}
+      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <h5 className="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+          <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          Wat levert dit kapitaal op?
+        </h5>
+        <p className="text-sm text-blue-700">
+          Met €{doelbedrag.toLocaleString("nl-NL")} kapitaal kun je (bij 4% onttrekking) ongeveer <strong>€{Math.round(doelbedrag * 0.04 / 12).toLocaleString("nl-NL")}/maand</strong> extra pensioeninkomen genereren, bovenop je AOW en werkgeverspensioen.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
+// SCENARIO VERGELIJKER
+// =============================================================================
+
+function ScenarioVergelijker() {
+  const [huidigeLeeftijd, setHuidigeLeeftijd] = useState(40);
+  const [pensioenLeeftijd, setPensioenLeeftijd] = useState(67);
+  const [scenario1Inleg, setScenario1Inleg] = useState(200);
+  const [scenario2Inleg, setScenario2Inleg] = useState(400);
+  const [scenario3Inleg, setScenario3Inleg] = useState(600);
+  
+  const jarenTotPensioen = Math.max(1, pensioenLeeftijd - huidigeLeeftijd);
+  const aantalMaanden = jarenTotPensioen * 12;
+  
+  // Bereken scenarios met verschillende rendementen
+  const berekenScenario = (maandInleg: number, rendement: number) => {
+    const maandRendement = rendement / 100 / 12;
+    let eindwaarde: number;
+    
+    if (rendement === 0) {
+      eindwaarde = maandInleg * aantalMaanden;
+    } else {
+      eindwaarde = maandInleg * ((Math.pow(1 + maandRendement, aantalMaanden) - 1) / maandRendement);
+    }
+    
+    const totaalIngelegd = maandInleg * aantalMaanden;
+    const rendementBedrag = eindwaarde - totaalIngelegd;
+    const maandelijksInkomen = Math.round((eindwaarde * 0.04) / 12); // 4% onttrekking
+    
+    return {
+      eindwaarde: Math.round(eindwaarde),
+      totaalIngelegd: Math.round(totaalIngelegd),
+      rendement: Math.round(rendementBedrag),
+      maandelijksInkomen,
+    };
+  };
+  
+  const scenarios = [
+    { 
+      naam: "Voorzichtig", 
+      inleg: scenario1Inleg, 
+      rendement: 2,
+      kleur: "blue",
+      result: berekenScenario(scenario1Inleg, 2)
+    },
+    { 
+      naam: "Gemiddeld", 
+      inleg: scenario2Inleg, 
+      rendement: 4,
+      kleur: "orange",
+      result: berekenScenario(scenario2Inleg, 4)
+    },
+    { 
+      naam: "Ambitieus", 
+      inleg: scenario3Inleg, 
+      rendement: 6,
+      kleur: "green",
+      result: berekenScenario(scenario3Inleg, 6)
+    },
+  ];
+  
+  const maxEindwaarde = Math.max(...scenarios.map(s => s.result.eindwaarde));
+  
+  return (
+    <div className="space-y-6">
+      {/* Leeftijd inputs */}
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label className="text-sm font-semibold text-slate-700 block mb-2">
+            Huidige leeftijd
+          </label>
+          <input
+            type="number"
+            value={huidigeLeeftijd}
+            onChange={(e) => setHuidigeLeeftijd(Math.max(18, Math.min(65, parseInt(e.target.value) || 40)))}
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-center text-lg font-bold focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+          />
+        </div>
+        <div>
+          <label className="text-sm font-semibold text-slate-700 block mb-2">
+            Pensioenleeftijd
+          </label>
+          <input
+            type="number"
+            value={pensioenLeeftijd}
+            onChange={(e) => setPensioenLeeftijd(Math.max(55, Math.min(75, parseInt(e.target.value) || 67)))}
+            className="w-full px-4 py-3 border border-slate-200 rounded-xl text-center text-lg font-bold focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none"
+          />
+        </div>
+      </div>
+      
+      <div className="text-center">
+        <span className="inline-flex items-center gap-2 bg-slate-100 text-slate-700 px-4 py-2 rounded-full text-sm font-medium">
+          <ClockIcon size="sm" />
+          {jarenTotPensioen} jaar tot pensioen
+        </span>
+      </div>
+      
+      {/* Scenario inleg sliders */}
+      <div className="space-y-4">
+        <h4 className="font-semibold text-slate-700">Pas de maandelijkse inleg per scenario aan:</h4>
+        
+        {/* Scenario 1 */}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-semibold text-blue-700">Voorzichtig (2% rendement)</span>
+            <span className="text-lg font-bold text-blue-700">€{scenario1Inleg}/mnd</span>
+          </div>
+          <input
+            type="range"
+            min={50}
+            max={1000}
+            step={50}
+            value={scenario1Inleg}
+            onChange={(e) => setScenario1Inleg(parseInt(e.target.value))}
+            className="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
+          />
+        </div>
+        
+        {/* Scenario 2 */}
+        <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-semibold text-orange-700">Gemiddeld (4% rendement)</span>
+            <span className="text-lg font-bold text-orange-700">€{scenario2Inleg}/mnd</span>
+          </div>
+          <input
+            type="range"
+            min={50}
+            max={1000}
+            step={50}
+            value={scenario2Inleg}
+            onChange={(e) => setScenario2Inleg(parseInt(e.target.value))}
+            className="w-full h-2 bg-orange-200 rounded-lg appearance-none cursor-pointer accent-orange-500"
+          />
+        </div>
+        
+        {/* Scenario 3 */}
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+          <div className="flex justify-between items-center mb-2">
+            <span className="text-sm font-semibold text-green-700">Ambitieus (6% rendement)</span>
+            <span className="text-lg font-bold text-green-700">€{scenario3Inleg}/mnd</span>
+          </div>
+          <input
+            type="range"
+            min={50}
+            max={1000}
+            step={50}
+            value={scenario3Inleg}
+            onChange={(e) => setScenario3Inleg(parseInt(e.target.value))}
+            className="w-full h-2 bg-green-200 rounded-lg appearance-none cursor-pointer accent-green-500"
+          />
+        </div>
+      </div>
+      
+      {/* Resultaat vergelijking */}
+      <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white">
+        <h4 className="text-lg font-bold mb-6 flex items-center gap-2">
+          <ChartGrowthIcon className="text-orange-400" size="md" />
+          Scenario Vergelijking
+        </h4>
+        
+        <div className="space-y-4">
+          {scenarios.map((scenario) => {
+            const barWidth = (scenario.result.eindwaarde / maxEindwaarde) * 100;
+            const colors = {
+              blue: { bg: "bg-blue-500", text: "text-blue-400" },
+              orange: { bg: "bg-orange-500", text: "text-orange-400" },
+              green: { bg: "bg-green-500", text: "text-green-400" },
+            };
+            const color = colors[scenario.kleur as keyof typeof colors];
+            
+            return (
+              <div key={scenario.naam} className="space-y-2">
+                <div className="flex justify-between items-center">
+                  <div>
+                    <span className={`font-semibold ${color.text}`}>{scenario.naam}</span>
+                    <span className="text-slate-400 text-sm ml-2">
+                      €{scenario.inleg}/mnd • {scenario.rendement}%
+                    </span>
+                  </div>
+                  <div className="text-right">
+                    <span className="font-bold text-lg">€{scenario.result.eindwaarde.toLocaleString("nl-NL")}</span>
+                  </div>
+                </div>
+                <div className="h-4 bg-white/10 rounded-full overflow-hidden">
+                  <div 
+                    className={`h-full ${color.bg} rounded-full transition-all duration-700`}
+                    style={{ width: `${barWidth}%` }}
+                  />
+                </div>
+                <div className="flex justify-between text-xs text-slate-400">
+                  <span>Ingelegd: €{scenario.result.totaalIngelegd.toLocaleString("nl-NL")}</span>
+                  <span className="text-green-400">+€{scenario.result.rendement.toLocaleString("nl-NL")} rendement</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        
+        <div className="mt-6 pt-6 border-t border-white/10">
+          <h5 className="font-semibold text-slate-300 mb-3">Geschat extra maandelijks pensioeninkomen:</h5>
+          <div className="grid grid-cols-3 gap-4 text-center">
+            {scenarios.map((scenario) => {
+              const colors = {
+                blue: "text-blue-400",
+                orange: "text-orange-400",
+                green: "text-green-400",
+              };
+              return (
+                <div key={scenario.naam}>
+                  <p className={`text-xl font-bold ${colors[scenario.kleur as keyof typeof colors]}`}>
+                    €{scenario.result.maandelijksInkomen.toLocaleString("nl-NL")}
+                  </p>
+                  <p className="text-xs text-slate-500">{scenario.naam}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+      
+      {/* Disclaimer */}
+      <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+        <p className="text-sm text-amber-700">
+          ⚠️ <strong>Disclaimer:</strong> Deze berekeningen zijn indicatief. Werkelijke rendementen kunnen hoger of lager uitvallen. Het verleden biedt geen garantie voor de toekomst. Raadpleeg een adviseur voor persoonlijk advies.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// =============================================================================
 // MAIN CALCULATOR COMPONENT
 // =============================================================================
 
@@ -650,6 +1084,8 @@ export function Calculator() {
     { id: "pensioen" as const, label: "Pensioengat", icon: <ChartGrowthIcon size="sm" /> },
     { id: "aow" as const, label: "AOW-leeftijd", icon: <CalendarIcon size="sm" /> },
     { id: "jaarruimte" as const, label: "Jaarruimte", icon: <CoinsIcon size="sm" /> },
+    { id: "doelbedrag" as const, label: "Doelbedrag", icon: <ChartGrowthIcon size="sm" /> },
+    { id: "scenarios" as const, label: "Vergelijk", icon: <UsersIcon size="sm" /> },
   ];
 
   return (
@@ -675,22 +1111,24 @@ export function Calculator() {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex justify-center mb-8">
-          <div className="inline-flex bg-slate-100 p-1.5 rounded-2xl">
-            {tabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`flex items-center gap-2 px-5 py-3 rounded-xl text-sm font-semibold transition-all ${
-                  activeTab === tab.id
-                    ? "bg-white text-orange-600 shadow-lg"
-                    : "text-slate-600 hover:text-slate-800"
-                }`}
-              >
-                {tab.icon}
-                {tab.label}
-              </button>
-            ))}
+        <div className="mb-8 -mx-4 px-4 overflow-x-auto scrollbar-hide">
+          <div className="flex justify-center min-w-max">
+            <div className="inline-flex bg-slate-100 p-1.5 rounded-2xl gap-1">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? "bg-white text-orange-600 shadow-lg"
+                      : "text-slate-600 hover:text-slate-800"
+                  }`}
+                >
+                  <span className="hidden sm:inline">{tab.icon}</span>
+                  {tab.label}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -723,6 +1161,36 @@ export function Calculator() {
                     className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25"
                   >
                     Ontdek hoe je jaarruimte optimaal benut →
+                  </Link>
+                </div>
+              </div>
+            )}
+            
+            {/* Doelbedrag Tab */}
+            {activeTab === "doelbedrag" && (
+              <div className="p-6 sm:p-8 lg:p-10">
+                <DoelbedragCalculator />
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <Link
+                    href="#contact"
+                    className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25"
+                  >
+                    Maak een concreet plan met een adviseur →
+                  </Link>
+                </div>
+              </div>
+            )}
+            
+            {/* Scenarios Tab */}
+            {activeTab === "scenarios" && (
+              <div className="p-6 sm:p-8 lg:p-10">
+                <ScenarioVergelijker />
+                <div className="mt-6 pt-6 border-t border-slate-200">
+                  <Link
+                    href="#contact"
+                    className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-4 rounded-xl font-bold text-center transition-all shadow-lg shadow-orange-500/25"
+                  >
+                    Welk scenario past bij jou? Vraag het een adviseur →
                   </Link>
                 </div>
               </div>
