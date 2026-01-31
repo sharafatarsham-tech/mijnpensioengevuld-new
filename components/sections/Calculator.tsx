@@ -426,10 +426,17 @@ function AOWCalculator() {
 
 function JaarruimteCalculator() {
   const [brutoInkomen, setBrutoInkomen] = useState(55000);
-  const [isZZP, setIsZZP] = useState(false);
+  const [isZZP, setIsZZP] = useState(true); // Default ZZP voor meer jaarruimte
+  const [werkgeversPensioen, setWerkgeversPensioen] = useState(3000); // Jaarlijkse pensioenopbouw werkgever
+  const [factorA, setFactorA] = useState(6.27); // Standaard Factor A
   
-  const result = berekenJaarruimte2026(brutoInkomen);
-  const maandelijks = Math.round(result.jaarruimte / 12);
+  // Bereken jaarruimte met of zonder werkgeverspensioen aftrek
+  const brutoJaarruimte = berekenJaarruimte2026(brutoInkomen);
+  
+  // Voor werknemers: trek werkgeverspensioen af (Factor A × opbouw)
+  const werkgeverAftrek = isZZP ? 0 : Math.round(factorA * werkgeversPensioen);
+  const nettoJaarruimte = Math.max(0, brutoJaarruimte.jaarruimte - werkgeverAftrek);
+  const maandelijks = Math.round(nettoJaarruimte / 12);
   
   return (
     <div className="space-y-6">
@@ -459,7 +466,9 @@ function JaarruimteCalculator() {
       <div className="flex items-center justify-between bg-slate-50 rounded-xl p-4 border border-slate-200">
         <div>
           <span className="text-sm font-semibold text-slate-700 block">Ben je ZZP'er?</span>
-          <span className="text-xs text-slate-500">ZZP'ers hebben vaak meer jaarruimte</span>
+          <span className="text-xs text-slate-500">
+            {isZZP ? "Geen werkgeverspensioen = volledige jaarruimte" : "Werkgeverspensioen verlaagt je jaarruimte"}
+          </span>
         </div>
         <button
           onClick={() => setIsZZP(!isZZP)}
@@ -469,17 +478,69 @@ function JaarruimteCalculator() {
         </button>
       </div>
       
+      {/* Werkgeverspensioen - alleen tonen voor werknemers */}
+      {!isZZP && (
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 space-y-4">
+          <div className="flex items-start gap-3">
+            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+              </svg>
+            </div>
+            <div className="flex-1">
+              <h5 className="font-semibold text-blue-800 text-sm mb-1">Werkgeverspensioen</h5>
+              <p className="text-xs text-blue-600 mb-3">
+                Vul je jaarlijkse pensioenopbouw in (staat op je UPO of loonstrook)
+              </p>
+              
+              <div className="space-y-3">
+                <div>
+                  <label className="text-xs text-blue-700 block mb-1">Jaarlijkse pensioenopbouw (€)</label>
+                  <input
+                    type="number"
+                    value={werkgeversPensioen}
+                    onChange={(e) => setWerkgeversPensioen(Math.max(0, parseInt(e.target.value) || 0))}
+                    className="w-full px-3 py-2 border border-blue-200 rounded-lg text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+                    placeholder="bijv. 3000"
+                  />
+                </div>
+                
+                <div>
+                  <label className="text-xs text-blue-700 block mb-1">
+                    Factor A (standaard 6.27)
+                    <Tooltip text="Factor A staat op je UPO. Bij de meeste regelingen is dit 6.27" />
+                  </label>
+                  <input
+                    type="number"
+                    value={factorA}
+                    onChange={(e) => setFactorA(Math.max(0, Math.min(10, parseFloat(e.target.value) || 6.27)))}
+                    step="0.01"
+                    className="w-full px-3 py-2 border border-blue-200 rounded-lg text-sm focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 outline-none"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      
       {/* Resultaat */}
       <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 text-white">
         <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
           <CoinsIcon className="text-orange-400" size="md" />
           Jouw Jaarruimte 2026
+          {isZZP && <span className="text-xs bg-orange-500/20 text-orange-300 px-2 py-0.5 rounded-full">ZZP</span>}
+          {!isZZP && <span className="text-xs bg-blue-500/20 text-blue-300 px-2 py-0.5 rounded-full">Werknemer</span>}
         </h4>
         
-        <div className="bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30 rounded-xl p-5 mb-4">
+        <div className={`border rounded-xl p-5 mb-4 ${
+          nettoJaarruimte > 0 
+            ? "bg-gradient-to-r from-orange-500/20 to-amber-500/20 border-orange-500/30" 
+            : "bg-gradient-to-r from-red-500/20 to-red-600/20 border-red-500/30"
+        }`}>
           <p className="text-slate-300 text-sm mb-1">Je mag fiscaal aftrekbaar inleggen:</p>
-          <p className="text-4xl font-bold text-orange-400">
-            €{result.jaarruimte.toLocaleString("nl-NL")}
+          <p className={`text-4xl font-bold ${nettoJaarruimte > 0 ? "text-orange-400" : "text-red-400"}`}>
+            €{nettoJaarruimte.toLocaleString("nl-NL")}
           </p>
           <p className="text-slate-400 text-sm mt-2">= €{maandelijks}/maand</p>
         </div>
@@ -495,32 +556,60 @@ function JaarruimteCalculator() {
           </div>
           <div className="flex justify-between">
             <span className="text-slate-400">Premiegrondslag</span>
-            <span>€{result.premiegrondslag.toLocaleString("nl-NL")}</span>
+            <span>€{brutoJaarruimte.premiegrondslag.toLocaleString("nl-NL")}</span>
           </div>
-          <div className="flex justify-between border-t border-white/10 pt-3">
+          <div className="flex justify-between">
             <span className="text-slate-400">× 30%</span>
-            <span className="font-bold">€{result.jaarruimte.toLocaleString("nl-NL")}</span>
+            <span>€{brutoJaarruimte.jaarruimte.toLocaleString("nl-NL")}</span>
+          </div>
+          {!isZZP && werkgeverAftrek > 0 && (
+            <div className="flex justify-between text-red-400">
+              <span>- Werkgeverspensioen (Factor A × opbouw)</span>
+              <span>- €{werkgeverAftrek.toLocaleString("nl-NL")}</span>
+            </div>
+          )}
+          <div className="flex justify-between border-t border-white/10 pt-3">
+            <span className="text-slate-400 font-semibold">Netto jaarruimte</span>
+            <span className="font-bold text-lg">€{nettoJaarruimte.toLocaleString("nl-NL")}</span>
           </div>
         </div>
         
         <div className="mt-4 pt-4 border-t border-white/10">
           <p className="text-xs text-slate-400">
-            💡 De jaarruimte is het bedrag dat je fiscaal voordelig kunt inleggen in 
-            lijfrente of banksparen. Je krijgt de inleg terug via belastingaftrek.
+            {isZZP 
+              ? "💡 Als ZZP'er heb je geen werkgeverspensioen, dus de volledige jaarruimte is beschikbaar voor lijfrente of banksparen."
+              : "💡 Je werkgeverspensioen verlaagt je jaarruimte. Check je UPO voor de exacte Factor A en jaarlijkse opbouw."
+            }
           </p>
         </div>
       </div>
       
       {/* Belastingvoordeel */}
-      <div className="bg-green-50 border border-green-200 rounded-xl p-4">
-        <h5 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
-          <CheckIcon className="text-green-600" size="sm" />
-          Geschat belastingvoordeel
-        </h5>
-        <p className="text-sm text-green-700">
-          Bij een belastingtarief van ~37% bespaar je circa <strong>€{Math.round(result.jaarruimte * 0.37).toLocaleString("nl-NL")}</strong> per jaar aan belasting!
-        </p>
-      </div>
+      {nettoJaarruimte > 0 && (
+        <div className="bg-green-50 border border-green-200 rounded-xl p-4">
+          <h5 className="font-semibold text-green-800 mb-2 flex items-center gap-2">
+            <CheckIcon className="text-green-600" size="sm" />
+            Geschat belastingvoordeel
+          </h5>
+          <p className="text-sm text-green-700">
+            Bij een belastingtarief van ~37% bespaar je circa <strong>€{Math.round(nettoJaarruimte * 0.37).toLocaleString("nl-NL")}</strong> per jaar aan belasting!
+          </p>
+        </div>
+      )}
+      
+      {nettoJaarruimte === 0 && !isZZP && (
+        <div className="bg-amber-50 border border-amber-200 rounded-xl p-4">
+          <h5 className="font-semibold text-amber-800 mb-2 flex items-center gap-2">
+            <svg className="w-4 h-4 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            Geen jaarruimte beschikbaar
+          </h5>
+          <p className="text-sm text-amber-700">
+            Je werkgeverspensioen vult je fiscale ruimte al volledig. Mogelijk heb je wel <strong>reserveringsruimte</strong> uit voorgaande jaren.
+          </p>
+        </div>
+      )}
     </div>
   );
 }
@@ -579,7 +668,7 @@ export function Calculator() {
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-4 sm:mb-6">
             Bereken jouw <span className="text-orange-500">pensioensituatie</span>
-          </h2>
+            </h2>
           <p className="text-lg sm:text-xl text-slate-600 max-w-2xl mx-auto">
             Ontdek in 30 seconden of je straks genoeg hebt. Kies een berekening hieronder.
           </p>
@@ -665,12 +754,12 @@ export function Calculator() {
                           <div>
                             <label className="text-sm font-semibold text-slate-700 block">Hoe oud ben je?</label>
                             <span className="text-xs text-slate-400">Nog {result.yearsToRetirement} jaar tot pensioen</span>
-                          </div>
+                        </div>
                         </div>
                         <Tooltip text="Je huidige leeftijd. Hoe jonger je bent, hoe meer tijd je hebt om bij te sparen." />
                       </div>
                       <CustomSlider
-                        value={values.age}
+                          value={values.age}
                         min={25}
                         max={65}
                         step={1}
@@ -693,12 +782,12 @@ export function Calculator() {
                           <div>
                             <label className="text-sm font-semibold text-slate-700 block">Wat verdien je per jaar?</label>
                             <span className="text-xs text-slate-400">Bruto jaarsalaris</span>
-                          </div>
+                        </div>
                         </div>
                         <Tooltip text="Je bruto jaarsalaris bepaalt hoeveel pensioen je nodig hebt (70% hiervan is het doel)." />
                       </div>
                       <CustomSlider
-                        value={values.salary}
+                          value={values.salary}
                         min={25000}
                         max={150000}
                         step={1000}
@@ -721,12 +810,12 @@ export function Calculator() {
                           <div>
                             <label className="text-sm font-semibold text-slate-700 block">Hoeveel heb je al opgebouwd?</label>
                             <span className="text-xs text-slate-400">Check dit op mijnpensioenoverzicht.nl</span>
-                          </div>
+                        </div>
                         </div>
                         <Tooltip text="Je totale pensioenvermogen tot nu toe. Vind dit op mijnpensioenoverzicht.nl of je UPO." />
                       </div>
                       <CustomSlider
-                        value={values.currentPension}
+                          value={values.currentPension}
                         min={0}
                         max={500000}
                         step={5000}
@@ -752,12 +841,12 @@ export function Calculator() {
                       </div>
                       <div className="flex items-center gap-2">
                         <Tooltip text="AOW is het staatspensioen dat je krijgt vanaf je 67e." />
-                        <button
+                      <button
                           onClick={() => handleValueChange("includeAOW", !values.includeAOW)}
                           className={`relative w-14 h-8 rounded-full transition-all duration-300 ${values.includeAOW ? "bg-teal-500" : "bg-slate-300"}`}
-                        >
+                      >
                           <span className={`absolute top-1 w-6 h-6 bg-white rounded-full shadow-md transition-all duration-300 ${values.includeAOW ? "left-7" : "left-1"}`} />
-                        </button>
+                      </button>
                       </div>
                     </div>
                   </div>
@@ -820,11 +909,11 @@ export function Calculator() {
                         <div className="flex items-center gap-4">
                           <div className="w-12 h-12 bg-green-500/20 rounded-xl flex items-center justify-center">
                             <CheckIcon className="text-green-400" size="lg" />
-                          </div>
+                      </div>
                           <div>
                             <p className="text-green-300 font-bold">Goed bezig!</p>
                             <p className="text-slate-300 text-sm">Je lijkt op koers te liggen voor je pensioendoel.</p>
-                          </div>
+                    </div>
                         </div>
                       </div>
                     )}
@@ -893,7 +982,7 @@ export function Calculator() {
                 </div>
               </div>
             )}
-          </div>
+            </div>
 
           {/* Disclaimer */}
           <div className="mt-8 bg-slate-100 rounded-2xl p-5 border border-slate-200">
@@ -935,6 +1024,6 @@ export function Calculator() {
           animation: fade-in 0.2s ease-out;
         }
       `}</style>
-    </section>
+      </section>
   );
 }
