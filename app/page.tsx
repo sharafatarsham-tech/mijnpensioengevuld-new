@@ -163,7 +163,7 @@ function StatsSection() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
           {[
             { value: "500+", label: "Klanten persoonlijk geholpen", highlight: true },
-            { value: "€150k+", label: "Gemiddeld bespaard per klant", highlight: true },
+            { value: "€3M+", label: "Totaal belastingvoordeel gerealiseerd", highlight: true },
             { value: "Sinds 2009", label: "Ervaring in pensioenadvies" },
             { value: "42", label: "Verzekeraars & beheerders" },
           ].map((stat) => (
