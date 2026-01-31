@@ -6,6 +6,7 @@ import { Calculator } from "@/components/sections/Calculator";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQSection } from "@/components/sections/FAQ";
 import { ContactForm } from "@/components/sections/ContactForm";
+import { PartnersSectionVisual } from "@/components/sections/PartnersSection";
 import { FAQSchema } from "@/components/StructuredData";
 import { PensionAgeSlider } from "@/components/ui/PensionAgeSlider";
 import { AtmosphereImage } from "@/components/ui/AtmosphereImage";
@@ -34,6 +35,7 @@ export default function HomePage() {
       <HeroSection />
       <TrustBar />
       <StatsSection />
+      <PartnersSectionVisual />
       <WhySection />
       <WorkflowSection />
       <GuaranteeSection />
