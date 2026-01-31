@@ -1,22 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { isValidEmail } from "@/lib/utils";
 
 export default function LandingPageZZP() {
-  const [todayCount, setTodayCount] = useState(0);
-  const [totalCount, setTotalCount] = useState(0);
-
-  useEffect(() => {
-    // Simulate realistic counters (in production, fetch from API)
-    const baseToday = 3 + Math.floor(Math.random() * 4); // 3-6
-    const baseTotal = 847 + Math.floor(Math.random() * 50);
-    setTodayCount(baseToday);
-    setTotalCount(baseTotal);
-  }, []);
+  // Static counters - removed random generation for AFM compliance
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -64,7 +55,7 @@ export default function LandingPageZZP() {
           <div className="flex flex-wrap justify-center gap-4 lg:gap-6 text-sm text-slate-400 mb-8">
             <span className="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-full">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              <strong className="text-white">{todayCount}</strong> checks vandaag
+              <strong className="text-white">500+</strong> klanten geholpen
             </span>
             <span className="flex items-center gap-2 bg-slate-800/50 px-3 py-1.5 rounded-full">
               <svg className="w-4 h-4 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
@@ -82,7 +73,7 @@ export default function LandingPageZZP() {
               <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
               </svg>
-              <strong className="text-white">{totalCount}+</strong> geholpen
+              <strong className="text-white">Sinds 2009</strong> actief
             </span>
           </div>
         </div>

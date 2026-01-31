@@ -34,7 +34,7 @@ export function Navigation() {
             <PhoneIcon className="text-orange-500" size="sm" />
             {siteConfig.contact.phone}
           </a>
-          <Link href="/#contact" className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl transition-all">
+          <Link href="/lp/pensioen-diagnose" className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl transition-all">
             Gratis pensioencheck
           </Link>
         </div>
@@ -55,7 +55,7 @@ export function Navigation() {
               {item.label}
             </Link>
           ))}
-          <Link href="/#contact" onClick={() => setMobileMenuOpen(false)} className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 rounded-lg text-center font-semibold">
+          <Link href="/lp/pensioen-diagnose" onClick={() => setMobileMenuOpen(false)} className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3 rounded-lg text-center font-semibold">
             Gratis pensioencheck
           </Link>
         </div>

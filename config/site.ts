@@ -33,6 +33,7 @@ export const siteConfig = {
 };
 
 export const navItems = [
+  { label: "Over ons", href: "/over-ons" },
   { label: "Werkwijze", href: "/#werkwijze" },
   { label: "Calculator", href: "/#calculator" },
   { label: "Werkgevers", href: "/werkgevers" },

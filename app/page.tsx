@@ -41,7 +41,6 @@ export default function HomePage() {
       <Calculator />
       <Testimonials testimonials={testimonials} />
       <FAQSection faqs={faqs} />
-      <WerkgeversSection />
       <CTASection />
       <ContactSection />
       <Footer />
@@ -336,29 +335,6 @@ function GuaranteeSection() {
           </div>
         </div>
         
-        {/* Extra trust */}
-        <div className="mt-12 text-center">
-          <div className="inline-flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm text-slate-600">
-            <span className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              AFM geregistreerd
-            </span>
-            <span className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              Kifid aangesloten
-            </span>
-            <span className="flex items-center gap-2">
-              <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-              </svg>
-              100% onafhankelijk
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );

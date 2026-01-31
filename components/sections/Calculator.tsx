@@ -1080,10 +1080,13 @@ export function Calculator() {
   const formatAge = (value: number) => `${value} jaar`;
   const formatPension = (value: number) => value >= 1000 ? `€${(value / 1000).toFixed(0)}k` : `€${value}`;
 
-  const tabs = [
+  const primaryTabs = [
     { id: "pensioen" as const, label: "Pensioengat", icon: <ChartGrowthIcon size="sm" /> },
     { id: "aow" as const, label: "AOW-leeftijd", icon: <CalendarIcon size="sm" /> },
     { id: "jaarruimte" as const, label: "Jaarruimte", icon: <CoinsIcon size="sm" /> },
+  ];
+  
+  const secondaryTabs = [
     { id: "doelbedrag" as const, label: "Doelbedrag", icon: <ChartGrowthIcon size="sm" /> },
     { id: "scenarios" as const, label: "Vergelijk", icon: <UsersIcon size="sm" /> },
   ];
@@ -1111,20 +1114,43 @@ export function Calculator() {
         </div>
 
         {/* Tab Navigation */}
-        <div className="mb-8 -mx-4 px-4 overflow-x-auto scrollbar-hide">
-          <div className="flex justify-center min-w-max">
-            <div className="inline-flex bg-slate-100 p-1.5 rounded-2xl gap-1">
-              {tabs.map((tab) => (
+        <div className="mb-8 space-y-3">
+          {/* Primary Tabs */}
+          <div className="-mx-4 px-4 overflow-x-auto scrollbar-hide">
+            <div className="flex justify-center min-w-max">
+              <div className="inline-flex bg-slate-100 p-1.5 rounded-2xl gap-1">
+                {primaryTabs.map((tab) => (
+                  <button
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    className={`flex items-center gap-1.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+                      activeTab === tab.id
+                        ? "bg-white text-orange-600 shadow-lg"
+                        : "text-slate-600 hover:text-slate-800"
+                    }`}
+                  >
+                    <span className="hidden sm:inline">{tab.icon}</span>
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Secondary Tabs */}
+          <div className="flex justify-center">
+            <div className="flex items-center gap-2 text-sm">
+              <span className="text-slate-400">Meer tools:</span>
+              {secondaryTabs.map((tab) => (
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`flex items-center gap-1.5 px-3 sm:px-5 py-2.5 sm:py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all whitespace-nowrap ${
+                  className={`px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${
                     activeTab === tab.id
-                      ? "bg-white text-orange-600 shadow-lg"
-                      : "text-slate-600 hover:text-slate-800"
+                      ? "bg-orange-100 text-orange-600"
+                      : "text-slate-500 hover:text-slate-700 hover:bg-slate-100"
                   }`}
                 >
-                  <span className="hidden sm:inline">{tab.icon}</span>
                   {tab.label}
                 </button>
               ))}
