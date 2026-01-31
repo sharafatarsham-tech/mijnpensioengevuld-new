@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "pensioen-calculator": {
+      "command": "node",
+      "args": ["/Users/arshamsharafat/Downloads/project 2/mcp-server/dist/index.js"]
+    }
+  }
+}
