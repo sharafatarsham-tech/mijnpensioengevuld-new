@@ -5,7 +5,7 @@ import { LogoLoop } from "@/components/ui/LogoLoop";
 // Partner logos van Nederlandse banken en verzekeraars
 const partnerLogos = [
   { 
-    src: "/kennisbank/ing-group-vector-logo-download-free-11574105111hfu8db4hs0.png",
+    src: "/kennisbank/png-clipart-ing-group-logo-bank-financial-institution-symbol-bank-ing-group-logo.png",
     alt: "ING Bank",
     title: "ING Bank",
   },
