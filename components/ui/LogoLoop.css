@@ -6,6 +6,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
+  padding: 20px 0;
 }
 
 .logoloop--horizontal {
@@ -56,16 +57,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  min-width: 100px;
+  padding: 8px 16px;
+  background: rgba(248, 250, 252, 0.5);
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.logoloop__item:hover {
+  background: rgba(248, 250, 252, 0.9);
 }
 
 .logoloop__item img {
   height: var(--logoloop-logoHeight);
   width: auto;
-  max-width: none;
+  max-width: 140px;
   object-fit: contain;
   filter: grayscale(100%);
-  opacity: 0.6;
-  transition: filter 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+  opacity: 0.65;
+  transition: filter 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
 }
 
 .logoloop__item:hover img {
@@ -74,7 +84,7 @@
 }
 
 .logoloop--scale-hover .logoloop__item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .logoloop__node {
@@ -91,7 +101,7 @@
   text-decoration: none;
 }
 
-/* Fade out effect */
+/* Fade out effect - smoother gradients */
 .logoloop--fade::before,
 .logoloop--fade::after {
   content: '';
@@ -104,17 +114,17 @@
 .logoloop--fade.logoloop--horizontal::after {
   top: 0;
   bottom: 0;
-  width: 100px;
+  width: 120px;
 }
 
 .logoloop--fade.logoloop--horizontal::before {
   left: 0;
-  background: linear-gradient(to right, var(--logoloop-fadeColor), transparent);
+  background: linear-gradient(to right, var(--logoloop-fadeColor) 0%, var(--logoloop-fadeColor) 20%, transparent 100%);
 }
 
 .logoloop--fade.logoloop--horizontal::after {
   right: 0;
-  background: linear-gradient(to left, var(--logoloop-fadeColor), transparent);
+  background: linear-gradient(to left, var(--logoloop-fadeColor) 0%, var(--logoloop-fadeColor) 20%, transparent 100%);
 }
 
 .logoloop--fade.logoloop--vertical::before,
@@ -132,4 +142,27 @@
 .logoloop--fade.logoloop--vertical::after {
   bottom: 0;
   background: linear-gradient(to top, var(--logoloop-fadeColor), transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .logoloop {
+    --logoloop-gap: 24px;
+    --logoloop-logoHeight: 36px;
+    padding: 16px 0;
+  }
+
+  .logoloop__item {
+    min-width: 80px;
+    padding: 6px 12px;
+  }
+
+  .logoloop__item img {
+    max-width: 100px;
+  }
+
+  .logoloop--fade.logoloop--horizontal::before,
+  .logoloop--fade.logoloop--horizontal::after {
+    width: 60px;
+  }
 }
