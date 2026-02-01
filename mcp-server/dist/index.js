@@ -336,6 +336,25 @@ const CompareScenariosSchema = z.object({
         verwacht_rendement: z.number().min(0).max(15).describe("Verwacht rendement in %"),
     })).min(1).max(5).describe("Lijst van scenario's om te vergelijken (max 5)"),
 }).strict();
+const GeneratePensionReportSchema = z.object({
+    // Persoonlijke gegevens
+    naam: z.string().min(2).describe("Naam van de klant"),
+    geboortejaar: z.number().int().min(1940).max(2010).describe("Geboortejaar"),
+    geboortemaand: z.number().int().min(1).max(12).optional().describe("Geboortemaand (1-12)"),
+    leefsituatie: z.enum(["alleenstaand", "samenwonend", "alleenstaand_met_kind"]).describe("Leefsituatie"),
+    // Inkomen & werk
+    bruto_jaarinkomen: z.number().min(0).describe("Bruto jaarinkomen"),
+    type_werknemer: z.enum(["loondienst", "zzp", "dga", "combinatie"]).describe("Type dienstverband"),
+    // Pensioen situatie
+    werkgeverspensioen_per_jaar: z.number().min(0).optional().default(0).describe("Verwacht werkgeverspensioen per jaar"),
+    eigen_pensioenopbouw: z.number().min(0).optional().default(0).describe("Eigen pensioenkapitaal (lijfrente, beleggen etc)"),
+    aow_opbouwjaren: z.number().min(0).max(50).optional().default(50).describe("AOW opbouwjaren"),
+    // Doelen
+    gewenste_pensioenleeftijd: z.number().int().min(55).max(75).optional().default(67).describe("Gewenste pensioenleeftijd"),
+    gewenst_inkomen_percentage: z.number().min(50).max(100).optional().default(70).describe("Gewenst % van huidig inkomen"),
+    // Opties
+    include_advice: z.boolean().optional().default(true).describe("Inclusief persoonlijk advies"),
+}).strict();
 // =============================================================================
 // TOOL DEFINITIONS
 // =============================================================================
@@ -553,6 +572,81 @@ Returns: Vergelijkingstabel met alle scenario's.`,
             required: ["huidig_inkomen", "huidige_leeftijd", "pensioen_leeftijd", "scenarios"],
         },
     },
+    {
+        name: "generate_pension_report",
+        description: `Genereer een compleet pensioen inventarisatie rapport.
+
+Dit is de HOOFDTOOL voor het maken van een uitgebreid pensioenrapport met:
+- Persoonlijke gegevens samenvatting
+- AOW-overzicht met berekeningen
+- Pensioenopbouw analyse
+- Pensioengat berekening met dekkingsgraad
+- Doelberekening met benodigde inleg
+- Persoonlijk advies op basis van de situatie
+
+Gebruik deze tool wanneer:
+- Een klant een compleet overzicht wil van zijn pensioensituatie
+- Je een professioneel rapport wilt genereren voor adviesgesprek
+- Je alle berekeningen in één overzichtelijk document wilt
+
+Returns: Uitgebreid pensioenrapport in professioneel formaat.`,
+        inputSchema: {
+            type: "object",
+            properties: {
+                naam: {
+                    type: "string",
+                    description: "Naam van de klant",
+                },
+                geboortejaar: {
+                    type: "number",
+                    description: "Geboortejaar",
+                },
+                geboortemaand: {
+                    type: "number",
+                    description: "Geboortemaand (1-12), optioneel",
+                },
+                leefsituatie: {
+                    type: "string",
+                    enum: ["alleenstaand", "samenwonend", "alleenstaand_met_kind"],
+                    description: "Leefsituatie bij pensioen",
+                },
+                bruto_jaarinkomen: {
+                    type: "number",
+                    description: "Bruto jaarinkomen",
+                },
+                type_werknemer: {
+                    type: "string",
+                    enum: ["loondienst", "zzp", "dga", "combinatie"],
+                    description: "Type dienstverband",
+                },
+                werkgeverspensioen_per_jaar: {
+                    type: "number",
+                    description: "Verwacht werkgeverspensioen per jaar (optioneel)",
+                },
+                eigen_pensioenopbouw: {
+                    type: "number",
+                    description: "Eigen pensioenkapitaal (optioneel)",
+                },
+                aow_opbouwjaren: {
+                    type: "number",
+                    description: "AOW opbouwjaren (max 50, optioneel)",
+                },
+                gewenste_pensioenleeftijd: {
+                    type: "number",
+                    description: "Gewenste pensioenleeftijd (optioneel, standaard 67)",
+                },
+                gewenst_inkomen_percentage: {
+                    type: "number",
+                    description: "Gewenst % van huidig inkomen (optioneel, standaard 70)",
+                },
+                include_advice: {
+                    type: "boolean",
+                    description: "Inclusief persoonlijk advies (optioneel, standaard true)",
+                },
+            },
+            required: ["naam", "geboortejaar", "leefsituatie", "bruto_jaarinkomen", "type_werknemer"],
+        },
+    },
 ];
 // =============================================================================
 // TOOL HANDLERS
@@ -658,6 +752,164 @@ async function handleCompareScenarios(args) {
     }));
     return vergelijkScenarios(huidig_inkomen, huidige_leeftijd, pensioen_leeftijd, formattedScenarios);
 }
+async function handleGeneratePensionReport(args) {
+    const { naam, geboortejaar, geboortemaand = 6, leefsituatie, bruto_jaarinkomen, type_werknemer, werkgeverspensioen_per_jaar = 0, eigen_pensioenopbouw = 0, aow_opbouwjaren = 50, gewenste_pensioenleeftijd = 67, gewenst_inkomen_percentage = 70, include_advice = true, } = args;
+    const huidigJaar = new Date().getFullYear();
+    const huidigeLeeftijd = huidigJaar - geboortejaar;
+    const jarenTotPensioen = gewenste_pensioenleeftijd - huidigeLeeftijd;
+    // AOW berekening
+    const aowLeeftijd = getAOWLeeftijd(geboortejaar);
+    const aowBedrag = leefsituatie === "samenwonend"
+        ? AOW_BEDRAGEN_2024.samenwonend
+        : leefsituatie === "alleenstaand_met_kind"
+            ? AOW_BEDRAGEN_2024.alleenstaandMetKind
+            : AOW_BEDRAGEN_2024.alleenstaand;
+    const aowPercentage = Math.min(aow_opbouwjaren * 2, 100);
+    const jouwAOWPerMaand = aowBedrag * (aowPercentage / 100);
+    const jouwAOWPerJaar = jouwAOWPerMaand * 12;
+    // Jaarruimte berekening (voor ZZP/DGA)
+    const jaarruimteResult = berekenJaarruimte(bruto_jaarinkomen, 0, werkgeverspensioen_per_jaar);
+    // Pensioengat berekening
+    const totaalVerwachtPensioen = jouwAOWPerJaar + werkgeverspensioen_per_jaar;
+    const gewenstInkomen = bruto_jaarinkomen * (gewenst_inkomen_percentage / 100);
+    const pensioengat = gewenstInkomen - totaalVerwachtPensioen;
+    const pensioengat_maand = pensioengat / 12;
+    const dekkingsgraad = (totaalVerwachtPensioen / gewenstInkomen) * 100;
+    // Benodigde kapitaal voor aanvulling (4% onttrekkingsregel)
+    const benodigdKapitaal = pensioengat > 0 ? pensioengat / 0.04 : 0;
+    // Schat maandelijkse inleg nodig
+    let maandelijkseInlegNodig = 0;
+    if (pensioengat > 0 && jarenTotPensioen > 0) {
+        const verwachtRendement = 4;
+        const maandRendement = verwachtRendement / 100 / 12;
+        const aantalMaanden = jarenTotPensioen * 12;
+        maandelijkseInlegNodig = benodigdKapitaal * (maandRendement / (Math.pow(1 + maandRendement, aantalMaanden) - 1));
+    }
+    // Leefsituatie tekst
+    const leefsituatieTekst = leefsituatie === "samenwonend" ? "Samenwonend/Gehuwd"
+        : leefsituatie === "alleenstaand_met_kind" ? "Alleenstaand met kind"
+            : "Alleenstaand";
+    // Type werknemer tekst
+    const typeTekst = type_werknemer === "loondienst" ? "Loondienst"
+        : type_werknemer === "zzp" ? "ZZP'er / Freelancer"
+            : type_werknemer === "dga" ? "DGA / Ondernemer met BV"
+                : "Combinatie";
+    // Risico niveau
+    let risicoNiveau = "Laag";
+    let risicoKleur = "🟢";
+    if (dekkingsgraad < 50) {
+        risicoNiveau = "Hoog";
+        risicoKleur = "🔴";
+    }
+    else if (dekkingsgraad < 70) {
+        risicoNiveau = "Gemiddeld";
+        risicoKleur = "🟡";
+    }
+    const rapport = `
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        PENSIOEN INVENTARISATIE RAPPORT                       ║
+║                              MijnPensioenGevuld.nl                           ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+Datum rapport:    ${new Date().toLocaleDateString('nl-NL', { day: 'numeric', month: 'long', year: 'numeric' })}
+Opgesteld voor:   ${naam}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 PERSOONLIJKE GEGEVENS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Naam:                     ${naam}
+Geboortejaar:             ${geboortejaar}
+Huidige leeftijd:         ${huidigeLeeftijd} jaar
+Leefsituatie:             ${leefsituatieTekst}
+Type dienstverband:       ${typeTekst}
+Bruto jaarinkomen:        €${bruto_jaarinkomen.toLocaleString('nl-NL')}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📅 AOW-OVERZICHT
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+AOW-leeftijd:             ${aowLeeftijd.leeftijd} jaar${aowLeeftijd.maanden > 0 ? ` en ${aowLeeftijd.maanden} maanden` : ''}
+AOW-opbouw:               ${aow_opbouwjaren} jaar (${aowPercentage}%)
+Verwacht AOW bruto:       €${jouwAOWPerMaand.toFixed(2)}/maand  |  €${jouwAOWPerJaar.toFixed(2)}/jaar
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💼 PENSIOENOPBOUW
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Werkgeverspensioen:       €${werkgeverspensioen_per_jaar.toLocaleString('nl-NL')}/jaar
+Eigen opbouw:             €${eigen_pensioenopbouw.toLocaleString('nl-NL')} (kapitaal)
+${type_werknemer !== "loondienst" ? `Beschikbare jaarruimte:   €${Math.round(jaarruimteResult.jaarruimte).toLocaleString('nl-NL')}` : ''}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 PENSIOENGAT ANALYSE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Gewenst pensioen:         ${gewenst_inkomen_percentage}% van huidig inkomen
+Gewenst inkomen:          €${gewenstInkomen.toLocaleString('nl-NL')}/jaar
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  AOW-uitkering:                    €${jouwAOWPerJaar.toFixed(2).padStart(12)}/jaar                    │
+│  Werkgeverspensioen:               €${werkgeverspensioen_per_jaar.toFixed(2).padStart(12)}/jaar                    │
+│  ─────────────────────────────────────────────────────────                  │
+│  TOTAAL VERWACHT:                  €${totaalVerwachtPensioen.toFixed(2).padStart(12)}/jaar                    │
+│  Gewenst inkomen:                  €${gewenstInkomen.toFixed(2).padStart(12)}/jaar                    │
+│  ─────────────────────────────────────────────────────────                  │
+│  PENSIOENGAT:                      €${Math.max(0, pensioengat).toFixed(2).padStart(12)}/jaar                    │
+│                                    €${Math.max(0, pensioengat_maand).toFixed(2).padStart(12)}/maand                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Dekkingsgraad:            ${dekkingsgraad.toFixed(1)}%
+Risiconiveau:             ${risicoKleur} ${risicoNiveau}
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+🎯 DOELBEREKENING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Gewenste pensioenleeftijd:  ${gewenste_pensioenleeftijd} jaar
+Jaren tot pensioen:         ${jarenTotPensioen} jaar
+Benodigd kapitaal:          €${Math.round(benodigdKapitaal).toLocaleString('nl-NL')}
+Geschatte inleg nodig:      €${Math.round(maandelijkseInlegNodig).toLocaleString('nl-NL')}/maand (bij 4% rendement)
+
+${include_advice ? `
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+💡 PERSOONLIJK ADVIES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+${dekkingsgraad >= 70 ?
+        `✅ Je pensioensituatie ziet er goed uit! Je dekkingsgraad is ${dekkingsgraad.toFixed(0)}%.
+   
+   Aanbevelingen:
+   • Houd je huidige opbouw vol
+   • Overweeg extra opbouw voor flexibiliteit
+   • Check jaarlijks of je situatie nog klopt` :
+        dekkingsgraad >= 50 ?
+            `⚠️ Je hebt een pensioengat van €${Math.round(pensioengat_maand)}/maand.
+   
+   Aanbevelingen:
+   • Start met aanvullende pensioenopbouw
+   ${type_werknemer !== "loondienst" ? `• Benut je jaarruimte van €${Math.round(jaarruimteResult.jaarruimte).toLocaleString('nl-NL')}` : ''}
+   • Een inleg van €${Math.round(maandelijkseInlegNodig)}/maand kan het gat dichten
+   • Overweeg ook reserveringsruimte van afgelopen jaren` :
+            `🚨 Je pensioengat is aanzienlijk: €${Math.round(pensioengat_maand)}/maand.
+   
+   Urgente aanbevelingen:
+   • Maak pensioenopbouw nu prioriteit
+   ${type_werknemer !== "loondienst" ? `• Benut je volledige jaarruimte van €${Math.round(jaarruimteResult.jaarruimte).toLocaleString('nl-NL')}` : ''}
+   • Onderzoek reserveringsruimte (tot 7 jaar terug)
+   • Overweeg eventueel langer doorwerken
+   • Plan een persoonlijk gesprek voor maatwerk advies`}
+` : ''}
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+⚠️ DISCLAIMER
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dit rapport is indicatief en gebaseerd op de verstrekte gegevens en huidige 
+regelgeving (2024). Rendementen uit het verleden bieden geen garantie voor de 
+toekomst. Voor persoonlijk advies raden wij een gesprek met een gekwalificeerd 
+pensioenadviseur aan.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                              MijnPensioenGevuld.nl
+                    Onafhankelijk pensioenadvies met persoonlijke aandacht
+                              📞 040 - 123 4567
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+`.trim();
+    return rapport;
+}
 // =============================================================================
 // SERVER SETUP
 // =============================================================================
@@ -707,6 +959,11 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
             case "compare_pension_scenarios": {
                 const validated = CompareScenariosSchema.parse(args);
                 result = await handleCompareScenarios(validated);
+                break;
+            }
+            case "generate_pension_report": {
+                const validated = GeneratePensionReportSchema.parse(args);
+                result = await handleGeneratePensionReport(validated);
                 break;
             }
             default:
