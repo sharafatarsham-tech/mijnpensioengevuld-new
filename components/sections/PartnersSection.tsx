@@ -57,7 +57,7 @@ export function PartnersSection() {
             Wij vergelijken voor jou
           </h3>
           <p className="text-slate-600 max-w-xl mx-auto text-lg">
-            Onafhankelijk advies via <strong className="text-slate-800">42 banken, verzekeraars en vermogensbeheerders</strong>
+            Onafhankelijk advies via <strong className="text-slate-800">meer dan 40 banken, verzekeraars en vermogensbeheerders</strong>
           </p>
         </div>
         

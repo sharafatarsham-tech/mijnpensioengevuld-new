@@ -163,10 +163,10 @@ function StatsSection() {
         
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 text-center">
           {[
-            { value: "500+", label: "Klanten persoonlijk geholpen", highlight: true },
-            { value: "€3M+", label: "Totaal belastingvoordeel gerealiseerd", highlight: true },
-            { value: "Sinds 2009", label: "Ervaring in pensioenadvies" },
-            { value: "42", label: "Verzekeraars & beheerders" },
+            { value: "225+", label: "Klanten afgelopen jaar geholpen", highlight: true },
+            { value: "Tot €100k", label: "Belastingbesparing per klant (20 jaar)", highlight: true },
+            { value: "15+ jaar", label: "Ervaring in pensioenadvies" },
+            { value: "40+", label: "Aanbieders vergeleken" },
           ].map((stat) => (
             <div key={stat.label} className="px-2">
               <p className={`font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 ${stat.highlight ? 'text-teal-400' : 'text-emerald-400'}`}>
@@ -536,7 +536,7 @@ function ContactSection() {
                 </span>
                 <span className="flex items-center gap-2 text-slate-600">
                   <CheckIcon className="text-green-500" size="md" />
-                  Sinds 2009 actief
+                  15+ jaar ervaring
                 </span>
                 <span className="flex items-center gap-2 text-slate-600">
                   <CheckIcon className="text-green-500" size="md" />

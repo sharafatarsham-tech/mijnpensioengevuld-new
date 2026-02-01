@@ -11,7 +11,7 @@ import {
 
 export const metadata = {
   title: "Over Ons | MijnPensioenGevuld.nl",
-  description: "Leer meer over MijnPensioenGevuld.nl - Sinds 2009 helpen wij Nederlanders met helder en onafhankelijk pensioenadvies.",
+  description: "Leer meer over MijnPensioenGevuld.nl - Met 15+ jaar ervaring helpen wij Nederlanders met helder en onafhankelijk pensioenadvies.",
 };
 
 export default function OverOnsPage() {
@@ -22,13 +22,13 @@ export default function OverOnsPage() {
         {/* Hero */}
         <section className="py-16 bg-gradient-to-br from-slate-50 to-white">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <span className="text-sm font-semibold text-orange-500 uppercase tracking-wider">Over Ons</span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-slate-800 mt-3 mb-6">
+            <span className="text-sm font-semibold text-teal-600 uppercase tracking-wider">Over Ons</span>
+            <h1 className="font-heading text-4xl lg:text-5xl font-bold text-slate-800 mt-3 mb-6">
               Helder pensioenadvies,<br />
-              <span className="text-orange-500">zonder poespas</span>
+              <span className="text-teal-600">zonder poespas</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Sinds 2009 helpen wij Nederlanders om grip te krijgen op hun pensioen. 
+              Met meer dan 15 jaar ervaring helpen wij Nederlanders om grip te krijgen op hun pensioen. 
               Onafhankelijk, persoonlijk en met oog voor jouw situatie.
             </p>
           </div>
@@ -53,7 +53,7 @@ export default function OverOnsPage() {
                   Geen vakjargon, geen verborgen agenda's. Gewoon eerlijk advies dat werkt.
                 </p>
               </div>
-              <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-2xl p-8 border border-orange-100">
+              <div className="bg-gradient-to-br from-teal-50 to-emerald-50 rounded-2xl p-8 border border-teal-100">
                 <h3 className="text-xl font-bold text-slate-800 mb-6">Wat ons drijft</h3>
                 <ul className="space-y-4">
                   {[
@@ -78,13 +78,13 @@ export default function OverOnsPage() {
           <div className="max-w-6xl mx-auto px-6">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               {[
-                { value: "Sinds 2009", label: "Actief in pensioenadvies" },
-                { value: "500+", label: "Klanten persoonlijk geholpen" },
-                { value: "42", label: "Verzekeraars & beheerders" },
+                { value: "15+ jaar", label: "Ervaring in pensioenadvies" },
+                { value: "225+", label: "Klanten afgelopen jaar geholpen" },
+                { value: "40+", label: "Aanbieders vergeleken" },
                 { value: "100%", label: "Onafhankelijk advies" },
               ].map((stat) => (
                 <div key={stat.label}>
-                  <p className="text-3xl lg:text-4xl font-bold text-orange-400 mb-2">{stat.value}</p>
+                  <p className="font-heading text-3xl lg:text-4xl font-bold text-teal-400 mb-2">{stat.value}</p>
                   <p className="text-slate-300 text-sm">{stat.label}</p>
                 </div>
               ))}
