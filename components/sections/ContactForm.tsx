@@ -125,7 +125,7 @@ export function ContactForm() {
           type="text"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className={`w-full px-4 py-3 rounded-xl border ${errors.name ? "border-red-500" : "border-slate-200"} focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none`}
+          className={`w-full px-4 py-3 rounded-xl border transition-all duration-200 ${errors.name ? "border-red-500" : "border-slate-200"} focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none`}
           placeholder="Je volledige naam"
         />
         {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -138,7 +138,7 @@ export function ContactForm() {
             type="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className={`w-full px-4 py-3 rounded-xl border ${errors.email ? "border-red-500" : "border-slate-200"} focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none`}
+            className={`w-full px-4 py-3 rounded-xl border ${errors.email ? "border-red-500" : "border-slate-200"} focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none`}
             placeholder="je@email.nl"
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
@@ -149,7 +149,7 @@ export function ContactForm() {
             type="tel"
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? "border-red-500" : "border-slate-200"} focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none`}
+            className={`w-full px-4 py-3 rounded-xl border ${errors.phone ? "border-red-500" : "border-slate-200"} focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none`}
             placeholder="06 - 1234 5678"
           />
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
@@ -162,7 +162,7 @@ export function ContactForm() {
           <select
             value={formData.situatie}
             onChange={(e) => setFormData({ ...formData, situatie: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none bg-white"
           >
             {situatieOptions.map((opt) => (
               <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -174,7 +174,7 @@ export function ContactForm() {
           <select
             value={formData.leeftijd}
             onChange={(e) => setFormData({ ...formData, leeftijd: e.target.value })}
-            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none bg-white"
+            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none bg-white"
           >
             {leeftijdOptions.map((opt) => (
               <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -189,7 +189,7 @@ export function ContactForm() {
           rows={3}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 outline-none resize-none"
+          className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 outline-none resize-none"
           placeholder="Vertel kort wat je wilt weten of bereiken..."
         />
       </div>
@@ -200,10 +200,10 @@ export function ContactForm() {
           id="privacy"
           checked={formData.privacy}
           onChange={(e) => setFormData({ ...formData, privacy: e.target.checked })}
-          className="mt-1 w-4 h-4 rounded border-slate-300 text-orange-500"
+          className="mt-1 w-4 h-4 rounded border-slate-300 text-teal-600 cursor-pointer"
         />
         <label htmlFor="privacy" className={`text-sm ${errors.privacy ? "text-red-500" : "text-slate-600"}`}>
-          Ik ga akkoord met het <a href="/privacy" className="text-orange-500 hover:underline">privacybeleid</a>
+          Ik ga akkoord met het <a href="/privacy" className="text-teal-600 hover:text-teal-700 hover:underline transition-colors duration-200">privacybeleid</a>
         </label>
       </div>
 
@@ -216,7 +216,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={formState === "loading"}
-        className="w-full bg-gradient-to-r from-orange-500 to-amber-500 text-white py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-orange-500/25 hover:shadow-xl active:scale-[0.98] transition-all disabled:opacity-50 text-base sm:text-lg"
+        className="w-full bg-gradient-to-r from-teal-600 to-teal-500 text-white py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-teal-500/25 hover:shadow-xl hover:from-teal-700 hover:to-teal-600 active:scale-[0.98] transition-all duration-200 disabled:opacity-50 text-base sm:text-lg cursor-pointer"
       >
         {formState === "loading" ? "Versturen..." : "Ja, plan mijn gratis gesprek"}
       </button>

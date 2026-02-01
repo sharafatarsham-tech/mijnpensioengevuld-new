@@ -53,8 +53,8 @@ export default function HomePage() {
 function HeroSection() {
   return (
     <section className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-36 lg:pb-24 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-50/80 via-white to-amber-50/50" />
-      <div className="absolute top-20 right-0 w-96 h-96 bg-orange-200/20 rounded-full blur-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-teal-50/80 via-white to-emerald-50/50" />
+      <div className="absolute top-20 right-0 w-96 h-96 bg-teal-200/20 rounded-full blur-3xl" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 relative">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
@@ -62,9 +62,9 @@ function HeroSection() {
               <span className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
               <span className="text-xs sm:text-sm font-medium text-red-700">⚡ Nog 3 plekken beschikbaar deze maand</span>
             </div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
+            <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
               Voorkom dat je later moet inleveren.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500">Weet binnen 1,5 uur waar je aan toe bent.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-500">Weet binnen 1,5 uur waar je aan toe bent.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8">Gratis, vertrouwelijk en vrijblijvend inzicht in jouw pensioen.</p>
             
@@ -100,16 +100,16 @@ function HeroSection() {
             </div>
           </div>
           <div className="space-y-4 sm:space-y-6">
-            <div className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-2xl shadow-orange-200/30 border border-orange-100 relative">
-            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
+            <div className="bg-white rounded-2xl p-5 sm:p-6 lg:p-8 shadow-2xl shadow-teal-200/30 border border-teal-100 relative">
+            <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 bg-teal-600 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
               GRATIS INVENTARISATIE
             </div>
             <div className="text-center mb-5 sm:mb-6 pt-2 sm:pt-2">
-              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-orange-50 text-orange-700 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1 rounded-full mb-2 sm:mb-3">
+              <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-teal-50 text-teal-700 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1 rounded-full mb-2 sm:mb-3">
                 <ClockIcon className="flex-shrink-0" size="sm" />
                 <span className="whitespace-nowrap">1-1,5 uur persoonlijke aandacht</span>
               </div>
-              <h2 className="text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis Pensioen Inventarisatie</h2>
+              <h2 className="font-heading text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis Pensioen Inventarisatie</h2>
               <p className="text-slate-600 mt-2 text-xs sm:text-sm px-2">Een uitgebreid gesprek waarin we jouw <span className="font-semibold">complete situatie</span> in kaart brengen</p>
             </div>
             <ul className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
@@ -125,7 +125,7 @@ function HeroSection() {
                 </li>
               ))}
             </ul>
-            <Link href="#contact" className="block w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center transition-all shadow-lg shadow-orange-500/25 active:scale-[0.98]">
+            <Link href="#contact" className="block w-full bg-gradient-to-r from-teal-600 to-teal-500 hover:from-teal-700 hover:to-teal-600 text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base text-center transition-all duration-200 shadow-lg shadow-teal-500/25 active:scale-[0.98]">
               Vraag gratis inventarisatie aan →
             </Link>
             <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3">100% gratis & vrijblijvend • Beperkte plekken</p>
@@ -135,7 +135,7 @@ function HeroSection() {
             alt="Vertrouwen en persoonlijk contact bij pensioenadvies"
             className="h-64 lg:h-80"
           />
-        </div>
+          </div>
         </div>
       </div>
     </section>
@@ -169,7 +169,7 @@ function StatsSection() {
             { value: "42", label: "Verzekeraars & beheerders" },
           ].map((stat) => (
             <div key={stat.label} className="px-2">
-              <p className={`text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 ${stat.highlight ? 'text-green-400' : 'text-orange-400'}`}>
+              <p className={`font-heading text-2xl sm:text-3xl lg:text-4xl font-bold mb-2 ${stat.highlight ? 'text-teal-400' : 'text-emerald-400'}`}>
                 {stat.value}
               </p>
               <p className="text-slate-300 text-xs sm:text-sm leading-tight">{stat.label}</p>
@@ -184,17 +184,17 @@ function StatsSection() {
 function WhySection() {
   const reasons = [
     { 
-      icon: <SearchIcon className="text-orange-500" size="xl" />, 
+      icon: <SearchIcon className="text-teal-600" size="xl" />, 
       title: "Je overzicht is een raadsel", 
       desc: "Pensioenbrieven vol jargon en cijfers. Wij vertalen het naar wat het écht betekent voor jou." 
     },
     { 
-      icon: <LightbulbIcon className="text-orange-500" size="xl" />, 
+      icon: <LightbulbIcon className="text-teal-600" size="xl" />, 
       title: "Rust in je hoofd over later", 
       desc: "Ligt je wakker van de vraag 'heb ik straks genoeg'? Wij geven je duidelijkheid, zwart op wit." 
     },
     { 
-      icon: <TargetIcon className="text-orange-500" size="xl" />, 
+      icon: <TargetIcon className="text-teal-600" size="xl" />, 
       title: "Zelf bepalen wanneer je stopt", 
       desc: "Hoe eerder je begint, hoe meer keuzes je hebt. Wacht niet tot het te laat is." 
     },
@@ -204,33 +204,33 @@ function WhySection() {
     <section id="waarom" className="py-16 sm:py-20 lg:py-28 bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16">
-          <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Waarom pensioenadvies?</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">Straks zorgeloos genieten begint vandaag</h2>
+          <span className="text-xs sm:text-sm font-semibold text-teal-600 uppercase tracking-wider">Waarom pensioenadvies?</span>
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6 px-4">Straks zorgeloos genieten begint vandaag</h2>
           <p className="text-base sm:text-lg text-slate-600 px-4">De meeste mensen weten niet wat ze straks krijgen. Na één gesprek weet jij het wel.</p>
         </div>
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           {reasons.map((item) => (
-            <div key={item.title} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-orange-200 hover:shadow-lg transition-all">
+            <div key={item.title} className="bg-slate-50 rounded-2xl p-8 border border-slate-100 hover:border-teal-200 hover:shadow-lg transition-all duration-200 cursor-pointer">
               <div className="mb-4">{item.icon}</div>
-              <h3 className="text-xl font-bold text-slate-800 mb-2">{item.title}</h3>
+              <h3 className="font-heading text-xl font-bold text-slate-800 mb-2">{item.title}</h3>
               <p className="text-slate-600">{item.desc}</p>
             </div>
           ))}
         </div>
         <div className="grid lg:grid-cols-2 gap-8 items-center">
-          <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
             <div className="flex flex-col items-center lg:items-start gap-6">
-              <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
+            <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center flex-shrink-0">
                 <CheckIcon className="text-white" size="xl" />
-              </div>
-              <div className="text-center lg:text-left">
-                <h3 className="text-xl font-bold text-slate-800 mb-2">Het goede nieuws</h3>
-                <p className="text-slate-600 mb-4">Met een persoonlijke inventarisatie krijg je inzicht in je situatie en ontdek je welke mogelijkheden er zijn om je pensioen te verbeteren.</p>
-                <Link href="#contact" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700">
-                  Plan gratis inventarisatie →
-                </Link>
-              </div>
             </div>
+              <div className="text-center lg:text-left">
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Het goede nieuws</h3>
+              <p className="text-slate-600 mb-4">Met een persoonlijke inventarisatie krijg je inzicht in je situatie en ontdek je welke mogelijkheden er zijn om je pensioen te verbeteren.</p>
+              <Link href="#contact" className="inline-flex items-center gap-2 text-green-600 font-semibold hover:text-green-700">
+                Plan gratis inventarisatie →
+              </Link>
+            </div>
+          </div>
           </div>
           <AtmosphereImage 
             src="/why-peace.png"
@@ -248,8 +248,8 @@ function WorkflowSection() {
     <section id="werkwijze" className="py-16 sm:py-20 lg:py-28 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="max-w-3xl mx-auto text-center mb-10 sm:mb-16">
-          <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Hoe het werkt</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-3 sm:mb-4 px-4">Van onzekerheid naar pensioenplan</h2>
+          <span className="text-xs sm:text-sm font-semibold text-teal-600 uppercase tracking-wider">Hoe het werkt</span>
+          <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-3 sm:mb-4 px-4">Van onzekerheid naar pensioenplan</h2>
           <p className="text-base sm:text-lg text-slate-600 px-4">Een helder proces dat begint met een uitgebreide inventarisatie</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -259,16 +259,16 @@ function WorkflowSection() {
             { step: "3", title: "Advies op maat", desc: "Je ontvangt een persoonlijk pensioenplan met concrete oplossingen.", tag: "Op maat" },
             { step: "4", title: "Uitvoering & nazorg", desc: "We regelen alles en blijven beschikbaar, met periodieke check-ins als je wilt.", tag: "Inclusief" },
           ].map((item) => (
-            <div key={item.step} className={`rounded-xl p-6 border transition-all ${item.highlight ? "bg-orange-50 border-orange-200 shadow-lg" : "bg-white border-slate-200 hover:shadow-lg hover:border-orange-200"}`}>
-              <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-full flex items-center justify-center text-white font-bold mb-4">{item.step}</div>
-              <h3 className="text-lg font-bold text-slate-800 mb-2">{item.title}</h3>
+            <div key={item.step} className={`rounded-xl p-6 border transition-all duration-200 cursor-pointer ${item.highlight ? "bg-teal-50 border-teal-200 shadow-lg" : "bg-white border-slate-200 hover:shadow-lg hover:border-teal-200"}`}>
+              <div className="w-10 h-10 bg-gradient-to-br from-teal-600 to-teal-500 rounded-full flex items-center justify-center text-white font-bold mb-4">{item.step}</div>
+              <h3 className="font-heading text-lg font-bold text-slate-800 mb-2">{item.title}</h3>
               <p className="text-slate-600 text-sm mb-4">{item.desc}</p>
-              <span className={`text-xs font-medium px-2 py-1 rounded-full ${item.tagColor === "green" ? "bg-green-100 text-green-700 font-bold" : item.tag === "Gratis" ? "bg-green-50 text-green-700" : "bg-slate-100 text-slate-600"}`}>{item.tag}</span>
+              <span className={`text-xs font-medium px-2 py-1 rounded-full ${item.tagColor === "green" ? "bg-green-100 text-green-700 font-bold" : item.tag === "Gratis" ? "bg-teal-50 text-teal-700" : "bg-slate-100 text-slate-600"}`}>{item.tag}</span>
             </div>
           ))}
         </div>
         <div className="text-center mt-10">
-          <Link href="#contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:scale-[1.02] transition-all">
+          <Link href="#contact" className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white px-8 py-4 rounded-xl font-semibold shadow-lg shadow-teal-500/25 hover:shadow-xl hover:scale-[1.02] transition-all duration-200">
             Vraag gratis inventarisatie aan
             <ArrowRightIcon size="md" />
           </Link>
@@ -281,11 +281,11 @@ function WorkflowSection() {
 
 function GuaranteeSection() {
   return (
-    <section className="py-16 sm:py-20 bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50">
+    <section className="py-16 sm:py-20 bg-gradient-to-br from-teal-50 via-emerald-50 to-green-50">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12">
-          <span className="text-sm font-semibold text-green-600 uppercase tracking-wider">Onze Belofte</span>
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mt-3 mb-4">
+          <span className="text-sm font-semibold text-teal-600 uppercase tracking-wider">Onze Belofte</span>
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-slate-800 mt-3 mb-4">
             2 Keiharde Garanties
           </h2>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto">
@@ -302,7 +302,7 @@ function GuaranteeSection() {
                 <svg className="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-              </div>
+            </div>
               <h3 className="text-2xl font-bold text-slate-800 mb-3">100% Tevredenheidsgarantie</h3>
               <p className="text-slate-600 mb-4">
                 Niet tevreden met je advies? Dan gaan we <strong>net zolang door</strong> tot je dat wel bent. 
@@ -314,7 +314,7 @@ function GuaranteeSection() {
               </div>
             </div>
           </div>
-          
+
           {/* Garantie 2 */}
           <div className="bg-white rounded-2xl p-8 shadow-lg border-2 border-orange-200 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-24 h-24 bg-orange-100 rounded-bl-full opacity-50" />
@@ -335,8 +335,8 @@ function GuaranteeSection() {
               </div>
             </div>
           </div>
-        </div>
-        
+            </div>
+
       </div>
     </section>
   );
@@ -348,8 +348,8 @@ function ConversationSection() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
-            <span className="text-xs sm:text-sm font-semibold text-orange-500 uppercase tracking-wider">Gratis inventarisatie</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we in 1-1,5 uur?</h2>
+            <span className="text-xs sm:text-sm font-semibold text-teal-600 uppercase tracking-wider">Gratis inventarisatie</span>
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we in 1-1,5 uur?</h2>
             <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">
               We brengen je complete situatie in kaart en vertalen cijfers naar duidelijke keuzes. Je krijgt direct overzicht en weet wat je volgende stap is.
             </p>
@@ -428,18 +428,18 @@ function WerkgeversSection() {
 
 function CTASection() {
   return (
-    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-slate-800 to-slate-900 relative overflow-hidden">
+    <section className="py-16 sm:py-20 lg:py-28 bg-gradient-to-br from-teal-900 to-slate-900 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center relative">
-        <div className="inline-flex items-center gap-2 bg-orange-500/20 border border-orange-500/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
-          <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-          <span className="text-xs sm:text-sm font-medium text-orange-300">Gratis inventarisatie beschikbaar</span>
+        <div className="inline-flex items-center gap-2 bg-teal-500/20 border border-teal-500/30 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full mb-4 sm:mb-6">
+          <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+          <span className="text-xs sm:text-sm font-medium text-teal-300">Gratis inventarisatie beschikbaar</span>
         </div>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 px-4">Krijg duidelijkheid<br />over <span className="text-orange-400">jouw</span> pensioen</h2>
+        <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 px-4">Krijg duidelijkheid<br />over <span className="text-teal-400">jouw</span> pensioen</h2>
         <p className="text-base sm:text-lg text-slate-300 mb-3 sm:mb-4 max-w-2xl mx-auto px-4">Je bent 1 gesprek verwijderd van volledige duidelijkheid over je pensioen.</p>
         <p className="text-sm sm:text-base text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto px-4">Gratis inventarisatiegesprek van 1-1,5 uur. 100% vrijblijvend.</p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 px-4">
-          <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-orange-500/30 active:scale-[0.98] transition-all text-base sm:text-lg">
+          <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-teal-400 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-teal-500/30 active:scale-[0.98] transition-all duration-200 text-base sm:text-lg hover:shadow-xl">
             Ja, ik wil mijn gratis inventarisatie
             <ArrowRightIcon size="md" />
           </Link>
@@ -477,53 +477,53 @@ function ContactSection() {
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-xs sm:text-sm font-medium text-green-700">Nu beschikbaar</span>
             </div>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-3 sm:mb-4">Plan je gratis gesprek</h2>
-            <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">Binnen <span className="font-bold text-orange-500">24 uur</span> reactie gegarandeerd. Vertrouwelijk en vrijblijvend.</p>
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mb-3 sm:mb-4">Plan je gratis gesprek</h2>
+            <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">Binnen <span className="font-bold text-teal-600">24 uur</span> reactie gegarandeerd. Vertrouwelijk en vrijblijvend.</p>
 
-            <div className="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-5 mb-8">
-              <h4 className="font-bold text-slate-800 mb-3 flex items-center gap-2">
-                <ClockIcon className="text-orange-500" size="md" />
+            <div className="bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-200 rounded-xl p-5 mb-8">
+              <h4 className="font-heading font-bold text-slate-800 mb-3 flex items-center gap-2">
+                <ClockIcon className="text-teal-600" size="md" />
                 Wat je krijgt: 1-1,5 uur persoonlijke inventarisatie
               </h4>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 font-bold">1.</span>
+                  <span className="text-teal-600 font-bold">1.</span>
                   <span><strong>Volledige analyse</strong> van je huidige pensioenopbouw</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 font-bold">2.</span>
+                  <span className="text-teal-600 font-bold">2.</span>
                   <span><strong>Strategische vragen</strong> om je doelen en wensen in kaart te brengen</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 font-bold">3.</span>
+                  <span className="text-teal-600 font-bold">3.</span>
                   <span><strong>Persoonlijke berekening</strong> van je pensioengat</span>
                 </li>
                 <li className="flex items-start gap-2">
-                  <span className="text-orange-500 font-bold">4.</span>
+                  <span className="text-teal-600 font-bold">4.</span>
                   <span><strong>Advies op maat</strong> met concrete oplossingen</span>
                 </li>
               </ul>
-              <p className="text-xs text-slate-500 mt-3 pt-3 border-t border-orange-200">100% gratis & vrijblijvend</p>
+              <p className="text-xs text-slate-500 mt-3 pt-3 border-t border-teal-200">100% gratis & vrijblijvend</p>
             </div>
 
             <div className="space-y-5">
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <PhoneIcon className="text-orange-500" size="lg" />
+                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <PhoneIcon className="text-teal-600" size="lg" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800">Direct bellen</h4>
-                  <a href={`tel:${siteConfig.contact.phoneRaw}`} className="text-lg text-orange-500 hover:text-orange-600 font-semibold">{siteConfig.contact.phone}</a>
+                  <h4 className="font-heading font-bold text-slate-800">Direct bellen</h4>
+                  <a href={`tel:${siteConfig.contact.phoneRaw}`} className="text-lg text-teal-600 hover:text-teal-700 font-semibold transition-colors duration-200">{siteConfig.contact.phone}</a>
                   <p className="text-sm text-slate-500">{siteConfig.openingHours}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <EmailIcon className="text-orange-500" size="lg" />
+                <div className="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <EmailIcon className="text-teal-600" size="lg" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-800">E-mail</h4>
-                  <a href={`mailto:${siteConfig.contact.email}`} className="text-slate-600 hover:text-orange-500">{siteConfig.contact.email}</a>
+                  <h4 className="font-heading font-bold text-slate-800">E-mail</h4>
+                  <a href={`mailto:${siteConfig.contact.email}`} className="text-slate-600 hover:text-teal-600 transition-colors duration-200">{siteConfig.contact.email}</a>
                 </div>
               </div>
             </div>
@@ -546,7 +546,7 @@ function ContactSection() {
             </div>
           </div>
           <div className="bg-slate-50 rounded-2xl p-5 sm:p-8 border border-slate-200 relative">
-            <div className="absolute -top-2.5 sm:-top-3 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
+            <div className="absolute -top-2.5 sm:-top-3 left-1/2 -translate-x-1/2 bg-teal-600 text-white text-[10px] sm:text-xs font-bold px-3 sm:px-4 py-0.5 sm:py-1 rounded-full whitespace-nowrap">
               GRATIS & VRIJBLIJVEND
             </div>
             <div className="pt-2">

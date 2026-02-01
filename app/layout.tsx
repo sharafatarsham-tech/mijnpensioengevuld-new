@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Lexend, Source_Sans_3 } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { LocalBusinessSchema, WebsiteSchema } from "@/components/StructuredData";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -8,10 +8,19 @@ import { StickyMobileCTA } from "@/components/StickyMobileCTA";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import "./globals.css";
 
-const plusJakarta = Plus_Jakarta_Sans({
+// Lexend - Corporate, trustworthy headings
+const lexend = Lexend({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-plus-jakarta",
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-lexend",
+  display: "swap",
+});
+
+// Source Sans 3 - Professional, readable body text
+const sourceSans = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-source-sans",
   display: "swap",
 });
 
@@ -105,12 +114,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl" className={plusJakarta.variable}>
+    <html lang="nl" className={`${lexend.variable} ${sourceSans.variable}`}>
       <head>
         <LocalBusinessSchema />
         <WebsiteSchema />
       </head>
-      <body className={`${plusJakarta.className} min-h-screen bg-white text-slate-900 antialiased`}>
+      <body className="font-body min-h-screen bg-white text-slate-900 antialiased">
         <GoogleAnalytics />
         {children}
         <WhatsAppButton />
