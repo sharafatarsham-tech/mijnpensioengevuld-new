@@ -81,7 +81,7 @@ export default function DienstenwijzerPage() {
           <h3>Ons adviesproces</h3>
           <ol>
             <li>
-              <strong>Kennismaking (gratis):</strong> In een vrijblijvend gesprek van 1-1,5 uur
+              <strong>Kennismaking (gratis):</strong> In een uitgebreid vrijblijvend gesprek
               brengen wij uw situatie in kaart en bespreken wij uw wensen en doelen.
             </li>
             <li>

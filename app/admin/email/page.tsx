@@ -285,7 +285,7 @@ export default function AdminEmailPage() {
 <div style="background: #fff7ed; border: 1px solid #fed7aa; border-radius: 12px; padding: 20px; margin: 20px 0;">
   <p style="margin: 0;"><strong>Wat krijg je?</strong></p>
   <ul style="margin: 10px 0 0 0; padding-left: 20px;">
-    <li>1-1,5 uur persoonlijke aandacht</li>
+    <li>Uitgebreid persoonlijk gesprek</li>
     <li>Volledige analyse van je pensioensituatie</li>
     <li>Concrete tips en advies op maat</li>
     <li>100% gratis en vrijblijvend</li>

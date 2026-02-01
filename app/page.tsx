@@ -64,7 +64,7 @@ function HeroSection() {
             </div>
             <h1 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-4 sm:mb-6">
               Voorkom dat je later moet inleveren.<br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-500">Weet binnen 1,5 uur waar je aan toe bent.</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-teal-500">Weet na één gesprek waar je aan toe bent.</span>
             </h1>
             <p className="text-lg sm:text-xl text-slate-600 mb-6 sm:mb-8">Gratis, vertrouwelijk en vrijblijvend inzicht in jouw pensioen.</p>
             
@@ -107,7 +107,7 @@ function HeroSection() {
             <div className="text-center mb-5 sm:mb-6 pt-2 sm:pt-2">
               <div className="inline-flex items-center gap-1.5 sm:gap-2 bg-teal-50 text-teal-700 text-xs sm:text-sm font-medium px-2.5 sm:px-3 py-1 rounded-full mb-2 sm:mb-3">
                 <ClockIcon className="flex-shrink-0" size="sm" />
-                <span className="whitespace-nowrap">1-1,5 uur persoonlijke aandacht</span>
+                <span className="whitespace-nowrap">Uitgebreid persoonlijk gesprek</span>
               </div>
               <h2 className="font-heading text-lg sm:text-xl font-bold text-slate-800 px-2">Gratis Pensioen Inventarisatie</h2>
               <p className="text-slate-600 mt-2 text-xs sm:text-sm px-2">Een uitgebreid gesprek waarin we jouw <span className="font-semibold">complete situatie</span> in kaart brengen</p>
@@ -255,7 +255,7 @@ function WorkflowSection() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
             { step: "1", title: "Vraag gesprek aan", desc: "Vul het formulier in. We bellen je binnen 24 uur.", tag: "Direct", tagColor: "green" },
-            { step: "2", title: "Inventarisatie", desc: "1-1,5 uur persoonlijk gesprek. We stellen strategische vragen en brengen alles in kaart.", tag: "Gratis", highlight: true },
+            { step: "2", title: "Inventarisatie", desc: "Een uitgebreid persoonlijk gesprek. We stellen strategische vragen en brengen alles in kaart.", tag: "Gratis", highlight: true },
             { step: "3", title: "Advies op maat", desc: "Je ontvangt een persoonlijk pensioenplan met concrete oplossingen.", tag: "Op maat" },
             { step: "4", title: "Uitvoering & nazorg", desc: "We regelen alles en blijven beschikbaar, met periodieke check-ins als je wilt.", tag: "Inclusief" },
           ].map((item) => (
@@ -349,7 +349,7 @@ function ConversationSection() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div>
             <span className="text-xs sm:text-sm font-semibold text-teal-600 uppercase tracking-wider">Gratis inventarisatie</span>
-            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we in 1-1,5 uur?</h2>
+            <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-800 mt-3 mb-4 sm:mb-6">Wat bespreken we tijdens het gesprek?</h2>
             <p className="text-base sm:text-lg text-slate-600 mb-4 sm:mb-6">
               We brengen je complete situatie in kaart en vertalen cijfers naar duidelijke keuzes. Je krijgt direct overzicht en weet wat je volgende stap is.
             </p>
@@ -437,7 +437,7 @@ function CTASection() {
         </div>
         <h2 className="font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6 px-4">Krijg duidelijkheid<br />over <span className="text-teal-400">jouw</span> pensioen</h2>
         <p className="text-base sm:text-lg text-slate-300 mb-3 sm:mb-4 max-w-2xl mx-auto px-4">Je bent 1 gesprek verwijderd van volledige duidelijkheid over je pensioen.</p>
-        <p className="text-sm sm:text-base text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto px-4">Gratis inventarisatiegesprek van 1-1,5 uur. 100% vrijblijvend.</p>
+        <p className="text-sm sm:text-base text-slate-400 mb-8 sm:mb-10 max-w-xl mx-auto px-4">Gratis en uitgebreid inventarisatiegesprek. 100% vrijblijvend.</p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-6 px-4">
           <Link href="#contact" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal-500 to-teal-400 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold shadow-lg shadow-teal-500/30 active:scale-[0.98] transition-all duration-200 text-base sm:text-lg hover:shadow-xl">
             Ja, ik wil mijn gratis inventarisatie
@@ -483,7 +483,7 @@ function ContactSection() {
             <div className="bg-gradient-to-r from-teal-50 to-emerald-50 border border-teal-200 rounded-xl p-5 mb-8">
               <h4 className="font-heading font-bold text-slate-800 mb-3 flex items-center gap-2">
                 <ClockIcon className="text-teal-600" size="md" />
-                Wat je krijgt: 1-1,5 uur persoonlijke inventarisatie
+                Wat je krijgt: een uitgebreide persoonlijke inventarisatie
               </h4>
               <ul className="space-y-2 text-sm text-slate-700">
                 <li className="flex items-start gap-2">

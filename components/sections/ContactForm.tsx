@@ -94,7 +94,7 @@ export function ContactForm() {
             </li>
             <li className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-              Gratis inventarisatiegesprek van 1-1,5 uur
+              Gratis uitgebreid inventarisatiegesprek
             </li>
             <li className="flex items-center gap-2">
               <svg className="w-4 h-4 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>

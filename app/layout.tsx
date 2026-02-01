@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     default: `${siteConfig.name} | Onafhankelijk Pensioenadvies Eindhoven`,
     template: `%s | ${siteConfig.name}`,
   },
-  description: "Onafhankelijk pensioenadvies in Eindhoven. Gratis inventarisatiegesprek van 1,5 uur. Weet binnen één gesprek waar je aan toe bent. AFM-geregistreerd. ✓ Persoonlijk ✓ Helder ✓ Vrijblijvend",
+  description: "Onafhankelijk pensioenadvies in Eindhoven. Gratis uitgebreid inventarisatiegesprek. Weet na één gesprek waar je aan toe bent. AFM-geregistreerd. ✓ Persoonlijk ✓ Helder ✓ Vrijblijvend",
   keywords: [
     "pensioenadvies",
     "pensioenadvies eindhoven",
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   openGraph: {
     title: `${siteConfig.name} | Onafhankelijk Pensioenadvies Eindhoven`,
-    description: "Gratis inventarisatiegesprek van 1,5 uur. Weet binnen één gesprek waar je aan toe bent. AFM-geregistreerd pensioenadviseur in Eindhoven.",
+    description: "Gratis uitgebreid inventarisatiegesprek. Weet na één gesprek waar je aan toe bent. AFM-geregistreerd pensioenadviseur in Eindhoven.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "nl_NL",
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} | Pensioenadvies Eindhoven`,
-    description: "Gratis inventarisatiegesprek. Weet binnen 1,5 uur waar je aan toe bent.",
+    description: "Gratis inventarisatiegesprek. Weet na één gesprek waar je aan toe bent.",
     images: ["/logo-mijnpensioen.png"],
   },
   robots: {

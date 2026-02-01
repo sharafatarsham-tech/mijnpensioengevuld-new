@@ -90,7 +90,7 @@ export default function LandingPagePensioencheck() {
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                1-1,5 uur persoonlijke aandacht
+                Uitgebreid persoonlijk gesprek
               </div>
               <h2 className="text-2xl font-bold text-slate-800 mb-2">Plan je gratis pensioencheck</h2>
               <p className="text-slate-600 text-sm">Wij bellen je binnen 24 uur terug</p>
