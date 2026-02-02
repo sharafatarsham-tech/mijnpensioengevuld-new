@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Logo } from "@/components/ui/Logo";
 import { siteConfig } from "@/config/site";
 
 export default function Footer() {
@@ -8,15 +9,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
-            {/* Logo - dark version with white text for dark background */}
+            {/* Logo - light variant for dark background */}
             <div className="mb-6">
-              <Image 
-                src="/logo-mijnpensioen-dark.png" 
-                alt="MijnPensioenGevuld.nl" 
-                width={240} 
-                height={80}
-                className="h-16 w-auto"
-              />
+              <Logo variant="light" />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Onafhankelijk pensioenadvies. Helder en op maat.
