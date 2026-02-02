@@ -35,12 +35,11 @@ export default function PensioenCheckWizard() {
 
   const handleSelect = (field: keyof FormData, value: string) => {
     setFormData({ ...formData, [field]: value });
-    // Auto advance after selection
     setTimeout(() => {
       if (currentStep < totalSteps - 1) {
         setCurrentStep(currentStep + 1);
       }
-    }, 300);
+    }, 200);
   };
 
   const handleInputChange = (field: keyof FormData, value: string) => {
@@ -70,16 +69,9 @@ export default function PensioenCheckWizard() {
           email: formData.email,
           phone: formData.telefoon,
           subject: "Pensioencheck Aanvraag",
-          message: `
-Situatie: ${formData.situatie}
-Leeftijd: ${formData.leeftijd}
-Pensioenpotjes: ${formData.pensioenPotjes}
-Inkomen: ${formData.inkomen}
-Doel: ${formData.doel}
-          `.trim(),
+          message: `Situatie: ${formData.situatie}\nLeeftijd: ${formData.leeftijd}\nPensioenpotjes: ${formData.pensioenPotjes}\nInkomen: ${formData.inkomen}\nDoel: ${formData.doel}`,
         }),
       });
-
       if (response.ok) {
         setIsSubmitted(true);
       }
@@ -92,109 +84,54 @@ Doel: ${formData.doel}
 
   if (isSubmitted) {
     return (
-      <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <div className="min-h-screen bg-[#f8fafc]">
         <Header />
-        <div className="max-w-2xl mx-auto px-4 py-20">
-          <div className="bg-white rounded-3xl shadow-xl p-12 text-center">
-            <div className="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-12 h-12 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div className="max-w-xl mx-auto px-4 py-20 text-center">
+          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-12">
+            <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+              <svg className="w-10 h-10 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h1 className="text-3xl font-bold text-slate-800 mb-4">Bedankt voor je aanvraag!</h1>
-            <p className="text-lg text-slate-600 mb-8">
-              We nemen binnen 24 uur contact met je op om een gratis intakegesprek in te plannen.
-            </p>
-            <div className="bg-blue-50 rounded-2xl p-6 mb-8">
-              <p className="text-blue-800 font-medium">Wat kun je verwachten?</p>
-              <ul className="text-blue-700 text-sm mt-3 space-y-2 text-left max-w-sm mx-auto">
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-500 mt-1">✓</span>
-                  Binnen 24 uur bellen we je voor een afspraak
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-500 mt-1">✓</span>
-                  Gratis gesprek van ca. 30 minuten
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-blue-500 mt-1">✓</span>
-                  Direct duidelijkheid over je pensioensituatie
-                </li>
-              </ul>
-            </div>
-            <Link href="/" className="text-blue-600 font-semibold hover:underline">
+            <h1 className="text-2xl font-semibold text-gray-900 mb-3">Bedankt voor je aanvraag!</h1>
+            <p className="text-gray-600 mb-6">We nemen binnen 1 werkdag contact met je op.</p>
+            <Link href="/" className="text-[#1e56a0] hover:underline text-sm">
               ← Terug naar homepage
             </Link>
           </div>
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+    <div className="min-h-screen bg-[#f8fafc]">
       <Header />
       
-      <div className="max-w-6xl mx-auto px-4 py-8 lg:py-12">
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Main Form Area */}
-          <div className="lg:col-span-2">
-            <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-              {/* Progress Bar */}
-              <div className="bg-slate-100 h-2">
+      <main className="max-w-6xl mx-auto px-4 py-6">
+        <div className="flex flex-col lg:flex-row gap-6">
+          
+          {/* Left Side - Form */}
+          <div className="flex-1">
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+              
+              {/* Progress indicator */}
+              <div className="h-1 bg-gray-100">
                 <div 
-                  className="bg-gradient-to-r from-blue-500 to-blue-600 h-full transition-all duration-500 ease-out"
+                  className="h-full bg-[#1e56a0] transition-all duration-300"
                   style={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
                 />
               </div>
 
-              {/* Form Content */}
-              <div className="p-8 lg:p-12">
-                {/* Step Counter */}
-                <div className="flex items-center gap-2 text-sm text-slate-500 mb-6">
-                  <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full font-medium">
-                    Stap {currentStep + 1} van {totalSteps}
-                  </span>
-                </div>
-
-                {/* Step Content */}
-                <div className="min-h-[400px]">
-                  {currentStep === 0 && (
-                    <StepSituatie 
-                      value={formData.situatie} 
-                      onSelect={(v) => handleSelect("situatie", v)} 
-                    />
-                  )}
-                  {currentStep === 1 && (
-                    <StepLeeftijd 
-                      value={formData.leeftijd} 
-                      onSelect={(v) => handleSelect("leeftijd", v)} 
-                    />
-                  )}
-                  {currentStep === 2 && (
-                    <StepPensioenPotjes 
-                      value={formData.pensioenPotjes} 
-                      onSelect={(v) => handleSelect("pensioenPotjes", v)} 
-                    />
-                  )}
-                  {currentStep === 3 && (
-                    <StepInkomen 
-                      value={formData.inkomen} 
-                      onSelect={(v) => handleSelect("inkomen", v)} 
-                    />
-                  )}
-                  {currentStep === 4 && (
-                    <StepDoel 
-                      value={formData.doel} 
-                      onSelect={(v) => handleSelect("doel", v)} 
-                    />
-                  )}
-                  {currentStep === 5 && (
-                    <StepNaam 
-                      value={formData.naam} 
-                      onChange={(v) => handleInputChange("naam", v)} 
-                    />
-                  )}
+              <div className="p-6 lg:p-8">
+                {/* Form steps */}
+                <div className="min-h-[420px]">
+                  {currentStep === 0 && <StepSituatie value={formData.situatie} onSelect={(v) => handleSelect("situatie", v)} />}
+                  {currentStep === 1 && <StepLeeftijd value={formData.leeftijd} onSelect={(v) => handleSelect("leeftijd", v)} />}
+                  {currentStep === 2 && <StepPensioenPotjes value={formData.pensioenPotjes} onSelect={(v) => handleSelect("pensioenPotjes", v)} />}
+                  {currentStep === 3 && <StepInkomen value={formData.inkomen} onSelect={(v) => handleSelect("inkomen", v)} />}
+                  {currentStep === 4 && <StepDoel value={formData.doel} onSelect={(v) => handleSelect("doel", v)} />}
+                  {currentStep === 5 && <StepNaam value={formData.naam} onChange={(v) => handleInputChange("naam", v)} onNext={handleNext} />}
                   {currentStep === 6 && (
                     <StepContact 
                       email={formData.email}
@@ -206,36 +143,32 @@ Doel: ${formData.doel}
                 </div>
 
                 {/* Navigation */}
-                <div className="flex items-center justify-between mt-8 pt-6 border-t border-slate-100">
-                  <button
-                    onClick={handleBack}
-                    disabled={currentStep === 0}
-                    className="flex items-center gap-2 text-slate-500 hover:text-slate-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Vorige
-                  </button>
-
-                  {currentStep < totalSteps - 1 ? (
-                    <button
-                      onClick={handleNext}
-                      className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
-                    >
-                      Volgende
-                      <span className="text-blue-300 text-sm">of Enter ↵</span>
+                <div className="flex items-center justify-between pt-6 border-t border-gray-100 mt-6">
+                  {currentStep > 0 ? (
+                    <button onClick={handleBack} className="text-gray-500 hover:text-gray-700 text-sm flex items-center gap-1">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                      Vorige
                     </button>
                   ) : (
+                    <div />
+                  )}
+
+                  {currentStep === totalSteps - 1 ? (
                     <button
                       onClick={handleSubmit}
                       disabled={isSubmitting || !formData.email || !formData.telefoon}
-                      className="flex items-center gap-2 bg-green-500 hover:bg-green-600 disabled:bg-slate-300 text-white px-8 py-3 rounded-xl font-semibold transition-colors"
+                      className="bg-[#22c55e] hover:bg-[#16a34a] disabled:bg-gray-300 disabled:cursor-not-allowed text-white px-6 py-3 rounded-md font-medium transition-colors flex items-center gap-2"
                     >
                       {isSubmitting ? "Versturen..." : "Verstuur aanvraag"}
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
+                    </button>
+                  ) : (
+                    <button
+                      onClick={handleNext}
+                      className="text-[#1e56a0] hover:text-[#164180] text-sm flex items-center gap-1"
+                    >
+                      of klik op <span className="font-mono bg-gray-100 px-2 py-0.5 rounded text-xs">Enter ↵</span>
                     </button>
                   )}
                 </div>
@@ -243,345 +176,265 @@ Doel: ${formData.doel}
             </div>
           </div>
 
-          {/* Sidebar */}
-          <div className="space-y-6">
-            {/* Goal Card */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                  <Image src="/pig.only.png" alt="" width={32} height={32} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-slate-800">Jouw doel</h3>
-                  <p className="text-sm text-slate-500">Pensioencheck</p>
-                </div>
-              </div>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Ontdek vrijblijvend waar je staat met je pensioen. Wij brengen al je regelingen in kaart en geven helder advies.
+          {/* Right Side - Sidebar */}
+          <div className="lg:w-[320px] space-y-4">
+            
+            {/* Jouw doel */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
+              <h3 className="font-semibold text-gray-900 text-sm mb-2">Jouw doel</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Ontdek vrijblijvend waar je staat met je pensioen en wat je mogelijkheden zijn.
               </p>
             </div>
 
-            {/* Benefits */}
-            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl shadow-lg p-6 text-white">
-              <h3 className="font-bold mb-4">Speciaal voor jou</h3>
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
-                  <span>100% gratis & vrijblijvend</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
-                  <span>Binnen 1 werkdag reactie</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <svg className="w-5 h-5 text-blue-300 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-                  </svg>
-                  <span>Onafhankelijk advies</span>
-                </li>
-              </ul>
+            {/* Speciaal voor pensioen */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
+              <h3 className="font-semibold text-gray-900 text-sm mb-2">Speciaal voor pensioen</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Bereken vrijblijvend jouw pensioensituatie en ontdek of je op koers ligt.
+              </p>
+            </div>
+
+            {/* Zoals jij dat wilt */}
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
+              <h3 className="font-semibold text-gray-900 text-sm mb-2">Zoals jij dat wilt</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Ontvang persoonlijk advies afgestemd op jouw situatie en wensen.
+              </p>
             </div>
 
             {/* Reviews */}
-            <div className="bg-white rounded-2xl shadow-lg p-6">
-              <div className="flex items-center justify-between mb-4">
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl font-bold text-slate-800">4.9</span>
-                  <div className="flex text-yellow-400">
-                    {[...Array(5)].map((_, i) => (
-                      <svg key={i} className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-                      </svg>
-                    ))}
-                  </div>
-                </div>
-                <Image src="/kennisbank/rabobank_logo_icon_169809.png" alt="Google" width={24} height={24} className="opacity-50" />
+            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-5">
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-2xl font-bold text-[#1e56a0]">4.9</span>
+                <div className="flex text-yellow-400 text-sm">★★★★★</div>
               </div>
-              <p className="text-sm text-slate-500 mb-4">van 225+ tevreden klanten</p>
+              <p className="text-gray-500 text-xs mb-3">van 225+ tevreden klanten</p>
               
-              {/* Mini Review */}
-              <div className="border-t border-slate-100 pt-4">
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-sm">
-                    P
-                  </div>
-                  <div>
-                    <p className="font-medium text-slate-800 text-sm">Peter v.D.</p>
-                    <p className="text-xs text-slate-400">1 week geleden</p>
-                  </div>
-                </div>
-                <p className="text-sm text-slate-600 italic">
-                  "Eindelijk duidelijkheid! Heel prettig gesprek gehad."
-                </p>
+              <div className="border-t border-gray-100 pt-3 space-y-3">
+                <Review 
+                  name="Peter v.D."
+                  date="1 week geleden"
+                  title="zeer goed"
+                  text="Eindelijk duidelijkheid over mijn pensioen."
+                />
+                <Review 
+                  name="Marieke J."
+                  date="2 weken geleden"
+                  title="goede ervaring"
+                  text="Prettig en helder advies gekregen."
+                />
               </div>
             </div>
 
-            {/* Trust Badge */}
-            <div className="bg-slate-50 rounded-2xl p-4 text-center">
-              <p className="text-xs text-slate-500 mb-2">AFM-geregistreerd</p>
-              <p className="text-sm font-medium text-slate-700">Nr. {siteConfig.compliance.afmNumber}</p>
-            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 mt-12 py-6 bg-white">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+          <div className="flex items-center gap-4">
+            <Link href="/privacy" className="hover:text-gray-700">Privacybeleid</Link>
+            <Link href="/cookies" className="hover:text-gray-700">Cookievoorkeuren</Link>
+            <Link href="/voorwaarden" className="hover:text-gray-700">Disclaimer</Link>
+          </div>
+          <p>AFM-vergunning: {siteConfig.compliance.afmNumber}</p>
+        </div>
+      </footer>
+    </div>
   );
 }
 
 function Header() {
   return (
-    <header className="bg-white border-b border-slate-100">
+    <header className="bg-white border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
-            <Image src="/pig.only.png" alt="" width={40} height={40} />
-            <span className="font-bold text-slate-800 text-lg hidden sm:block">MijnPensioenGevuld</span>
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/pig.only.png" alt="" width={36} height={36} />
+            <span className="font-semibold text-gray-900">MijnPensioenGevuld</span>
           </Link>
 
-          {/* Trust Badges */}
-          <div className="flex items-center gap-4 lg:gap-8">
-            <div className="hidden md:flex items-center gap-2 text-sm">
-              <span className="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">✓</span>
-              <span className="text-slate-600">Gratis & vrijblijvend</span>
-            </div>
-            <div className="hidden lg:flex items-center gap-2 text-sm">
-              <span className="bg-blue-100 text-blue-700 px-2 py-1 rounded-full text-xs font-medium">⚡</span>
-              <span className="text-slate-600">Binnen 1 werkdag reactie</span>
-            </div>
-            <div className="flex items-center gap-1">
+          {/* Trust badges */}
+          <div className="hidden md:flex items-center gap-6 text-sm">
+            <div className="flex items-center gap-4">
               <span className="text-yellow-500">★</span>
-              <span className="font-bold text-slate-800">4.9</span>
-              <span className="text-slate-400 text-sm hidden sm:inline">/ 225+ reviews</span>
+              <span className="text-gray-700">
+                <strong>4.9</strong> van 225+ klanten
+              </span>
             </div>
+            <div className="h-4 w-px bg-gray-200" />
+            <span className="text-green-600 font-medium">✓ Gratis & vrijblijvend</span>
           </div>
+        </div>
+      </div>
+
+      {/* Trust bar */}
+      <div className="bg-[#1e56a0] text-white py-2">
+        <div className="max-w-6xl mx-auto px-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-1 text-xs md:text-sm">
+          <span>✓ Binnen 1 werkdag duidelijkheid</span>
+          <span>✓ Gratis & vrijblijvend!</span>
+          <span>✓ 100% onafhankelijk advies</span>
         </div>
       </div>
     </header>
   );
 }
 
-// Step Components
-function StepSituatie({ value, onSelect }: { value: string; onSelect: (v: string) => void }) {
-  const options = [
-    { value: "loondienst", label: "Ik ben in loondienst", icon: "👔" },
-    { value: "zzp", label: "Ik ben ZZP'er / ondernemer", icon: "💼" },
-    { value: "beiden", label: "Ik combineer loondienst en ZZP", icon: "🔄" },
-    { value: "gepensioneerd", label: "Ik ben (bijna) met pensioen", icon: "🏖️" },
-  ];
-
+function Review({ name, date, title, text }: { name: string; date: string; title: string; text: string }) {
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Wat is jouw werksituatie?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        Dit helpt ons om je pensioenadvies af te stemmen op jouw situatie.
-      </p>
-      <div className="space-y-3">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            onClick={() => onSelect(option.value)}
-            className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 transition-all text-left ${
-              value === option.value
-                ? "border-blue-500 bg-blue-50"
-                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
-            }`}
-          >
-            <span className="text-2xl">{option.icon}</span>
-            <span className="font-medium text-slate-800">{option.label}</span>
-            {value === option.value && (
-              <svg className="w-6 h-6 text-blue-500 ml-auto" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-              </svg>
-            )}
-          </button>
-        ))}
+      <div className="flex items-center gap-2 mb-1">
+        <div className="w-6 h-6 bg-[#1e56a0] rounded-full flex items-center justify-center text-white text-xs font-medium">
+          {name.charAt(0)}
+        </div>
+        <span className="text-gray-800 text-xs font-medium">{name}</span>
+        <span className="text-gray-400 text-xs">{date}</span>
+      </div>
+      <p className="text-gray-800 text-xs font-medium">{title}</p>
+      <p className="text-gray-600 text-xs">{text}</p>
+    </div>
+  );
+}
+
+// Option button component - exact style
+function OptionButton({ 
+  selected, 
+  onClick, 
+  children 
+}: { 
+  selected: boolean; 
+  onClick: () => void; 
+  children: React.ReactNode;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      className={`w-full text-left px-4 py-3 rounded-md border-2 transition-all ${
+        selected 
+          ? "border-[#1e56a0] bg-blue-50 text-[#1e56a0]" 
+          : "border-gray-200 hover:border-gray-300 text-gray-700 hover:bg-gray-50"
+      }`}
+    >
+      <div className="flex items-center gap-3">
+        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center ${
+          selected ? "border-[#1e56a0]" : "border-gray-300"
+        }`}>
+          {selected && <div className="w-2.5 h-2.5 rounded-full bg-[#1e56a0]" />}
+        </div>
+        <span className="text-sm">{children}</span>
+      </div>
+    </button>
+  );
+}
+
+// Step components
+function StepSituatie({ value, onSelect }: { value: string; onSelect: (v: string) => void }) {
+  return (
+    <div>
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Wat is jouw werksituatie?*</h2>
+      <p className="text-gray-500 text-sm mb-6">Dit helpt ons om je advies af te stemmen.</p>
+      <div className="space-y-2">
+        <OptionButton selected={value === "loondienst"} onClick={() => onSelect("loondienst")}>
+          Ik ben in loondienst
+        </OptionButton>
+        <OptionButton selected={value === "zzp"} onClick={() => onSelect("zzp")}>
+          Ik ben ZZP'er / ondernemer
+        </OptionButton>
+        <OptionButton selected={value === "beiden"} onClick={() => onSelect("beiden")}>
+          Ik combineer loondienst en ZZP
+        </OptionButton>
+        <OptionButton selected={value === "gepensioneerd"} onClick={() => onSelect("gepensioneerd")}>
+          Ik ben (bijna) met pensioen
+        </OptionButton>
       </div>
     </div>
   );
 }
 
 function StepLeeftijd({ value, onSelect }: { value: string; onSelect: (v: string) => void }) {
-  const options = [
-    { value: "25-35", label: "25 - 35 jaar" },
-    { value: "35-45", label: "35 - 45 jaar" },
-    { value: "45-55", label: "45 - 55 jaar" },
-    { value: "55-65", label: "55 - 65 jaar" },
-    { value: "65+", label: "65 jaar of ouder" },
-  ];
-
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Wat is je leeftijd?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        Je leeftijd bepaalt hoeveel tijd je nog hebt om pensioen op te bouwen.
-      </p>
-      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            onClick={() => onSelect(option.value)}
-            className={`p-5 rounded-2xl border-2 transition-all text-center ${
-              value === option.value
-                ? "border-blue-500 bg-blue-50"
-                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
-            }`}
-          >
-            <span className="font-medium text-slate-800">{option.label}</span>
-          </button>
-        ))}
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Wat is je leeftijd?*</h2>
+      <p className="text-gray-500 text-sm mb-6">Je leeftijd bepaalt hoeveel tijd je nog hebt.</p>
+      <div className="space-y-2">
+        <OptionButton selected={value === "25-35"} onClick={() => onSelect("25-35")}>25 - 35 jaar</OptionButton>
+        <OptionButton selected={value === "35-45"} onClick={() => onSelect("35-45")}>35 - 45 jaar</OptionButton>
+        <OptionButton selected={value === "45-55"} onClick={() => onSelect("45-55")}>45 - 55 jaar</OptionButton>
+        <OptionButton selected={value === "55-65"} onClick={() => onSelect("55-65")}>55 - 65 jaar</OptionButton>
+        <OptionButton selected={value === "65+"} onClick={() => onSelect("65+")}>65 jaar of ouder</OptionButton>
       </div>
     </div>
   );
 }
 
 function StepPensioenPotjes({ value, onSelect }: { value: string; onSelect: (v: string) => void }) {
-  const options = [
-    { value: "1", label: "1 werkgever", desc: "Altijd bij dezelfde werkgever gewerkt" },
-    { value: "2-3", label: "2-3 werkgevers", desc: "Een paar keer van baan gewisseld" },
-    { value: "4+", label: "4 of meer", desc: "Veel verschillende werkgevers gehad" },
-    { value: "geen", label: "Geen / onbekend", desc: "Ik weet het niet of heb geen pensioen" },
-  ];
-
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Bij hoeveel werkgevers heb je pensioen opgebouwd?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        Hoe meer pensioenpotjes, hoe belangrijker het is om overzicht te krijgen.
-      </p>
-      <div className="space-y-3">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            onClick={() => onSelect(option.value)}
-            className={`w-full flex items-center justify-between p-5 rounded-2xl border-2 transition-all text-left ${
-              value === option.value
-                ? "border-blue-500 bg-blue-50"
-                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
-            }`}
-          >
-            <div>
-              <span className="font-medium text-slate-800 block">{option.label}</span>
-              <span className="text-sm text-slate-500">{option.desc}</span>
-            </div>
-            {value === option.value && (
-              <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-              </svg>
-            )}
-          </button>
-        ))}
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Bij hoeveel werkgevers heb je pensioen opgebouwd?*</h2>
+      <p className="text-gray-500 text-sm mb-6">Hoe meer potjes, hoe belangrijker overzicht.</p>
+      <div className="space-y-2">
+        <OptionButton selected={value === "1"} onClick={() => onSelect("1")}>1 werkgever</OptionButton>
+        <OptionButton selected={value === "2-3"} onClick={() => onSelect("2-3")}>2-3 werkgevers</OptionButton>
+        <OptionButton selected={value === "4+"} onClick={() => onSelect("4+")}>4 of meer werkgevers</OptionButton>
+        <OptionButton selected={value === "geen"} onClick={() => onSelect("geen")}>Geen / weet ik niet</OptionButton>
       </div>
     </div>
   );
 }
 
 function StepInkomen({ value, onSelect }: { value: string; onSelect: (v: string) => void }) {
-  const options = [
-    { value: "< 40k", label: "Minder dan €40.000" },
-    { value: "40-60k", label: "€40.000 - €60.000" },
-    { value: "60-80k", label: "€60.000 - €80.000" },
-    { value: "80-100k", label: "€80.000 - €100.000" },
-    { value: "> 100k", label: "Meer dan €100.000" },
-    { value: "geen", label: "Zeg ik liever niet" },
-  ];
-
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Wat is je bruto jaarinkomen?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        Dit helpt ons inschatten hoeveel fiscale ruimte je hebt voor pensioenopbouw.
-      </p>
-      <div className="grid grid-cols-2 gap-3">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            onClick={() => onSelect(option.value)}
-            className={`p-5 rounded-2xl border-2 transition-all text-center ${
-              value === option.value
-                ? "border-blue-500 bg-blue-50"
-                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
-            }`}
-          >
-            <span className="font-medium text-slate-800 text-sm lg:text-base">{option.label}</span>
-          </button>
-        ))}
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Wat is je bruto jaarinkomen?*</h2>
+      <p className="text-gray-500 text-sm mb-6">Dit helpt inschatten hoeveel fiscale ruimte je hebt.</p>
+      <div className="space-y-2">
+        <OptionButton selected={value === "< 40k"} onClick={() => onSelect("< 40k")}>Minder dan €40.000</OptionButton>
+        <OptionButton selected={value === "40-60k"} onClick={() => onSelect("40-60k")}>€40.000 - €60.000</OptionButton>
+        <OptionButton selected={value === "60-80k"} onClick={() => onSelect("60-80k")}>€60.000 - €80.000</OptionButton>
+        <OptionButton selected={value === "80-100k"} onClick={() => onSelect("80-100k")}>€80.000 - €100.000</OptionButton>
+        <OptionButton selected={value === "> 100k"} onClick={() => onSelect("> 100k")}>Meer dan €100.000</OptionButton>
+        <OptionButton selected={value === "geen"} onClick={() => onSelect("geen")}>Zeg ik liever niet</OptionButton>
       </div>
     </div>
   );
 }
 
 function StepDoel({ value, onSelect }: { value: string; onSelect: (v: string) => void }) {
-  const options = [
-    { value: "overzicht", label: "Overzicht krijgen", desc: "Ik wil weten waar ik sta", icon: "📊" },
-    { value: "tekort", label: "Pensioentekort oplossen", desc: "Ik wil mijn gat dichten", icon: "🎯" },
-    { value: "belasting", label: "Belasting besparen", desc: "Ik wil fiscaal voordeel", icon: "💰" },
-    { value: "eerder-stoppen", label: "Eerder stoppen met werken", desc: "Ik wil voor 67 met pensioen", icon: "🏖️" },
-  ];
-
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Wat is je belangrijkste doel?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        Zo kunnen wij ons advies afstemmen op wat jij wilt bereiken.
-      </p>
-      <div className="space-y-3">
-        {options.map((option) => (
-          <button
-            key={option.value}
-            onClick={() => onSelect(option.value)}
-            className={`w-full flex items-center gap-4 p-5 rounded-2xl border-2 transition-all text-left ${
-              value === option.value
-                ? "border-blue-500 bg-blue-50"
-                : "border-slate-200 hover:border-blue-300 hover:bg-slate-50"
-            }`}
-          >
-            <span className="text-2xl">{option.icon}</span>
-            <div className="flex-1">
-              <span className="font-medium text-slate-800 block">{option.label}</span>
-              <span className="text-sm text-slate-500">{option.desc}</span>
-            </div>
-            {value === option.value && (
-              <svg className="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
-              </svg>
-            )}
-          </button>
-        ))}
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Wat is je belangrijkste doel?*</h2>
+      <p className="text-gray-500 text-sm mb-6">Zo stemmen wij ons advies af op jouw wensen.</p>
+      <div className="space-y-2">
+        <OptionButton selected={value === "overzicht"} onClick={() => onSelect("overzicht")}>Overzicht krijgen van mijn pensioen</OptionButton>
+        <OptionButton selected={value === "tekort"} onClick={() => onSelect("tekort")}>Pensioentekort oplossen</OptionButton>
+        <OptionButton selected={value === "belasting"} onClick={() => onSelect("belasting")}>Belasting besparen</OptionButton>
+        <OptionButton selected={value === "eerder-stoppen"} onClick={() => onSelect("eerder-stoppen")}>Eerder stoppen met werken</OptionButton>
       </div>
     </div>
   );
 }
 
-function StepNaam({ value, onChange }: { value: string; onChange: (v: string) => void }) {
+function StepNaam({ value, onChange, onNext }: { value: string; onChange: (v: string) => void; onNext: () => void }) {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && value.trim()) {
+      onNext();
+    }
+  };
+
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Hoe mogen we je noemen?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        Bijna klaar! Vul je naam in zodat we je persoonlijk kunnen begroeten.
-      </p>
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Wat is je volledige naam?*</h2>
+      <p className="text-gray-500 text-sm mb-6">Bijna klaar! Vul je gegevens in.</p>
       <input
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        placeholder="Je volledige naam"
-        className="w-full px-6 py-5 text-xl border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-blue-500 transition-colors"
+        onKeyDown={handleKeyDown}
+        placeholder="Bijv. Jan Jansen"
+        className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:outline-none focus:border-[#1e56a0] transition-colors text-gray-900"
         autoFocus
       />
     </div>
@@ -601,48 +454,43 @@ function StepContact({
 }) {
   return (
     <div>
-      <h2 className="text-2xl lg:text-3xl font-bold text-slate-800 mb-3">
-        Hoe kunnen we je bereiken?
-      </h2>
-      <p className="text-slate-500 mb-8">
-        We nemen binnen 1 werkdag contact met je op om een gratis gesprek in te plannen.
-      </p>
+      <h2 className="text-xl font-semibold text-gray-900 mb-2">Hoe kunnen we je bereiken?*</h2>
+      <p className="text-gray-500 text-sm mb-6">We nemen binnen 1 werkdag contact met je op.</p>
+      
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">E-mailadres *</label>
+          <label className="block text-sm text-gray-700 mb-1">Je e-mailadres*</label>
           <input
             type="email"
             value={email}
             onChange={(e) => onEmailChange(e.target.value)}
             placeholder="jan@voorbeeld.nl"
-            required
-            className="w-full px-6 py-4 border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:outline-none focus:border-[#1e56a0] transition-colors text-gray-900"
           />
+          <p className="text-xs text-gray-400 mt-1">We sturen je een overzicht van de door jou ingevulde gegevens.</p>
         </div>
+
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-2">Telefoonnummer *</label>
+          <label className="block text-sm text-gray-700 mb-1">Je telefoonnummer*</label>
           <input
             type="tel"
             value={telefoon}
             onChange={(e) => onTelefoonChange(e.target.value)}
             placeholder="06 12345678"
-            required
-            className="w-full px-6 py-4 border-2 border-slate-200 rounded-2xl focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full px-4 py-3 border-2 border-gray-200 rounded-md focus:outline-none focus:border-[#1e56a0] transition-colors text-gray-900"
           />
-          <p className="text-sm text-slate-500 mt-2">
-            We bellen je één keer om een afspraak in te plannen. Geen spam.
-          </p>
+          <p className="text-xs text-gray-400 mt-1">We nemen één keer telefonisch contact met je op om de aanvraag te bespreken.</p>
         </div>
       </div>
 
-      {/* Trust elements */}
-      <div className="mt-8 p-4 bg-slate-50 rounded-xl">
-        <div className="flex items-center gap-3 text-sm text-slate-600">
-          <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
-            <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd"/>
-          </svg>
-          <span>Je gegevens zijn veilig en worden niet gedeeld met derden.</span>
-        </div>
+      <div className="mt-6 p-4 bg-gray-50 rounded-md">
+        <label className="flex items-start gap-3 cursor-pointer">
+          <input type="checkbox" defaultChecked className="mt-1" />
+          <span className="text-xs text-gray-600">
+            Ik ga akkoord met het verzenden en in behandeling nemen van mijn gegevens, waarna er telefonisch contact met mij wordt opgenomen. 
+            (<Link href="/privacy" className="text-[#1e56a0] hover:underline">Lees ons privacy statement</Link>)
+          </span>
+        </label>
       </div>
     </div>
   );
