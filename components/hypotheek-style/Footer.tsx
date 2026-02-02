@@ -8,14 +8,14 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
-            {/* Logo - works on dark background */}
+            {/* Logo - dark version with white text for dark background */}
             <div className="mb-6">
               <Image 
-                src="/logo-mijnpensioen.png" 
+                src="/logo-mijnpensioen-dark.png" 
                 alt="MijnPensioenGevuld.nl" 
-                width={200} 
-                height={60}
-                className="h-14 w-auto"
+                width={240} 
+                height={80}
+                className="h-16 w-auto"
               />
             </div>
             <p className="text-sm leading-relaxed mb-4">
