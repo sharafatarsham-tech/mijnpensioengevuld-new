@@ -131,8 +131,8 @@ function HeroSection() {
             <p className="text-center text-[10px] sm:text-xs text-slate-500 mt-2 sm:mt-3">100% gratis & vrijblijvend • Beperkte plekken</p>
           </div>
           <AtmosphereImage 
-            src="/hero-trust.png"
-            alt="Vertrouwen en persoonlijk contact bij pensioenadvies"
+            src="/kennisbank/hf_20260202_001318_50cca7b6-c9ca-491a-9114-2e078ef5e0b2.png"
+            alt="Persoonlijk pensioenadvies gesprek"
             className="h-64 lg:h-80"
           />
           </div>
