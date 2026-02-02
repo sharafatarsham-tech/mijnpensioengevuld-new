@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Lexend, Source_Sans_3 } from "next/font/google";
+import { Lexend, Source_Sans_3, Space_Grotesk } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import { LocalBusinessSchema, WebsiteSchema } from "@/components/StructuredData";
 import { CookieConsent } from "@/components/CookieConsent";
@@ -21,6 +21,14 @@ const sourceSans = Source_Sans_3({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
   variable: "--font-source-sans",
+  display: "swap",
+});
+
+// Space Grotesk - Kinetic Typography / Brutalist style
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-space-grotesk",
   display: "swap",
 });
 
@@ -114,7 +122,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="nl" className={`${lexend.variable} ${sourceSans.variable}`}>
+    <html lang="nl" className={`${lexend.variable} ${sourceSans.variable} ${spaceGrotesk.variable}`}>
       <head>
         <LocalBusinessSchema />
         <WebsiteSchema />

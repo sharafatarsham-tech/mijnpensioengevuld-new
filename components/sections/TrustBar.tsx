@@ -103,21 +103,21 @@ export function TrustBar() {
             <span className="text-[10px] sm:text-xs text-slate-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
               Aangesloten
             </span>
-          </div>
+              </div>
           
           <div className="flex flex-col items-center group cursor-default">
             <GoogleReviewBadge />
             <span className="text-[10px] sm:text-xs text-slate-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
               Tevreden klanten
             </span>
-          </div>
+              </div>
           
           <div className="flex flex-col items-center group cursor-default">
             <ClientsBadge />
             <span className="text-[10px] sm:text-xs text-slate-500 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">
               Geholpen
             </span>
-          </div>
+            </div>
         </div>
       </div>
     </section>
