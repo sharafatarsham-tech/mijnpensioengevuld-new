@@ -1,28 +1,28 @@
 import Link from "next/link";
+import Image from "next/image";
+import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300">
+    <footer className="bg-slate-900 text-slate-300">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-[#1e56a0] rounded-full flex items-center justify-center text-white font-bold text-sm">
-                MP
-              </div>
+              <Image src="/pig.only.png" alt="" width={40} height={40} />
               <span className="font-semibold text-white text-lg">MijnPensioenGevuld</span>
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Onafhankelijk pensioenadvies. Helder en op maat.
             </p>
             <div className="flex gap-3">
-              <a href="#" className="w-8 h-8 bg-gray-800 hover:bg-gray-700 rounded flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 bg-slate-800 hover:bg-[#0d9488] rounded flex items-center justify-center transition-colors">
                 <span className="text-sm">f</span>
               </a>
-              <a href="#" className="w-8 h-8 bg-gray-800 hover:bg-gray-700 rounded flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 bg-slate-800 hover:bg-[#0d9488] rounded flex items-center justify-center transition-colors">
                 <span className="text-sm">in</span>
               </a>
-              <a href="#" className="w-8 h-8 bg-gray-800 hover:bg-gray-700 rounded flex items-center justify-center transition-colors">
+              <a href="#" className="w-8 h-8 bg-slate-800 hover:bg-[#0d9488] rounded flex items-center justify-center transition-colors">
                 <span className="text-sm">✉</span>
               </a>
             </div>
@@ -32,17 +32,17 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Contact</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="tel:0403041767" className="hover:text-white transition-colors">
-                  040 - 30 41 767
+                <a href={`tel:${siteConfig.contact.phoneRaw}`} className="hover:text-white transition-colors">
+                  {siteConfig.contact.phone}
                 </a>
               </li>
               <li>
-                <a href="mailto:info@mijnpensioengevuld.nl" className="hover:text-white transition-colors">
-                  info@mijnpensioengevuld.nl
+                <a href={`mailto:${siteConfig.contact.email}`} className="hover:text-white transition-colors">
+                  {siteConfig.contact.email}
                 </a>
               </li>
               <li className="pt-2">
-                <p>Eindhoven, Nederland</p>
+                <p>{siteConfig.contact.address.city}, Nederland</p>
               </li>
             </ul>
           </div>
@@ -51,9 +51,9 @@ export default function Footer() {
             <h3 className="text-white font-semibold mb-4">Navigatie</h3>
             <ul className="space-y-2 text-sm">
               <li><Link href="/over-ons" className="hover:text-white transition-colors">Over ons</Link></li>
-              <li><Link href="/diensten" className="hover:text-white transition-colors">Diensten</Link></li>
+              <li><Link href="/#werkwijze" className="hover:text-white transition-colors">Werkwijze</Link></li>
               <li><Link href="/kennisbank" className="hover:text-white transition-colors">Kennisbank</Link></li>
-              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
+              <li><Link href="/#contact" className="hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -68,12 +68,12 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8">
+        <div className="border-t border-slate-800 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p>© 2024 MijnPensioenGevuld.nl. Alle rechten voorbehouden.</p>
+            <p>© 2024 {siteConfig.name}. Alle rechten voorbehouden.</p>
             <div className="flex items-center gap-6">
-              <span>AFM-vergunning: 12016626</span>
-              <span>KvK: 61016810</span>
+              <span>AFM-vergunning: {siteConfig.compliance.afmNumber}</span>
+              <span>KvK: {siteConfig.business.kvkNumber}</span>
             </div>
           </div>
         </div>
