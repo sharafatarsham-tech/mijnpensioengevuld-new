@@ -26,7 +26,7 @@ export default function AdminDashboardPage() {
       const headers = getAuthHeader();
       if (!headers) return;
 
-      try {
+    try {
         const [leadsRes, subscribersRes] = await Promise.all([
           fetch("/api/leads", { headers }),
           fetch("/api/subscribers", { headers }),
@@ -35,9 +35,9 @@ export default function AdminDashboardPage() {
         if (!leadsRes.ok || !subscribersRes.ok) {
           if (leadsRes.status === 401) {
             sessionStorage.removeItem("adminPassword");
-            router.push("/admin");
-            return;
-          }
+        router.push("/admin");
+        return;
+      }
           throw new Error("Failed to fetch data");
         }
 
@@ -50,10 +50,10 @@ export default function AdminDashboardPage() {
         setSubscribers(subscribersData);
       } catch (err) {
         setError("Kon data niet laden. Check je database connectie.");
-      } finally {
-        setLoading(false);
-      }
-    };
+    } finally {
+      setLoading(false);
+    }
+  };
 
     fetchData();
   }, [router]);
@@ -151,7 +151,7 @@ export default function AdminDashboardPage() {
             icon="✅"
             color="teal"
           />
-        </div>
+          </div>
 
         {/* Navigation Cards */}
         <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -191,7 +191,7 @@ export default function AdminDashboardPage() {
             </div>
             {leads.length === 0 ? (
               <p className="text-slate-500 text-sm py-4">Nog geen leads</p>
-            ) : (
+              ) : (
               <div className="space-y-3">
                 {leads.slice(0, 5).map((lead) => (
                   <div
@@ -205,9 +205,9 @@ export default function AdminDashboardPage() {
                     <StatusBadge status={lead.status} />
                   </div>
                 ))}
-              </div>
-            )}
-          </div>
+                        </div>
+                      )}
+                    </div>
 
           {/* Recent Subscribers */}
           <div className="bg-white rounded-2xl border border-slate-200 p-6">
@@ -216,7 +216,7 @@ export default function AdminDashboardPage() {
               <Link href="/admin/subscribers" className="text-sm text-orange-500 hover:underline">
                 Bekijk alle →
               </Link>
-            </div>
+                  </div>
             {subscribers.length === 0 ? (
               <p className="text-slate-500 text-sm py-4">Nog geen subscribers</p>
             ) : (
@@ -226,7 +226,7 @@ export default function AdminDashboardPage() {
                     key={sub.id}
                     className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0"
                   >
-                    <div>
+                  <div>
                       <p className="font-medium text-slate-800">{sub.email}</p>
                       <p className="text-sm text-slate-500">
                         {new Date(sub.subscribed_at).toLocaleDateString("nl-NL")}

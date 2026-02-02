@@ -1871,7 +1871,7 @@ export function Calculator() {
             </div>
             <div className="flex items-center gap-2">
               <UsersIcon className="text-green-500" size="md" />
-              <span>1.200+ tevreden klanten</span>
+              <span>225+ klanten geholpen</span>
             </div>
           </div>
         </div>
