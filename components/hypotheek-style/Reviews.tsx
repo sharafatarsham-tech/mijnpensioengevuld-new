@@ -1,63 +1,82 @@
+import Image from "next/image";
+
 const reviews = [
   {
-    name: "Peter van Dijk",
-    role: "Ondernemer, 52 jaar",
+    name: "Marco V.",
+    location: "Eindhoven",
+    date: "januari 2026",
+    rating: 5,
+    title: "Uitstekend advies",
+    text: "Zeer tevreden over het pensioenadvies. Alles werd helder uitgelegd en ik weet nu precies waar ik sta. Aanrader!"
+  },
+  {
+    name: "Sandra K.",
+    location: "Veldhoven",
+    date: "januari 2026",
+    rating: 5,
+    title: "Professioneel en persoonlijk",
+    text: "Fijn dat er echt naar mijn situatie werd gekeken. Geen standaard verhaal, maar advies op maat. Top service."
+  },
+  {
+    name: "Peter de J.",
+    location: "Helmond",
+    date: "december 2025",
     rating: 5,
     title: "Eindelijk duidelijkheid",
-    text: "Ik dacht dat ik €2.400 per maand zou krijgen. Bleek €1.600 te zijn. Nu weet ik precies wat ik moet doen."
+    text: "Na jaren twijfelen eindelijk actie ondernomen. Het gesprek gaf me precies het inzicht dat ik nodig had."
   },
   {
-    name: "Marieke Jansen",
-    role: "HR Manager, 47 jaar",
+    name: "Linda B.",
+    location: "Eindhoven",
+    date: "december 2025",
     rating: 5,
-    title: "Heel prettig gesprek",
-    text: "In één gesprek werd me duidelijk wat 15 jaar aan pensioenbrieven me niet hadden verteld."
-  },
-  {
-    name: "Jan de Vries",
-    role: "ZZP'er, 58 jaar",
-    rating: 5,
-    title: "Top advies",
-    text: "Als ZZP'er had ik 12 jaar niks opgebouwd. Nu heb ik een plan waarmee ik toch op m'n 65e kan stoppen."
+    title: "Zeer deskundig",
+    text: "Goede uitleg over mijn pensioensituatie. Voelde me gehoord en kreeg eerlijk advies zonder verkooppraat."
   },
 ];
 
 export default function Reviews() {
   return (
-    <section className="py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-3 mb-4">
-            <span className="text-5xl font-bold text-slate-900">4.9</span>
+    <section className="py-24 bg-white">
+      <div className="max-w-6xl mx-auto px-4">
+        {/* Header with Advieskeuze badge */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-3 bg-slate-100 rounded-full px-5 py-2 mb-6">
+            <span className="text-sm text-slate-600">Beoordeeld op</span>
+            <span className="font-semibold text-slate-900">Advieskeuze.nl</span>
+          </div>
+          
+          <div className="flex items-center justify-center gap-4 mb-6">
+            <span className="text-5xl font-bold text-slate-900">9.4</span>
             <div>
-              <div className="flex text-yellow-400 text-xl">★★★★★</div>
-              <p className="text-sm text-slate-600">van 225+ klanten</p>
+              <div className="flex text-amber-400 text-xl">★★★★★</div>
+              <p className="text-sm text-slate-500">Gemiddelde score</p>
             </div>
           </div>
+          
           <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-            Wat anderen zeggen
+            Wat klanten zeggen
           </h2>
-          <p className="text-lg text-slate-600">
-            Onze klanten waarderen ons met een 4.9
+          <p className="text-lg text-slate-500">
+            Lees de ervaringen van onze klanten
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Reviews Grid */}
+        <div className="grid md:grid-cols-2 gap-6 mb-12">
           {reviews.map((review, i) => (
-            <div key={i} className="bg-white rounded-lg border border-slate-200 p-6 shadow-sm">
+            <div key={i} className="bg-slate-50 rounded-xl p-6">
               <div className="flex items-start justify-between mb-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <div className="w-10 h-10 bg-[#0d9488] rounded-full flex items-center justify-center text-white font-semibold">
-                      {review.name.charAt(0)}
-                    </div>
-                    <div>
-                      <p className="font-semibold text-slate-900 text-sm">{review.name}</p>
-                      <p className="text-xs text-slate-500">{review.role}</p>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 bg-[#0d9488] rounded-full flex items-center justify-center text-white font-semibold">
+                    {review.name.charAt(0)}
+                  </div>
+                  <div>
+                    <p className="font-semibold text-slate-900">{review.name}</p>
+                    <p className="text-xs text-slate-500">{review.location} • {review.date}</p>
                   </div>
                 </div>
-                <div className="flex text-yellow-400 text-sm">
+                <div className="flex text-amber-400 text-sm">
                   {Array(review.rating).fill("★").join("")}
                 </div>
               </div>
@@ -67,13 +86,22 @@ export default function Reviews() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
-          <a href="#" className="inline-flex items-center text-[#0d9488] font-semibold hover:underline">
-            Bekijk alle 225+ reviews
-            <svg className="w-5 h-5 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        {/* CTA to Advieskeuze */}
+        <div className="text-center">
+          <a 
+            href="https://www.advieskeuze.nl/over/keten/financieel-zeker/beoordelingen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-[#0d9488] font-semibold hover:underline"
+          >
+            Bekijk alle reviews op Advieskeuze.nl
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
           </a>
+          <p className="text-slate-400 text-sm mt-3">
+            Onafhankelijk beoordelingsplatform voor financieel advies
+          </p>
         </div>
       </div>
     </section>
