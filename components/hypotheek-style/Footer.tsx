@@ -4,13 +4,19 @@ import { siteConfig } from "@/config/site";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-[#0f172a] text-slate-300">
       <div className="max-w-7xl mx-auto px-4 py-16">
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div>
-            <div className="flex items-center gap-2 mb-6">
-              <Image src="/pig.only.png" alt="" width={40} height={40} />
-              <span className="font-semibold text-white text-lg">MijnPensioenGevuld</span>
+            {/* Logo - works on dark background */}
+            <div className="mb-6">
+              <Image 
+                src="/logo-mijnpensioen.png" 
+                alt="MijnPensioenGevuld.nl" 
+                width={200} 
+                height={60}
+                className="h-14 w-auto"
+              />
             </div>
             <p className="text-sm leading-relaxed mb-4">
               Onafhankelijk pensioenadvies. Helder en op maat.
