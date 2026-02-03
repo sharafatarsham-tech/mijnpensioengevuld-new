@@ -29,15 +29,15 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <div className="flex items-center gap-4">
-            <div className="hidden lg:flex items-center gap-2 text-sm">
-              <span className="text-yellow-500">★</span>
-              <span className="font-semibold text-gray-900">4.9</span>
-              <span className="text-gray-500">/ 225+ reviews</span>
+          <div className="flex items-center gap-5">
+            <div className="hidden lg:flex items-center gap-1.5 text-sm">
+              <span className="text-amber-400 text-lg">★</span>
+              <span className="font-bold text-slate-800">4.9</span>
+              <span className="text-slate-400">/ 225+ reviews</span>
             </div>
             <Link 
               href="/#contact"
-              className="bg-[#0d9488] hover:bg-[#0f766e] text-white px-5 py-2.5 rounded-md font-medium text-sm transition-colors"
+              className="bg-[#0d9488] hover:bg-[#0f766e] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-colors"
             >
               Gratis gesprek
             </Link>
