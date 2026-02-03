@@ -25,10 +25,10 @@ export function Logo({ variant = "dark" }: { variant?: "dark" | "light" }) {
     );
   }
 
-  // Voor lichte achtergronden: volledig logo - groter
+  // Voor lichte achtergronden: volledig logo - extra groot
   return (
     <Link href="/" className="block group">
-      <div className="relative h-14 w-48 sm:h-16 sm:w-56 lg:h-16 lg:w-64">
+      <div className="relative h-16 w-52 sm:h-18 sm:w-60 lg:h-20 lg:w-72">
         <Image
           src="/logo-mijnpensioen.png"
           alt="MijnPensioenGevuld.nl"
