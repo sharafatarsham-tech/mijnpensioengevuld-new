@@ -1,49 +1,89 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@/components/ui/Logo";
+import { siteConfig, navItems } from "@/config/site";
+import { PhoneIcon, MenuIcon, XIcon } from "@/components/ui/Icons";
 
 export default function Header() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo - Light version for white background */}
-          <Link href="/" className="flex items-center">
-            <Image 
-              src="/logo-mijnpensioen.png" 
-              alt="MijnPensioenGevuld.nl" 
-              width={220} 
-              height={50}
-              className="h-10 w-auto"
-              priority
-            />
-          </Link>
+    <header className={`fixed w-full z-50 transition-all duration-200 ${scrolled ? "bg-white shadow-lg py-2" : "bg-white py-3"}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        {/* Logo */}
+        <Logo />
 
-          {/* Nav */}
-          <nav className="hidden md:flex items-center gap-6 text-sm">
-            <Link href="/over-ons" className="text-gray-700 hover:text-[#0d9488]">Over ons</Link>
-            <Link href="/#calculator" className="text-gray-700 hover:text-[#0d9488]">Calculator</Link>
-            <Link href="/kennisbank" className="text-gray-700 hover:text-[#0d9488]">Kennisbank</Link>
-            <Link href="/#contact" className="text-gray-700 hover:text-[#0d9488]">Contact</Link>
-          </nav>
-
-          {/* CTA */}
-          <div className="flex items-center gap-5">
-            <div className="hidden lg:flex items-center gap-1.5 text-sm">
-              <span className="text-amber-400 text-lg">★</span>
-              <span className="font-bold text-slate-800">4.9</span>
-              <span className="text-slate-400">/ 225+ reviews</span>
-            </div>
+        {/* Nav Items */}
+        <nav className="hidden lg:flex items-center gap-6">
+          {navItems.map((item) => (
             <Link 
-              href="/#contact"
-              className="bg-[#0d9488] hover:bg-[#0f766e] text-white px-6 py-2.5 rounded-lg font-medium text-sm transition-colors"
+              key={item.label} 
+              href={item.href} 
+              className="text-sm font-medium text-slate-600 hover:text-teal-600 transition-colors duration-200"
             >
-              Gratis gesprek
+              {item.label}
             </Link>
-          </div>
+          ))}
+        </nav>
+
+        {/* Right Side */}
+        <div className="hidden lg:flex items-center gap-4">
+          <a 
+            href={`tel:${siteConfig.contact.phoneRaw}`} 
+            className="text-sm text-slate-600 flex items-center gap-2 hover:text-teal-600 transition-colors duration-200"
+          >
+            <PhoneIcon className="text-teal-600" size="sm" />
+            {siteConfig.contact.phone}
+          </a>
+          <Link 
+            href="#contact"
+            className="bg-gradient-to-r from-teal-600 to-teal-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold shadow-lg shadow-teal-500/25 hover:shadow-xl hover:from-teal-700 hover:to-teal-600 transition-all duration-200"
+          >
+            Gratis pensioencheck
+          </Link>
         </div>
+
+        {/* Mobile Menu Button */}
+        <button 
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+          className="lg:hidden p-2 text-slate-600 cursor-pointer" 
+          aria-label="Menu"
+        >
+          {mobileMenuOpen ? <XIcon size="lg" /> : <MenuIcon size="lg" />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="lg:hidden bg-white border-t shadow-lg p-6 space-y-4">
+          {navItems.map((item) => (
+            <Link 
+              key={item.label} 
+              href={item.href} 
+              onClick={() => setMobileMenuOpen(false)} 
+              className="block text-slate-600 font-medium py-2 hover:text-teal-600 transition-colors duration-200"
+            >
+              {item.label}
+            </Link>
+          ))}
+          <Link 
+            href="#contact"
+            onClick={() => setMobileMenuOpen(false)} 
+            className="block w-full bg-gradient-to-r from-teal-600 to-teal-500 text-white py-3 rounded-lg text-center font-semibold"
+          >
+            Gratis pensioencheck
+          </Link>
+        </div>
+      )}
     </header>
   );
 }

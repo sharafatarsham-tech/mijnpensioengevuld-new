@@ -1,4 +1,3 @@
-import TopBar from "@/components/hypotheek-style/TopBar";
 import Header from "@/components/hypotheek-style/Header";
 import Hero from "@/components/hypotheek-style/Hero";
 import RateComparison from "@/components/hypotheek-style/RateComparison";
@@ -12,8 +11,9 @@ import Footer from "@/components/hypotheek-style/Footer";
 export default function HypotheekStylePage() {
   return (
     <div className="min-h-screen bg-white">
-      <TopBar />
       <Header />
+      {/* Spacer for fixed header */}
+      <div className="h-16" />
       <Hero />
       <RateComparison />
       <TrustLogos />
