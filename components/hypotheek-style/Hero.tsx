@@ -48,7 +48,7 @@ export default function Hero() {
 
           <div className="bg-white rounded-lg shadow-xl border border-slate-200 p-8">
             <div className="flex items-center gap-4 mb-6">
-              <Image src="/pig.only.png" alt="" width={56} height={56} className="w-14 h-14" />
+              <Image src="/pig.only.png" alt="" width={80} height={80} className="w-20 h-20" />
               <h3 className="text-xl font-semibold text-slate-900">Bereken je pensioensituatie</h3>
             </div>
             <form className="space-y-4">
